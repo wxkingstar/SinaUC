@@ -12,8 +12,8 @@
 @interface SinaUCLoginView : NSView <SinaUCActivateProtocol>
 {
     NSString *inited;
-    NSImage *backgroundTopImage;
     NSImage *backgroundUpsideImage;
+    NSImage *backgroundTopImage;
     NSImage *backgroundImage;
     NSImageView *accountBackground;
     NSImageView *passwordBackground;
@@ -24,8 +24,8 @@
 
 @property (assign) BOOL focused;
 @property (retain) IBOutlet SinaUCAppDelegate *appDelegate;
-@property (retain) NSImage *backgroundTopImage;
 @property (retain) NSImage *backgroundUpsideImage;
+@property (retain) NSImage *backgroundTopImage;
 @property (retain) NSImage *backgroundImage;
 @property (retain) IBOutlet NSImageView *accountBackground;
 @property (retain) IBOutlet NSImageView *passwordBackground;

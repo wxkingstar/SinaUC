@@ -59,24 +59,23 @@
         focused = NO;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
         backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_Active"];
+        backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Active_Top"];
         [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
-        
     } else {
         changed = (focused == NO);
         focused = YES;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
         backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_InActive"];
+        backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_InActive_Top"];
         [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
     }
-    /*[backgroundUpsideImage compositeToPoint:NSMakePoint(0, 19) operation:NSCompositeSourceOver];
-    [backgroundImage compositeToPoint:NSMakePoint(0, -10) operation:NSCompositeSourceOver];*/
     
     [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 19)
-                              fromRect:NSMakeRect(0, 0, 0, 0)
+                              fromRect:NSZeroRect
                              operation:NSCompositeSourceOver
                               fraction:1.0];
     [backgroundImage drawAtPoint:NSMakePoint(0, -10)
-                        fromRect:NSMakeRect(0, 0, 0, 0)
+                        fromRect:NSZeroRect
                        operation:NSCompositeSourceOver
                         fraction:1.0];
     if (changed) {

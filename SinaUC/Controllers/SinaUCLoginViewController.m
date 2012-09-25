@@ -28,19 +28,13 @@
 
 - (void)awakeFromNib
 {
-    [loginBtn setImage:[NSImage imageNamed:@"LoginWindow_LoginBtn_Normal"]];
-    [loginBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_LoginBtn_Hover"]];
-    [loginBtn setImagePosition:NSImageOnly];
-    [loginBtn setBordered:NO];
-    [loginBtn.cell setShowsStateBy:NSPushInCellMask];
-    [loginBtn.cell setHighlightsBy:NSContentsCellMask];
+    [loginBtn setOrigImage:@"LoginWindow_LoginBtn_Hover"];
+    [loginBtn setHoverImage:@"LoginWindow_LoginBtn_Normal"];
+    [loginBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_LoginBtn_Click"]];
 
-    [moreBtn setImage:[NSImage imageNamed:@"LoginWindow_DownArrow_Normal"]];
-    [moreBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_DownArrow_Hover"]];
-    [moreBtn setImagePosition:NSImageOnly];
-    [moreBtn setBordered:NO];
-    [moreBtn.cell setShowsStateBy:NSPushInCellMask];
-    [moreBtn.cell setHighlightsBy:NSContentsCellMask];
+    [moreBtn setOrigImage:@"LoginWindow_DownArrow_Normal"];
+    [moreBtn setHoverImage:@"LoginWindow_DownArrow_Hover"];
+    [moreBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_DownArrow_Click"]];
 }
 
 - (IBAction) showMore:(id)sender
