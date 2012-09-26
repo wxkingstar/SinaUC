@@ -1767,7 +1767,6 @@
 /* Begin PBXFileReference section */
 		FC4929EF16102A1B00C30A11 /* SinaUCMaxLengthFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMaxLengthFormatter.h; sourceTree = "<group>"; };
 		FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMaxLengthFormatter.m; sourceTree = "<group>"; };
-		FC4929F31610337B00C30A11 /* SinaUCActivateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCActivateProtocol.h; sourceTree = "<group>"; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -3551,7 +3550,6 @@
 		FC4929F21610336000C30A11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				FC4929F31610337B00C30A11 /* SinaUCActivateProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

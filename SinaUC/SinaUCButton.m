@@ -10,8 +10,9 @@
 
 @implementation SinaUCButton
 
-@synthesize hoverImage;
-@synthesize origImage;
+@synthesize hover;
+@synthesize orig;
+@synthesize alternate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -31,10 +32,16 @@
     [self.cell setHighlightsBy:NSContentsCellMask];
 }
 
-- (void)setOrigImage:(NSString *)theOrigImage
+- (void)setOrig:(NSString *)theOrig
 {
-    [super setImage:[NSImage imageNamed:theOrigImage]];
-    origImage = theOrigImage;
+    [super setImage:[NSImage imageNamed:theOrig]];
+    orig = theOrig;
+}
+
+- (void)setAlternate:(NSString *)theAlternate
+{
+    [super setAlternateImage:[NSImage imageNamed:theAlternate]];
+    alternate = theAlternate;
 }
 
 - (void)updateTrackingAreas
@@ -49,11 +56,11 @@
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent {
-    [self setImage: [NSImage imageNamed:hoverImage]];
+    [self setImage: [NSImage imageNamed:hover]];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
-    [self setImage: [NSImage imageNamed:origImage]];
+    [self setImage: [NSImage imageNamed:orig]];
 }
 
 @end

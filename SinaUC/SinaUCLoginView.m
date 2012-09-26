@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
-#import "SinaUCLoginWindow.h"
 #import "SinaUCLoginView.h"
 #import "SinaUCMaxLengthFormatter.h"
 
@@ -65,25 +64,40 @@
         focused = NO;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
         backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_Active"];
-        backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Active_Top"];
         [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
+        if (showTop) {
+            backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Active_Top"];
+        }
     } else {
         changed = (focused == NO);
         focused = YES;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
         backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_InActive"];
-        backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_InActive_Top"];
         [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
+        if (showTop) {
+            backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_InActive_Top"];
+        }
     }
     
     [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 19)
                               fromRect:NSZeroRect
                              operation:NSCompositeSourceOver
                               fraction:1.0];
-    [backgroundImage drawAtPoint:NSMakePoint(0, -10)
-                        fromRect:NSZeroRect
-                       operation:NSCompositeSourceOver
-                        fraction:1.0];
+    if (!showTop) {
+        [backgroundImage drawAtPoint:NSMakePoint(0, -10)
+                            fromRect:NSZeroRect
+                           operation:NSCompositeSourceOver
+                            fraction:1.0];
+    } else {
+        [backgroundTopImage drawAtPoint:NSMakePoint(0, -40)
+                               fromRect:NSZeroRect
+                              operation:NSCompositeSourceOver
+                               fraction:1.0];
+        [backgroundImage drawAtPoint:NSMakePoint(0, -48)
+                            fromRect:NSZeroRect
+                           operation:NSCompositeSourceOver
+                            fraction:1.0];
+    }
     if (changed) {
         [[self window] display];
     }

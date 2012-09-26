@@ -12,7 +12,9 @@
     NSTrackingArea *trackArea;
 }
 
-@property (copy) NSString* hoverImage;
-@property (copy, nonatomic) NSString* origImage;
+@property (copy) NSString* hover;
+@property (copy, nonatomic) NSString* orig;
+@property (copy, nonatomic) NSString* alternate;
+
 
 @end

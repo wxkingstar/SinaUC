@@ -7,14 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SinaUCButton.h"
 
+@class SinaUCButton;
+@class SinaUCLoginView;
 @interface SinaUCLoginViewController : NSViewController
 
 @property (retain) IBOutlet SinaUCButton *loginBtn;
-@property (retain) IBOutlet SinaUCButton *moreBtn;
+@property (retain) IBOutlet SinaUCButton *showTopBtn;
+@property (retain) IBOutlet SinaUCButton *hideTopBtn;
 
-- (IBAction) showMore:(id)sender;
+- (IBAction) showTop:(id)sender;
+- (IBAction) hideTop:(id)sender;
 - (IBAction) login:(id)sender;
 
 @end

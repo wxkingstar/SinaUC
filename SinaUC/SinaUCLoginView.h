@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class SinaUCLoginWindow;
 @interface SinaUCLoginView : NSView
 {
     NSString *inited;
@@ -25,7 +24,6 @@
 
 @property (assign) BOOL focused;
 @property (assign) BOOL showTop;
-@property (retain) IBOutlet SinaUCLoginWindow *loginWindow;
 @property (retain) NSImage *backgroundUpsideImage;
 @property (retain) NSImage *backgroundTopImage;
 @property (retain) NSImage *backgroundImage;

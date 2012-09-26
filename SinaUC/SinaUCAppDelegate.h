@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Protocols/SinaUCActivateProtocol.h"
 
 @interface SinaUCAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -22,6 +21,5 @@
 - (IBAction)login:(id)sender;
 - (void)applicationDidResignActive:(NSNotification *)aNotification;
 - (void)applicationDidBecomeActive:(NSNotification *)aNotification;
-- (void)registerActive:(id <SinaUCActivateProtocol>)view;
 
 @end

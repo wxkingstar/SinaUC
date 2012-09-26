@@ -7,6 +7,8 @@
 //
 
 #import "SinaUCLoginViewController.h"
+#import "SinaUCButton.h"
+#import "SinaUCLoginView.h"
 
 @interface SinaUCLoginViewController ()
 
@@ -15,7 +17,8 @@
 @implementation SinaUCLoginViewController
 
 @synthesize loginBtn;
-@synthesize moreBtn;
+@synthesize hideTopBtn;
+@synthesize showTopBtn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,18 +31,32 @@
 
 - (void)awakeFromNib
 {
-    [loginBtn setOrigImage:@"LoginWindow_LoginBtn_Hover"];
-    [loginBtn setHoverImage:@"LoginWindow_LoginBtn_Normal"];
-    [loginBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_LoginBtn_Click"]];
+    [loginBtn setOrig:@"LoginWindow_LoginBtn_Normal"];
+    [loginBtn setHover:@"LoginWindow_LoginBtn_Hover"];
+    [loginBtn setAlternate:@"LoginWindow_LoginBtn_Click"];
 
-    [moreBtn setOrigImage:@"LoginWindow_DownArrow_Normal"];
-    [moreBtn setHoverImage:@"LoginWindow_DownArrow_Hover"];
-    [moreBtn setAlternateImage:[NSImage imageNamed:@"LoginWindow_DownArrow_Click"]];
+    [showTopBtn setOrig:@"LoginWindow_DownArrow_Normal"];
+    [showTopBtn setHover:@"LoginWindow_DownArrow_Hover"];
+    [showTopBtn setAlternate:@"LoginWindow_DownArrow_Click"];
+    
+    [hideTopBtn setOrig:@"LoginWindow_UpArrow_Normal"];
+    [hideTopBtn setHover:@"LoginWindow_UpArrow_Hover"];
+    [hideTopBtn setAlternate:@"LoginWindow_UpArrow_Click"];
 }
 
-- (IBAction) showMore:(id)sender
+- (IBAction) showTop:(id)sender
 {
-    NSLog(@"showmore");
+    //发送消息？
+    [(SinaUCLoginView*)self.view setShowTop:YES];
+    [showTopBtn setHidden:YES];
+    [hideTopBtn setHidden:NO];
+}
+
+- (IBAction) hideTop:(id)sender
+{
+    [(SinaUCLoginView*)self.view setShowTop:NO];
+    [showTopBtn setHidden:NO];
+    [hideTopBtn setHidden:YES];
 }
 
 - (IBAction) login:(id)sender
