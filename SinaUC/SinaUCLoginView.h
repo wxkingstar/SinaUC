@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SinaUCAppDelegate.h"
 
-@interface SinaUCLoginView : NSView <SinaUCActivateProtocol>
+@class SinaUCLoginWindow;
+@interface SinaUCLoginView : NSView
 {
     NSString *inited;
     NSImage *backgroundUpsideImage;
@@ -20,10 +20,12 @@
     NSTextField *username;
     NSTextField *password;
     BOOL focused;
+    BOOL showTop;
 }
 
 @property (assign) BOOL focused;
-@property (retain) IBOutlet SinaUCAppDelegate *appDelegate;
+@property (assign) BOOL showTop;
+@property (retain) IBOutlet SinaUCLoginWindow *loginWindow;
 @property (retain) NSImage *backgroundUpsideImage;
 @property (retain) NSImage *backgroundTopImage;
 @property (retain) NSImage *backgroundImage;

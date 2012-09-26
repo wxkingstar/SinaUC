@@ -6,12 +6,12 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
+#import "SinaUCLoginWindow.h"
 #import "SinaUCLoginView.h"
 #import "SinaUCMaxLengthFormatter.h"
 
 @implementation SinaUCLoginView
 
-@synthesize appDelegate;
 @synthesize backgroundTopImage;
 @synthesize backgroundUpsideImage;
 @synthesize backgroundImage;
@@ -20,6 +20,7 @@
 @synthesize account;
 @synthesize password;
 @synthesize focused;
+@synthesize showTop;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -35,10 +36,15 @@
     // Load the images from the bundle's Resources directory
     //backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Top_Active"];
     inited = @"active";
-    [appDelegate registerActive:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(activate)
+                                                 name:@"NSApplicationDidBecomeActiveNotification"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deactivate)
+                                                 name:@"NSApplicationDidResignActiveNotification"
+                                               object:nil];
     [passwordBackground setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
-    [[account cell] setFocusRingType:NSFocusRingTypeNone];
-    [[password cell] setFocusRingType:NSFocusRingTypeNone];
     SinaUCMaxLengthFormatter* af = [[SinaUCMaxLengthFormatter alloc] init];
     [af setMaximumLength:25];
     [account setFormatter:af];

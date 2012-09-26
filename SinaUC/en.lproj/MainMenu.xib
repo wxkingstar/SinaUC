@@ -1487,7 +1487,6 @@
 							<string key="NSFrame">{{189, 9}, {42, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="559820187">
@@ -1552,7 +1551,7 @@
 					<reference key="NSNextKeyView" ref="449365972"/>
 					<string key="NSHuggingPriority">{250, 250}</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1600, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">NO</bool>
 			</object>
@@ -1566,15 +1565,12 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="124555795">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{250, 400}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1600, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSAutorecalculatesContentBorderThicknessMinY">NO</bool>
 				<double key="NSContentBorderThicknessMinY">22</double>
@@ -4392,7 +4388,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="account">NSTextField</string>
 						<string key="accountBackground">NSImageView</string>
-						<string key="appDelegate">SinaUCAppDelegate</string>
+						<string key="loginWindow">SinaUCLoginWindow</string>
 						<string key="password">NSTextField</string>
 						<string key="passwordBackground">NSImageView</string>
 					</dictionary>
@@ -4405,9 +4401,9 @@
 							<string key="name">accountBackground</string>
 							<string key="candidateClassName">NSImageView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="appDelegate">
-							<string key="name">appDelegate</string>
-							<string key="candidateClassName">SinaUCAppDelegate</string>
+						<object class="IBToOneOutletInfo" key="loginWindow">
+							<string key="name">loginWindow</string>
+							<string key="candidateClassName">SinaUCLoginWindow</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="password">
 							<string key="name">password</string>

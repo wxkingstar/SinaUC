@@ -1749,9 +1749,9 @@
 		FCA7F3B7160EE1D600DC038C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F394160EE1D600DC038C /* Cocoa.framework */; };
 		FCA7F3BF160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3C2160EE1D600DC038C /* SinaUCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */; };
-		FCD0293216109B79008AC0F8 /* SinaUCImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD0293116109B79008AC0F8 /* SinaUCImageButton.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
 		FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */; };
+		FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE320F3161201AC00E413A7 /* SinaUCButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3519,12 +3519,12 @@
 		FCA7F3BE160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA7F3C0160EE1D600DC038C /* SinaUCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCTests.h; sourceTree = "<group>"; };
 		FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCTests.m; sourceTree = "<group>"; };
-		FCD0293016109B79008AC0F8 /* SinaUCImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCImageButton.h; sourceTree = "<group>"; };
-		FCD0293116109B79008AC0F8 /* SinaUCImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCImageButton.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
 		FCE29D03160F47B80092CC9A /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLoginView.h; sourceTree = "<group>"; };
 		FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLoginView.m; sourceTree = "<group>"; };
+		FCE320F2161201AC00E413A7 /* SinaUCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCButton.h; sourceTree = "<group>"; };
+		FCE320F3161201AC00E413A7 /* SinaUCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3565,8 +3565,8 @@
 				FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */,
 				FC4929EF16102A1B00C30A11 /* SinaUCMaxLengthFormatter.h */,
 				FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */,
-				FCD0293016109B79008AC0F8 /* SinaUCImageButton.h */,
-				FCD0293116109B79008AC0F8 /* SinaUCImageButton.m */,
+				FCE320F2161201AC00E413A7 /* SinaUCButton.h */,
+				FCE320F3161201AC00E413A7 /* SinaUCButton.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -7297,7 +7297,7 @@
 				FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */,
 				FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */,
 				FC4929F116102A1B00C30A11 /* SinaUCMaxLengthFormatter.m in Sources */,
-				FCD0293216109B79008AC0F8 /* SinaUCImageButton.m in Sources */,
+				FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

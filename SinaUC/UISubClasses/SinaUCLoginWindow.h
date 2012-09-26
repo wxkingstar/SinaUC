@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SinaUCLoginWindow : NSWindow {
+@interface SinaUCLoginWindow : NSWindow <NSWindowDelegate> {
     // this point is used in dragging to mark the initial click location
     NSPoint initialLocation;
 }

@@ -13,7 +13,6 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize activeDelegates = _activeDelegates;
 
 - (void)awakeFromNib
 {
@@ -28,32 +27,6 @@
 {
     [self fadeOutAndOrderOut];
     [self fadeInAndMakeKeyAndOrderFront:YES];
-}
-
-- (void)registerActive:(id <SinaUCActivateProtocol>)view
-{
-    if (_activeDelegates == nil) {
-        _activeDelegates = [[NSMutableArray alloc] init];
-    }
-    [_activeDelegates addObject:view];
-}
-
-- (void)applicationDidResignActive:(NSNotification *)aNotification
-{
-    NSEnumerator* e = [_activeDelegates objectEnumerator];
-    id < SinaUCActivateProtocol > activeDelegate;
-    while (activeDelegate = [e nextObject]) {
-        [activeDelegate deactivate];
-    }
-}
-
-- (void)applicationDidBecomeActive:(NSNotification *)aNotification
-{
-    NSEnumerator* e = [_activeDelegates objectEnumerator];
-    id < SinaUCActivateProtocol > activeDelegate;
-    while (activeDelegate = [e nextObject]) {
-        [activeDelegate activate];
-    }
 }
 
 - (void)fadeInAndMakeKeyAndOrderFront:(BOOL)orderFront {
@@ -72,7 +45,6 @@
     [[_loginWindow animator] setAlphaValue:0.0];
     [[_loginWindow animator] setFrame:windowFrame display:YES animate:YES];
 }
-
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.cn.sina.SinaUC" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
