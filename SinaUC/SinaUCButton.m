@@ -27,6 +27,7 @@
 - (void)awakeFromNib
 {
     [self setBordered:NO];
+    [self setButtonType:NSMomentaryChangeButton];
     [self setImagePosition:NSImageOnly];
     [self.cell setShowsStateBy:NSPushInCellMask];
     [self.cell setHighlightsBy:NSContentsCellMask];

@@ -2457,6 +2457,30 @@
 					<int key="connectionID">2639</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">hideTopBtn</string>
+						<reference key="source" ref="439893737"/>
+						<reference key="destination" ref="858325407"/>
+					</object>
+					<int key="connectionID">2775</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">showTopBtn</string>
+						<reference key="source" ref="439893737"/>
+						<reference key="destination" ref="468522749"/>
+					</object>
+					<int key="connectionID">2776</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">loginBtn</string>
+						<reference key="source" ref="439893737"/>
+						<reference key="destination" ref="530465905"/>
+					</object>
+					<int key="connectionID">2777</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="755631768"/>
@@ -3753,7 +3777,7 @@
 								<float key="scoringTypeFloat">24</float>
 								<int key="contentType">2</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="72381312">
+							<object class="IBNSLayoutConstraint" id="262104108">
 								<reference key="firstItem" ref="858325407"/>
 								<int key="firstAttribute">5</int>
 								<int key="relation">0</int>
@@ -4848,26 +4872,6 @@
 						<reference key="parent" ref="1239327"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">2752</int>
-						<reference key="object" ref="1027947554"/>
-						<reference key="parent" ref="712179038"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">2753</int>
-						<reference key="object" ref="1003939947"/>
-						<reference key="parent" ref="712179038"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">2755</int>
-						<reference key="object" ref="402091747"/>
-						<reference key="parent" ref="712179038"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">2764</int>
-						<reference key="object" ref="895416205"/>
-						<reference key="parent" ref="858325407"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">2768</int>
 						<reference key="object" ref="128471386"/>
 						<reference key="parent" ref="1037398656"/>
@@ -4876,11 +4880,6 @@
 						<int key="objectID">2770</int>
 						<reference key="object" ref="70165082"/>
 						<reference key="parent" ref="858325407"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">2771</int>
-						<reference key="object" ref="72381312"/>
-						<reference key="parent" ref="712179038"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">2772</int>
@@ -4896,6 +4895,31 @@
 						<int key="objectID">2774</int>
 						<reference key="object" ref="516482093"/>
 						<reference key="parent" ref="712179038"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2752</int>
+						<reference key="object" ref="1027947554"/>
+						<reference key="parent" ref="712179038"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2755</int>
+						<reference key="object" ref="402091747"/>
+						<reference key="parent" ref="712179038"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2771</int>
+						<reference key="object" ref="262104108"/>
+						<reference key="parent" ref="712179038"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2753</int>
+						<reference key="object" ref="1003939947"/>
+						<reference key="parent" ref="712179038"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2764</int>
+						<reference key="object" ref="895416205"/>
+						<reference key="parent" ref="858325407"/>
 					</object>
 				</array>
 			</object>
@@ -4949,7 +4973,7 @@
 					<reference ref="1027947554"/>
 					<reference ref="1003939947"/>
 					<reference ref="402091747"/>
-					<reference ref="72381312"/>
+					<reference ref="262104108"/>
 					<reference ref="562901095"/>
 					<reference ref="516482093"/>
 				</array>
@@ -5048,6 +5072,7 @@
 				<string key="2577.CustomClassName">SinaUCButton</string>
 				<boolean value="NO" key="2577.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="2577.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="2577.userInterfaceItemIdentifier">showtop</string>
 				<string key="2578.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2584.CustomClassName">SinaUCButton</string>
 				<array key="2584.IBNSViewMetadataConstraints">
@@ -5056,6 +5081,7 @@
 				</array>
 				<boolean value="NO" key="2584.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="2584.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="2584.userInterfaceItemIdentifier">hidetop</string>
 				<string key="2585.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2619.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2623.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5253,7 +5279,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">2774</int>
+			<int key="maxID">2783</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5359,8 +5385,11 @@
 						<string key="backgroundDownsideView">NSView</string>
 						<string key="backgroundImageView">NSImageView</string>
 						<string key="backgroundTopImageView">NSImageView</string>
+						<string key="hideTopBtn">SinaUCButton</string>
+						<string key="loginBtn">SinaUCButton</string>
 						<string key="password">NSTextField</string>
 						<string key="passwordBackgroundView">NSImageView</string>
+						<string key="showTopBtn">SinaUCButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="account">
@@ -5383,6 +5412,14 @@
 							<string key="name">backgroundTopImageView</string>
 							<string key="candidateClassName">NSImageView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="hideTopBtn">
+							<string key="name">hideTopBtn</string>
+							<string key="candidateClassName">SinaUCButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loginBtn">
+							<string key="name">loginBtn</string>
+							<string key="candidateClassName">SinaUCButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="password">
 							<string key="name">password</string>
 							<string key="candidateClassName">NSTextField</string>
@@ -5390,6 +5427,10 @@
 						<object class="IBToOneOutletInfo" key="passwordBackgroundView">
 							<string key="name">passwordBackgroundView</string>
 							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="showTopBtn">
+							<string key="name">showTopBtn</string>
+							<string key="candidateClassName">SinaUCButton</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -5417,25 +5458,6 @@
 						<object class="IBActionInfo" key="showTop:">
 							<string key="name">showTop:</string>
 							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="hideTopBtn">SinaUCButton</string>
-						<string key="loginBtn">SinaUCButton</string>
-						<string key="showTopBtn">SinaUCButton</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="hideTopBtn">
-							<string key="name">hideTopBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loginBtn">
-							<string key="name">loginBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="showTopBtn">
-							<string key="name">showTopBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

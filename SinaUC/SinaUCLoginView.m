@@ -6,9 +6,10 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
+#import <Quartz/Quartz.h>
 #import "SinaUCLoginView.h"
 #import "SinaUCMaxLengthFormatter.h"
-#import <Quartz/Quartz.h>
+#import "SinaUCButton.h"
 
 @implementation SinaUCLoginView
 
@@ -24,6 +25,9 @@
 @synthesize showTop;
 @synthesize showingTop;
 @synthesize hidingTop;
+@synthesize loginBtn;
+@synthesize hideTopBtn;
+@synthesize showTopBtn;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -43,8 +47,28 @@
 - (void)awakeFromNib {
     // Load the images from the bundle's Resources directory
     //backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Top_Active"];
+    [loginBtn setOrig:@"LoginWindow_LoginBtn_Normal"];
+    [loginBtn setHover:@"LoginWindow_LoginBtn_Hover"];
+    [loginBtn setAlternate:@"LoginWindow_LoginBtn_Click"];
+    
+    [showTopBtn setOrig:@"LoginWindow_DownArrow_Normal"];
+    [showTopBtn setHover:@"LoginWindow_DownArrow_Hover"];
+    [showTopBtn setAlternate:@"LoginWindow_DownArrow_Click"];
+    [showTopBtn setHidden:NO];
+    
+    [hideTopBtn setOrig:@"LoginWindow_UpArrow_Normal"];
+    [hideTopBtn setHover:@"LoginWindow_UpArrow_Hover"];
+    [hideTopBtn setAlternate:@"LoginWindow_UpArrow_Click"];
+    [hideTopBtn setHidden:YES];
+    
+    [passwordBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
+    SinaUCMaxLengthFormatter* af = [[SinaUCMaxLengthFormatter alloc] init];
+    [af setMaximumLength:25];
+    [account setFormatter:af];
+    SinaUCMaxLengthFormatter* pf = [[SinaUCMaxLengthFormatter alloc] init];
+    [pf setMaximumLength:16];
+    [password setFormatter:pf];
     [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 250, 351) display:YES animate:NO];
-    showedTop = NO;
     hidingTop = NO;
     inited = @"active";
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -55,13 +79,6 @@
                                              selector:@selector(deactivate)
                                                  name:@"NSApplicationDidResignActiveNotification"
                                                object:nil];
-    [passwordBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
-    SinaUCMaxLengthFormatter* af = [[SinaUCMaxLengthFormatter alloc] init];
-    [af setMaximumLength:25];
-    [account setFormatter:af];
-    SinaUCMaxLengthFormatter* pf = [[SinaUCMaxLengthFormatter alloc] init];
-    [pf setMaximumLength:16];
-    [password setFormatter:pf];
 }
 
 - (void)drawRect:(NSRect)rect {
@@ -70,6 +87,7 @@
     [[NSColor clearColor] set];
     NSRectFill([self frame]);
 
+    //窗口focused
     BOOL changed = NO;
     if ([inited isEqualToString:@"active"]) {
         changed = (focused == YES);
@@ -87,16 +105,18 @@
         [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
     }
     
+    //上半部分背景永远不变
     [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
                               fromRect:NSZeroRect
                              operation:NSCompositeSourceOver
                               fraction:1.0];
+    
+    //下半部分动画
     BOOL show = NO;
     if (showTop == YES) {
         show = (showingTop == YES);
         showingTop = NO;
         if (show) {
-            showedTop = YES;
             NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
             [[NSAnimationContext currentContext] setDuration:delay];
             [[backgroundDownsideView animator] setFrame:NSMakeRect(0, 0, 256, 109)];
@@ -104,7 +124,7 @@
     } else {
         show = (showingTop == NO);
         showingTop = YES;
-        if (show && showedTop == YES) {
+        if (show) {
             hidingTop = YES;
             [NSAnimationContext beginGrouping];
             NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
@@ -115,7 +135,8 @@
         if (floor(backgroundDownsideView.frame.size.height) == 29) {
             hidingTop = NO;
         }
-        if (!showedTop || hidingTop == NO) {
+        //hidingTop为NO后才画，否则得不到向上的动画效果
+        if (hidingTop == NO) {
             [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
         }
     }

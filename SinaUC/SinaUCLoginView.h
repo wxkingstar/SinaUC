@@ -7,8 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
 
+@class SinaUCButton;
 @interface SinaUCLoginView : NSView
 {
     //是否处于激活状态
@@ -29,18 +29,22 @@
     NSTextField *username;
     //密码输入框
     NSTextField *password;
+    //登陆按钮
+    SinaUCButton *loginBtn;
+    //显示其它信息按钮
+    SinaUCButton *showTopBtn;
+    //隐藏其它信息按钮
+    SinaUCButton *hideTopBtn;
     BOOL focused;
     BOOL showingTop;
     BOOL hidingTop;
     BOOL showTop;
-    BOOL showedTop;
 }
 
 @property (assign) BOOL focused;
 @property (assign) BOOL showingTop;
 @property (assign) BOOL hidingTop;
 @property (assign) BOOL showTop;
-@property (assign) BOOL showedTop;
 @property (retain) NSImage *backgroundUpsideImage;
 @property (retain) IBOutlet NSImageView *backgroundTopImageView;
 @property (retain) IBOutlet NSImageView *backgroundImageView;
@@ -49,5 +53,8 @@
 @property (retain) IBOutlet NSImageView *passwordBackgroundView;
 @property (retain) IBOutlet NSTextField *account;
 @property (retain) IBOutlet NSTextField *password;
+@property (retain) IBOutlet SinaUCButton *loginBtn;
+@property (retain) IBOutlet SinaUCButton *showTopBtn;
+@property (retain) IBOutlet SinaUCButton *hideTopBtn;
 
 @end
