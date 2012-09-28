@@ -7,31 +7,47 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 
 @interface SinaUCLoginView : NSView
 {
+    //是否处于激活状态
     NSString *inited;
+    //上半部分
     NSImage *backgroundUpsideImage;
-    NSImage *backgroundTopImage;
-    NSImage *backgroundImage;
-    NSImageView *accountBackground;
-    NSImageView *passwordBackground;
+    //下半部分边框背景
+    NSImageView *backgroundImageView;
+    //下半部分背景
+    NSImageView *backgroundTopImageView;
+    //下半部分
+    NSView * backgroundDownsideView;
+    //用户名背景
+    NSImageView *accountBackgroundView;
+    //密码背景
+    NSImageView *passwordBackgroundView;
+    //用户名输入框
     NSTextField *username;
+    //密码输入框
     NSTextField *password;
     BOOL focused;
+    BOOL showingTop;
+    BOOL hidingTop;
     BOOL showTop;
+    BOOL showedTop;
 }
 
 @property (assign) BOOL focused;
+@property (assign) BOOL showingTop;
+@property (assign) BOOL hidingTop;
 @property (assign) BOOL showTop;
+@property (assign) BOOL showedTop;
 @property (retain) NSImage *backgroundUpsideImage;
-@property (retain) NSImage *backgroundTopImage;
-@property (retain) NSImage *backgroundImage;
-@property (retain) IBOutlet NSImageView *accountBackground;
-@property (retain) IBOutlet NSImageView *passwordBackground;
+@property (retain) IBOutlet NSImageView *backgroundTopImageView;
+@property (retain) IBOutlet NSImageView *backgroundImageView;
+@property (retain) IBOutlet NSView *backgroundDownsideView;
+@property (retain) IBOutlet NSImageView *accountBackgroundView;
+@property (retain) IBOutlet NSImageView *passwordBackgroundView;
 @property (retain) IBOutlet NSTextField *account;
 @property (retain) IBOutlet NSTextField *password;
-
-
 
 @end

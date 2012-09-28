@@ -7,6 +7,107 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC2C059E1615EB780020BE29 /* adhoc.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C049F1615EB780020BE29 /* adhoc.mm */; };
+		FC2C059F1615EB780020BE29 /* amp.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A31615EB780020BE29 /* amp.mm */; };
+		FC2C05A01615EB780020BE29 /* annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A51615EB780020BE29 /* annotations.mm */; };
+		FC2C05A11615EB780020BE29 /* attention.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A81615EB780020BE29 /* attention.mm */; };
+		FC2C05A21615EB780020BE29 /* base64.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04AA1615EB780020BE29 /* base64.mm */; };
+		FC2C05A31615EB780020BE29 /* bookmarkstorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04AD1615EB780020BE29 /* bookmarkstorage.mm */; };
+		FC2C05A41615EB780020BE29 /* capabilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04B21615EB780020BE29 /* capabilities.mm */; };
+		FC2C05A51615EB780020BE29 /* chatstate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04B41615EB780020BE29 /* chatstate.mm */; };
+		FC2C05A61615EB780020BE29 /* chatstatefilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04B61615EB780020BE29 /* chatstatefilter.mm */; };
+		FC2C05A71615EB780020BE29 /* client.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04B91615EB780020BE29 /* client.mm */; };
+		FC2C05A81615EB780020BE29 /* clientbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04BB1615EB780020BE29 /* clientbase.mm */; };
+		FC2C05A91615EB780020BE29 /* component.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04BD1615EB780020BE29 /* component.mm */; };
+		FC2C05AA1615EB780020BE29 /* compressiondefault.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04C11615EB780020BE29 /* compressiondefault.mm */; };
+		FC2C05AB1615EB780020BE29 /* compressionzlib.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04C31615EB780020BE29 /* compressionzlib.mm */; };
+		FC2C05AC1615EB780020BE29 /* connectionbosh.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04C71615EB780020BE29 /* connectionbosh.mm */; };
+		FC2C05AD1615EB780020BE29 /* connectionhttpproxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04CB1615EB780020BE29 /* connectionhttpproxy.mm */; };
+		FC2C05AE1615EB780020BE29 /* connectionsocks5proxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04CE1615EB780020BE29 /* connectionsocks5proxy.mm */; };
+		FC2C05AF1615EB780020BE29 /* connectiontcpbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04D01615EB780020BE29 /* connectiontcpbase.mm */; };
+		FC2C05B01615EB780020BE29 /* connectiontcpclient.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04D21615EB780020BE29 /* connectiontcpclient.mm */; };
+		FC2C05B11615EB780020BE29 /* connectiontcpserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04D41615EB780020BE29 /* connectiontcpserver.mm */; };
+		FC2C05B21615EB780020BE29 /* connectiontls.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04D61615EB780020BE29 /* connectiontls.mm */; };
+		FC2C05B31615EB780020BE29 /* connectiontlsserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04D81615EB780020BE29 /* connectiontlsserver.mm */; };
+		FC2C05B41615EB780020BE29 /* dataform.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04DA1615EB780020BE29 /* dataform.mm */; };
+		FC2C05B51615EB780020BE29 /* dataformfield.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04DC1615EB780020BE29 /* dataformfield.mm */; };
+		FC2C05B61615EB780020BE29 /* dataformfieldcontainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04DE1615EB780020BE29 /* dataformfieldcontainer.mm */; };
+		FC2C05B71615EB780020BE29 /* dataformitem.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04E01615EB780020BE29 /* dataformitem.mm */; };
+		FC2C05B81615EB780020BE29 /* dataformreported.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04E21615EB780020BE29 /* dataformreported.mm */; };
+		FC2C05B91615EB780020BE29 /* delayeddelivery.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04E41615EB780020BE29 /* delayeddelivery.mm */; };
+		FC2C05BA1615EB780020BE29 /* disco.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04E61615EB780020BE29 /* disco.mm */; };
+		FC2C05BB1615EB780020BE29 /* dns.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04EA1615EB780020BE29 /* dns.mm */; };
+		FC2C05BC1615EB780020BE29 /* error.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04EC1615EB780020BE29 /* error.mm */; };
+		FC2C05BD1615EB780020BE29 /* eventdispatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04EF1615EB780020BE29 /* eventdispatcher.mm */; };
+		FC2C05BE1615EB780020BE29 /* featureneg.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04F21615EB780020BE29 /* featureneg.mm */; };
+		FC2C05BF1615EB780020BE29 /* flexoff.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04F41615EB780020BE29 /* flexoff.mm */; };
+		FC2C05C01615EB780020BE29 /* gateway.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04F71615EB780020BE29 /* gateway.mm */; };
+		FC2C05C11615EB780020BE29 /* gloox.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04FA1615EB780020BE29 /* gloox.mm */; };
+		FC2C05C21615EB780020BE29 /* gpgencrypted.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04FD1615EB780020BE29 /* gpgencrypted.mm */; };
+		FC2C05C31615EB780020BE29 /* gpgsigned.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04FF1615EB780020BE29 /* gpgsigned.mm */; };
+		FC2C05C41615EB780020BE29 /* httpbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05011615EB780020BE29 /* httpbase.mm */; };
+		FC2C05C51615EB780020BE29 /* inbandbytestream.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05031615EB780020BE29 /* inbandbytestream.mm */; };
+		FC2C05C61615EB780020BE29 /* instantmucroom.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05051615EB780020BE29 /* instantmucroom.mm */; };
+		FC2C05C71615EB780020BE29 /* iq.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05071615EB780020BE29 /* iq.mm */; };
+		FC2C05C81615EB780020BE29 /* jid.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C050A1615EB780020BE29 /* jid.mm */; };
+		FC2C05C91615EB780020BE29 /* lastactivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C050C1615EB780020BE29 /* lastactivity.mm */; };
+		FC2C05CA1615EB780020BE29 /* location.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C050F1615EB780020BE29 /* location.mm */; };
+		FC2C05CB1615EB780020BE29 /* logsink.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05131615EB780020BE29 /* logsink.mm */; };
+		FC2C05CC1615EB780020BE29 /* md5.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05161615EB780020BE29 /* md5.mm */; };
+		FC2C05CD1615EB780020BE29 /* message.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05181615EB780020BE29 /* message.mm */; };
+		FC2C05CE1615EB780020BE29 /* messageevent.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C051A1615EB780020BE29 /* messageevent.mm */; };
+		FC2C05CF1615EB780020BE29 /* messageeventfilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C051C1615EB780020BE29 /* messageeventfilter.mm */; };
+		FC2C05D01615EB780020BE29 /* messagefilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C051F1615EB780020BE29 /* messagefilter.mm */; };
+		FC2C05D11615EB780020BE29 /* messagesession.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05221615EB780020BE29 /* messagesession.mm */; };
+		FC2C05D21615EB780020BE29 /* mucmessagesession.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05261615EB780020BE29 /* mucmessagesession.mm */; };
+		FC2C05D31615EB780020BE29 /* mucroom.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05281615EB780020BE29 /* mucroom.mm */; };
+		FC2C05D41615EB780020BE29 /* mutex.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C052C1615EB780020BE29 /* mutex.mm */; };
+		FC2C05D51615EB780020BE29 /* nickname.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C052F1615EB780020BE29 /* nickname.mm */; };
+		FC2C05D61615EB780020BE29 /* nonsaslauth.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05311615EB780020BE29 /* nonsaslauth.mm */; };
+		FC2C05D71615EB780020BE29 /* oob.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05331615EB780020BE29 /* oob.mm */; };
+		FC2C05D81615EB780020BE29 /* parser.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05351615EB780020BE29 /* parser.mm */; };
+		FC2C05D91615EB780020BE29 /* pre.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05361615EB780020BE29 /* pre.mm */; };
+		FC2C05DA1615EB780020BE29 /* presence.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05391615EB780020BE29 /* presence.mm */; };
+		FC2C05DB1615EB780020BE29 /* privacyitem.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C053C1615EB780020BE29 /* privacyitem.mm */; };
+		FC2C05DC1615EB780020BE29 /* privacymanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C053F1615EB780020BE29 /* privacymanager.mm */; };
+		FC2C05DD1615EB780020BE29 /* privatexml.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05411615EB780020BE29 /* privatexml.mm */; };
+		FC2C05DE1615EB780020BE29 /* pubsubevent.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05451615EB780020BE29 /* pubsubevent.mm */; };
+		FC2C05DF1615EB780020BE29 /* pubsubitem.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05471615EB780020BE29 /* pubsubitem.mm */; };
+		FC2C05E01615EB780020BE29 /* pubsubmanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05491615EB780020BE29 /* pubsubmanager.mm */; };
+		FC2C05E11615EB780020BE29 /* receipt.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C054C1615EB780020BE29 /* receipt.mm */; };
+		FC2C05E21615EB780020BE29 /* registration.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C054E1615EB780020BE29 /* registration.mm */; };
+		FC2C05E31615EB780020BE29 /* rename.php in Resources */ = {isa = PBXBuildFile; fileRef = FC2C05501615EB780020BE29 /* rename.php */; };
+		FC2C05E41615EB780020BE29 /* rosteritem.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05531615EB780020BE29 /* rosteritem.mm */; };
+		FC2C05E51615EB780020BE29 /* rostermanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05571615EB780020BE29 /* rostermanager.mm */; };
+		FC2C05E61615EB780020BE29 /* search.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05591615EB780020BE29 /* search.mm */; };
+		FC2C05E71615EB780020BE29 /* sha.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C055C1615EB780020BE29 /* sha.mm */; };
+		FC2C05E81615EB780020BE29 /* shim.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C055E1615EB780020BE29 /* shim.mm */; };
+		FC2C05E91615EB780020BE29 /* simanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05611615EB780020BE29 /* simanager.mm */; };
+		FC2C05EA1615EB780020BE29 /* siprofileft.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05631615EB780020BE29 /* siprofileft.mm */; };
+		FC2C05EB1615EB780020BE29 /* socks5bytestream.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05671615EB780020BE29 /* socks5bytestream.mm */; };
+		FC2C05EC1615EB780020BE29 /* socks5bytestreammanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05691615EB780020BE29 /* socks5bytestreammanager.mm */; };
+		FC2C05ED1615EB780020BE29 /* socks5bytestreamserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C056B1615EB780020BE29 /* socks5bytestreamserver.mm */; };
+		FC2C05EE1615EB780020BE29 /* softwareversion.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C056D1615EB780020BE29 /* softwareversion.mm */; };
+		FC2C05EF1615EB780020BE29 /* stanza.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C056F1615EB780020BE29 /* stanza.mm */; };
+		FC2C05F01615EB780020BE29 /* stanzaextensionfactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05721615EB780020BE29 /* stanzaextensionfactory.mm */; };
+		FC2C05F11615EB780020BE29 /* subscription.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05751615EB780020BE29 /* subscription.mm */; };
+		FC2C05F21615EB780020BE29 /* tag.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05781615EB780020BE29 /* tag.mm */; };
+		FC2C05F31615EB780020BE29 /* tlsdefault.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C057C1615EB780020BE29 /* tlsdefault.mm */; };
+		FC2C05F41615EB780020BE29 /* tlsgnutlsbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C057E1615EB780020BE29 /* tlsgnutlsbase.mm */; };
+		FC2C05F51615EB780020BE29 /* tlsgnutlsclient.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05801615EB780020BE29 /* tlsgnutlsclient.mm */; };
+		FC2C05F61615EB780020BE29 /* tlsgnutlsclientanon.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05821615EB780020BE29 /* tlsgnutlsclientanon.mm */; };
+		FC2C05F71615EB780020BE29 /* tlsgnutlsserveranon.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05841615EB780020BE29 /* tlsgnutlsserveranon.mm */; };
+		FC2C05F81615EB780020BE29 /* tlsopensslbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05871615EB780020BE29 /* tlsopensslbase.mm */; };
+		FC2C05F91615EB780020BE29 /* tlsopensslclient.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05891615EB780020BE29 /* tlsopensslclient.mm */; };
+		FC2C05FA1615EB780020BE29 /* tlsopensslserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C058B1615EB780020BE29 /* tlsopensslserver.mm */; };
+		FC2C05FB1615EB780020BE29 /* tlsschannel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C058D1615EB780020BE29 /* tlsschannel.mm */; };
+		FC2C05FC1615EB780020BE29 /* uniquemucroom.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C058F1615EB780020BE29 /* uniquemucroom.mm */; };
+		FC2C05FD1615EB780020BE29 /* util.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05911615EB780020BE29 /* util.mm */; };
+		FC2C05FE1615EB780020BE29 /* vcard.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05931615EB780020BE29 /* vcard.mm */; };
+		FC2C05FF1615EB780020BE29 /* vcardmanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05961615EB780020BE29 /* vcardmanager.mm */; };
+		FC2C06001615EB780020BE29 /* vcardupdate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05981615EB780020BE29 /* vcardupdate.mm */; };
+		FC2C06011615EB780020BE29 /* vika.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C059A1615EB780020BE29 /* vika.mm */; };
+		FC2C06021615EB780020BE29 /* xhtmlim.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C059D1615EB780020BE29 /* xhtmlim.mm */; };
 		FC4929F116102A1B00C30A11 /* SinaUCMaxLengthFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
@@ -1749,6 +1850,7 @@
 		FCA7F3B7160EE1D600DC038C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F394160EE1D600DC038C /* Cocoa.framework */; };
 		FCA7F3BF160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3C2160EE1D600DC038C /* SinaUCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */; };
+		FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCDA54016132BFA00C1499D /* Quartz.framework */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
 		FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */; };
 		FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE320F3161201AC00E413A7 /* SinaUCButton.m */; };
@@ -1765,6 +1867,262 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC2C049E1615EB780020BE29 /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
+		FC2C049F1615EB780020BE29 /* adhoc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adhoc.mm; sourceTree = "<group>"; };
+		FC2C04A01615EB780020BE29 /* adhoccommandprovider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoccommandprovider.h; sourceTree = "<group>"; };
+		FC2C04A11615EB780020BE29 /* adhochandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhochandler.h; sourceTree = "<group>"; };
+		FC2C04A21615EB780020BE29 /* amp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amp.h; sourceTree = "<group>"; };
+		FC2C04A31615EB780020BE29 /* amp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amp.mm; sourceTree = "<group>"; };
+		FC2C04A41615EB780020BE29 /* annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = annotations.h; sourceTree = "<group>"; };
+		FC2C04A51615EB780020BE29 /* annotations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = annotations.mm; sourceTree = "<group>"; };
+		FC2C04A61615EB780020BE29 /* annotationshandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = annotationshandler.h; sourceTree = "<group>"; };
+		FC2C04A71615EB780020BE29 /* attention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attention.h; sourceTree = "<group>"; };
+		FC2C04A81615EB780020BE29 /* attention.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = attention.mm; sourceTree = "<group>"; };
+		FC2C04A91615EB780020BE29 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		FC2C04AA1615EB780020BE29 /* base64.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = base64.mm; sourceTree = "<group>"; };
+		FC2C04AB1615EB780020BE29 /* bookmarkhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookmarkhandler.h; sourceTree = "<group>"; };
+		FC2C04AC1615EB780020BE29 /* bookmarkstorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookmarkstorage.h; sourceTree = "<group>"; };
+		FC2C04AD1615EB780020BE29 /* bookmarkstorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = bookmarkstorage.mm; sourceTree = "<group>"; };
+		FC2C04AE1615EB780020BE29 /* bytestream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytestream.h; sourceTree = "<group>"; };
+		FC2C04AF1615EB780020BE29 /* bytestreamdatahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytestreamdatahandler.h; sourceTree = "<group>"; };
+		FC2C04B01615EB780020BE29 /* bytestreamhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytestreamhandler.h; sourceTree = "<group>"; };
+		FC2C04B11615EB780020BE29 /* capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = capabilities.h; sourceTree = "<group>"; };
+		FC2C04B21615EB780020BE29 /* capabilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = capabilities.mm; sourceTree = "<group>"; };
+		FC2C04B31615EB780020BE29 /* chatstate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chatstate.h; sourceTree = "<group>"; };
+		FC2C04B41615EB780020BE29 /* chatstate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = chatstate.mm; sourceTree = "<group>"; };
+		FC2C04B51615EB780020BE29 /* chatstatefilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chatstatefilter.h; sourceTree = "<group>"; };
+		FC2C04B61615EB780020BE29 /* chatstatefilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = chatstatefilter.mm; sourceTree = "<group>"; };
+		FC2C04B71615EB780020BE29 /* chatstatehandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chatstatehandler.h; sourceTree = "<group>"; };
+		FC2C04B81615EB780020BE29 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
+		FC2C04B91615EB780020BE29 /* client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = client.mm; sourceTree = "<group>"; };
+		FC2C04BA1615EB780020BE29 /* clientbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientbase.h; sourceTree = "<group>"; };
+		FC2C04BB1615EB780020BE29 /* clientbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = clientbase.mm; sourceTree = "<group>"; };
+		FC2C04BC1615EB780020BE29 /* component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = component.h; sourceTree = "<group>"; };
+		FC2C04BD1615EB780020BE29 /* component.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = component.mm; sourceTree = "<group>"; };
+		FC2C04BE1615EB780020BE29 /* compressionbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compressionbase.h; sourceTree = "<group>"; };
+		FC2C04BF1615EB780020BE29 /* compressiondatahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compressiondatahandler.h; sourceTree = "<group>"; };
+		FC2C04C01615EB780020BE29 /* compressiondefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compressiondefault.h; sourceTree = "<group>"; };
+		FC2C04C11615EB780020BE29 /* compressiondefault.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compressiondefault.mm; sourceTree = "<group>"; };
+		FC2C04C21615EB780020BE29 /* compressionzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compressionzlib.h; sourceTree = "<group>"; };
+		FC2C04C31615EB780020BE29 /* compressionzlib.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compressionzlib.mm; sourceTree = "<group>"; };
+		FC2C04C41615EB780020BE29 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		FC2C04C51615EB780020BE29 /* connectionbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionbase.h; sourceTree = "<group>"; };
+		FC2C04C61615EB780020BE29 /* connectionbosh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionbosh.h; sourceTree = "<group>"; };
+		FC2C04C71615EB780020BE29 /* connectionbosh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectionbosh.mm; sourceTree = "<group>"; };
+		FC2C04C81615EB780020BE29 /* connectiondatahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiondatahandler.h; sourceTree = "<group>"; };
+		FC2C04C91615EB780020BE29 /* connectionhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionhandler.h; sourceTree = "<group>"; };
+		FC2C04CA1615EB780020BE29 /* connectionhttpproxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionhttpproxy.h; sourceTree = "<group>"; };
+		FC2C04CB1615EB780020BE29 /* connectionhttpproxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectionhttpproxy.mm; sourceTree = "<group>"; };
+		FC2C04CC1615EB780020BE29 /* connectionlistener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionlistener.h; sourceTree = "<group>"; };
+		FC2C04CD1615EB780020BE29 /* connectionsocks5proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionsocks5proxy.h; sourceTree = "<group>"; };
+		FC2C04CE1615EB780020BE29 /* connectionsocks5proxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectionsocks5proxy.mm; sourceTree = "<group>"; };
+		FC2C04CF1615EB780020BE29 /* connectiontcpbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiontcpbase.h; sourceTree = "<group>"; };
+		FC2C04D01615EB780020BE29 /* connectiontcpbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectiontcpbase.mm; sourceTree = "<group>"; };
+		FC2C04D11615EB780020BE29 /* connectiontcpclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiontcpclient.h; sourceTree = "<group>"; };
+		FC2C04D21615EB780020BE29 /* connectiontcpclient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectiontcpclient.mm; sourceTree = "<group>"; };
+		FC2C04D31615EB780020BE29 /* connectiontcpserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiontcpserver.h; sourceTree = "<group>"; };
+		FC2C04D41615EB780020BE29 /* connectiontcpserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectiontcpserver.mm; sourceTree = "<group>"; };
+		FC2C04D51615EB780020BE29 /* connectiontls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiontls.h; sourceTree = "<group>"; };
+		FC2C04D61615EB780020BE29 /* connectiontls.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectiontls.mm; sourceTree = "<group>"; };
+		FC2C04D71615EB780020BE29 /* connectiontlsserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectiontlsserver.h; sourceTree = "<group>"; };
+		FC2C04D81615EB780020BE29 /* connectiontlsserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = connectiontlsserver.mm; sourceTree = "<group>"; };
+		FC2C04D91615EB780020BE29 /* dataform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataform.h; sourceTree = "<group>"; };
+		FC2C04DA1615EB780020BE29 /* dataform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dataform.mm; sourceTree = "<group>"; };
+		FC2C04DB1615EB780020BE29 /* dataformfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataformfield.h; sourceTree = "<group>"; };
+		FC2C04DC1615EB780020BE29 /* dataformfield.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dataformfield.mm; sourceTree = "<group>"; };
+		FC2C04DD1615EB780020BE29 /* dataformfieldcontainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataformfieldcontainer.h; sourceTree = "<group>"; };
+		FC2C04DE1615EB780020BE29 /* dataformfieldcontainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dataformfieldcontainer.mm; sourceTree = "<group>"; };
+		FC2C04DF1615EB780020BE29 /* dataformitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataformitem.h; sourceTree = "<group>"; };
+		FC2C04E01615EB780020BE29 /* dataformitem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dataformitem.mm; sourceTree = "<group>"; };
+		FC2C04E11615EB780020BE29 /* dataformreported.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataformreported.h; sourceTree = "<group>"; };
+		FC2C04E21615EB780020BE29 /* dataformreported.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dataformreported.mm; sourceTree = "<group>"; };
+		FC2C04E31615EB780020BE29 /* delayeddelivery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delayeddelivery.h; sourceTree = "<group>"; };
+		FC2C04E41615EB780020BE29 /* delayeddelivery.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = delayeddelivery.mm; sourceTree = "<group>"; };
+		FC2C04E51615EB780020BE29 /* disco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = disco.h; sourceTree = "<group>"; };
+		FC2C04E61615EB780020BE29 /* disco.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = disco.mm; sourceTree = "<group>"; };
+		FC2C04E71615EB780020BE29 /* discohandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discohandler.h; sourceTree = "<group>"; };
+		FC2C04E81615EB780020BE29 /* disconodehandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = disconodehandler.h; sourceTree = "<group>"; };
+		FC2C04E91615EB780020BE29 /* dns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns.h; sourceTree = "<group>"; };
+		FC2C04EA1615EB780020BE29 /* dns.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dns.mm; sourceTree = "<group>"; };
+		FC2C04EB1615EB780020BE29 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		FC2C04EC1615EB780020BE29 /* error.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = error.mm; sourceTree = "<group>"; };
+		FC2C04ED1615EB780020BE29 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		FC2C04EE1615EB780020BE29 /* eventdispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventdispatcher.h; sourceTree = "<group>"; };
+		FC2C04EF1615EB780020BE29 /* eventdispatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eventdispatcher.mm; sourceTree = "<group>"; };
+		FC2C04F01615EB780020BE29 /* eventhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventhandler.h; sourceTree = "<group>"; };
+		FC2C04F11615EB780020BE29 /* featureneg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = featureneg.h; sourceTree = "<group>"; };
+		FC2C04F21615EB780020BE29 /* featureneg.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = featureneg.mm; sourceTree = "<group>"; };
+		FC2C04F31615EB780020BE29 /* flexoff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flexoff.h; sourceTree = "<group>"; };
+		FC2C04F41615EB780020BE29 /* flexoff.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flexoff.mm; sourceTree = "<group>"; };
+		FC2C04F51615EB780020BE29 /* flexoffhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flexoffhandler.h; sourceTree = "<group>"; };
+		FC2C04F61615EB780020BE29 /* gateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gateway.h; sourceTree = "<group>"; };
+		FC2C04F71615EB780020BE29 /* gateway.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gateway.mm; sourceTree = "<group>"; };
+		FC2C04F81615EB780020BE29 /* gatewayhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gatewayhandler.h; sourceTree = "<group>"; };
+		FC2C04F91615EB780020BE29 /* gloox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gloox.h; sourceTree = "<group>"; };
+		FC2C04FA1615EB780020BE29 /* gloox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gloox.mm; sourceTree = "<group>"; };
+		FC2C04FB1615EB780020BE29 /* glooxversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glooxversion.h; sourceTree = "<group>"; };
+		FC2C04FC1615EB780020BE29 /* gpgencrypted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gpgencrypted.h; sourceTree = "<group>"; };
+		FC2C04FD1615EB780020BE29 /* gpgencrypted.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gpgencrypted.mm; sourceTree = "<group>"; };
+		FC2C04FE1615EB780020BE29 /* gpgsigned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gpgsigned.h; sourceTree = "<group>"; };
+		FC2C04FF1615EB780020BE29 /* gpgsigned.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gpgsigned.mm; sourceTree = "<group>"; };
+		FC2C05001615EB780020BE29 /* httpbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpbase.h; sourceTree = "<group>"; };
+		FC2C05011615EB780020BE29 /* httpbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = httpbase.mm; sourceTree = "<group>"; };
+		FC2C05021615EB780020BE29 /* inbandbytestream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inbandbytestream.h; sourceTree = "<group>"; };
+		FC2C05031615EB780020BE29 /* inbandbytestream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = inbandbytestream.mm; sourceTree = "<group>"; };
+		FC2C05041615EB780020BE29 /* instantmucroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instantmucroom.h; sourceTree = "<group>"; };
+		FC2C05051615EB780020BE29 /* instantmucroom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = instantmucroom.mm; sourceTree = "<group>"; };
+		FC2C05061615EB780020BE29 /* iq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iq.h; sourceTree = "<group>"; };
+		FC2C05071615EB780020BE29 /* iq.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iq.mm; sourceTree = "<group>"; };
+		FC2C05081615EB780020BE29 /* iqhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iqhandler.h; sourceTree = "<group>"; };
+		FC2C05091615EB780020BE29 /* jid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jid.h; sourceTree = "<group>"; };
+		FC2C050A1615EB780020BE29 /* jid.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = jid.mm; sourceTree = "<group>"; };
+		FC2C050B1615EB780020BE29 /* lastactivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lastactivity.h; sourceTree = "<group>"; };
+		FC2C050C1615EB780020BE29 /* lastactivity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = lastactivity.mm; sourceTree = "<group>"; };
+		FC2C050D1615EB780020BE29 /* lastactivityhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lastactivityhandler.h; sourceTree = "<group>"; };
+		FC2C050E1615EB780020BE29 /* location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = location.h; sourceTree = "<group>"; };
+		FC2C050F1615EB780020BE29 /* location.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = location.mm; sourceTree = "<group>"; };
+		FC2C05101615EB780020BE29 /* locationhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locationhandler.h; sourceTree = "<group>"; };
+		FC2C05111615EB780020BE29 /* loghandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loghandler.h; sourceTree = "<group>"; };
+		FC2C05121615EB780020BE29 /* logsink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logsink.h; sourceTree = "<group>"; };
+		FC2C05131615EB780020BE29 /* logsink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = logsink.mm; sourceTree = "<group>"; };
+		FC2C05141615EB780020BE29 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
+		FC2C05151615EB780020BE29 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		FC2C05161615EB780020BE29 /* md5.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = md5.mm; sourceTree = "<group>"; };
+		FC2C05171615EB780020BE29 /* message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
+		FC2C05181615EB780020BE29 /* message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = message.mm; sourceTree = "<group>"; };
+		FC2C05191615EB780020BE29 /* messageevent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageevent.h; sourceTree = "<group>"; };
+		FC2C051A1615EB780020BE29 /* messageevent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = messageevent.mm; sourceTree = "<group>"; };
+		FC2C051B1615EB780020BE29 /* messageeventfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageeventfilter.h; sourceTree = "<group>"; };
+		FC2C051C1615EB780020BE29 /* messageeventfilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = messageeventfilter.mm; sourceTree = "<group>"; };
+		FC2C051D1615EB780020BE29 /* messageeventhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageeventhandler.h; sourceTree = "<group>"; };
+		FC2C051E1615EB780020BE29 /* messagefilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messagefilter.h; sourceTree = "<group>"; };
+		FC2C051F1615EB780020BE29 /* messagefilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = messagefilter.mm; sourceTree = "<group>"; };
+		FC2C05201615EB780020BE29 /* messagehandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messagehandler.h; sourceTree = "<group>"; };
+		FC2C05211615EB780020BE29 /* messagesession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messagesession.h; sourceTree = "<group>"; };
+		FC2C05221615EB780020BE29 /* messagesession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = messagesession.mm; sourceTree = "<group>"; };
+		FC2C05231615EB780020BE29 /* messagesessionhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messagesessionhandler.h; sourceTree = "<group>"; };
+		FC2C05241615EB780020BE29 /* mucinvitationhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mucinvitationhandler.h; sourceTree = "<group>"; };
+		FC2C05251615EB780020BE29 /* mucmessagesession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mucmessagesession.h; sourceTree = "<group>"; };
+		FC2C05261615EB780020BE29 /* mucmessagesession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = mucmessagesession.mm; sourceTree = "<group>"; };
+		FC2C05271615EB780020BE29 /* mucroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mucroom.h; sourceTree = "<group>"; };
+		FC2C05281615EB780020BE29 /* mucroom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = mucroom.mm; sourceTree = "<group>"; };
+		FC2C05291615EB780020BE29 /* mucroomconfighandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mucroomconfighandler.h; sourceTree = "<group>"; };
+		FC2C052A1615EB780020BE29 /* mucroomhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mucroomhandler.h; sourceTree = "<group>"; };
+		FC2C052B1615EB780020BE29 /* mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mutex.h; sourceTree = "<group>"; };
+		FC2C052C1615EB780020BE29 /* mutex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = mutex.mm; sourceTree = "<group>"; };
+		FC2C052D1615EB780020BE29 /* mutexguard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mutexguard.h; sourceTree = "<group>"; };
+		FC2C052E1615EB780020BE29 /* nickname.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nickname.h; sourceTree = "<group>"; };
+		FC2C052F1615EB780020BE29 /* nickname.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = nickname.mm; sourceTree = "<group>"; };
+		FC2C05301615EB780020BE29 /* nonsaslauth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nonsaslauth.h; sourceTree = "<group>"; };
+		FC2C05311615EB780020BE29 /* nonsaslauth.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = nonsaslauth.mm; sourceTree = "<group>"; };
+		FC2C05321615EB780020BE29 /* oob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oob.h; sourceTree = "<group>"; };
+		FC2C05331615EB780020BE29 /* oob.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = oob.mm; sourceTree = "<group>"; };
+		FC2C05341615EB780020BE29 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		FC2C05351615EB780020BE29 /* parser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = parser.mm; sourceTree = "<group>"; };
+		FC2C05361615EB780020BE29 /* pre.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pre.mm; sourceTree = "<group>"; };
+		FC2C05371615EB780020BE29 /* prep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prep.h; sourceTree = "<group>"; };
+		FC2C05381615EB780020BE29 /* presence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = presence.h; sourceTree = "<group>"; };
+		FC2C05391615EB780020BE29 /* presence.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = presence.mm; sourceTree = "<group>"; };
+		FC2C053A1615EB780020BE29 /* presencehandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = presencehandler.h; sourceTree = "<group>"; };
+		FC2C053B1615EB780020BE29 /* privacyitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privacyitem.h; sourceTree = "<group>"; };
+		FC2C053C1615EB780020BE29 /* privacyitem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = privacyitem.mm; sourceTree = "<group>"; };
+		FC2C053D1615EB780020BE29 /* privacylisthandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privacylisthandler.h; sourceTree = "<group>"; };
+		FC2C053E1615EB780020BE29 /* privacymanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privacymanager.h; sourceTree = "<group>"; };
+		FC2C053F1615EB780020BE29 /* privacymanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = privacymanager.mm; sourceTree = "<group>"; };
+		FC2C05401615EB780020BE29 /* privatexml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privatexml.h; sourceTree = "<group>"; };
+		FC2C05411615EB780020BE29 /* privatexml.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = privatexml.mm; sourceTree = "<group>"; };
+		FC2C05421615EB780020BE29 /* privatexmlhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privatexmlhandler.h; sourceTree = "<group>"; };
+		FC2C05431615EB780020BE29 /* pubsub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubsub.h; sourceTree = "<group>"; };
+		FC2C05441615EB780020BE29 /* pubsubevent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubsubevent.h; sourceTree = "<group>"; };
+		FC2C05451615EB780020BE29 /* pubsubevent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pubsubevent.mm; sourceTree = "<group>"; };
+		FC2C05461615EB780020BE29 /* pubsubitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubsubitem.h; sourceTree = "<group>"; };
+		FC2C05471615EB780020BE29 /* pubsubitem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pubsubitem.mm; sourceTree = "<group>"; };
+		FC2C05481615EB780020BE29 /* pubsubmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubsubmanager.h; sourceTree = "<group>"; };
+		FC2C05491615EB780020BE29 /* pubsubmanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pubsubmanager.mm; sourceTree = "<group>"; };
+		FC2C054A1615EB780020BE29 /* pubsubresulthandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubsubresulthandler.h; sourceTree = "<group>"; };
+		FC2C054B1615EB780020BE29 /* receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = receipt.h; sourceTree = "<group>"; };
+		FC2C054C1615EB780020BE29 /* receipt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = receipt.mm; sourceTree = "<group>"; };
+		FC2C054D1615EB780020BE29 /* registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registration.h; sourceTree = "<group>"; };
+		FC2C054E1615EB780020BE29 /* registration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = registration.mm; sourceTree = "<group>"; };
+		FC2C054F1615EB780020BE29 /* registrationhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registrationhandler.h; sourceTree = "<group>"; };
+		FC2C05501615EB780020BE29 /* rename.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = rename.php; sourceTree = "<group>"; };
+		FC2C05511615EB780020BE29 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
+		FC2C05521615EB780020BE29 /* rosteritem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rosteritem.h; sourceTree = "<group>"; };
+		FC2C05531615EB780020BE29 /* rosteritem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = rosteritem.mm; sourceTree = "<group>"; };
+		FC2C05541615EB780020BE29 /* rosteritemdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rosteritemdata.h; sourceTree = "<group>"; };
+		FC2C05551615EB780020BE29 /* rosterlistener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rosterlistener.h; sourceTree = "<group>"; };
+		FC2C05561615EB780020BE29 /* rostermanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rostermanager.h; sourceTree = "<group>"; };
+		FC2C05571615EB780020BE29 /* rostermanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = rostermanager.mm; sourceTree = "<group>"; };
+		FC2C05581615EB780020BE29 /* search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = search.h; sourceTree = "<group>"; };
+		FC2C05591615EB780020BE29 /* search.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = search.mm; sourceTree = "<group>"; };
+		FC2C055A1615EB780020BE29 /* searchhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchhandler.h; sourceTree = "<group>"; };
+		FC2C055B1615EB780020BE29 /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		FC2C055C1615EB780020BE29 /* sha.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sha.mm; sourceTree = "<group>"; };
+		FC2C055D1615EB780020BE29 /* shim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shim.h; sourceTree = "<group>"; };
+		FC2C055E1615EB780020BE29 /* shim.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shim.mm; sourceTree = "<group>"; };
+		FC2C055F1615EB780020BE29 /* sihandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sihandler.h; sourceTree = "<group>"; };
+		FC2C05601615EB780020BE29 /* simanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simanager.h; sourceTree = "<group>"; };
+		FC2C05611615EB780020BE29 /* simanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = simanager.mm; sourceTree = "<group>"; };
+		FC2C05621615EB780020BE29 /* siprofileft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = siprofileft.h; sourceTree = "<group>"; };
+		FC2C05631615EB780020BE29 /* siprofileft.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = siprofileft.mm; sourceTree = "<group>"; };
+		FC2C05641615EB780020BE29 /* siprofilefthandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = siprofilefthandler.h; sourceTree = "<group>"; };
+		FC2C05651615EB780020BE29 /* siprofilehandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = siprofilehandler.h; sourceTree = "<group>"; };
+		FC2C05661615EB780020BE29 /* socks5bytestream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socks5bytestream.h; sourceTree = "<group>"; };
+		FC2C05671615EB780020BE29 /* socks5bytestream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = socks5bytestream.mm; sourceTree = "<group>"; };
+		FC2C05681615EB780020BE29 /* socks5bytestreammanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socks5bytestreammanager.h; sourceTree = "<group>"; };
+		FC2C05691615EB780020BE29 /* socks5bytestreammanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = socks5bytestreammanager.mm; sourceTree = "<group>"; };
+		FC2C056A1615EB780020BE29 /* socks5bytestreamserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socks5bytestreamserver.h; sourceTree = "<group>"; };
+		FC2C056B1615EB780020BE29 /* socks5bytestreamserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = socks5bytestreamserver.mm; sourceTree = "<group>"; };
+		FC2C056C1615EB780020BE29 /* softwareversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = softwareversion.h; sourceTree = "<group>"; };
+		FC2C056D1615EB780020BE29 /* softwareversion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = softwareversion.mm; sourceTree = "<group>"; };
+		FC2C056E1615EB780020BE29 /* stanza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stanza.h; sourceTree = "<group>"; };
+		FC2C056F1615EB780020BE29 /* stanza.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = stanza.mm; sourceTree = "<group>"; };
+		FC2C05701615EB780020BE29 /* stanzaextension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stanzaextension.h; sourceTree = "<group>"; };
+		FC2C05711615EB780020BE29 /* stanzaextensionfactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stanzaextensionfactory.h; sourceTree = "<group>"; };
+		FC2C05721615EB780020BE29 /* stanzaextensionfactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = stanzaextensionfactory.mm; sourceTree = "<group>"; };
+		FC2C05731615EB780020BE29 /* statisticshandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statisticshandler.h; sourceTree = "<group>"; };
+		FC2C05741615EB780020BE29 /* subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subscription.h; sourceTree = "<group>"; };
+		FC2C05751615EB780020BE29 /* subscription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = subscription.mm; sourceTree = "<group>"; };
+		FC2C05761615EB780020BE29 /* subscriptionhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subscriptionhandler.h; sourceTree = "<group>"; };
+		FC2C05771615EB780020BE29 /* tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag.h; sourceTree = "<group>"; };
+		FC2C05781615EB780020BE29 /* tag.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tag.mm; sourceTree = "<group>"; };
+		FC2C05791615EB780020BE29 /* taghandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taghandler.h; sourceTree = "<group>"; };
+		FC2C057A1615EB780020BE29 /* tlsbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsbase.h; sourceTree = "<group>"; };
+		FC2C057B1615EB780020BE29 /* tlsdefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsdefault.h; sourceTree = "<group>"; };
+		FC2C057C1615EB780020BE29 /* tlsdefault.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsdefault.mm; sourceTree = "<group>"; };
+		FC2C057D1615EB780020BE29 /* tlsgnutlsbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsgnutlsbase.h; sourceTree = "<group>"; };
+		FC2C057E1615EB780020BE29 /* tlsgnutlsbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsgnutlsbase.mm; sourceTree = "<group>"; };
+		FC2C057F1615EB780020BE29 /* tlsgnutlsclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsgnutlsclient.h; sourceTree = "<group>"; };
+		FC2C05801615EB780020BE29 /* tlsgnutlsclient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsgnutlsclient.mm; sourceTree = "<group>"; };
+		FC2C05811615EB780020BE29 /* tlsgnutlsclientanon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsgnutlsclientanon.h; sourceTree = "<group>"; };
+		FC2C05821615EB780020BE29 /* tlsgnutlsclientanon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsgnutlsclientanon.mm; sourceTree = "<group>"; };
+		FC2C05831615EB780020BE29 /* tlsgnutlsserveranon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsgnutlsserveranon.h; sourceTree = "<group>"; };
+		FC2C05841615EB780020BE29 /* tlsgnutlsserveranon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsgnutlsserveranon.mm; sourceTree = "<group>"; };
+		FC2C05851615EB780020BE29 /* tlshandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlshandler.h; sourceTree = "<group>"; };
+		FC2C05861615EB780020BE29 /* tlsopensslbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsopensslbase.h; sourceTree = "<group>"; };
+		FC2C05871615EB780020BE29 /* tlsopensslbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsopensslbase.mm; sourceTree = "<group>"; };
+		FC2C05881615EB780020BE29 /* tlsopensslclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsopensslclient.h; sourceTree = "<group>"; };
+		FC2C05891615EB780020BE29 /* tlsopensslclient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsopensslclient.mm; sourceTree = "<group>"; };
+		FC2C058A1615EB780020BE29 /* tlsopensslserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsopensslserver.h; sourceTree = "<group>"; };
+		FC2C058B1615EB780020BE29 /* tlsopensslserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsopensslserver.mm; sourceTree = "<group>"; };
+		FC2C058C1615EB780020BE29 /* tlsschannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tlsschannel.h; sourceTree = "<group>"; };
+		FC2C058D1615EB780020BE29 /* tlsschannel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tlsschannel.mm; sourceTree = "<group>"; };
+		FC2C058E1615EB780020BE29 /* uniquemucroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uniquemucroom.h; sourceTree = "<group>"; };
+		FC2C058F1615EB780020BE29 /* uniquemucroom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = uniquemucroom.mm; sourceTree = "<group>"; };
+		FC2C05901615EB780020BE29 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		FC2C05911615EB780020BE29 /* util.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = util.mm; sourceTree = "<group>"; };
+		FC2C05921615EB780020BE29 /* vcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcard.h; sourceTree = "<group>"; };
+		FC2C05931615EB780020BE29 /* vcard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vcard.mm; sourceTree = "<group>"; };
+		FC2C05941615EB780020BE29 /* vcardhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcardhandler.h; sourceTree = "<group>"; };
+		FC2C05951615EB780020BE29 /* vcardmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcardmanager.h; sourceTree = "<group>"; };
+		FC2C05961615EB780020BE29 /* vcardmanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vcardmanager.mm; sourceTree = "<group>"; };
+		FC2C05971615EB780020BE29 /* vcardupdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcardupdate.h; sourceTree = "<group>"; };
+		FC2C05981615EB780020BE29 /* vcardupdate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vcardupdate.mm; sourceTree = "<group>"; };
+		FC2C05991615EB780020BE29 /* vika.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vika.h; sourceTree = "<group>"; };
+		FC2C059A1615EB780020BE29 /* vika.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vika.mm; sourceTree = "<group>"; };
+		FC2C059B1615EB780020BE29 /* vikahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vikahandler.h; sourceTree = "<group>"; };
+		FC2C059C1615EB780020BE29 /* xhtmlim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xhtmlim.h; sourceTree = "<group>"; };
+		FC2C059D1615EB780020BE29 /* xhtmlim.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xhtmlim.mm; sourceTree = "<group>"; };
 		FC4929EF16102A1B00C30A11 /* SinaUCMaxLengthFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMaxLengthFormatter.h; sourceTree = "<group>"; };
 		FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMaxLengthFormatter.m; sourceTree = "<group>"; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
@@ -3518,6 +3876,7 @@
 		FCA7F3BE160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA7F3C0160EE1D600DC038C /* SinaUCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCTests.h; sourceTree = "<group>"; };
 		FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCTests.m; sourceTree = "<group>"; };
+		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
 		FCE29D03160F47B80092CC9A /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLoginView.h; sourceTree = "<group>"; };
@@ -3531,6 +3890,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */,
 				FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3547,6 +3907,269 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC2C049D1615EB780020BE29 /* gloox */ = {
+			isa = PBXGroup;
+			children = (
+				FC2C049E1615EB780020BE29 /* adhoc.h */,
+				FC2C049F1615EB780020BE29 /* adhoc.mm */,
+				FC2C04A01615EB780020BE29 /* adhoccommandprovider.h */,
+				FC2C04A11615EB780020BE29 /* adhochandler.h */,
+				FC2C04A21615EB780020BE29 /* amp.h */,
+				FC2C04A31615EB780020BE29 /* amp.mm */,
+				FC2C04A41615EB780020BE29 /* annotations.h */,
+				FC2C04A51615EB780020BE29 /* annotations.mm */,
+				FC2C04A61615EB780020BE29 /* annotationshandler.h */,
+				FC2C04A71615EB780020BE29 /* attention.h */,
+				FC2C04A81615EB780020BE29 /* attention.mm */,
+				FC2C04A91615EB780020BE29 /* base64.h */,
+				FC2C04AA1615EB780020BE29 /* base64.mm */,
+				FC2C04AB1615EB780020BE29 /* bookmarkhandler.h */,
+				FC2C04AC1615EB780020BE29 /* bookmarkstorage.h */,
+				FC2C04AD1615EB780020BE29 /* bookmarkstorage.mm */,
+				FC2C04AE1615EB780020BE29 /* bytestream.h */,
+				FC2C04AF1615EB780020BE29 /* bytestreamdatahandler.h */,
+				FC2C04B01615EB780020BE29 /* bytestreamhandler.h */,
+				FC2C04B11615EB780020BE29 /* capabilities.h */,
+				FC2C04B21615EB780020BE29 /* capabilities.mm */,
+				FC2C04B31615EB780020BE29 /* chatstate.h */,
+				FC2C04B41615EB780020BE29 /* chatstate.mm */,
+				FC2C04B51615EB780020BE29 /* chatstatefilter.h */,
+				FC2C04B61615EB780020BE29 /* chatstatefilter.mm */,
+				FC2C04B71615EB780020BE29 /* chatstatehandler.h */,
+				FC2C04B81615EB780020BE29 /* client.h */,
+				FC2C04B91615EB780020BE29 /* client.mm */,
+				FC2C04BA1615EB780020BE29 /* clientbase.h */,
+				FC2C04BB1615EB780020BE29 /* clientbase.mm */,
+				FC2C04BC1615EB780020BE29 /* component.h */,
+				FC2C04BD1615EB780020BE29 /* component.mm */,
+				FC2C04BE1615EB780020BE29 /* compressionbase.h */,
+				FC2C04BF1615EB780020BE29 /* compressiondatahandler.h */,
+				FC2C04C01615EB780020BE29 /* compressiondefault.h */,
+				FC2C04C11615EB780020BE29 /* compressiondefault.mm */,
+				FC2C04C21615EB780020BE29 /* compressionzlib.h */,
+				FC2C04C31615EB780020BE29 /* compressionzlib.mm */,
+				FC2C04C41615EB780020BE29 /* config.h */,
+				FC2C04C51615EB780020BE29 /* connectionbase.h */,
+				FC2C04C61615EB780020BE29 /* connectionbosh.h */,
+				FC2C04C71615EB780020BE29 /* connectionbosh.mm */,
+				FC2C04C81615EB780020BE29 /* connectiondatahandler.h */,
+				FC2C04C91615EB780020BE29 /* connectionhandler.h */,
+				FC2C04CA1615EB780020BE29 /* connectionhttpproxy.h */,
+				FC2C04CB1615EB780020BE29 /* connectionhttpproxy.mm */,
+				FC2C04CC1615EB780020BE29 /* connectionlistener.h */,
+				FC2C04CD1615EB780020BE29 /* connectionsocks5proxy.h */,
+				FC2C04CE1615EB780020BE29 /* connectionsocks5proxy.mm */,
+				FC2C04CF1615EB780020BE29 /* connectiontcpbase.h */,
+				FC2C04D01615EB780020BE29 /* connectiontcpbase.mm */,
+				FC2C04D11615EB780020BE29 /* connectiontcpclient.h */,
+				FC2C04D21615EB780020BE29 /* connectiontcpclient.mm */,
+				FC2C04D31615EB780020BE29 /* connectiontcpserver.h */,
+				FC2C04D41615EB780020BE29 /* connectiontcpserver.mm */,
+				FC2C04D51615EB780020BE29 /* connectiontls.h */,
+				FC2C04D61615EB780020BE29 /* connectiontls.mm */,
+				FC2C04D71615EB780020BE29 /* connectiontlsserver.h */,
+				FC2C04D81615EB780020BE29 /* connectiontlsserver.mm */,
+				FC2C04D91615EB780020BE29 /* dataform.h */,
+				FC2C04DA1615EB780020BE29 /* dataform.mm */,
+				FC2C04DB1615EB780020BE29 /* dataformfield.h */,
+				FC2C04DC1615EB780020BE29 /* dataformfield.mm */,
+				FC2C04DD1615EB780020BE29 /* dataformfieldcontainer.h */,
+				FC2C04DE1615EB780020BE29 /* dataformfieldcontainer.mm */,
+				FC2C04DF1615EB780020BE29 /* dataformitem.h */,
+				FC2C04E01615EB780020BE29 /* dataformitem.mm */,
+				FC2C04E11615EB780020BE29 /* dataformreported.h */,
+				FC2C04E21615EB780020BE29 /* dataformreported.mm */,
+				FC2C04E31615EB780020BE29 /* delayeddelivery.h */,
+				FC2C04E41615EB780020BE29 /* delayeddelivery.mm */,
+				FC2C04E51615EB780020BE29 /* disco.h */,
+				FC2C04E61615EB780020BE29 /* disco.mm */,
+				FC2C04E71615EB780020BE29 /* discohandler.h */,
+				FC2C04E81615EB780020BE29 /* disconodehandler.h */,
+				FC2C04E91615EB780020BE29 /* dns.h */,
+				FC2C04EA1615EB780020BE29 /* dns.mm */,
+				FC2C04EB1615EB780020BE29 /* error.h */,
+				FC2C04EC1615EB780020BE29 /* error.mm */,
+				FC2C04ED1615EB780020BE29 /* event.h */,
+				FC2C04EE1615EB780020BE29 /* eventdispatcher.h */,
+				FC2C04EF1615EB780020BE29 /* eventdispatcher.mm */,
+				FC2C04F01615EB780020BE29 /* eventhandler.h */,
+				FC2C04F11615EB780020BE29 /* featureneg.h */,
+				FC2C04F21615EB780020BE29 /* featureneg.mm */,
+				FC2C04F31615EB780020BE29 /* flexoff.h */,
+				FC2C04F41615EB780020BE29 /* flexoff.mm */,
+				FC2C04F51615EB780020BE29 /* flexoffhandler.h */,
+				FC2C04F61615EB780020BE29 /* gateway.h */,
+				FC2C04F71615EB780020BE29 /* gateway.mm */,
+				FC2C04F81615EB780020BE29 /* gatewayhandler.h */,
+				FC2C04F91615EB780020BE29 /* gloox.h */,
+				FC2C04FA1615EB780020BE29 /* gloox.mm */,
+				FC2C04FB1615EB780020BE29 /* glooxversion.h */,
+				FC2C04FC1615EB780020BE29 /* gpgencrypted.h */,
+				FC2C04FD1615EB780020BE29 /* gpgencrypted.mm */,
+				FC2C04FE1615EB780020BE29 /* gpgsigned.h */,
+				FC2C04FF1615EB780020BE29 /* gpgsigned.mm */,
+				FC2C05001615EB780020BE29 /* httpbase.h */,
+				FC2C05011615EB780020BE29 /* httpbase.mm */,
+				FC2C05021615EB780020BE29 /* inbandbytestream.h */,
+				FC2C05031615EB780020BE29 /* inbandbytestream.mm */,
+				FC2C05041615EB780020BE29 /* instantmucroom.h */,
+				FC2C05051615EB780020BE29 /* instantmucroom.mm */,
+				FC2C05061615EB780020BE29 /* iq.h */,
+				FC2C05071615EB780020BE29 /* iq.mm */,
+				FC2C05081615EB780020BE29 /* iqhandler.h */,
+				FC2C05091615EB780020BE29 /* jid.h */,
+				FC2C050A1615EB780020BE29 /* jid.mm */,
+				FC2C050B1615EB780020BE29 /* lastactivity.h */,
+				FC2C050C1615EB780020BE29 /* lastactivity.mm */,
+				FC2C050D1615EB780020BE29 /* lastactivityhandler.h */,
+				FC2C050E1615EB780020BE29 /* location.h */,
+				FC2C050F1615EB780020BE29 /* location.mm */,
+				FC2C05101615EB780020BE29 /* locationhandler.h */,
+				FC2C05111615EB780020BE29 /* loghandler.h */,
+				FC2C05121615EB780020BE29 /* logsink.h */,
+				FC2C05131615EB780020BE29 /* logsink.mm */,
+				FC2C05141615EB780020BE29 /* macros.h */,
+				FC2C05151615EB780020BE29 /* md5.h */,
+				FC2C05161615EB780020BE29 /* md5.mm */,
+				FC2C05171615EB780020BE29 /* message.h */,
+				FC2C05181615EB780020BE29 /* message.mm */,
+				FC2C05191615EB780020BE29 /* messageevent.h */,
+				FC2C051A1615EB780020BE29 /* messageevent.mm */,
+				FC2C051B1615EB780020BE29 /* messageeventfilter.h */,
+				FC2C051C1615EB780020BE29 /* messageeventfilter.mm */,
+				FC2C051D1615EB780020BE29 /* messageeventhandler.h */,
+				FC2C051E1615EB780020BE29 /* messagefilter.h */,
+				FC2C051F1615EB780020BE29 /* messagefilter.mm */,
+				FC2C05201615EB780020BE29 /* messagehandler.h */,
+				FC2C05211615EB780020BE29 /* messagesession.h */,
+				FC2C05221615EB780020BE29 /* messagesession.mm */,
+				FC2C05231615EB780020BE29 /* messagesessionhandler.h */,
+				FC2C05241615EB780020BE29 /* mucinvitationhandler.h */,
+				FC2C05251615EB780020BE29 /* mucmessagesession.h */,
+				FC2C05261615EB780020BE29 /* mucmessagesession.mm */,
+				FC2C05271615EB780020BE29 /* mucroom.h */,
+				FC2C05281615EB780020BE29 /* mucroom.mm */,
+				FC2C05291615EB780020BE29 /* mucroomconfighandler.h */,
+				FC2C052A1615EB780020BE29 /* mucroomhandler.h */,
+				FC2C052B1615EB780020BE29 /* mutex.h */,
+				FC2C052C1615EB780020BE29 /* mutex.mm */,
+				FC2C052D1615EB780020BE29 /* mutexguard.h */,
+				FC2C052E1615EB780020BE29 /* nickname.h */,
+				FC2C052F1615EB780020BE29 /* nickname.mm */,
+				FC2C05301615EB780020BE29 /* nonsaslauth.h */,
+				FC2C05311615EB780020BE29 /* nonsaslauth.mm */,
+				FC2C05321615EB780020BE29 /* oob.h */,
+				FC2C05331615EB780020BE29 /* oob.mm */,
+				FC2C05341615EB780020BE29 /* parser.h */,
+				FC2C05351615EB780020BE29 /* parser.mm */,
+				FC2C05361615EB780020BE29 /* pre.mm */,
+				FC2C05371615EB780020BE29 /* prep.h */,
+				FC2C05381615EB780020BE29 /* presence.h */,
+				FC2C05391615EB780020BE29 /* presence.mm */,
+				FC2C053A1615EB780020BE29 /* presencehandler.h */,
+				FC2C053B1615EB780020BE29 /* privacyitem.h */,
+				FC2C053C1615EB780020BE29 /* privacyitem.mm */,
+				FC2C053D1615EB780020BE29 /* privacylisthandler.h */,
+				FC2C053E1615EB780020BE29 /* privacymanager.h */,
+				FC2C053F1615EB780020BE29 /* privacymanager.mm */,
+				FC2C05401615EB780020BE29 /* privatexml.h */,
+				FC2C05411615EB780020BE29 /* privatexml.mm */,
+				FC2C05421615EB780020BE29 /* privatexmlhandler.h */,
+				FC2C05431615EB780020BE29 /* pubsub.h */,
+				FC2C05441615EB780020BE29 /* pubsubevent.h */,
+				FC2C05451615EB780020BE29 /* pubsubevent.mm */,
+				FC2C05461615EB780020BE29 /* pubsubitem.h */,
+				FC2C05471615EB780020BE29 /* pubsubitem.mm */,
+				FC2C05481615EB780020BE29 /* pubsubmanager.h */,
+				FC2C05491615EB780020BE29 /* pubsubmanager.mm */,
+				FC2C054A1615EB780020BE29 /* pubsubresulthandler.h */,
+				FC2C054B1615EB780020BE29 /* receipt.h */,
+				FC2C054C1615EB780020BE29 /* receipt.mm */,
+				FC2C054D1615EB780020BE29 /* registration.h */,
+				FC2C054E1615EB780020BE29 /* registration.mm */,
+				FC2C054F1615EB780020BE29 /* registrationhandler.h */,
+				FC2C05501615EB780020BE29 /* rename.php */,
+				FC2C05511615EB780020BE29 /* resource.h */,
+				FC2C05521615EB780020BE29 /* rosteritem.h */,
+				FC2C05531615EB780020BE29 /* rosteritem.mm */,
+				FC2C05541615EB780020BE29 /* rosteritemdata.h */,
+				FC2C05551615EB780020BE29 /* rosterlistener.h */,
+				FC2C05561615EB780020BE29 /* rostermanager.h */,
+				FC2C05571615EB780020BE29 /* rostermanager.mm */,
+				FC2C05581615EB780020BE29 /* search.h */,
+				FC2C05591615EB780020BE29 /* search.mm */,
+				FC2C055A1615EB780020BE29 /* searchhandler.h */,
+				FC2C055B1615EB780020BE29 /* sha.h */,
+				FC2C055C1615EB780020BE29 /* sha.mm */,
+				FC2C055D1615EB780020BE29 /* shim.h */,
+				FC2C055E1615EB780020BE29 /* shim.mm */,
+				FC2C055F1615EB780020BE29 /* sihandler.h */,
+				FC2C05601615EB780020BE29 /* simanager.h */,
+				FC2C05611615EB780020BE29 /* simanager.mm */,
+				FC2C05621615EB780020BE29 /* siprofileft.h */,
+				FC2C05631615EB780020BE29 /* siprofileft.mm */,
+				FC2C05641615EB780020BE29 /* siprofilefthandler.h */,
+				FC2C05651615EB780020BE29 /* siprofilehandler.h */,
+				FC2C05661615EB780020BE29 /* socks5bytestream.h */,
+				FC2C05671615EB780020BE29 /* socks5bytestream.mm */,
+				FC2C05681615EB780020BE29 /* socks5bytestreammanager.h */,
+				FC2C05691615EB780020BE29 /* socks5bytestreammanager.mm */,
+				FC2C056A1615EB780020BE29 /* socks5bytestreamserver.h */,
+				FC2C056B1615EB780020BE29 /* socks5bytestreamserver.mm */,
+				FC2C056C1615EB780020BE29 /* softwareversion.h */,
+				FC2C056D1615EB780020BE29 /* softwareversion.mm */,
+				FC2C056E1615EB780020BE29 /* stanza.h */,
+				FC2C056F1615EB780020BE29 /* stanza.mm */,
+				FC2C05701615EB780020BE29 /* stanzaextension.h */,
+				FC2C05711615EB780020BE29 /* stanzaextensionfactory.h */,
+				FC2C05721615EB780020BE29 /* stanzaextensionfactory.mm */,
+				FC2C05731615EB780020BE29 /* statisticshandler.h */,
+				FC2C05741615EB780020BE29 /* subscription.h */,
+				FC2C05751615EB780020BE29 /* subscription.mm */,
+				FC2C05761615EB780020BE29 /* subscriptionhandler.h */,
+				FC2C05771615EB780020BE29 /* tag.h */,
+				FC2C05781615EB780020BE29 /* tag.mm */,
+				FC2C05791615EB780020BE29 /* taghandler.h */,
+				FC2C057A1615EB780020BE29 /* tlsbase.h */,
+				FC2C057B1615EB780020BE29 /* tlsdefault.h */,
+				FC2C057C1615EB780020BE29 /* tlsdefault.mm */,
+				FC2C057D1615EB780020BE29 /* tlsgnutlsbase.h */,
+				FC2C057E1615EB780020BE29 /* tlsgnutlsbase.mm */,
+				FC2C057F1615EB780020BE29 /* tlsgnutlsclient.h */,
+				FC2C05801615EB780020BE29 /* tlsgnutlsclient.mm */,
+				FC2C05811615EB780020BE29 /* tlsgnutlsclientanon.h */,
+				FC2C05821615EB780020BE29 /* tlsgnutlsclientanon.mm */,
+				FC2C05831615EB780020BE29 /* tlsgnutlsserveranon.h */,
+				FC2C05841615EB780020BE29 /* tlsgnutlsserveranon.mm */,
+				FC2C05851615EB780020BE29 /* tlshandler.h */,
+				FC2C05861615EB780020BE29 /* tlsopensslbase.h */,
+				FC2C05871615EB780020BE29 /* tlsopensslbase.mm */,
+				FC2C05881615EB780020BE29 /* tlsopensslclient.h */,
+				FC2C05891615EB780020BE29 /* tlsopensslclient.mm */,
+				FC2C058A1615EB780020BE29 /* tlsopensslserver.h */,
+				FC2C058B1615EB780020BE29 /* tlsopensslserver.mm */,
+				FC2C058C1615EB780020BE29 /* tlsschannel.h */,
+				FC2C058D1615EB780020BE29 /* tlsschannel.mm */,
+				FC2C058E1615EB780020BE29 /* uniquemucroom.h */,
+				FC2C058F1615EB780020BE29 /* uniquemucroom.mm */,
+				FC2C05901615EB780020BE29 /* util.h */,
+				FC2C05911615EB780020BE29 /* util.mm */,
+				FC2C05921615EB780020BE29 /* vcard.h */,
+				FC2C05931615EB780020BE29 /* vcard.mm */,
+				FC2C05941615EB780020BE29 /* vcardhandler.h */,
+				FC2C05951615EB780020BE29 /* vcardmanager.h */,
+				FC2C05961615EB780020BE29 /* vcardmanager.mm */,
+				FC2C05971615EB780020BE29 /* vcardupdate.h */,
+				FC2C05981615EB780020BE29 /* vcardupdate.mm */,
+				FC2C05991615EB780020BE29 /* vika.h */,
+				FC2C059A1615EB780020BE29 /* vika.mm */,
+				FC2C059B1615EB780020BE29 /* vikahandler.h */,
+				FC2C059C1615EB780020BE29 /* xhtmlim.h */,
+				FC2C059D1615EB780020BE29 /* xhtmlim.mm */,
+			);
+			path = gloox;
+			sourceTree = "<group>";
+		};
 		FC4929F21610336000C30A11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -5384,6 +6007,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
 				FCA7F3B5160EE1D600DC038C /* SenTestingKit.framework */,
 				FCA7F396160EE1D600DC038C /* Other Frameworks */,
@@ -5404,6 +6028,7 @@
 		FCA7F39A160EE1D600DC038C /* SinaUC */ = {
 			isa = PBXGroup;
 			children = (
+				FC2C049D1615EB780020BE29 /* gloox */,
 				FC4929F21610336000C30A11 /* Protocols */,
 				FC8AE8A3160F31FE0069F6E7 /* Controllers */,
 				FC8ADB1A160F26BF0069F6E7 /* Resources */,
@@ -7254,6 +7879,7 @@
 				FC8AE8A0160F26C70069F6E7 /* ZIP_In@2x.png in Resources */,
 				FC8AE8A1160F26C70069F6E7 /* ZIP_Out.png in Resources */,
 				FC8AE8A2160F26C70069F6E7 /* ZIP_Out@2x.png in Resources */,
+				FC2C05E31615EB780020BE29 /* rename.php in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7296,6 +7922,106 @@
 				FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */,
 				FC4929F116102A1B00C30A11 /* SinaUCMaxLengthFormatter.m in Sources */,
 				FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */,
+				FC2C059E1615EB780020BE29 /* adhoc.mm in Sources */,
+				FC2C059F1615EB780020BE29 /* amp.mm in Sources */,
+				FC2C05A01615EB780020BE29 /* annotations.mm in Sources */,
+				FC2C05A11615EB780020BE29 /* attention.mm in Sources */,
+				FC2C05A21615EB780020BE29 /* base64.mm in Sources */,
+				FC2C05A31615EB780020BE29 /* bookmarkstorage.mm in Sources */,
+				FC2C05A41615EB780020BE29 /* capabilities.mm in Sources */,
+				FC2C05A51615EB780020BE29 /* chatstate.mm in Sources */,
+				FC2C05A61615EB780020BE29 /* chatstatefilter.mm in Sources */,
+				FC2C05A71615EB780020BE29 /* client.mm in Sources */,
+				FC2C05A81615EB780020BE29 /* clientbase.mm in Sources */,
+				FC2C05A91615EB780020BE29 /* component.mm in Sources */,
+				FC2C05AA1615EB780020BE29 /* compressiondefault.mm in Sources */,
+				FC2C05AB1615EB780020BE29 /* compressionzlib.mm in Sources */,
+				FC2C05AC1615EB780020BE29 /* connectionbosh.mm in Sources */,
+				FC2C05AD1615EB780020BE29 /* connectionhttpproxy.mm in Sources */,
+				FC2C05AE1615EB780020BE29 /* connectionsocks5proxy.mm in Sources */,
+				FC2C05AF1615EB780020BE29 /* connectiontcpbase.mm in Sources */,
+				FC2C05B01615EB780020BE29 /* connectiontcpclient.mm in Sources */,
+				FC2C05B11615EB780020BE29 /* connectiontcpserver.mm in Sources */,
+				FC2C05B21615EB780020BE29 /* connectiontls.mm in Sources */,
+				FC2C05B31615EB780020BE29 /* connectiontlsserver.mm in Sources */,
+				FC2C05B41615EB780020BE29 /* dataform.mm in Sources */,
+				FC2C05B51615EB780020BE29 /* dataformfield.mm in Sources */,
+				FC2C05B61615EB780020BE29 /* dataformfieldcontainer.mm in Sources */,
+				FC2C05B71615EB780020BE29 /* dataformitem.mm in Sources */,
+				FC2C05B81615EB780020BE29 /* dataformreported.mm in Sources */,
+				FC2C05B91615EB780020BE29 /* delayeddelivery.mm in Sources */,
+				FC2C05BA1615EB780020BE29 /* disco.mm in Sources */,
+				FC2C05BB1615EB780020BE29 /* dns.mm in Sources */,
+				FC2C05BC1615EB780020BE29 /* error.mm in Sources */,
+				FC2C05BD1615EB780020BE29 /* eventdispatcher.mm in Sources */,
+				FC2C05BE1615EB780020BE29 /* featureneg.mm in Sources */,
+				FC2C05BF1615EB780020BE29 /* flexoff.mm in Sources */,
+				FC2C05C01615EB780020BE29 /* gateway.mm in Sources */,
+				FC2C05C11615EB780020BE29 /* gloox.mm in Sources */,
+				FC2C05C21615EB780020BE29 /* gpgencrypted.mm in Sources */,
+				FC2C05C31615EB780020BE29 /* gpgsigned.mm in Sources */,
+				FC2C05C41615EB780020BE29 /* httpbase.mm in Sources */,
+				FC2C05C51615EB780020BE29 /* inbandbytestream.mm in Sources */,
+				FC2C05C61615EB780020BE29 /* instantmucroom.mm in Sources */,
+				FC2C05C71615EB780020BE29 /* iq.mm in Sources */,
+				FC2C05C81615EB780020BE29 /* jid.mm in Sources */,
+				FC2C05C91615EB780020BE29 /* lastactivity.mm in Sources */,
+				FC2C05CA1615EB780020BE29 /* location.mm in Sources */,
+				FC2C05CB1615EB780020BE29 /* logsink.mm in Sources */,
+				FC2C05CC1615EB780020BE29 /* md5.mm in Sources */,
+				FC2C05CD1615EB780020BE29 /* message.mm in Sources */,
+				FC2C05CE1615EB780020BE29 /* messageevent.mm in Sources */,
+				FC2C05CF1615EB780020BE29 /* messageeventfilter.mm in Sources */,
+				FC2C05D01615EB780020BE29 /* messagefilter.mm in Sources */,
+				FC2C05D11615EB780020BE29 /* messagesession.mm in Sources */,
+				FC2C05D21615EB780020BE29 /* mucmessagesession.mm in Sources */,
+				FC2C05D31615EB780020BE29 /* mucroom.mm in Sources */,
+				FC2C05D41615EB780020BE29 /* mutex.mm in Sources */,
+				FC2C05D51615EB780020BE29 /* nickname.mm in Sources */,
+				FC2C05D61615EB780020BE29 /* nonsaslauth.mm in Sources */,
+				FC2C05D71615EB780020BE29 /* oob.mm in Sources */,
+				FC2C05D81615EB780020BE29 /* parser.mm in Sources */,
+				FC2C05D91615EB780020BE29 /* pre.mm in Sources */,
+				FC2C05DA1615EB780020BE29 /* presence.mm in Sources */,
+				FC2C05DB1615EB780020BE29 /* privacyitem.mm in Sources */,
+				FC2C05DC1615EB780020BE29 /* privacymanager.mm in Sources */,
+				FC2C05DD1615EB780020BE29 /* privatexml.mm in Sources */,
+				FC2C05DE1615EB780020BE29 /* pubsubevent.mm in Sources */,
+				FC2C05DF1615EB780020BE29 /* pubsubitem.mm in Sources */,
+				FC2C05E01615EB780020BE29 /* pubsubmanager.mm in Sources */,
+				FC2C05E11615EB780020BE29 /* receipt.mm in Sources */,
+				FC2C05E21615EB780020BE29 /* registration.mm in Sources */,
+				FC2C05E41615EB780020BE29 /* rosteritem.mm in Sources */,
+				FC2C05E51615EB780020BE29 /* rostermanager.mm in Sources */,
+				FC2C05E61615EB780020BE29 /* search.mm in Sources */,
+				FC2C05E71615EB780020BE29 /* sha.mm in Sources */,
+				FC2C05E81615EB780020BE29 /* shim.mm in Sources */,
+				FC2C05E91615EB780020BE29 /* simanager.mm in Sources */,
+				FC2C05EA1615EB780020BE29 /* siprofileft.mm in Sources */,
+				FC2C05EB1615EB780020BE29 /* socks5bytestream.mm in Sources */,
+				FC2C05EC1615EB780020BE29 /* socks5bytestreammanager.mm in Sources */,
+				FC2C05ED1615EB780020BE29 /* socks5bytestreamserver.mm in Sources */,
+				FC2C05EE1615EB780020BE29 /* softwareversion.mm in Sources */,
+				FC2C05EF1615EB780020BE29 /* stanza.mm in Sources */,
+				FC2C05F01615EB780020BE29 /* stanzaextensionfactory.mm in Sources */,
+				FC2C05F11615EB780020BE29 /* subscription.mm in Sources */,
+				FC2C05F21615EB780020BE29 /* tag.mm in Sources */,
+				FC2C05F31615EB780020BE29 /* tlsdefault.mm in Sources */,
+				FC2C05F41615EB780020BE29 /* tlsgnutlsbase.mm in Sources */,
+				FC2C05F51615EB780020BE29 /* tlsgnutlsclient.mm in Sources */,
+				FC2C05F61615EB780020BE29 /* tlsgnutlsclientanon.mm in Sources */,
+				FC2C05F71615EB780020BE29 /* tlsgnutlsserveranon.mm in Sources */,
+				FC2C05F81615EB780020BE29 /* tlsopensslbase.mm in Sources */,
+				FC2C05F91615EB780020BE29 /* tlsopensslclient.mm in Sources */,
+				FC2C05FA1615EB780020BE29 /* tlsopensslserver.mm in Sources */,
+				FC2C05FB1615EB780020BE29 /* tlsschannel.mm in Sources */,
+				FC2C05FC1615EB780020BE29 /* uniquemucroom.mm in Sources */,
+				FC2C05FD1615EB780020BE29 /* util.mm in Sources */,
+				FC2C05FE1615EB780020BE29 /* vcard.mm in Sources */,
+				FC2C05FF1615EB780020BE29 /* vcardmanager.mm in Sources */,
+				FC2C06001615EB780020BE29 /* vcardupdate.mm in Sources */,
+				FC2C06011615EB780020BE29 /* vika.mm in Sources */,
+				FC2C06021615EB780020BE29 /* xhtmlim.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7377,6 +8103,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lresolv",
+					"-lssl",
+					"-lcrypto",
+					"-lz",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -7398,6 +8130,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lresolv",
+					"-lssl",
+					"-lcrypto",
+					"-lz",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;

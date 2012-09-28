@@ -8,18 +8,22 @@
 
 #import "SinaUCLoginView.h"
 #import "SinaUCMaxLengthFormatter.h"
+#import <Quartz/Quartz.h>
 
 @implementation SinaUCLoginView
 
-@synthesize backgroundTopImage;
 @synthesize backgroundUpsideImage;
-@synthesize backgroundImage;
-@synthesize accountBackground;
-@synthesize passwordBackground;
+@synthesize backgroundTopImageView;
+@synthesize backgroundImageView;
+@synthesize backgroundDownsideView;
+@synthesize accountBackgroundView;
+@synthesize passwordBackgroundView;
 @synthesize account;
 @synthesize password;
 @synthesize focused;
 @synthesize showTop;
+@synthesize showingTop;
+@synthesize hidingTop;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -31,9 +35,17 @@
     return self;
 }
 
+- (void)slideDirection
+{
+   
+}
+
 - (void)awakeFromNib {
     // Load the images from the bundle's Resources directory
     //backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Top_Active"];
+    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 250, 351) display:YES animate:NO];
+    showedTop = NO;
+    hidingTop = NO;
     inited = @"active";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(activate)
@@ -43,7 +55,7 @@
                                              selector:@selector(deactivate)
                                                  name:@"NSApplicationDidResignActiveNotification"
                                                object:nil];
-    [passwordBackground setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
+    [passwordBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
     SinaUCMaxLengthFormatter* af = [[SinaUCMaxLengthFormatter alloc] init];
     [af setMaximumLength:25];
     [account setFormatter:af];
@@ -63,42 +75,52 @@
         changed = (focused == YES);
         focused = NO;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
-        backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_Active"];
-        [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
-        if (showTop) {
-            backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Active_Top"];
-        }
+        [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active_Top"]];
+        [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active"]];
+        [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
     } else {
         changed = (focused == NO);
         focused = YES;
         backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
-        backgroundImage = [NSImage imageNamed:@"LoginWindow_Background_InActive"];
-        [accountBackground setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
-        if (showTop) {
-            backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_InActive_Top"];
-        }
+        [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive_Top"]];
+        [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive"]];
+        [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
     }
     
-    [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 19)
+    [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
                               fromRect:NSZeroRect
                              operation:NSCompositeSourceOver
                               fraction:1.0];
-    if (!showTop) {
-        [backgroundImage drawAtPoint:NSMakePoint(0, -10)
-                            fromRect:NSZeroRect
-                           operation:NSCompositeSourceOver
-                            fraction:1.0];
+    BOOL show = NO;
+    if (showTop == YES) {
+        show = (showingTop == YES);
+        showingTop = NO;
+        if (show) {
+            showedTop = YES;
+            NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
+            [[NSAnimationContext currentContext] setDuration:delay];
+            [[backgroundDownsideView animator] setFrame:NSMakeRect(0, 0, 256, 109)];
+        }
     } else {
-        [backgroundTopImage drawAtPoint:NSMakePoint(0, -40)
-                               fromRect:NSZeroRect
-                              operation:NSCompositeSourceOver
-                               fraction:1.0];
-        [backgroundImage drawAtPoint:NSMakePoint(0, -48)
-                            fromRect:NSZeroRect
-                           operation:NSCompositeSourceOver
-                            fraction:1.0];
+        show = (showingTop == NO);
+        showingTop = YES;
+        if (show && showedTop == YES) {
+            hidingTop = YES;
+            [NSAnimationContext beginGrouping];
+            NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
+            [[NSAnimationContext currentContext] setDuration:delay];
+            [[backgroundDownsideView animator] setFrame:NSMakeRect(0, 80, 256, 29)];
+            [NSAnimationContext endGrouping];
+        }
+        if (floor(backgroundDownsideView.frame.size.height) == 29) {
+            hidingTop = NO;
+        }
+        if (!showedTop || hidingTop == NO) {
+            [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
+        }
     }
-    if (changed) {
+    
+    if (changed || show) {
         [[self window] display];
     }
 }

@@ -26,8 +26,8 @@
 
 - (void)awakeFromNib
 {
-    [self setImagePosition:NSImageOnly];
     [self setBordered:NO];
+    [self setImagePosition:NSImageOnly];
     [self.cell setShowsStateBy:NSPushInCellMask];
     [self.cell setHighlightsBy:NSContentsCellMask];
 }
@@ -46,13 +46,29 @@
 
 - (void)updateTrackingAreas
 {
+    [self removeTrackingArea:trackArea];
+    [self createTrackingArea];
     [super updateTrackingAreas];
-    if (trackArea) {
-        [self removeTrackingArea:trackArea];
-    }
-    NSTrackingAreaOptions options = NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow;
-    trackArea = [[NSTrackingArea alloc] initWithRect:NSZeroRect options:options owner:self userInfo:nil];
+}
+
+- (void) createTrackingArea
+{
+    int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
+    trackArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
+                                                 options:opts
+                                                   owner:self
+                                                userInfo:nil];
     [self addTrackingArea:trackArea];
+    
+    NSPoint mouseLocation = [[self window] mouseLocationOutsideOfEventStream];
+    mouseLocation = [self convertPoint: mouseLocation
+                              fromView: nil];
+    
+    if (NSPointInRect(mouseLocation, [self bounds])) {
+        [self mouseEntered: nil];
+    } else {
+        [self mouseExited: nil];
+    }
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent {

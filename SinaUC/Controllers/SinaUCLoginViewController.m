@@ -42,6 +42,10 @@
     [hideTopBtn setOrig:@"LoginWindow_UpArrow_Normal"];
     [hideTopBtn setHover:@"LoginWindow_UpArrow_Hover"];
     [hideTopBtn setAlternate:@"LoginWindow_UpArrow_Click"];
+    
+    [showTopBtn setHidden:NO];
+    [hideTopBtn setHidden:YES];
+
 }
 
 - (IBAction) showTop:(id)sender

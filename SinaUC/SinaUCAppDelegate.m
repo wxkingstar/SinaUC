@@ -51,7 +51,7 @@
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent:@"com.cn.sina.SinaUC"];
+    return [appSupportURL URLByAppendingPathComponent:@"SinaUC"];
 }
 
 // Creates if necessary and returns the managed object model for the application.
