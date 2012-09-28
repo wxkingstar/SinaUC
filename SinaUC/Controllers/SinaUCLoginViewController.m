@@ -26,21 +26,30 @@
 
 - (void)awakeFromNib
 {
+    
 }
 
 - (IBAction) showTop:(id)sender
 {
     //发送消息？
-    [(SinaUCLoginView*)self.view setShowTop:YES];
     [[(SinaUCLoginView*)self.view valueForKey:@"showTopBtn"] setHidden:YES];
     [[(SinaUCLoginView*)self.view valueForKey:@"hideTopBtn"] setHidden:NO];
+    [NSAnimationContext beginGrouping];
+    NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
+    [[NSAnimationContext currentContext] setDuration:delay];
+    [[[(SinaUCLoginView*)self.view valueForKey:@"backgroundDownsideView"] animator] setFrame:NSMakeRect(0, 0, 256, 109)];
+    [NSAnimationContext endGrouping];
 }
 
 - (IBAction) hideTop:(id)sender
 {
-    [(SinaUCLoginView*)self.view setShowTop:NO];
     [[(SinaUCLoginView*)self.view valueForKey:@"showTopBtn"] setHidden:NO];
     [[(SinaUCLoginView*)self.view valueForKey:@"hideTopBtn"] setHidden:YES];
+    [NSAnimationContext beginGrouping];
+    NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
+    [[NSAnimationContext currentContext] setDuration:delay];
+    [[[(SinaUCLoginView*)self.view valueForKey:@"backgroundDownsideView"] animator] setFrame:NSMakeRect(0, 80, 256, 29)];
+    [NSAnimationContext endGrouping];
 }
 
 - (IBAction) login:(id)sender

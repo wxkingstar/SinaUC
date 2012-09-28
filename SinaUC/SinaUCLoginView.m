@@ -22,9 +22,6 @@
 @synthesize account;
 @synthesize password;
 @synthesize focused;
-@synthesize showTop;
-@synthesize showingTop;
-@synthesize hidingTop;
 @synthesize loginBtn;
 @synthesize hideTopBtn;
 @synthesize showTopBtn;
@@ -39,14 +36,8 @@
     return self;
 }
 
-- (void)slideDirection
-{
-   
-}
-
 - (void)awakeFromNib {
     // Load the images from the bundle's Resources directory
-    //backgroundTopImage = [NSImage imageNamed:@"LoginWindow_Background_Top_Active"];
     [loginBtn setOrig:@"LoginWindow_LoginBtn_Normal"];
     [loginBtn setHover:@"LoginWindow_LoginBtn_Hover"];
     [loginBtn setAlternate:@"LoginWindow_LoginBtn_Click"];
@@ -69,7 +60,7 @@
     [pf setMaximumLength:16];
     [password setFormatter:pf];
     [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 250, 351) display:YES animate:NO];
-    hidingTop = NO;
+    [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
     inited = @"active";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(activate)
@@ -111,37 +102,7 @@
                              operation:NSCompositeSourceOver
                               fraction:1.0];
     
-    //下半部分动画
-    BOOL show = NO;
-    if (showTop == YES) {
-        show = (showingTop == YES);
-        showingTop = NO;
-        if (show) {
-            NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
-            [[NSAnimationContext currentContext] setDuration:delay];
-            [[backgroundDownsideView animator] setFrame:NSMakeRect(0, 0, 256, 109)];
-        }
-    } else {
-        show = (showingTop == NO);
-        showingTop = YES;
-        if (show) {
-            hidingTop = YES;
-            [NSAnimationContext beginGrouping];
-            NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
-            [[NSAnimationContext currentContext] setDuration:delay];
-            [[backgroundDownsideView animator] setFrame:NSMakeRect(0, 80, 256, 29)];
-            [NSAnimationContext endGrouping];
-        }
-        if (floor(backgroundDownsideView.frame.size.height) == 29) {
-            hidingTop = NO;
-        }
-        //hidingTop为NO后才画，否则得不到向上的动画效果
-        if (hidingTop == NO) {
-            [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
-        }
-    }
-    
-    if (changed || show) {
+    if (changed) {
         [[self window] display];
     }
 }

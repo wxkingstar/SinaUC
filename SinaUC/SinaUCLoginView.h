@@ -13,14 +13,18 @@
 {
     //是否处于激活状态
     NSString *inited;
-    //上半部分
-    NSImage *backgroundUpsideImage;
-    //下半部分边框背景
-    NSImageView *backgroundImageView;
+    //上半部分-我的账号
+    NSView * backgroundUpsideMyAccountView;
+    //上半部分-其它账号
+    NSView * backgroundUpsideOtherAccountsView;
+    //下半部分
+    NSView *backgroundDownsideView;
+    //上半部分背景
+    NSImageView *backgroundUpsideImageView;
     //下半部分背景
     NSImageView *backgroundTopImageView;
-    //下半部分
-    NSView * backgroundDownsideView;
+    //下半部分边框背景
+    NSImageView *backgroundImageView;
     //用户名背景
     NSImageView *accountBackgroundView;
     //密码背景
@@ -35,24 +39,23 @@
     SinaUCButton *showTopBtn;
     //隐藏其它信息按钮
     SinaUCButton *hideTopBtn;
+    //登陆动画
+    NSMutableArray *loginAnimation;
     BOOL focused;
-    BOOL showingTop;
-    BOOL hidingTop;
-    BOOL showTop;
 }
 
 @property (assign) BOOL focused;
-@property (assign) BOOL showingTop;
-@property (assign) BOOL hidingTop;
-@property (assign) BOOL showTop;
+@property (retain) IBOutlet NSView *backgroundUpsideMyAccountView;
+@property (retain) IBOutlet NSView *backgroundUpsideOtherAccountsView;
+@property (retain) IBOutlet NSView *backgroundDownsideView;
 @property (retain) NSImage *backgroundUpsideImage;
 @property (retain) IBOutlet NSImageView *backgroundTopImageView;
 @property (retain) IBOutlet NSImageView *backgroundImageView;
-@property (retain) IBOutlet NSView *backgroundDownsideView;
 @property (retain) IBOutlet NSImageView *accountBackgroundView;
 @property (retain) IBOutlet NSImageView *passwordBackgroundView;
 @property (retain) IBOutlet NSTextField *account;
 @property (retain) IBOutlet NSTextField *password;
+@property (retain) IBOutlet SinaUCButton *myAccountBtn;
 @property (retain) IBOutlet SinaUCButton *loginBtn;
 @property (retain) IBOutlet SinaUCButton *showTopBtn;
 @property (retain) IBOutlet SinaUCButton *hideTopBtn;
