@@ -14,6 +14,8 @@
 @implementation SinaUCLoginView
 
 @synthesize backgroundUpsideImage;
+@synthesize myHeadimg;
+@synthesize loginAnimationView;
 @synthesize backgroundTopImageView;
 @synthesize backgroundImageView;
 @synthesize backgroundDownsideView;
@@ -25,6 +27,7 @@
 @synthesize loginBtn;
 @synthesize hideTopBtn;
 @synthesize showTopBtn;
+@synthesize myAccountBtn;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -36,8 +39,26 @@
     return self;
 }
 
+- (void)loginAnimate:(id)sender
+{
+    if (++loginAnimationImagesCurrentIndex>=12) {
+        loginAnimationImagesCurrentIndex = 0;
+    }
+    [loginAnimationView setImage:[loginAnimationImages objectAtIndex:loginAnimationImagesCurrentIndex]];
+}
+
 - (void)awakeFromNib {
+    //[loginAnimationView setHidden:YES];
+    loginAnimationImages = [[NSMutableArray alloc] init];
+    for (loginAnimationImagesCurrentIndex=1; loginAnimationImagesCurrentIndex<=12; loginAnimationImagesCurrentIndex++) {
+        [loginAnimationImages addObject:[NSImage imageNamed:[NSString stringWithFormat:@"LoginWindow_WelcomeAnimation_%02d", loginAnimationImagesCurrentIndex]]];
+    }
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(loginAnimate:) userInfo:nil repeats:YES];
     // Load the images from the bundle's Resources directory
+    [myAccountBtn setOrig:@"LoginWindow_HeadMask_Active"];
+    [myAccountBtn setHover:@"LoginWindow_HeadMask_Active_Hover"];
+    [myAccountBtn setAlternate:@"LoginWindow_HeadMask_Active"];
+    
     [loginBtn setOrig:@"LoginWindow_LoginBtn_Normal"];
     [loginBtn setHover:@"LoginWindow_LoginBtn_Hover"];
     [loginBtn setAlternate:@"LoginWindow_LoginBtn_Click"];
@@ -83,25 +104,51 @@
     if ([inited isEqualToString:@"active"]) {
         changed = (focused == YES);
         focused = NO;
-        backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
-        [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active_Top"]];
-        [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active"]];
-        [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
+        if (changed) {
+            @synchronized(self) {
+                [myAccountBtn setOrig:@"LoginWindow_HeadMask_Active"];
+                [myAccountBtn setHover:@"LoginWindow_HeadMask_Active_Hover"];
+                
+                backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
+                [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
+                                          fromRect:NSZeroRect
+                                         operation:NSCompositeSourceOver
+                                          fraction:1.0];
+                [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active_Top"]];
+                [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active"]];
+                [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
+            }
+        } else {
+            [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
+                                      fromRect:NSZeroRect
+                                     operation:NSCompositeSourceOver
+                                      fraction:1.0];
+        }
     } else {
         changed = (focused == NO);
         focused = YES;
-        backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
-        [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive_Top"]];
-        [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive"]];
-        [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
+        if (changed) {
+            @synchronized(self){
+                [myAccountBtn setOrig:@"LoginWindow_HeadMask_InActive"];
+                [myAccountBtn setHover:@"LoginWindow_HeadMask_InActive_Hover"];
+                
+                backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
+                [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
+                                          fromRect:NSZeroRect
+                                         operation:NSCompositeSourceOver
+                                          fraction:1.0];
+                [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive_Top"]];
+                [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive"]];
+                [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
+            }
+        } else {
+            [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
+                                      fromRect:NSZeroRect
+                                     operation:NSCompositeSourceOver
+                                      fraction:1.0];
+        }
     }
-    
-    //上半部分背景永远不变
-    [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
-                              fromRect:NSZeroRect
-                             operation:NSCompositeSourceOver
-                              fraction:1.0];
-    
+
     if (changed) {
         [[self window] display];
     }

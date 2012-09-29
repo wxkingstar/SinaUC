@@ -39,8 +39,14 @@
     SinaUCButton *showTopBtn;
     //隐藏其它信息按钮
     SinaUCButton *hideTopBtn;
+    //切换其它账号
+    SinaUCButton *myAccountBtn;
+    //我的头像
+    NSImageView *myHeadimg;
     //登陆动画
-    NSMutableArray *loginAnimation;
+    NSImageView *loginAnimationView;
+    NSMutableArray *loginAnimationImages;
+    int loginAnimationImagesCurrentIndex;
     BOOL focused;
 }
 
@@ -49,6 +55,8 @@
 @property (retain) IBOutlet NSView *backgroundUpsideOtherAccountsView;
 @property (retain) IBOutlet NSView *backgroundDownsideView;
 @property (retain) NSImage *backgroundUpsideImage;
+@property (retain) IBOutlet NSImageView *myHeadimg;
+@property (retain) IBOutlet NSImageView *loginAnimationView;
 @property (retain) IBOutlet NSImageView *backgroundTopImageView;
 @property (retain) IBOutlet NSImageView *backgroundImageView;
 @property (retain) IBOutlet NSImageView *accountBackgroundView;
@@ -59,5 +67,7 @@
 @property (retain) IBOutlet SinaUCButton *loginBtn;
 @property (retain) IBOutlet SinaUCButton *showTopBtn;
 @property (retain) IBOutlet SinaUCButton *hideTopBtn;
+
+- (void)loginAnimate:(id)sender;
 
 @end

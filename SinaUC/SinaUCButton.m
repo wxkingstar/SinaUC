@@ -35,14 +35,18 @@
 
 - (void)setOrig:(NSString *)theOrig
 {
-    [super setImage:[NSImage imageNamed:theOrig]];
-    orig = theOrig;
+    @synchronized(self){
+        [super setImage:[NSImage imageNamed:theOrig]];
+        orig = theOrig;
+    }
 }
 
 - (void)setAlternate:(NSString *)theAlternate
 {
-    [super setAlternateImage:[NSImage imageNamed:theAlternate]];
-    alternate = theAlternate;
+    @synchronized(self){
+        [super setAlternateImage:[NSImage imageNamed:theAlternate]];
+        alternate = theAlternate;
+    }
 }
 
 - (void)updateTrackingAreas

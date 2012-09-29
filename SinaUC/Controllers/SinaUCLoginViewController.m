@@ -26,7 +26,7 @@
 
 - (void)awakeFromNib
 {
-    
+    [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];
 }
 
 - (IBAction) showTop:(id)sender
