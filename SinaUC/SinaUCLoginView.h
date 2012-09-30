@@ -54,7 +54,7 @@
 @property (retain) IBOutlet NSView *backgroundUpsideMyAccountView;
 @property (retain) IBOutlet NSView *backgroundUpsideOtherAccountsView;
 @property (retain) IBOutlet NSView *backgroundDownsideView;
-@property (retain) NSImage *backgroundUpsideImage;
+@property (retain) IBOutlet NSImageView *backgroundUpsideImageView;
 @property (retain) IBOutlet NSImageView *myHeadimg;
 @property (retain) IBOutlet NSImageView *loginAnimationView;
 @property (retain) IBOutlet NSImageView *backgroundTopImageView;

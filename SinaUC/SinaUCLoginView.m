@@ -13,9 +13,11 @@
 
 @implementation SinaUCLoginView
 
-@synthesize backgroundUpsideImage;
 @synthesize myHeadimg;
 @synthesize loginAnimationView;
+@synthesize backgroundUpsideMyAccountView;
+@synthesize backgroundUpsideOtherAccountsView;
+@synthesize backgroundUpsideImageView;
 @synthesize backgroundTopImageView;
 @synthesize backgroundImageView;
 @synthesize backgroundDownsideView;
@@ -80,7 +82,9 @@
     SinaUCMaxLengthFormatter* pf = [[SinaUCMaxLengthFormatter alloc] init];
     [pf setMaximumLength:16];
     [password setFormatter:pf];
-    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 250, 351) display:YES animate:NO];
+    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 256, 351) display:YES animate:NO];
+    [backgroundUpsideMyAccountView setFrame:NSMakeRect(0, 109, 256, 242)];
+    [backgroundUpsideOtherAccountsView setFrame:NSMakeRect(0, 109, 256, 242)];
     [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
     inited = @"active";
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -108,21 +112,11 @@
             @synchronized(self) {
                 [myAccountBtn setOrig:@"LoginWindow_HeadMask_Active"];
                 [myAccountBtn setHover:@"LoginWindow_HeadMask_Active_Hover"];
-                
-                backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_Active"];
-                [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
-                                          fromRect:NSZeroRect
-                                         operation:NSCompositeSourceOver
-                                          fraction:1.0];
+                [backgroundUpsideImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Upside_Active"]];
                 [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active_Top"]];
                 [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active"]];
                 [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
             }
-        } else {
-            [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
-                                      fromRect:NSZeroRect
-                                     operation:NSCompositeSourceOver
-                                      fraction:1.0];
         }
     } else {
         changed = (focused == NO);
@@ -131,21 +125,11 @@
             @synchronized(self){
                 [myAccountBtn setOrig:@"LoginWindow_HeadMask_InActive"];
                 [myAccountBtn setHover:@"LoginWindow_HeadMask_InActive_Hover"];
-                
-                backgroundUpsideImage = [NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"];
-                [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
-                                          fromRect:NSZeroRect
-                                         operation:NSCompositeSourceOver
-                                          fraction:1.0];
+                [backgroundUpsideImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Upside_InActive"]];
                 [backgroundTopImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive_Top"]];
                 [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive"]];
                 [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
             }
-        } else {
-            [backgroundUpsideImage drawAtPoint:NSMakePoint(0, 109)
-                                      fromRect:NSZeroRect
-                                     operation:NSCompositeSourceOver
-                                      fraction:1.0];
         }
     }
 
