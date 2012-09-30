@@ -16,5 +16,4 @@
 @property (copy, nonatomic) NSString* orig;
 @property (copy, nonatomic) NSString* alternate;
 
-
 @end
