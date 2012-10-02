@@ -6,8 +6,10 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
+#import "SinaUCAppDelegate.h"
 #import "SinaUCLoginViewController.h"
 #import "SinaUCLoginView.h"
+#import "XMPP.h"
 
 @interface SinaUCLoginViewController ()
 
@@ -26,7 +28,7 @@
 
 - (void)awakeFromNib
 {
-    [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];
+    [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];   
 }
 
 - (IBAction) showTop:(id)sender
@@ -54,6 +56,22 @@
 
 - (IBAction) login:(id)sender
 {
+    [xmpp login:[[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue] withPassword:[[(SinaUCLoginView*)self.view valueForKey:@"password"] stringValue]];
 }
+
+- (void)willConnect
+{
+    //显示登录动画
+    //不允许修改用户名和密码
+    //显示取消登录按钮
+}
+
+- (void)didDisConnectedWithError:(NSInteger) error
+{
+    //取消后隐藏登陆动画
+    //允许修改用户名和密码
+    //隐藏取消登陆按钮
+}
+
 
 @end

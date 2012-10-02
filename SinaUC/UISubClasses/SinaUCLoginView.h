@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol SinaUCConnectionDelegate;
 @class SinaUCButton;
-@interface SinaUCLoginView : NSView
+@interface SinaUCLoginView : NSView <SinaUCConnectionDelegate>
 {
     //是否处于激活状态
     NSString *inited;
@@ -61,7 +62,7 @@
 @property (retain) IBOutlet NSImageView *backgroundImageView;
 @property (retain) IBOutlet NSImageView *accountBackgroundView;
 @property (retain) IBOutlet NSImageView *passwordBackgroundView;
-@property (retain) IBOutlet NSTextField *account;
+@property (retain) IBOutlet NSTextField *username;
 @property (retain) IBOutlet NSTextField *password;
 @property (retain) IBOutlet SinaUCButton *myAccountBtn;
 @property (retain) IBOutlet SinaUCButton *loginBtn;

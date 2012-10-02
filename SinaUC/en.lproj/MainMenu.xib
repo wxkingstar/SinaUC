@@ -1308,6 +1308,9 @@
 			<object class="NSCustomObject" id="434761643">
 				<string key="NSClassName">SinaUCLoginViewController</string>
 			</object>
+			<object class="NSCustomObject" id="45064685">
+				<string key="NSClassName">XMPP</string>
+			</object>
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
@@ -1326,7 +1329,6 @@
 							<int key="NSvFlags">-2147483380</int>
 							<string key="NSFrame">{{0, 109}, {256, 242}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1037398656"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSClassName">NSView</string>
@@ -1341,7 +1343,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{200, 1}, {30, 30}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="712179038"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1371,7 +1372,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{65, 3}, {126, 20}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="530465905"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<int key="NSTag">1</int>
@@ -1424,7 +1424,6 @@
 									</set>
 									<string key="NSFrame">{{20, 0}, {214, 32}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="45203832"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<string key="NSHuggingPriority">{250, 250}</string>
@@ -1447,7 +1446,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{50, 42}, {156, 20}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="766968764"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1476,7 +1474,6 @@
 									</set>
 									<string key="NSFrame">{{14, 31}, {226, 38}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="141374401"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1505,7 +1502,6 @@
 									</set>
 									<string key="NSFrame">{{40, 89}, {177, 123}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="768194965"/>
 									<object class="CISourceOverCompositing" key="NSViewCompositeFilter">
 										<bool key="CIEnabled">YES</bool>
@@ -1530,7 +1526,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{75, 95}, {107, 111}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="319336399">
@@ -1562,7 +1557,6 @@
 									</set>
 									<string key="NSFrame">{{81, 104}, {93, 93}}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="871887225"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1591,7 +1585,6 @@
 									</set>
 									<string key="NSFrameSize">{256, 242}</string>
 									<reference key="NSSuperview" ref="1037398656"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="235797125"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1610,7 +1603,6 @@
 							</array>
 							<string key="NSFrame">{{0, 109}, {256, 242}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="359113794"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1627,7 +1619,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{89, 41}, {79, 18}}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="516392029">
@@ -1659,7 +1650,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{89, 71}, {79, 18}}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="470089339">
@@ -1686,7 +1676,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{114, 16}, {26, 9}}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="757319644">
@@ -1711,7 +1700,6 @@
 									<array class="NSMutableArray" key="NSSubviews"/>
 									<string key="NSFrame">{{114, 16}, {26, 9}}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="453179838">
@@ -1743,7 +1731,6 @@
 									</set>
 									<string key="NSFrameSize">{256, 29}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="468522749"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -1772,7 +1759,6 @@
 									</set>
 									<string key="NSFrame">{{0, 29}, {256, 80}}</string>
 									<reference key="NSSuperview" ref="712179038"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="565225033"/>
 									<bool key="NSViewIsLayerTreeHost">YES</bool>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1792,7 +1778,6 @@
 							</array>
 							<string key="NSFrameSize">{256, 109}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1239327"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1801,7 +1786,6 @@
 					</array>
 					<string key="NSFrameSize">{256, 351}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="506434898"/>
 					<string key="NSHuggingPriority">{250, 250}</string>
 				</object>
@@ -1823,8 +1807,6 @@
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{250, 400}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
@@ -2470,14 +2452,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">account</string>
-						<reference key="source" ref="439893737"/>
-						<reference key="destination" ref="141374401"/>
-					</object>
-					<int key="connectionID">1498</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">password</string>
 						<reference key="source" ref="439893737"/>
 						<reference key="destination" ref="45203832"/>
@@ -2597,6 +2571,14 @@
 					<int key="connectionID">2906</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">username</string>
+						<reference key="source" ref="439893737"/>
+						<reference key="destination" ref="141374401"/>
+					</object>
+					<int key="connectionID">2950</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="755631768"/>
@@ -2669,14 +2651,6 @@
 					<int key="connectionID">1326</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">loginBtn</string>
-						<reference key="source" ref="434761643"/>
-						<reference key="destination" ref="530465905"/>
-					</object>
-					<int key="connectionID">1269</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showTop:</string>
 						<reference key="source" ref="434761643"/>
@@ -2685,28 +2659,20 @@
 					<int key="connectionID">2583</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">showTopBtn</string>
-						<reference key="source" ref="434761643"/>
-						<reference key="destination" ref="468522749"/>
-					</object>
-					<int key="connectionID">2582</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">hideTopBtn</string>
-						<reference key="source" ref="434761643"/>
-						<reference key="destination" ref="858325407"/>
-					</object>
-					<int key="connectionID">2590</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">hideTop:</string>
 						<reference key="source" ref="434761643"/>
 						<reference key="destination" ref="858325407"/>
 					</object>
 					<int key="connectionID">2589</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">xmpp</string>
+						<reference key="source" ref="434761643"/>
+						<reference key="destination" ref="45064685"/>
+					</object>
+					<int key="connectionID">2949</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -5429,6 +5395,11 @@
 						<reference key="object" ref="1007328962"/>
 						<reference key="parent" ref="1037398656"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">2948</int>
+						<reference key="object" ref="45064685"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -5678,6 +5649,7 @@
 				<string key="2945.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2946.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2947.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="2948.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="295.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="296.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="297.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5836,232 +5808,9 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">2947</int>
+			<int key="maxID">2950</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">NSDocument</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="printDocument:">id</string>
-						<string key="revertDocumentToSaved:">id</string>
-						<string key="runPageLayout:">id</string>
-						<string key="saveDocument:">id</string>
-						<string key="saveDocumentAs:">id</string>
-						<string key="saveDocumentTo:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="printDocument:">
-							<string key="name">printDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revertDocumentToSaved:">
-							<string key="name">revertDocumentToSaved:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="runPageLayout:">
-							<string key="name">runPageLayout:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocument:">
-							<string key="name">saveDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentAs:">
-							<string key="name">saveDocumentAs:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentTo:">
-							<string key="name">saveDocumentTo:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSDocument.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SinaUCAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="login:">id</string>
-						<string key="saveAction:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="login:">
-							<string key="name">login:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveAction:">
-							<string key="name">saveAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="launchedWindow">NSWindow</string>
-						<string key="loginWindow">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="launchedWindow">
-							<string key="name">launchedWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loginWindow">
-							<string key="name">loginWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SinaUCAppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SinaUCButton</string>
-					<string key="superclassName">NSButton</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SinaUCButton.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SinaUCLoginView</string>
-					<string key="superclassName">NSView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="account">NSTextField</string>
-						<string key="accountBackgroundView">NSImageView</string>
-						<string key="backgroundDownsideView">NSView</string>
-						<string key="backgroundImageView">NSImageView</string>
-						<string key="backgroundTopImageView">NSImageView</string>
-						<string key="backgroundUpsideImageView">NSImageView</string>
-						<string key="backgroundUpsideMyAccountView">NSView</string>
-						<string key="backgroundUpsideOtherAccountsView">NSView</string>
-						<string key="hideTopBtn">SinaUCButton</string>
-						<string key="loginAnimationView">NSImageView</string>
-						<string key="loginBtn">SinaUCButton</string>
-						<string key="myAccountBtn">SinaUCButton</string>
-						<string key="myHeadimg">NSImageView</string>
-						<string key="password">NSTextField</string>
-						<string key="passwordBackgroundView">NSImageView</string>
-						<string key="showTopBtn">SinaUCButton</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="account">
-							<string key="name">account</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="accountBackgroundView">
-							<string key="name">accountBackgroundView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundDownsideView">
-							<string key="name">backgroundDownsideView</string>
-							<string key="candidateClassName">NSView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundImageView">
-							<string key="name">backgroundImageView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundTopImageView">
-							<string key="name">backgroundTopImageView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundUpsideImageView">
-							<string key="name">backgroundUpsideImageView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundUpsideMyAccountView">
-							<string key="name">backgroundUpsideMyAccountView</string>
-							<string key="candidateClassName">NSView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundUpsideOtherAccountsView">
-							<string key="name">backgroundUpsideOtherAccountsView</string>
-							<string key="candidateClassName">NSView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="hideTopBtn">
-							<string key="name">hideTopBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loginAnimationView">
-							<string key="name">loginAnimationView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loginBtn">
-							<string key="name">loginBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="myAccountBtn">
-							<string key="name">myAccountBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="myHeadimg">
-							<string key="name">myHeadimg</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="password">
-							<string key="name">password</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="passwordBackgroundView">
-							<string key="name">passwordBackgroundView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="showTopBtn">
-							<string key="name">showTopBtn</string>
-							<string key="candidateClassName">SinaUCButton</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SinaUCLoginView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SinaUCLoginViewController</string>
-					<string key="superclassName">NSViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="hideTop:">id</string>
-						<string key="login:">id</string>
-						<string key="showTop:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="hideTop:">
-							<string key="name">hideTop:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="login:">
-							<string key="name">login:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showTop:">
-							<string key="name">showTop:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SinaUCLoginViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SinaUCLoginWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SinaUCLoginWindow.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

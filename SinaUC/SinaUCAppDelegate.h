@@ -7,19 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SinaUCConnectionDelegate.h"
 
-@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate>
+@protocol SinaUCConnectionDelegate;
+@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate, SinaUCConnectionDelegate>
 
 @property (assign) IBOutlet NSWindow *loginWindow;
 @property (assign) IBOutlet NSWindow *launchedWindow;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (retain) NSMutableArray *activeDelegates;
 
-- (IBAction)saveAction:(id)sender;
-- (IBAction)login:(id)sender;
-- (void)applicationDidResignActive:(NSNotification *)aNotification;
-- (void)applicationDidBecomeActive:(NSNotification *)aNotification;
+- (void)onConnect;
 
 @end

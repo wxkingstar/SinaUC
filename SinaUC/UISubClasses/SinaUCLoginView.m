@@ -23,7 +23,7 @@
 @synthesize backgroundDownsideView;
 @synthesize accountBackgroundView;
 @synthesize passwordBackgroundView;
-@synthesize account;
+@synthesize username;
 @synthesize password;
 @synthesize focused;
 @synthesize loginBtn;
@@ -50,7 +50,7 @@
 }
 
 - (void)awakeFromNib {
-    //[loginAnimationView setHidden:YES];
+    [loginAnimationView setHidden:YES];
     loginAnimationImages = [[NSMutableArray alloc] init];
     for (loginAnimationImagesCurrentIndex=1; loginAnimationImagesCurrentIndex<=12; loginAnimationImagesCurrentIndex++) {
         [loginAnimationImages addObject:[NSImage imageNamed:[NSString stringWithFormat:@"LoginWindow_WelcomeAnimation_%02d", loginAnimationImagesCurrentIndex]]];
@@ -78,7 +78,7 @@
     [passwordBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Password"]];
     SinaUCMaxLengthFormatter* af = [[SinaUCMaxLengthFormatter alloc] init];
     [af setMaximumLength:25];
-    [account setFormatter:af];
+    [username setFormatter:af];
     SinaUCMaxLengthFormatter* pf = [[SinaUCMaxLengthFormatter alloc] init];
     [pf setMaximumLength:16];
     [password setFormatter:pf];
