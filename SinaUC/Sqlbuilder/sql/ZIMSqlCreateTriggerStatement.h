@@ -146,43 +146,43 @@
  */
 - (void) whenBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
- @method				when:operator:column:
+ @method				when:oper:column:
  @discussion			This method will add a when clause to the SQL statement.
  @param column1			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param column2			The column to be compared.
  @updated				2012-03-23
  */
-- (void) when: (id)column1 operator: (NSString *)operator column: (id)column2;
+- (void) when: (id)column1 oper: (NSString *)oper column: (id)column2;
 /*!
- @method				when:operator:column:connector:
+ @method				when:oper:column:connector:
  @discussion			This method will add a when clause to the SQL statement.
  @param column1			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
  @updated				2012-03-23
  */
-- (void) when: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
+- (void) when: (id)column1 oper: (NSString *)oper column: (id)column2 connector: (NSString *)connector;
 /*!
- @method				when:operator:value:
+ @method				when:oper:value:
  @discussion			This method will add a when clause to the SQL statement.
  @param column			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param value			The value to be compared.
  @updated				2012-03-23
  */
-- (void) when: (id)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
+- (void) when: (id)column oper: (NSString *)oper value: (id)value; // wrap primitives with NSNumber
 /*!
- @method				when:operator:value:connector:
+ @method				when:oper:value:connector:
  @discussion			This method will add a when clause to the SQL statement.
  @param column			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
  @updated				2012-03-23
  */
-- (void) when: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
+- (void) when: (id)column oper: (NSString *)oper value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				sql:
  @discussion			This method will set the SQL statement that will be used.

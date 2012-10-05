@@ -90,7 +90,7 @@
 	NSArray *primaryKey = [[self class] primaryKey];
 	int columnCount = [primaryKey count];
 	for (int i = 0; i < columnCount; i++) {
-		[sql where: [foreignKey objectAtIndex: i] operator: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
+		[sql where: [foreignKey objectAtIndex: i] oper: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
 	}
 	if (options != nil) {
 		if ([options objectForKey: ZIMOrmOptionLimit] != nil) {
@@ -120,7 +120,7 @@
 			if (value == nil) {
 				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because column '%@' is not assigned a value.", column] userInfo: nil];
 			}
-			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
+			[sql where: column oper: ZIMSqlOperatorEqualTo value: value];
 		}
 		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection beginTransaction];
@@ -150,7 +150,7 @@
 			if (value == nil) {
 				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to load record because column '%@' is not assigned a value.", column] userInfo: nil];
 			}
-			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
+			[sql where: column oper: ZIMSqlOperatorEqualTo value: value];
 		}
 		[sql limit: 1];
 		NSArray *records = [ZIMDbConnection dataSource: [[self class] dataSource] query: [sql statement]];
@@ -189,10 +189,10 @@
 			doInsert = ((_saved == nil) || ![_saved isEqualToString: hashCode]);
 			if (doInsert) {
 				ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
-				[select column: @"1" alias: @"IsFound"];
+				[select column: @"pk" alias: @"IsFound"];
 				[select from: [[self class] table]];
 				for (NSString *column in primaryKey) {
-					[select where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
+					[select where: column oper: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
 				}
 				[select limit: 1];
 				NSArray *records = [connection query: [select statement]];
@@ -215,7 +215,7 @@
 							[connection close];
 							@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 						}
-						[update where: column operator: ZIMSqlOperatorEqualTo value: value];
+						[update where: column oper: ZIMSqlOperatorEqualTo value: value];
 					}
 					[connection execute: [update statement]];
 					_saved = hashCode;
@@ -314,7 +314,7 @@
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
 		if (![configurations containsObject: columnName]) {
 			if ([columnName hasPrefix: @"_"]) {
-				columnName = [columnName substringWithRange: NSMakeRange(1, [columnName length])];
+				columnName = [columnName substringWithRange: NSMakeRange(1, [columnName length]-1)];
 			}
 			NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)]; // http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 			[columns setObject: columnType forKey: columnName];

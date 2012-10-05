@@ -176,7 +176,6 @@ namespace gloox
           ret = SSL_read( m_ssl, m_buf, m_bufsize );
           break;
       }
-
       switch( SSL_get_error( m_ssl, ret ) )
       {
         case SSL_ERROR_WANT_READ:

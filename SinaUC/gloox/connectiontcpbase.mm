@@ -88,6 +88,7 @@ namespace gloox
     if( m_socket < 0 )
       return true; // let recv() catch the closed fd
 
+    //gloox
     fd_set fds;
     struct timeval tv;
 
@@ -98,9 +99,8 @@ namespace gloox
 
     tv.tv_sec = timeout / 1000000;
     tv.tv_usec = timeout % 1000000;
-
-    return ( ( select( m_socket + 1, &fds, 0, 0, timeout == -1 ? 0 : &tv ) > 0 )
-             && FD_ISSET( m_socket, &fds ) != 0 );
+      
+    return ( ( select( m_socket + 1, &fds, 0, 0, timeout == -1 ? 0 : &tv ) > 0 ) && FD_ISSET( m_socket, &fds ) != 0 );
   }
 
   ConnectionError ConnectionTCPBase::receive()

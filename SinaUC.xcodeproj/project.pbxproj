@@ -108,7 +108,11 @@
 		FC2C06001615EB780020BE29 /* vcardupdate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C05981615EB780020BE29 /* vcardupdate.mm */; };
 		FC2C06011615EB780020BE29 /* vika.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C059A1615EB780020BE29 /* vika.mm */; };
 		FC2C06021615EB780020BE29 /* xhtmlim.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C059D1615EB780020BE29 /* xhtmlim.mm */; };
-		FC4929F116102A1B00C30A11 /* SinaUCMaxLengthFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */; };
+		FC3929951617E77F000982C3 /* SinaUCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3929901617E77F000982C3 /* SinaUCButton.m */; };
+		FC3929961617E77F000982C3 /* SinaUCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3929921617E77F000982C3 /* SinaUCLoginView.m */; };
+		FC3929971617E77F000982C3 /* SinaUCMaxLengthFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */; };
+		FC392A1616194526000982C3 /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC392A1516194526000982C3 /* db.plist */; };
+		FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC392A1716194902000982C3 /* libsqlite3.dylib */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
 		FC8AE1E4160F26C50069F6E7 /* 0fix.bmp in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */; };
@@ -1845,15 +1849,54 @@
 		FCA7F3A5160EE1D600DC038C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3A3160EE1D600DC038C /* Credits.rtf */; };
 		FCA7F3A8160EE1D600DC038C /* SinaUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3A7160EE1D600DC038C /* SinaUCAppDelegate.m */; };
 		FCA7F3AB160EE1D600DC038C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3A9160EE1D600DC038C /* MainMenu.xib */; };
-		FCA7F3AE160EE1D600DC038C /* SinaUC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3AC160EE1D600DC038C /* SinaUC.xcdatamodeld */; };
 		FCA7F3B6160EE1D600DC038C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F3B5160EE1D600DC038C /* SenTestingKit.framework */; };
 		FCA7F3B7160EE1D600DC038C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F394160EE1D600DC038C /* Cocoa.framework */; };
 		FCA7F3BF160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3C2160EE1D600DC038C /* SinaUCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */; };
+		FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AA81619620B002CA75E /* XMPP.mm */; };
+		FCBE1AAC1619DA2F002CA75E /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */; };
 		FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCDA54016132BFA00C1499D /* Quartz.framework */; };
+		FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63612161B3050002AF1FF /* ZIMDbConnection.m */; };
+		FCD63663161B3050002AF1FF /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63614161B3050002AF1FF /* ZIMDbConnectionPool.m */; };
+		FCD63664161B3050002AF1FF /* NSString+ZIMString.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63618161B3050002AF1FF /* NSString+ZIMString.m */; };
+		FCD63665161B3050002AF1FF /* ZIMOrmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6361B161B3050002AF1FF /* ZIMOrmModel.m */; };
+		FCD63666161B3050002AF1FF /* ZIMOrmSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6361F161B3050002AF1FF /* ZIMOrmSelectStatement.m */; };
+		FCD63667161B3050002AF1FF /* ZIMSqlAlterTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63622161B3050002AF1FF /* ZIMSqlAlterTableStatement.m */; };
+		FCD63668161B3050002AF1FF /* ZIMSqlAnalyzeStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63624161B3050002AF1FF /* ZIMSqlAnalyzeStatement.m */; };
+		FCD63669161B3050002AF1FF /* ZIMSqlAttachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63626161B3050002AF1FF /* ZIMSqlAttachStatement.m */; };
+		FCD6366A161B3050002AF1FF /* ZIMSqlCreateIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63628161B3050002AF1FF /* ZIMSqlCreateIndexStatement.m */; };
+		FCD6366B161B3050002AF1FF /* ZIMSqlCreateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6362A161B3050002AF1FF /* ZIMSqlCreateTableStatement.m */; };
+		FCD6366C161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6362C161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.m */; };
+		FCD6366D161B3050002AF1FF /* ZIMSqlCreateViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6362E161B3050002AF1FF /* ZIMSqlCreateViewStatement.m */; };
+		FCD6366E161B3050002AF1FF /* ZIMSqlDeleteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63633161B3050002AF1FF /* ZIMSqlDeleteStatement.m */; };
+		FCD6366F161B3050002AF1FF /* ZIMSqlDetachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63635161B3050002AF1FF /* ZIMSqlDetachStatement.m */; };
+		FCD63670161B3050002AF1FF /* ZIMSqlDropIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63637161B3050002AF1FF /* ZIMSqlDropIndexStatement.m */; };
+		FCD63671161B3050002AF1FF /* ZIMSqlDropTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63639161B3050002AF1FF /* ZIMSqlDropTableStatement.m */; };
+		FCD63672161B3050002AF1FF /* ZIMSqlDropTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6363B161B3050002AF1FF /* ZIMSqlDropTriggerStatement.m */; };
+		FCD63673161B3050002AF1FF /* ZIMSqlDropViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6363D161B3050002AF1FF /* ZIMSqlDropViewStatement.m */; };
+		FCD63674161B3050002AF1FF /* ZIMSqlExplainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6363F161B3050002AF1FF /* ZIMSqlExplainStatement.m */; };
+		FCD63675161B3050002AF1FF /* ZIMSqlExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63641161B3050002AF1FF /* ZIMSqlExpression.m */; };
+		FCD63676161B3050002AF1FF /* ZIMSqlInsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63643161B3050002AF1FF /* ZIMSqlInsertStatement.m */; };
+		FCD63677161B3050002AF1FF /* ZIMSqlPreparedStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63645161B3050002AF1FF /* ZIMSqlPreparedStatement.m */; };
+		FCD63678161B3050002AF1FF /* ZIMSqlReindexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63647161B3050002AF1FF /* ZIMSqlReindexStatement.m */; };
+		FCD63679161B3050002AF1FF /* ZIMSqlSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6364A161B3050002AF1FF /* ZIMSqlSelectStatement.m */; };
+		FCD6367A161B3050002AF1FF /* ZIMSqlShowColumnsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6364C161B3050002AF1FF /* ZIMSqlShowColumnsStatement.m */; };
+		FCD6367B161B3050002AF1FF /* ZIMSqlShowGrantsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6364E161B3050002AF1FF /* ZIMSqlShowGrantsStatement.m */; };
+		FCD6367C161B3050002AF1FF /* ZIMSqlShowTablesStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63650161B3050002AF1FF /* ZIMSqlShowTablesStatement.m */; };
+		FCD6367D161B3050002AF1FF /* ZIMSqlShowTriggersStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63652161B3050002AF1FF /* ZIMSqlShowTriggersStatement.m */; };
+		FCD6367E161B3050002AF1FF /* ZIMSqlShowViewsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63654161B3050002AF1FF /* ZIMSqlShowViewsStatement.m */; };
+		FCD6367F161B3050002AF1FF /* ZIMSqlTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63657161B3050002AF1FF /* ZIMSqlTokenizer.m */; };
+		FCD63680161B3050002AF1FF /* ZIMSqlTruncateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6365A161B3050002AF1FF /* ZIMSqlTruncateTableStatement.m */; };
+		FCD63681161B3050002AF1FF /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6365C161B3050002AF1FF /* ZIMSqlUpdateStatement.m */; };
+		FCD63682161B3050002AF1FF /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6365E161B3050002AF1FF /* ZIMSqlUpsertStatement.m */; };
+		FCD63683161B3050002AF1FF /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63661161B3050002AF1FF /* ZIMMessageDigest.m */; };
+		FCD63691161BD026002AF1FF /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63686161BD026002AF1FF /* Contact.m */; };
+		FCD63692161BD026002AF1FF /* ContactGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63688161BD026002AF1FF /* ContactGroup.m */; };
+		FCD63693161BD026002AF1FF /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368A161BD026002AF1FF /* Message.m */; };
+		FCD63694161BD026002AF1FF /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368C161BD026002AF1FF /* Room.m */; };
+		FCD63695161BD026002AF1FF /* RoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* RoomContact.m */; };
+		FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* RoomMessage.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
-		FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */; };
-		FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE320F3161201AC00E413A7 /* SinaUCButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2123,8 +2166,15 @@
 		FC2C059B1615EB780020BE29 /* vikahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vikahandler.h; sourceTree = "<group>"; };
 		FC2C059C1615EB780020BE29 /* xhtmlim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xhtmlim.h; sourceTree = "<group>"; };
 		FC2C059D1615EB780020BE29 /* xhtmlim.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xhtmlim.mm; sourceTree = "<group>"; };
-		FC4929EF16102A1B00C30A11 /* SinaUCMaxLengthFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMaxLengthFormatter.h; sourceTree = "<group>"; };
-		FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMaxLengthFormatter.m; sourceTree = "<group>"; };
+		FC39298F1617E77F000982C3 /* SinaUCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCButton.h; path = UISubClasses/SinaUCButton.h; sourceTree = "<group>"; };
+		FC3929901617E77F000982C3 /* SinaUCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCButton.m; path = UISubClasses/SinaUCButton.m; sourceTree = "<group>"; };
+		FC3929911617E77F000982C3 /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginView.h; path = UISubClasses/SinaUCLoginView.h; sourceTree = "<group>"; };
+		FC3929921617E77F000982C3 /* SinaUCLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginView.m; path = UISubClasses/SinaUCLoginView.m; sourceTree = "<group>"; };
+		FC3929931617E77F000982C3 /* SinaUCMaxLengthFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMaxLengthFormatter.h; path = UISubClasses/SinaUCMaxLengthFormatter.h; sourceTree = "<group>"; };
+		FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMaxLengthFormatter.m; path = UISubClasses/SinaUCMaxLengthFormatter.m; sourceTree = "<group>"; };
+		FC39299C1617EA59000982C3 /* SinaUCConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCConnectionDelegate.h; sourceTree = "<group>"; };
+		FC392A1516194526000982C3 /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
+		FC392A1716194902000982C3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -3859,7 +3909,6 @@
 		FCA7F390160EE1D600DC038C /* SinaUC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaUC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA7F394160EE1D600DC038C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FCA7F397160EE1D600DC038C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		FCA7F398160EE1D600DC038C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FCA7F399160EE1D600DC038C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA7F39C160EE1D600DC038C /* SinaUC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinaUC-Info.plist"; sourceTree = "<group>"; };
 		FCA7F39E160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -3869,20 +3918,108 @@
 		FCA7F3A6160EE1D600DC038C /* SinaUCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCAppDelegate.h; sourceTree = "<group>"; };
 		FCA7F3A7160EE1D600DC038C /* SinaUCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCAppDelegate.m; sourceTree = "<group>"; };
 		FCA7F3AA160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		FCA7F3AD160EE1D600DC038C /* SinaUC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SinaUC.xcdatamodel; sourceTree = "<group>"; };
 		FCA7F3B4160EE1D600DC038C /* SinaUCTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinaUCTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA7F3B5160EE1D600DC038C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FCA7F3BC160EE1D600DC038C /* SinaUCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinaUCTests-Info.plist"; sourceTree = "<group>"; };
 		FCA7F3BE160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA7F3C0160EE1D600DC038C /* SinaUCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCTests.h; sourceTree = "<group>"; };
 		FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCTests.m; sourceTree = "<group>"; };
+		FCBE1AA71619620B002CA75E /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
+		FCBE1AA81619620B002CA75E /* XMPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPP.mm; sourceTree = "<group>"; };
+		FCBE1AAA1619DA2F002CA75E /* RequestWithTGT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestWithTGT.h; sourceTree = "<group>"; };
+		FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestWithTGT.m; sourceTree = "<group>"; };
 		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		FCD63611161B3050002AF1FF /* ZIMDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbConnection.h; sourceTree = "<group>"; };
+		FCD63612161B3050002AF1FF /* ZIMDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDbConnection.m; sourceTree = "<group>"; };
+		FCD63613161B3050002AF1FF /* ZIMDbConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbConnectionPool.h; sourceTree = "<group>"; };
+		FCD63614161B3050002AF1FF /* ZIMDbConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDbConnectionPool.m; sourceTree = "<group>"; };
+		FCD63615161B3050002AF1FF /* ZIMDbSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbSdk.h; sourceTree = "<group>"; };
+		FCD63617161B3050002AF1FF /* NSString+ZIMString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZIMString.h"; sourceTree = "<group>"; };
+		FCD63618161B3050002AF1FF /* NSString+ZIMString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZIMString.m"; sourceTree = "<group>"; };
+		FCD6361A161B3050002AF1FF /* ZIMOrmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmModel.h; sourceTree = "<group>"; };
+		FCD6361B161B3050002AF1FF /* ZIMOrmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMOrmModel.m; sourceTree = "<group>"; };
+		FCD6361C161B3050002AF1FF /* ZIMOrmModelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmModelDelegate.h; sourceTree = "<group>"; };
+		FCD6361D161B3050002AF1FF /* ZIMOrmSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmSdk.h; sourceTree = "<group>"; };
+		FCD6361E161B3050002AF1FF /* ZIMOrmSelectStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmSelectStatement.h; sourceTree = "<group>"; };
+		FCD6361F161B3050002AF1FF /* ZIMOrmSelectStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMOrmSelectStatement.m; sourceTree = "<group>"; };
+		FCD63621161B3050002AF1FF /* ZIMSqlAlterTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAlterTableStatement.h; sourceTree = "<group>"; };
+		FCD63622161B3050002AF1FF /* ZIMSqlAlterTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAlterTableStatement.m; sourceTree = "<group>"; };
+		FCD63623161B3050002AF1FF /* ZIMSqlAnalyzeStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAnalyzeStatement.h; sourceTree = "<group>"; };
+		FCD63624161B3050002AF1FF /* ZIMSqlAnalyzeStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAnalyzeStatement.m; sourceTree = "<group>"; };
+		FCD63625161B3050002AF1FF /* ZIMSqlAttachStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAttachStatement.h; sourceTree = "<group>"; };
+		FCD63626161B3050002AF1FF /* ZIMSqlAttachStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAttachStatement.m; sourceTree = "<group>"; };
+		FCD63627161B3050002AF1FF /* ZIMSqlCreateIndexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateIndexStatement.h; sourceTree = "<group>"; };
+		FCD63628161B3050002AF1FF /* ZIMSqlCreateIndexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateIndexStatement.m; sourceTree = "<group>"; };
+		FCD63629161B3050002AF1FF /* ZIMSqlCreateTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateTableStatement.h; sourceTree = "<group>"; };
+		FCD6362A161B3050002AF1FF /* ZIMSqlCreateTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateTableStatement.m; sourceTree = "<group>"; };
+		FCD6362B161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateTriggerStatement.h; sourceTree = "<group>"; };
+		FCD6362C161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateTriggerStatement.m; sourceTree = "<group>"; };
+		FCD6362D161B3050002AF1FF /* ZIMSqlCreateViewStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateViewStatement.h; sourceTree = "<group>"; };
+		FCD6362E161B3050002AF1FF /* ZIMSqlCreateViewStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateViewStatement.m; sourceTree = "<group>"; };
+		FCD6362F161B3050002AF1FF /* ZIMSqlDataControlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataControlCommand.h; sourceTree = "<group>"; };
+		FCD63630161B3050002AF1FF /* ZIMSqlDataDefinitionCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataDefinitionCommand.h; sourceTree = "<group>"; };
+		FCD63631161B3050002AF1FF /* ZIMSqlDataManipulationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataManipulationCommand.h; sourceTree = "<group>"; };
+		FCD63632161B3050002AF1FF /* ZIMSqlDeleteStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDeleteStatement.h; sourceTree = "<group>"; };
+		FCD63633161B3050002AF1FF /* ZIMSqlDeleteStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDeleteStatement.m; sourceTree = "<group>"; };
+		FCD63634161B3050002AF1FF /* ZIMSqlDetachStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDetachStatement.h; sourceTree = "<group>"; };
+		FCD63635161B3050002AF1FF /* ZIMSqlDetachStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDetachStatement.m; sourceTree = "<group>"; };
+		FCD63636161B3050002AF1FF /* ZIMSqlDropIndexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropIndexStatement.h; sourceTree = "<group>"; };
+		FCD63637161B3050002AF1FF /* ZIMSqlDropIndexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropIndexStatement.m; sourceTree = "<group>"; };
+		FCD63638161B3050002AF1FF /* ZIMSqlDropTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropTableStatement.h; sourceTree = "<group>"; };
+		FCD63639161B3050002AF1FF /* ZIMSqlDropTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropTableStatement.m; sourceTree = "<group>"; };
+		FCD6363A161B3050002AF1FF /* ZIMSqlDropTriggerStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropTriggerStatement.h; sourceTree = "<group>"; };
+		FCD6363B161B3050002AF1FF /* ZIMSqlDropTriggerStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropTriggerStatement.m; sourceTree = "<group>"; };
+		FCD6363C161B3050002AF1FF /* ZIMSqlDropViewStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropViewStatement.h; sourceTree = "<group>"; };
+		FCD6363D161B3050002AF1FF /* ZIMSqlDropViewStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropViewStatement.m; sourceTree = "<group>"; };
+		FCD6363E161B3050002AF1FF /* ZIMSqlExplainStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlExplainStatement.h; sourceTree = "<group>"; };
+		FCD6363F161B3050002AF1FF /* ZIMSqlExplainStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlExplainStatement.m; sourceTree = "<group>"; };
+		FCD63640161B3050002AF1FF /* ZIMSqlExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlExpression.h; sourceTree = "<group>"; };
+		FCD63641161B3050002AF1FF /* ZIMSqlExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlExpression.m; sourceTree = "<group>"; };
+		FCD63642161B3050002AF1FF /* ZIMSqlInsertStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlInsertStatement.h; sourceTree = "<group>"; };
+		FCD63643161B3050002AF1FF /* ZIMSqlInsertStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlInsertStatement.m; sourceTree = "<group>"; };
+		FCD63644161B3050002AF1FF /* ZIMSqlPreparedStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlPreparedStatement.h; sourceTree = "<group>"; };
+		FCD63645161B3050002AF1FF /* ZIMSqlPreparedStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlPreparedStatement.m; sourceTree = "<group>"; };
+		FCD63646161B3050002AF1FF /* ZIMSqlReindexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlReindexStatement.h; sourceTree = "<group>"; };
+		FCD63647161B3050002AF1FF /* ZIMSqlReindexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlReindexStatement.m; sourceTree = "<group>"; };
+		FCD63648161B3050002AF1FF /* ZIMSqlSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlSdk.h; sourceTree = "<group>"; };
+		FCD63649161B3050002AF1FF /* ZIMSqlSelectStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlSelectStatement.h; sourceTree = "<group>"; };
+		FCD6364A161B3050002AF1FF /* ZIMSqlSelectStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlSelectStatement.m; sourceTree = "<group>"; };
+		FCD6364B161B3050002AF1FF /* ZIMSqlShowColumnsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowColumnsStatement.h; sourceTree = "<group>"; };
+		FCD6364C161B3050002AF1FF /* ZIMSqlShowColumnsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowColumnsStatement.m; sourceTree = "<group>"; };
+		FCD6364D161B3050002AF1FF /* ZIMSqlShowGrantsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowGrantsStatement.h; sourceTree = "<group>"; };
+		FCD6364E161B3050002AF1FF /* ZIMSqlShowGrantsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowGrantsStatement.m; sourceTree = "<group>"; };
+		FCD6364F161B3050002AF1FF /* ZIMSqlShowTablesStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowTablesStatement.h; sourceTree = "<group>"; };
+		FCD63650161B3050002AF1FF /* ZIMSqlShowTablesStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowTablesStatement.m; sourceTree = "<group>"; };
+		FCD63651161B3050002AF1FF /* ZIMSqlShowTriggersStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowTriggersStatement.h; sourceTree = "<group>"; };
+		FCD63652161B3050002AF1FF /* ZIMSqlShowTriggersStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowTriggersStatement.m; sourceTree = "<group>"; };
+		FCD63653161B3050002AF1FF /* ZIMSqlShowViewsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowViewsStatement.h; sourceTree = "<group>"; };
+		FCD63654161B3050002AF1FF /* ZIMSqlShowViewsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowViewsStatement.m; sourceTree = "<group>"; };
+		FCD63655161B3050002AF1FF /* ZIMSqlStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlStatement.h; sourceTree = "<group>"; };
+		FCD63656161B3050002AF1FF /* ZIMSqlTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTokenizer.h; sourceTree = "<group>"; };
+		FCD63657161B3050002AF1FF /* ZIMSqlTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlTokenizer.m; sourceTree = "<group>"; };
+		FCD63658161B3050002AF1FF /* ZIMSqlTransactionControlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTransactionControlCommand.h; sourceTree = "<group>"; };
+		FCD63659161B3050002AF1FF /* ZIMSqlTruncateTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTruncateTableStatement.h; sourceTree = "<group>"; };
+		FCD6365A161B3050002AF1FF /* ZIMSqlTruncateTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlTruncateTableStatement.m; sourceTree = "<group>"; };
+		FCD6365B161B3050002AF1FF /* ZIMSqlUpdateStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlUpdateStatement.h; sourceTree = "<group>"; };
+		FCD6365C161B3050002AF1FF /* ZIMSqlUpdateStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlUpdateStatement.m; sourceTree = "<group>"; };
+		FCD6365D161B3050002AF1FF /* ZIMSqlUpsertStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlUpsertStatement.h; sourceTree = "<group>"; };
+		FCD6365E161B3050002AF1FF /* ZIMSqlUpsertStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlUpsertStatement.m; sourceTree = "<group>"; };
+		FCD63660161B3050002AF1FF /* ZIMMessageDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMMessageDigest.h; sourceTree = "<group>"; };
+		FCD63661161B3050002AF1FF /* ZIMMessageDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMMessageDigest.m; sourceTree = "<group>"; };
+		FCD63685161BD026002AF1FF /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		FCD63686161BD026002AF1FF /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		FCD63687161BD026002AF1FF /* ContactGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactGroup.h; sourceTree = "<group>"; };
+		FCD63688161BD026002AF1FF /* ContactGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactGroup.m; sourceTree = "<group>"; };
+		FCD63689161BD026002AF1FF /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		FCD6368A161BD026002AF1FF /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		FCD6368B161BD026002AF1FF /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		FCD6368C161BD026002AF1FF /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		FCD6368D161BD026002AF1FF /* RoomContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomContact.h; sourceTree = "<group>"; };
+		FCD6368E161BD026002AF1FF /* RoomContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomContact.m; sourceTree = "<group>"; };
+		FCD6368F161BD026002AF1FF /* RoomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomMessage.h; sourceTree = "<group>"; };
+		FCD63690161BD026002AF1FF /* RoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomMessage.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
-		FCE29D03160F47B80092CC9A /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLoginView.h; sourceTree = "<group>"; };
-		FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLoginView.m; sourceTree = "<group>"; };
-		FCE320F2161201AC00E413A7 /* SinaUCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCButton.h; sourceTree = "<group>"; };
-		FCE320F3161201AC00E413A7 /* SinaUCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3890,6 +4027,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */,
 				FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */,
 				FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */,
 			);
@@ -4170,9 +4308,22 @@
 			path = gloox;
 			sourceTree = "<group>";
 		};
+		FC3929A016194344000982C3 /* Sqlbuilder */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63610161B3050002AF1FF /* db */,
+				FCD63616161B3050002AF1FF /* ext */,
+				FCD63619161B3050002AF1FF /* orm */,
+				FCD63620161B3050002AF1FF /* sql */,
+				FCD6365F161B3050002AF1FF /* util */,
+			);
+			path = Sqlbuilder;
+			sourceTree = "<group>";
+		};
 		FC4929F21610336000C30A11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				FC39299C1617EA59000982C3 /* SinaUCConnectionDelegate.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -4180,14 +4331,14 @@
 		FC8ADB15160F0AC20069F6E7 /* UISubClasses */ = {
 			isa = PBXGroup;
 			children = (
+				FC39298F1617E77F000982C3 /* SinaUCButton.h */,
+				FC3929901617E77F000982C3 /* SinaUCButton.m */,
+				FC3929911617E77F000982C3 /* SinaUCLoginView.h */,
+				FC3929921617E77F000982C3 /* SinaUCLoginView.m */,
+				FC3929931617E77F000982C3 /* SinaUCMaxLengthFormatter.h */,
+				FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */,
 				FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */,
 				FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */,
-				FCE29D03160F47B80092CC9A /* SinaUCLoginView.h */,
-				FCE29D04160F47B80092CC9A /* SinaUCLoginView.m */,
-				FC4929EF16102A1B00C30A11 /* SinaUCMaxLengthFormatter.h */,
-				FC4929F016102A1B00C30A11 /* SinaUCMaxLengthFormatter.m */,
-				FCE320F2161201AC00E413A7 /* SinaUCButton.h */,
-				FCE320F3161201AC00E413A7 /* SinaUCButton.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -6007,6 +6158,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
 				FCA7F3B5160EE1D600DC038C /* SenTestingKit.framework */,
@@ -6019,7 +6171,6 @@
 			isa = PBXGroup;
 			children = (
 				FCA7F397160EE1D600DC038C /* AppKit.framework */,
-				FCA7F398160EE1D600DC038C /* CoreData.framework */,
 				FCA7F399160EE1D600DC038C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -6028,6 +6179,10 @@
 		FCA7F39A160EE1D600DC038C /* SinaUC */ = {
 			isa = PBXGroup;
 			children = (
+				FCD63684161BD026002AF1FF /* data */,
+				FCBE1AAD1619DCCA002CA75E /* tools */,
+				FCBE1AA61619620B002CA75E /* SinaXMPP */,
+				FC3929A016194344000982C3 /* Sqlbuilder */,
 				FC2C049D1615EB780020BE29 /* gloox */,
 				FC4929F21610336000C30A11 /* Protocols */,
 				FC8AE8A3160F31FE0069F6E7 /* Controllers */,
@@ -6036,7 +6191,6 @@
 				FCA7F3A6160EE1D600DC038C /* SinaUCAppDelegate.h */,
 				FCA7F3A7160EE1D600DC038C /* SinaUCAppDelegate.m */,
 				FCA7F3A9160EE1D600DC038C /* MainMenu.xib */,
-				FCA7F3AC160EE1D600DC038C /* SinaUC.xcdatamodeld */,
 				FCA7F39B160EE1D600DC038C /* Supporting Files */,
 			);
 			path = SinaUC;
@@ -6050,6 +6204,7 @@
 				FCA7F3A0160EE1D600DC038C /* main.m */,
 				FCA7F3A2160EE1D600DC038C /* SinaUC-Prefix.pch */,
 				FCA7F3A3160EE1D600DC038C /* Credits.rtf */,
+				FC392A1516194526000982C3 /* db.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -6071,6 +6226,155 @@
 				FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCBE1AA61619620B002CA75E /* SinaXMPP */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE1AAA1619DA2F002CA75E /* RequestWithTGT.h */,
+				FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */,
+				FCBE1AA71619620B002CA75E /* XMPP.h */,
+				FCBE1AA81619620B002CA75E /* XMPP.mm */,
+			);
+			path = SinaXMPP;
+			sourceTree = "<group>";
+		};
+		FCBE1AAD1619DCCA002CA75E /* tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		FCD63610161B3050002AF1FF /* db */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63611161B3050002AF1FF /* ZIMDbConnection.h */,
+				FCD63612161B3050002AF1FF /* ZIMDbConnection.m */,
+				FCD63613161B3050002AF1FF /* ZIMDbConnectionPool.h */,
+				FCD63614161B3050002AF1FF /* ZIMDbConnectionPool.m */,
+				FCD63615161B3050002AF1FF /* ZIMDbSdk.h */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		FCD63616161B3050002AF1FF /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63617161B3050002AF1FF /* NSString+ZIMString.h */,
+				FCD63618161B3050002AF1FF /* NSString+ZIMString.m */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		FCD63619161B3050002AF1FF /* orm */ = {
+			isa = PBXGroup;
+			children = (
+				FCD6361A161B3050002AF1FF /* ZIMOrmModel.h */,
+				FCD6361B161B3050002AF1FF /* ZIMOrmModel.m */,
+				FCD6361C161B3050002AF1FF /* ZIMOrmModelDelegate.h */,
+				FCD6361D161B3050002AF1FF /* ZIMOrmSdk.h */,
+				FCD6361E161B3050002AF1FF /* ZIMOrmSelectStatement.h */,
+				FCD6361F161B3050002AF1FF /* ZIMOrmSelectStatement.m */,
+			);
+			path = orm;
+			sourceTree = "<group>";
+		};
+		FCD63620161B3050002AF1FF /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63621161B3050002AF1FF /* ZIMSqlAlterTableStatement.h */,
+				FCD63622161B3050002AF1FF /* ZIMSqlAlterTableStatement.m */,
+				FCD63623161B3050002AF1FF /* ZIMSqlAnalyzeStatement.h */,
+				FCD63624161B3050002AF1FF /* ZIMSqlAnalyzeStatement.m */,
+				FCD63625161B3050002AF1FF /* ZIMSqlAttachStatement.h */,
+				FCD63626161B3050002AF1FF /* ZIMSqlAttachStatement.m */,
+				FCD63627161B3050002AF1FF /* ZIMSqlCreateIndexStatement.h */,
+				FCD63628161B3050002AF1FF /* ZIMSqlCreateIndexStatement.m */,
+				FCD63629161B3050002AF1FF /* ZIMSqlCreateTableStatement.h */,
+				FCD6362A161B3050002AF1FF /* ZIMSqlCreateTableStatement.m */,
+				FCD6362B161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.h */,
+				FCD6362C161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.m */,
+				FCD6362D161B3050002AF1FF /* ZIMSqlCreateViewStatement.h */,
+				FCD6362E161B3050002AF1FF /* ZIMSqlCreateViewStatement.m */,
+				FCD6362F161B3050002AF1FF /* ZIMSqlDataControlCommand.h */,
+				FCD63630161B3050002AF1FF /* ZIMSqlDataDefinitionCommand.h */,
+				FCD63631161B3050002AF1FF /* ZIMSqlDataManipulationCommand.h */,
+				FCD63632161B3050002AF1FF /* ZIMSqlDeleteStatement.h */,
+				FCD63633161B3050002AF1FF /* ZIMSqlDeleteStatement.m */,
+				FCD63634161B3050002AF1FF /* ZIMSqlDetachStatement.h */,
+				FCD63635161B3050002AF1FF /* ZIMSqlDetachStatement.m */,
+				FCD63636161B3050002AF1FF /* ZIMSqlDropIndexStatement.h */,
+				FCD63637161B3050002AF1FF /* ZIMSqlDropIndexStatement.m */,
+				FCD63638161B3050002AF1FF /* ZIMSqlDropTableStatement.h */,
+				FCD63639161B3050002AF1FF /* ZIMSqlDropTableStatement.m */,
+				FCD6363A161B3050002AF1FF /* ZIMSqlDropTriggerStatement.h */,
+				FCD6363B161B3050002AF1FF /* ZIMSqlDropTriggerStatement.m */,
+				FCD6363C161B3050002AF1FF /* ZIMSqlDropViewStatement.h */,
+				FCD6363D161B3050002AF1FF /* ZIMSqlDropViewStatement.m */,
+				FCD6363E161B3050002AF1FF /* ZIMSqlExplainStatement.h */,
+				FCD6363F161B3050002AF1FF /* ZIMSqlExplainStatement.m */,
+				FCD63640161B3050002AF1FF /* ZIMSqlExpression.h */,
+				FCD63641161B3050002AF1FF /* ZIMSqlExpression.m */,
+				FCD63642161B3050002AF1FF /* ZIMSqlInsertStatement.h */,
+				FCD63643161B3050002AF1FF /* ZIMSqlInsertStatement.m */,
+				FCD63644161B3050002AF1FF /* ZIMSqlPreparedStatement.h */,
+				FCD63645161B3050002AF1FF /* ZIMSqlPreparedStatement.m */,
+				FCD63646161B3050002AF1FF /* ZIMSqlReindexStatement.h */,
+				FCD63647161B3050002AF1FF /* ZIMSqlReindexStatement.m */,
+				FCD63648161B3050002AF1FF /* ZIMSqlSdk.h */,
+				FCD63649161B3050002AF1FF /* ZIMSqlSelectStatement.h */,
+				FCD6364A161B3050002AF1FF /* ZIMSqlSelectStatement.m */,
+				FCD6364B161B3050002AF1FF /* ZIMSqlShowColumnsStatement.h */,
+				FCD6364C161B3050002AF1FF /* ZIMSqlShowColumnsStatement.m */,
+				FCD6364D161B3050002AF1FF /* ZIMSqlShowGrantsStatement.h */,
+				FCD6364E161B3050002AF1FF /* ZIMSqlShowGrantsStatement.m */,
+				FCD6364F161B3050002AF1FF /* ZIMSqlShowTablesStatement.h */,
+				FCD63650161B3050002AF1FF /* ZIMSqlShowTablesStatement.m */,
+				FCD63651161B3050002AF1FF /* ZIMSqlShowTriggersStatement.h */,
+				FCD63652161B3050002AF1FF /* ZIMSqlShowTriggersStatement.m */,
+				FCD63653161B3050002AF1FF /* ZIMSqlShowViewsStatement.h */,
+				FCD63654161B3050002AF1FF /* ZIMSqlShowViewsStatement.m */,
+				FCD63655161B3050002AF1FF /* ZIMSqlStatement.h */,
+				FCD63656161B3050002AF1FF /* ZIMSqlTokenizer.h */,
+				FCD63657161B3050002AF1FF /* ZIMSqlTokenizer.m */,
+				FCD63658161B3050002AF1FF /* ZIMSqlTransactionControlCommand.h */,
+				FCD63659161B3050002AF1FF /* ZIMSqlTruncateTableStatement.h */,
+				FCD6365A161B3050002AF1FF /* ZIMSqlTruncateTableStatement.m */,
+				FCD6365B161B3050002AF1FF /* ZIMSqlUpdateStatement.h */,
+				FCD6365C161B3050002AF1FF /* ZIMSqlUpdateStatement.m */,
+				FCD6365D161B3050002AF1FF /* ZIMSqlUpsertStatement.h */,
+				FCD6365E161B3050002AF1FF /* ZIMSqlUpsertStatement.m */,
+			);
+			path = sql;
+			sourceTree = "<group>";
+		};
+		FCD6365F161B3050002AF1FF /* util */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63660161B3050002AF1FF /* ZIMMessageDigest.h */,
+				FCD63661161B3050002AF1FF /* ZIMMessageDigest.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		FCD63684161BD026002AF1FF /* data */ = {
+			isa = PBXGroup;
+			children = (
+				FCD63685161BD026002AF1FF /* Contact.h */,
+				FCD63686161BD026002AF1FF /* Contact.m */,
+				FCD63687161BD026002AF1FF /* ContactGroup.h */,
+				FCD63688161BD026002AF1FF /* ContactGroup.m */,
+				FCD63689161BD026002AF1FF /* Message.h */,
+				FCD6368A161BD026002AF1FF /* Message.m */,
+				FCD6368B161BD026002AF1FF /* Room.h */,
+				FCD6368C161BD026002AF1FF /* Room.m */,
+				FCD6368D161BD026002AF1FF /* RoomContact.h */,
+				FCD6368E161BD026002AF1FF /* RoomContact.m */,
+				FCD6368F161BD026002AF1FF /* RoomMessage.h */,
+				FCD63690161BD026002AF1FF /* RoomMessage.m */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7880,6 +8184,7 @@
 				FC8AE8A1160F26C70069F6E7 /* ZIP_Out.png in Resources */,
 				FC8AE8A2160F26C70069F6E7 /* ZIP_Out@2x.png in Resources */,
 				FC2C05E31615EB780020BE29 /* rename.php in Resources */,
+				FC392A1616194526000982C3 /* db.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7916,12 +8221,8 @@
 			files = (
 				FCA7F3A1160EE1D600DC038C /* main.m in Sources */,
 				FCA7F3A8160EE1D600DC038C /* SinaUCAppDelegate.m in Sources */,
-				FCA7F3AE160EE1D600DC038C /* SinaUC.xcdatamodeld in Sources */,
 				FC8AE8A8160F325E0069F6E7 /* SinaUCLoginViewController.m in Sources */,
 				FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */,
-				FCE29D05160F47B80092CC9A /* SinaUCLoginView.m in Sources */,
-				FC4929F116102A1B00C30A11 /* SinaUCMaxLengthFormatter.m in Sources */,
-				FCE320F4161201AC00E413A7 /* SinaUCButton.m in Sources */,
 				FC2C059E1615EB780020BE29 /* adhoc.mm in Sources */,
 				FC2C059F1615EB780020BE29 /* amp.mm in Sources */,
 				FC2C05A01615EB780020BE29 /* annotations.mm in Sources */,
@@ -8022,6 +8323,51 @@
 				FC2C06001615EB780020BE29 /* vcardupdate.mm in Sources */,
 				FC2C06011615EB780020BE29 /* vika.mm in Sources */,
 				FC2C06021615EB780020BE29 /* xhtmlim.mm in Sources */,
+				FC3929951617E77F000982C3 /* SinaUCButton.m in Sources */,
+				FC3929961617E77F000982C3 /* SinaUCLoginView.m in Sources */,
+				FC3929971617E77F000982C3 /* SinaUCMaxLengthFormatter.m in Sources */,
+				FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */,
+				FCBE1AAC1619DA2F002CA75E /* RequestWithTGT.m in Sources */,
+				FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */,
+				FCD63663161B3050002AF1FF /* ZIMDbConnectionPool.m in Sources */,
+				FCD63664161B3050002AF1FF /* NSString+ZIMString.m in Sources */,
+				FCD63665161B3050002AF1FF /* ZIMOrmModel.m in Sources */,
+				FCD63666161B3050002AF1FF /* ZIMOrmSelectStatement.m in Sources */,
+				FCD63667161B3050002AF1FF /* ZIMSqlAlterTableStatement.m in Sources */,
+				FCD63668161B3050002AF1FF /* ZIMSqlAnalyzeStatement.m in Sources */,
+				FCD63669161B3050002AF1FF /* ZIMSqlAttachStatement.m in Sources */,
+				FCD6366A161B3050002AF1FF /* ZIMSqlCreateIndexStatement.m in Sources */,
+				FCD6366B161B3050002AF1FF /* ZIMSqlCreateTableStatement.m in Sources */,
+				FCD6366C161B3050002AF1FF /* ZIMSqlCreateTriggerStatement.m in Sources */,
+				FCD6366D161B3050002AF1FF /* ZIMSqlCreateViewStatement.m in Sources */,
+				FCD6366E161B3050002AF1FF /* ZIMSqlDeleteStatement.m in Sources */,
+				FCD6366F161B3050002AF1FF /* ZIMSqlDetachStatement.m in Sources */,
+				FCD63670161B3050002AF1FF /* ZIMSqlDropIndexStatement.m in Sources */,
+				FCD63671161B3050002AF1FF /* ZIMSqlDropTableStatement.m in Sources */,
+				FCD63672161B3050002AF1FF /* ZIMSqlDropTriggerStatement.m in Sources */,
+				FCD63673161B3050002AF1FF /* ZIMSqlDropViewStatement.m in Sources */,
+				FCD63674161B3050002AF1FF /* ZIMSqlExplainStatement.m in Sources */,
+				FCD63675161B3050002AF1FF /* ZIMSqlExpression.m in Sources */,
+				FCD63676161B3050002AF1FF /* ZIMSqlInsertStatement.m in Sources */,
+				FCD63677161B3050002AF1FF /* ZIMSqlPreparedStatement.m in Sources */,
+				FCD63678161B3050002AF1FF /* ZIMSqlReindexStatement.m in Sources */,
+				FCD63679161B3050002AF1FF /* ZIMSqlSelectStatement.m in Sources */,
+				FCD6367A161B3050002AF1FF /* ZIMSqlShowColumnsStatement.m in Sources */,
+				FCD6367B161B3050002AF1FF /* ZIMSqlShowGrantsStatement.m in Sources */,
+				FCD6367C161B3050002AF1FF /* ZIMSqlShowTablesStatement.m in Sources */,
+				FCD6367D161B3050002AF1FF /* ZIMSqlShowTriggersStatement.m in Sources */,
+				FCD6367E161B3050002AF1FF /* ZIMSqlShowViewsStatement.m in Sources */,
+				FCD6367F161B3050002AF1FF /* ZIMSqlTokenizer.m in Sources */,
+				FCD63680161B3050002AF1FF /* ZIMSqlTruncateTableStatement.m in Sources */,
+				FCD63681161B3050002AF1FF /* ZIMSqlUpdateStatement.m in Sources */,
+				FCD63682161B3050002AF1FF /* ZIMSqlUpsertStatement.m in Sources */,
+				FCD63683161B3050002AF1FF /* ZIMMessageDigest.m in Sources */,
+				FCD63691161BD026002AF1FF /* Contact.m in Sources */,
+				FCD63692161BD026002AF1FF /* ContactGroup.m in Sources */,
+				FCD63693161BD026002AF1FF /* Message.m in Sources */,
+				FCD63694161BD026002AF1FF /* Room.m in Sources */,
+				FCD63695161BD026002AF1FF /* RoomContact.m in Sources */,
+				FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8109,7 +8455,7 @@
 					"-lcrypto",
 					"-lz",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -8136,7 +8482,7 @@
 					"-lcrypto",
 					"-lz",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
@@ -8146,7 +8492,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SinaUC/SinaUC-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lresolv",
+					"-lssl",
+					"-lcrypto",
+					"-lz",
+					"-v",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -8158,6 +8512,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SinaUC/SinaUC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -8225,19 +8580,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FCA7F3AC160EE1D600DC038C /* SinaUC.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FCA7F3AD160EE1D600DC038C /* SinaUC.xcdatamodel */,
-			);
-			currentVersion = FCA7F3AD160EE1D600DC038C /* SinaUC.xcdatamodel */;
-			path = SinaUC.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FCA7F387160EE1D600DC038C /* Project object */;
 }

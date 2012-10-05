@@ -25,7 +25,6 @@
                                        returningResponse:nil 
                                                    error:&err];
     NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
-
     return jsonArray;
 }
 
@@ -58,9 +57,10 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
-    
-    self.tgt = [jsonArray valueForKey:@"tgt"];
+    if (!err) {
+        NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
+        self.tgt = [jsonArray valueForKey:@"tgt"];
+    }
 }
 
 + (NSString*) stringWithUUID {

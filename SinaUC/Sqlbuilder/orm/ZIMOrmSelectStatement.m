@@ -50,20 +50,20 @@
 	[_sql join: table alias: alias type: type];
 }
 
-- (void) joinOn: (id)column1 operator: (NSString *)operator column: (NSString *)column2 {
-	[_sql joinOn: column1 operator: operator column: column2];
+- (void) joinOn: (id)column1 oper: (NSString *)oper column: (NSString *)column2 {
+	[_sql joinOn: column1 oper: oper column: column2];
 }
 
-- (void) joinOn: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
-	[_sql joinOn: column1 operator: operator column: column2 connector: connector];
+- (void) joinOn: (id)column1 oper: (NSString *)oper column: (id)column2 connector: (NSString *)connector {
+	[_sql joinOn: column1 oper: oper column: column2 connector: connector];
 }
 
-- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value {
-	[_sql joinOn: column operator: operator value: value];
+- (void) joinOn: (id)column oper: (NSString *)oper value: (id)value {
+	[_sql joinOn: column oper: oper value: value];
 }
 
-- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
-	[_sql joinOn: column operator: operator value: value connector: connector];
+- (void) joinOn: (id)column oper: (NSString *)oper value: (id)value connector: (NSString *)connector {
+	[_sql joinOn: column oper: oper value: value connector: connector];
 }
 
 - (void) joinUsing: (NSString *)column {
@@ -78,20 +78,20 @@
 	[_sql whereBlock: brace connector: connector];
 }
 
-- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 {
-	[_sql where: column1 operator: operator column: column2];
+- (void) where: (id)column1 oper: (NSString *)oper column: (id)column2 {
+	[_sql where: column1 oper: oper column: column2];
 }
 
-- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
-	[_sql where: column1 operator: operator column: column2 connector: connector];
+- (void) where: (id)column1 oper: (NSString *)oper column: (id)column2 connector: (NSString *)connector {
+	[_sql where: column1 oper: oper column: column2 connector: connector];
 }
 
-- (void) where: (id)column operator: (NSString *)operator value: (id)value {
-	[_sql where: column operator: operator value: value];
+- (void) where: (id)column oper: (NSString *)oper value: (id)value {
+	[_sql where: column oper: oper value: value];
 }
 
-- (void) where: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
-	[_sql where: column operator: operator value: value connector: connector];
+- (void) where: (id)column oper: (NSString *)oper value: (id)value connector: (NSString *)connector {
+	[_sql where: column oper: oper value: value connector: connector];
 }
 
 - (void) groupBy: (NSString *)column {
@@ -106,20 +106,20 @@
 	[_sql groupByHavingBlock: brace connector: connector];
 }
 
-- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2 {
-	[_sql groupByHaving: column1 operator: operator column: column2];
+- (void) groupByHaving: (id)column1 oper: (NSString *)oper column: (id)column2 {
+	[_sql groupByHaving: column1 oper: oper column: column2];
 }
 
-- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
-	[_sql groupByHaving: column1 operator: operator column: column2 connector: connector];
+- (void) groupByHaving: (id)column1 oper: (NSString *)oper column: (id)column2 connector: (NSString *)connector {
+	[_sql groupByHaving: column1 oper: oper column: column2 connector: connector];
 }
 
-- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value {
-	[_sql groupByHaving: column operator: operator value: value];
+- (void) groupByHaving: (id)column oper: (NSString *)oper value: (id)value {
+	[_sql groupByHaving: column oper: oper value: value];
 }
 
-- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
-	[_sql groupByHaving: column operator: operator value: value connector: connector];
+- (void) groupByHaving: (id)column oper: (NSString *)oper value: (id)value connector: (NSString *)connector {
+	[_sql groupByHaving: column oper: oper value: value connector: connector];
 }
 
 - (void) orderBy: (NSString *)column {

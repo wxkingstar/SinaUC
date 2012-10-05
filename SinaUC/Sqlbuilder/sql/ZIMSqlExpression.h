@@ -125,14 +125,17 @@ NSString *ZIMSqlDefaultValue(id value);
 #define ZIMSqlDataTypeTinyInt					@"TINYINT"
 #define ZIMSqlDataTypeUnsignedBigInt			@"UNSIGNED BIG INT"
 #define ZIMSqlDataTypeVariant					@"VARIANT"
-NSString *ZIMSqlDataTypeChar(NSUInteger x);
-NSString *ZIMSqlDataTypeCharacter(NSUInteger x);
-NSString *ZIMSqlDataTypeDecimal(NSUInteger x, NSUInteger y);
-NSString *ZIMSqlDataTypeNativeCharacter(NSUInteger x);
-NSString *ZIMSqlDataTypeNChar(NSUInteger x);
-NSString *ZIMSqlDataTypeNVarChar(NSUInteger x);
-NSString *ZIMSqlDataTypeVarChar(NSUInteger x);
-NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
+#define ZIMSqlDataTypeChar(x)                   [NSString stringWithFormat:@"CHAR(%u)", x]
+#define ZIMSqlDataTypeCharacter(x)              [NSString stringWithFormat:@"CHARACTER(%u)", x]
+#define ZIMSqlDataTypeDecimal(x, y)             [NSString stringWithFormat:@"DECIMAL(%u, %u)", x, y]
+#define ZIMSqlDataTypeNativeCharacter(x)        [NSString stringWithFormat:@"NATIVE CHARACTER(%u)", x]
+#define ZIMSqlDataTypeChar(x)                   [NSString stringWithFormat:@"CHAR(%u)", x]
+#define ZIMSqlDataTypeNChar(x)                  [NSString stringWithFormat: @"NCHAR(%u)", x]
+#define ZIMSqlDataTypeNVarChar(x)               [NSString stringWithFormat: @"NVARCHAR(%u)", x]
+#define ZIMSqlDataTypeVarChar(x)                [NSString stringWithFormat: @"VARCHAR(%u)", x]
+#define ZIMSqlDataTypeVaryingCharacter(x)       [NSString stringWithFormat: @"VARYING CHARACTER(%u)", x]
+
+
 
 /*!
  @class					ZIMSqlExpression
@@ -211,13 +214,13 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
 + (NSString *) prepareJoinType: (NSString *)token;
 /*!
  @method				prepareOperator:type
- @discussion			This method will prepare an operator for an SQL statement.
- @param operator		The operator to be prepared.
- @param type			The type of operator.
- @return				The prepared operator.
+ @discussion			This method will prepare an oper for an SQL statement.
+ @param oper		The oper to be prepared.
+ @param type			The type of oper.
+ @return				The prepared oper.
  @updated				2012-03-18
  */
-+ (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type;
++ (NSString *) prepareOperator: (NSString *)oper ofType: (NSString *)type;
 /*!
  @method				prepareSortOrder:
  @discussion			This method will prepare a sort order token for an SQL statement.

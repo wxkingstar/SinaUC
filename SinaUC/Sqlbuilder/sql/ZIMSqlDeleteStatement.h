@@ -57,43 +57,43 @@
  */
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
- @method				where:operator:column:
+ @method				where:oper:column:
  @discussion			This method will add a where clause to the SQL statement.
  @param column1			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param column2			The column to be compared.
  @updated				2012-03-23
  */
-- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2;
+- (void) where: (id)column1 oper: (NSString *)oper column: (id)column2;
 /*!
- @method				where:operator:column:connector:
+ @method				where:oper:column:connector:
  @discussion			This method will add a where clause to the SQL statement.
  @param column1			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
  @updated				2012-03-23
  */
-- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
+- (void) where: (id)column1 oper: (NSString *)oper column: (id)column2 connector: (NSString *)connector;
 /*!
- @method				where:operator:value:
+ @method				where:oper:value:
  @discussion			This method will add a where clause to the SQL statement.
  @param column			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param value			The value to be compared.
  @updated				2012-03-23
  */
-- (void) where: (id)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
+- (void) where: (id)column oper: (NSString *)oper value: (id)value; // wrap primitives with NSNumber
 /*!
- @method				where:operator:value:connector:
+ @method				where:oper:value:connector:
  @discussion			This method will add a where clause to the SQL statement.
  @param column			The column to be tested.
- @param operator		The operator to be used.
+ @param oper		The oper to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
  @updated				2012-03-23
  */
-- (void) where: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
+- (void) where: (id)column oper: (NSString *)oper value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.

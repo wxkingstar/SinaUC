@@ -6,6 +6,8 @@
  * 的manager，再通过各自manager转给各个session和room的实例。session、room和各自manager的实现请看
  * XMPPSession.mm和XMPPMUCRoom.mm
  */
+#include <sys/time.h>
+#import <CommonCrypto/CommonDigest.h>
 
 #import "XMPP.h"
 #import "RequestWithTGT.h"
@@ -18,14 +20,15 @@
 #import "XMPPSession.h"
 #import "XMPPMUCRoom.h"
 #import "ChineseToPinyin.h"*/
-#import <CommonCrypto/CommonDigest.h>
 
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
+#import "Contact.h"
+#import "ContactGroup.h"
 
-#include <sys/time.h>
 #include "gloox.h"
 #include "client.h"
+#include "connectiontcpclient.h"
 #include "eventhandler.h"
 #include "rostermanager.h"
 #include "messagehandler.h"
@@ -45,7 +48,6 @@
 
 // md5函数
 NSString * md5(NSString *str) {
-    NSLog(@"%@", str);
     const char *cStr = [str UTF8String];
     unsigned char result[16];
     CC_MD5( cStr, (unsigned int)strlen(cStr), result );
@@ -62,7 +64,7 @@ NSString * md5(NSString *str) {
 }
 
 //CXmpp实现
-class CXmpp:public gloox::PresenceHandler, gloox::ConnectionListener, gloox::VCardHandler, gloox::MessageSessionHandler, gloox::RosterListener, gloox::EventHandler, gloox::LogHandler
+class CXmpp:public gloox::EventHandler, gloox::ConnectionListener , gloox::RosterListener, gloox::PresenceHandler, gloox::VCardHandler, gloox::MessageSessionHandler, gloox::LogHandler
 {
 public:
     //仅有一个实例
@@ -73,7 +75,6 @@ public:
         m_delegateMutex.lock();
         m_pDelegate = pDelegate;
         vcardRequestStack = [[NSMutableArray alloc] init];
-        vcardUpdateStack = [[NSMutableArray alloc] init];
         rooms = [[NSMutableArray alloc] init];
         m_delegateMutex.unlock();
     }
@@ -83,9 +84,6 @@ public:
     
     //发起连接请求
     void connect();
-    
-    //发起断开请求
-    void disconnect();
     
     //发起获取联系人信息请求
     void requestVcard(NSString* jid);
@@ -107,7 +105,7 @@ public:
 protected:
     //连接成功回调
     virtual void 	onConnect ();
-    
+        
     //断开成功回调
     virtual void 	onDisconnect (gloox::ConnectionError e);
     
@@ -190,9 +188,10 @@ private:
     gloox::VCardManager* m_pVcardManager;
     XMPP* m_pDelegate;
     NSMutableArray* vcardRequestStack;
-    NSMutableArray* vcardUpdateStack;
     NSMutableArray* rooms;
     gloox::util::Mutex m_delegateMutex;
+    bool m_connected;
+    int m_heartbeat;
     
     //xmpp换票
     void exchangeTgt();
@@ -200,8 +199,6 @@ private:
     void heartBeat();
     //发送获取vcard请求
     void sendVcardRequest();
-    //更新vcard
-    void updateVcard();
     //初始化数据库连接，若是新用户，创建用户本地存储
     void initUserStore();
 };
@@ -214,7 +211,9 @@ CXmpp::CXmpp()
 m_pDelegate(0),
 m_pRosterManager(0),
 m_pVcardManager(0),
-m_pPubSubManager(0)
+m_pPubSubManager(0),
+m_connected(false),
+m_heartbeat(0)
 {
 }
 
@@ -248,84 +247,108 @@ void    CXmpp::initUserStore()
     //没有数据库文件时自动创建，并创建数据表和外键
     NSString *addressbookDbPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], [NSString stringWithFormat:@"SinaUC/%@/addressbook.sqlite", username], nil]];
     NSString *messageDbPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], [NSString stringWithFormat:@"SinaUC/%@/message.sqlite", username], nil]];
-    NSInteger l20 = 20;
-    NSInteger l30 = 30;
-    NSInteger l50 = 50;
-    NSInteger l100 = 100;
     if (![fileManager fileExistsAtPath:addressbookDbPath]) {
-        [fileManager createFileAtPath:addressbookDbPath contents:nil attributes:nil];
-        //创建addressbook数据库
-        ZIMSqlCreateTableStatement *createContactGroup = [[ZIMSqlCreateTableStatement alloc] init];
-        [createContactGroup table: @"ContactGroup"];
-        [createContactGroup column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        //[createContactGroup column: @"name" type: ZIMSqlDataTypeVarChar(l20)];
-        NSString *statement = [createContactGroup statement];
-        NSLog(@"%@", statement);
-        NSNumber *result = [ZIMDbConnection dataSource: @"addressbook" execute: statement];
-        
-        /*ZIMSqlCreateTableStatement *createContact = [[ZIMSqlCreateTableStatement alloc] init];
-        [createContact table: @"Contact"];
-        [createContact column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(l50)];
-        [createContact column: @"gid" type: ZIMSqlDataTypeBigInt];
-        [createContact column: @"name" type: ZIMSqlDataTypeVarChar(l20)];
-        [createContact column: @"pinyin" type: ZIMSqlDataTypeVarChar(l30)];
-        [createContact column: @"image" type: ZIMSqlDataTypeBlob];
-        [createContact column: @"presence" type: ZIMSqlDataTypeSmallInt];
-        statement = [createContact statement];
-        NSLog(@"%@", statement);
-        result = [ZIMDbConnection dataSource: @"addressbook" execute: statement];
-        
-        ZIMSqlCreateTableStatement *createRoomContactGroup = [[ZIMSqlCreateTableStatement alloc] init];
-        [createRoomContactGroup table: @"Room"];
-        [createRoomContactGroup column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(l50)];
-        [createContact column: @"name" type: ZIMSqlDataTypeVarChar(l20)];
-        [createContact column: @"intro" type: ZIMSqlDataTypeVarChar(l100)];
-        [createContact column: @"notice" type: ZIMSqlDataTypeVarChar(l50)];
-        [createContact column: @"image" type: ZIMSqlDataTypeBlob];
-        statement = [createRoomContactGroup statement];
-        NSLog(@"%@", statement);
-        result = [ZIMDbConnection dataSource: @"addressbook" execute: statement];
-        
-        ZIMSqlCreateTableStatement *createRoomContact = [[ZIMSqlCreateTableStatement alloc] init];
-        [createRoomContact table: @"RoomContact"];
-        [createRoomContact column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(l50)];
-        [createContact column: @"rid" type: ZIMSqlDataTypeInteger];
-        [createContact column: @"name" type: ZIMSqlDataTypeVarChar(l20)];
-        [createContact column: @"image" type: ZIMSqlDataTypeBlob];
-        [createContact column: @"precense" type: ZIMSqlDataTypeSmallInt];
-        statement = [createRoomContact statement];
-        NSLog(@"%@", statement);
-        result = [ZIMDbConnection dataSource: @"addressbook" execute: statement];*/
+        if ([fileManager createFileAtPath:addressbookDbPath contents:nil attributes:nil]) {
+            //创建addressbook数据库
+            ZIMSqlCreateTableStatement *createContactGroup = [[ZIMSqlCreateTableStatement alloc] init];
+            [createContactGroup table: @"ContactGroup"];
+            [createContactGroup column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createContactGroup column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            NSString *statement = [createContactGroup statement];
+            //NSLog(@"%@", statement);
+            [ZIMDbConnection dataSource: @"addressbook" execute: statement];
+            statement = [ZIMSqlPreparedStatement preparedStatement: @"INSERT INTO `ContactGroup` (`name`) VALUES (?);" withValues:@"陌生人", nil];
+            [ZIMDbConnection dataSource: @"addressbook" execute: statement];
+            
+            ZIMSqlCreateTableStatement *createContact = [[ZIMSqlCreateTableStatement alloc] init];
+            [createContact table: @"Contact"];
+            [createContact column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(50) unique:YES];
+            [createContact column: @"gid" type: ZIMSqlDataTypeBigInt];
+            [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            [createContact column: @"pinyin" type: ZIMSqlDataTypeVarChar(30)];
+            [createContact column: @"image" type: ZIMSqlDataTypeBlob];
+            [createContact column: @"presence" type: ZIMSqlDataTypeSmallInt];
+            statement = [createContact statement];
+            //NSLog(@"%@", statement);
+            [ZIMDbConnection dataSource: @"addressbook" execute: statement];
+            
+            ZIMSqlCreateTableStatement *createRoomContactGroup = [[ZIMSqlCreateTableStatement alloc] init];
+            [createRoomContactGroup table: @"Room"];
+            [createRoomContactGroup column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
+            [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            [createContact column: @"intro" type: ZIMSqlDataTypeVarChar(100)];
+            [createContact column: @"notice" type: ZIMSqlDataTypeVarChar(50)];
+            [createContact column: @"image" type: ZIMSqlDataTypeBlob];
+            statement = [createRoomContactGroup statement];
+            //NSLog(@"%@", statement);
+            [ZIMDbConnection dataSource: @"addressbook" execute: statement];
+            
+            ZIMSqlCreateTableStatement *createRoomContact = [[ZIMSqlCreateTableStatement alloc] init];
+            [createRoomContact table: @"RoomContact"];
+            [createRoomContact column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
+            [createContact column: @"rid" type: ZIMSqlDataTypeInteger];
+            [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            [createContact column: @"image" type: ZIMSqlDataTypeBlob];
+            [createContact column: @"precense" type: ZIMSqlDataTypeSmallInt];
+            statement = [createRoomContact statement];
+            //NSLog(@"%@", statement);
+            [ZIMDbConnection dataSource: @"addressbook" execute: statement];
+        }
     }
     
     if (![fileManager fileExistsAtPath:messageDbPath]) {
-        [fileManager createFileAtPath:messageDbPath contents:nil attributes:nil];
-        ZIMSqlCreateTableStatement *createMessage = [[ZIMSqlCreateTableStatement alloc] init];
-        [createMessage table: @"Message"];
-        [createMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        [createMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
-        [createMessage column: @"receier" type: ZIMSqlDataTypeInteger];
-        //[createMessage column: @"message" type: ZIMSqlDataTypeVarChar(l20)];
-        [createMessage column: @"sendtime" type: ZIMSqlDataTypeBlob];
-        NSString *statement = [createMessage statement];
-        NSLog(@"%@", statement);
-        NSNumber *result = [ZIMDbConnection dataSource: @"message" execute: statement];
-        
-        ZIMSqlCreateTableStatement *createRoomMessage = [[ZIMSqlCreateTableStatement alloc] init];
-        [createRoomMessage table: @"Message"];
-        [createRoomMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        [createRoomMessage column: @"rid" type: ZIMSqlDataTypeInteger];
-        //[createRoomMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
-        //[createRoomMessage column: @"receier" type: ZIMSqlDataTypeVarChar(l50)];
-        [createRoomMessage column: @"message" type: ZIMSqlDataTypeText];
-        [createRoomMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
-        statement = [createRoomMessage statement];
-        NSLog(@"%@", statement);
-        result = [ZIMDbConnection dataSource: @"message" execute: statement];
+        if ([fileManager createFileAtPath:messageDbPath contents:nil attributes:nil]) {
+            ZIMSqlCreateTableStatement *createMessage = [[ZIMSqlCreateTableStatement alloc] init];
+            [createMessage table: @"Message"];
+            [createMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            //[createMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
+            [createMessage column: @"receier" type: ZIMSqlDataTypeInteger];
+            //[createMessage column: @"message" type: ZIMSqlDataTypeVarChar(l20)];
+            [createMessage column: @"sendtime" type: ZIMSqlDataTypeBlob];
+            NSString *statement = [createMessage statement];
+            //NSLog(@"%@", statement);
+            NSNumber *result = [ZIMDbConnection dataSource: @"message" execute: statement];
+            
+            ZIMSqlCreateTableStatement *createRoomMessage = [[ZIMSqlCreateTableStatement alloc] init];
+            [createRoomMessage table: @"RoomMessage"];
+            [createRoomMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createRoomMessage column: @"rid" type: ZIMSqlDataTypeInteger];
+            //[createRoomMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
+            //[createRoomMessage column: @"receier" type: ZIMSqlDataTypeVarChar(l50)];
+            [createRoomMessage column: @"message" type: ZIMSqlDataTypeText];
+            [createRoomMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
+            statement = [createRoomMessage statement];
+            //NSLog(@"%@", statement);
+            result = [ZIMDbConnection dataSource: @"message" execute: statement];
+        }
     }
+}
+
+void    CXmpp::joinRooms()
+{
+    if (!m_pClient || !m_pDelegate) {
+        return;
+    }
+    NSString* uid = [NSString stringWithUTF8String: m_pClient->jid().username().c_str()];
+    NSMutableArray* roomInfos = [[NSMutableArray alloc] initWithArray:[[m_pDelegate tgtRequest] getRoomList:uid]];
+    for(NSDictionary* roomInfo in roomInfos){
+        NSString* nickStr = [[NSString alloc] initWithFormat:@"%@@group.uc.sina.com.cn/%@darwin", [roomInfo valueForKey:@"groupid"], uid];
+        gloox::JID roomJid([nickStr UTF8String]);
+        gloox::MUCRoom* mucRoom = new gloox::MUCRoom(m_pClient, roomJid, 0, 0);
+        /*XMPPMUCRoom* room = [[XMPPMUCRoom alloc] init];
+         [room setXmpp:m_pDelegate];
+         [room setGid:[roomInfo valueForKey:@"groupid"]];
+         [room setJid:roomJidStr];
+         [room setName:[roomInfo valueForKey:@"groupname"]];
+         [room setRoom:mucRoom];
+         [room setChatWindowCreated:NO];
+         [rooms addObject:room];
+         //[room release];*/
+    }
+    //[m_pDelegate performSelectorOnMainThread:@selector(joinRooms:) withObject:rooms waitUntilDone:NO];
 }
 
 void    CXmpp::exchangeTgt()
@@ -335,9 +358,10 @@ void    CXmpp::exchangeTgt()
 
 void    CXmpp::heartBeat()
 {
-    gloox::JID* jid = new gloox::JID();
-    jid->setServer("xmpp.uc.sina.com.cn");
-    m_pClient->xmppPing(*jid, this);
+    m_pClient->xmppPing(m_pClient->jid(), this);
+    if (++m_heartbeat > 2) {
+        m_pClient->disconnect();
+    }
 }
 
 void    CXmpp::sendVcardRequest()
@@ -347,14 +371,6 @@ void    CXmpp::sendVcardRequest()
         gloox::JID jid([jidStr UTF8String]);
         m_pVcardManager->fetchVCard(jid, this);
         [vcardRequestStack removeObjectAtIndex:0];
-    }
-}
-
-void    CXmpp::updateVcard()
-{
-    if ([vcardUpdateStack count] > 0 && [vcardUpdateStack objectAtIndex:0] != nil) {
-        //NSString *jidStr = [vcardUpdateStack objectAtIndex:0];
-        [vcardUpdateStack removeObjectAtIndex:0];
     }
 }
 
@@ -372,10 +388,10 @@ bool    CXmpp::login(NSString* username, NSString* password)
                                                                                        withString:@"\\40"]];
     jid->setUsername([loginId UTF8String]);
     m_pClient = new gloox::Client(*jid, [password UTF8String]);
-    m_pClient->registerPresenceHandler( this );
-    m_pClient->registerConnectionListener( this );
-    m_pClient->logInstance().registerLogHandler( gloox::LogLevelDebug, gloox::LogAreaAll, this );
-    m_pClient->registerMessageSessionHandler( this );
+    m_pClient->registerPresenceHandler(this);
+    m_pClient->registerConnectionListener(this);
+    m_pClient->logInstance().registerLogHandler(gloox::LogLevelDebug, gloox::LogAreaAll, this);
+    m_pClient->registerMessageSessionHandler(this);
     m_pRosterManager = m_pClient->rosterManager();
     m_pRosterManager->registerRosterListener(this, false);
     m_pRosterManager->fill();
@@ -389,48 +405,32 @@ void    CXmpp::connect()
     if (!m_pClient || !m_pDelegate) {
         return;
     }
+    gloox::ConnectionError ce = gloox::ConnNoError;
     if (m_pClient->connect(false)) {
-        gloox::ConnectionError ce = gloox::ConnNoError;
-        int i = 0;
-        while (ce == gloox::ConnNoError && ++i) {
-            //joinRoom仅执行一次
-            if (i == 1) {
-                //joinRooms();
-                initUserStore();
-                NSLog(@"join room");
-            }
+        int i = 1;
+        do {
+            ce = m_pClient->recv(100000);
+            //NSLog(@"%s", m_pClient->jid().bare().c_str());
             //每900次执行tgt换票
-            if (i%900 == 0) {
-                //exchangeTgt();
-            }
-            //每10次执行心跳
-            if (i%10 == 0) {
-                //heartBeat();
+            if (m_connected) {
+                if (i%900 == 0) {
+                    exchangeTgt();
+                }
+                if (i%5 == 0) {
+                    heartBeat();
+                }
             }
             //重置i
             if (i > 1000) {
                 i = 1;
             }
             //接收后发送Vcard请求，保证xmpp读写互斥
-            //sendVcardRequest();
+            sendVcardRequest();
             //接收后发送消息，保证xmpp读写互斥
             //sendMessage();
-            //更新联系人Vcard，由于onConnect和handleVcard、handleRoster顺序不定，initUserStore的工作要在最先完成，所以都向一个队列中写入需要保存的联系人Vcard，再统一写入数据库
-            //updateVcard();
-            ce = m_pClient->recv(10000);
-        }
-        printf("ce: %d\n", ce);
+        } while (ce == gloox::ConnNoError && ++i);
     }
-    [m_pDelegate disconnect];
-}
-
-void    CXmpp::disconnect()
-{
-    if (m_pClient) {
-        m_pClient->disconnect();
-        delete m_pClient;
-        m_pClient=0;
-    }    
+    NSLog(@"error: %d", ce);
 }
 
 void 	CXmpp::onConnect ()
@@ -438,15 +438,17 @@ void 	CXmpp::onConnect ()
     if (!m_pClient || !m_pDelegate) {
         return;
     }
+    m_connected = true;
+    initUserStore();
+    joinRooms();
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
     [m_pDelegate performSelectorOnMainThread:@selector(onConnect:) withObject:myJid waitUntilDone:NO];
 }
 
 void 	CXmpp::onDisconnect (gloox::ConnectionError e)
 {
-    if (!m_pClient || !m_pDelegate) {
-        return;
-    }
+    m_connected = false;
+    m_heartbeat = 0;
     if (m_pVcardManager){
         delete m_pVcardManager;
         m_pVcardManager = 0;
@@ -462,27 +464,102 @@ void 	CXmpp::onDisconnect (gloox::ConnectionError e)
     [m_pDelegate performSelectorOnMainThread:@selector(onDisconnect:) withObject:errorString waitUntilDone:NO];
 }
 
-void    CXmpp::joinRooms()
+void 	CXmpp::handleRoster (const gloox::Roster &roster)
 {
     if (!m_pClient || !m_pDelegate) {
         return;
     }
-    /*NSMutableArray* roomInfos = [[NSMutableArray alloc] initWithArray:[[m_pDelegate tgtRequest] getRoomList:uid]];
-    for(NSDictionary* roomInfo in roomInfos){
-        NSString* roomJidStr = [[NSString alloc] initWithFormat:@"%@@group.uc.sina.com.cn/%@darwin", [roomInfo valueForKey:@"groupid"], uid];
-        gloox::JID roomJid([roomJidStr UTF8String]);
-        gloox::MUCRoom* mucRoom = new gloox::MUCRoom(m_pClient, roomJid, 0, 0);
-        XMPPMUCRoom* room = [[XMPPMUCRoom alloc] init];
-        [room setXmpp:m_pDelegate];
-        [room setGid:[roomInfo valueForKey:@"groupid"]];
-        [room setJid:roomJidStr];
-        [room setName:[roomInfo valueForKey:@"groupname"]];
-        [room setRoom:mucRoom];
-        [room setChatWindowCreated:NO];
-        [rooms addObject:room];
-        //[room release];
+    gloox::Roster* pRoster = new gloox::Roster(roster);
+    gloox::Roster::iterator it;
+    for (it = pRoster->begin(); it != pRoster->end(); it++) {
+        Contact *contact = [[Contact alloc] init];
+        [contact setGid:[NSNumber numberWithInt:1]];
+        ContactGroup *contactGroup = [[ContactGroup alloc] init];
+        gloox::RosterItem* pItem = (*it).second;
+        gloox::StringList list(pItem->groups());
+        gloox::StringList::iterator group;
+        for (group = list.begin(); group != list.end(); group++) {
+            [contactGroup setName:[NSString stringWithUTF8String:(*group).c_str()]];
+            NSString *contactGroupsStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM ContactGroup WHERE name = ? limit 1;" withValues:[contactGroup name], nil];
+            NSArray *contactGroups = [ZIMDbConnection dataSource:@"addressbook" query:contactGroupsStatement];
+            if ([contactGroups count] == 0) {
+                [contactGroup save];
+            } else {
+                [contactGroup setPk:[[contactGroups objectAtIndex:0] valueForKey:@"pk"]];
+                [contactGroup save];
+            }
+            [contact setGid:[contactGroup pk]];
+        }
+        //[contact setKey:[NSString stringWithUTF8String:(*it).first.c_str()]];
+        [contact setJid:[NSString stringWithUTF8String:pItem->jid().c_str()]];
+        [contact setName:[NSString stringWithUTF8String:pItem->name().c_str()]];
+        [contact setPresence:[NSNumber numberWithInt:(pItem->online() ? 1 : 0)]];
+        
+        NSString *contactsStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:[contact jid], nil];
+        NSArray *contacts = [ZIMDbConnection dataSource:@"addressbook" query:contactsStatement];
+        if ([contacts count] == 0) {
+            [contact save];
+        } else {
+            [contact setPk:[[contacts objectAtIndex:0] valueForKey:@"pk"]];
+            [contact save];
+        }
+        requestVcard([contact jid]);
     }
-    [m_pDelegate performSelectorOnMainThread:@selector(joinRooms:) withObject:rooms waitUntilDone:NO];*/
+}
+
+void 	CXmpp::handleRosterError (const gloox::IQ &iq)
+{
+}
+
+void 	CXmpp::handlePresence (const gloox::Presence &presence)
+{
+    if (!m_pDelegate) {
+        return;
+    }
+    //update contact presence
+    /*ContactItem* item = [[ContactItem alloc] init];
+     [item setVcard:YES];
+     [item setJid:[NSString stringWithUTF8String:presence.from().bare().c_str()]];
+     [item setFullJid:[NSString stringWithUTF8String:presence.from().full().c_str()]];
+     [item setStatus:[NSString stringWithUTF8String:presence.status().c_str()]];
+     [item setPresence:presence.subtype()];
+     [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:item waitUntilDone:NO];*/
+}
+
+bool 	CXmpp::handleSubscriptionRequest (const gloox::JID &jid, const std::string &msg)
+{
+    /*m_delegateMutex.lock();
+     if (!m_pRosterManager) {
+     m_delegateMutex.unlock();
+     return false;
+     }
+     printf( "subscription: %s\n", jid.bare().c_str() );
+     printf( "subscription msg: %s\n", msg.c_str() );
+     gloox::StringList groups;
+     groups.insert(groups.begin(), "sina");
+     m_pRosterManager->subscribe(jid, "", groups, "");
+     m_delegateMutex.unlock();*/
+    return false;
+}
+
+void    CXmpp::handleEvent (const gloox::Event &event) {
+    std::string sEvent;
+    switch (event.eventType())
+    {
+        case gloox::Event::PingPing:
+            sEvent = "PingPing";
+            break;
+        case gloox::Event::PingPong:
+            sEvent = "PingPong";
+            --m_heartbeat;
+            break;
+        case gloox::Event::PingError:
+            sEvent = "PingError";
+            break;
+        default:
+            break;
+    }
+    return;
 }
 
 void    CXmpp::requestVcard(NSString* jid)
@@ -495,28 +572,13 @@ void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
     if (!m_pClient || !m_pDelegate) {
         return;
     }
-    /*ContactItem* item = [[ContactItem alloc] init];
-     [item setVcard:YES];
-     [item setJid:[NSString stringWithUTF8String:jid.bare().c_str()]];
-     [item setFullJid:[NSString stringWithUTF8String:jid.full().c_str()]];
-     if (vcard->photo().extval == "") {
-     NSData* imageData = [NSData dataWithBytes:vcard->photo().binval.c_str() length:vcard->photo().binval.size()];
-     [item setPhoto:imageData];
-     [imageData release];
-     } else {
-     NSURL* url = [NSURL URLWithString:[NSString stringWithUTF8String:vcard->photo().extval.c_str()]];
-     if (url) {
-     NSData *imageData = [NSData dataWithContentsOfURL:url];
-     [item setPhoto:imageData];
-     [imageData release];
-     }
-     }
-     [item setName:[NSString stringWithUTF8String:vcard->nickname().c_str()]];
-     if ([[item jid] isEqualToString:[NSString stringWithUTF8String:m_pClient->jid().bare().c_str()]] == NO) {
-     [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:item waitUntilDone:NO];
-     } else {
-     [m_pDelegate performSelectorOnMainThread:@selector(updateSelfVcard:) withObject:item waitUntilDone:NO];
-     }*/
+    NSURL* url = [NSURL URLWithString:[NSString stringWithUTF8String:vcard->photo().extval.c_str()]];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:
+                                  imageData,
+                                  [NSString stringWithUTF8String:jid.bare().c_str()],
+                                  nil];
+    //[ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
 }
 
 void 	CXmpp::handleVCardResult (gloox::VCardHandler::VCardContext context, const gloox::JID &jid, gloox::StanzaError se)
@@ -536,12 +598,16 @@ void    CXmpp::startChat(gloox::JID& jid)
     [[m_pDelegate sessionManager] addSession:session];*/
 }
 
-void    CXmpp::closeSession(gloox::MessageSession* pSession)
+void 	CXmpp::handleMessageSession(gloox::MessageSession *session)
 {
-    if (!m_pClient || !m_pDelegate) {
+    if (!m_pDelegate) {
         return;
     }
-    m_pClient->disposeMessageSession(pSession);
+    /*XMPPSession* s = [[XMPPSession alloc] init];
+     [s setSession:session];
+     [s setIncomingSession:YES];
+     [s setXmpp:m_pDelegate];
+     [[m_pDelegate sessionManager] performSelectorOnMainThread:@selector(addSession:) withObject:s waitUntilDone:YES];*/
 }
 
 void 	CXmpp::onSessionCreateError (const gloox::Error *error)
@@ -559,95 +625,12 @@ void 	CXmpp::onSessionCreateError (const gloox::Error *error)
     [m_pDelegate performSelectorOnMainThread:@selector(onDisconnect:) withObject:errorMessage waitUntilDone:NO];    
 }
 
-void 	CXmpp::handleRoster (const gloox::Roster &roster)
+void    CXmpp::closeSession(gloox::MessageSession* pSession)
 {
     if (!m_pClient || !m_pDelegate) {
-        return; 
-    }
-    gloox::Roster* pRoster = new gloox::Roster(roster);
-    gloox::Roster::iterator it;
-    for (it = pRoster->begin(); it != pRoster->end(); it++) {
-        gloox::RosterItem* pItem = (*it).second;
-        NSMutableArray* groups = [[NSMutableArray alloc]init ];
-        gloox::StringList list(pItem->groups());
-        gloox::StringList::iterator group;
-        for (group = list.begin(); group != list.end(); group++) {
-            [groups addObject:[NSString stringWithUTF8String:(*group).c_str()]];            
-        }
-        NSDictionary *contact = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 [NSString stringWithUTF8String:(*it).first.c_str()], @"key",
-                                 [NSString stringWithUTF8String:pItem->jid().c_str()], @"jid",
-                                 [NSString stringWithUTF8String:pItem->name().c_str()], @"name",
-                                 groups, @"groups",
-                                 nil];
-        [vcardUpdateStack addObject:contact];
-    }
-}
-
-void 	CXmpp::handleRosterError (const gloox::IQ &iq)
-{
-}
-
-void 	CXmpp::handlePresence (const gloox::Presence &presence)
-{
-    if (!m_pDelegate) {
         return;
     }
-    /*ContactItem* item = [[ContactItem alloc] init];
-     [item setVcard:YES];
-     [item setJid:[NSString stringWithUTF8String:presence.from().bare().c_str()]];
-     [item setFullJid:[NSString stringWithUTF8String:presence.from().full().c_str()]];
-     [item setStatus:[NSString stringWithUTF8String:presence.status().c_str()]];
-     [item setPresence:presence.subtype()];
-     [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:item waitUntilDone:NO];*/
-}
-
-bool 	CXmpp::handleSubscriptionRequest (const gloox::JID &jid, const std::string &msg)
-{
-    /*m_delegateMutex.lock();
-    if (!m_pRosterManager) {
-        m_delegateMutex.unlock();
-        return false;
-    }
-    printf( "subscription: %s\n", jid.bare().c_str() );
-    printf( "subscription msg: %s\n", msg.c_str() );
-    gloox::StringList groups;
-    groups.insert(groups.begin(), "sina");
-    m_pRosterManager->subscribe(jid, "", groups, "");
-    m_delegateMutex.unlock();*/
-    return false;
-}
-
-void    CXmpp::handleEvent (const gloox::Event &event) {
-    std::string sEvent;  
-    switch (event.eventType())  
-    {  
-        case gloox::Event::PingPing:   //! 收到PING消息  
-            sEvent = "PingPing";  
-            break;  
-        case gloox::Event::PingPong:   //! 收到返回PONG消息,心跳累计次数减1  
-            sEvent = "PingPong";  
-            //decreaceHeartBeatCount();  
-            break;  
-        case gloox::Event::PingError:  //!   
-            sEvent = "PingError";  
-            break;  
-        default:  
-            break;  
-    }  
-    return; 
-}
-
-void 	CXmpp::handleMessageSession(gloox::MessageSession *session)
-{
-    if (!m_pDelegate) { 
-        return; 
-    }
-    /*XMPPSession* s = [[XMPPSession alloc] init];
-    [s setSession:session];
-    [s setIncomingSession:YES];
-    [s setXmpp:m_pDelegate];
-    [[m_pDelegate sessionManager] performSelectorOnMainThread:@selector(addSession:) withObject:s waitUntilDone:YES];*/
+    m_pClient->disposeMessageSession(pSession);
 }
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
@@ -665,9 +648,13 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 
 - (void)main
 {
-    //NSLog(@"XMPPThread started");
+    NSLog(@"XMPPThread started");
     CXmpp::instance().connect();
-    //NSLog(@"XMPPThread ended");
+    while (![[NSThread currentThread] isCancelled]) {
+        sleep(1);
+    }
+    NSLog(@"XMPPThread ended");
+    [NSThread exit];
 }
 @end
 
@@ -686,9 +673,8 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
         // Initialization code here.
         connectionDelegates = [[NSMutableArray alloc] init];
         vcardUpdateDelegates = [[NSMutableArray alloc] init];
-        //tgtRequest = [[RequestWithTGT alloc] init];
+        tgtRequest = [[RequestWithTGT alloc] init];
         myVcard = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"", @"uid", @"", @"jid", @"", @"name", nil, @"image", nil];
-        //NSLog(@"XMPP initialized");
     }
     return self;
 }
@@ -722,20 +708,14 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 {
     CXmpp::instance().setDelegate(self);
     CXmpp::instance().login(username, password);
-    if (xmppThread || [xmppThread isExecuting]) {
-        [self disconnect];
+    if ([xmppThread isExecuting]) {
         return NO;
     } else {
+        xmppThread = nil;
         xmppThread = [[XMPPThread alloc] init];
         [xmppThread start];
         return YES;
     }
-}
-
-- (void) disconnect
-{
-    CXmpp::instance().disconnect();
-    //NSLog(@"XMPP disconnect");
 }
 
 - (void) onConnect:(NSString*) myJid
@@ -749,44 +729,18 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 
 - (void) onDisconnect:(NSString*) errorString
 {
-    /*gloox::ConnectionError error = (gloox::ConnectionError)[errorString intValue];
-     NSEnumerator* e = [connectionDelegates objectEnumerator];
-     id < XMPPConnectionDelegate > connectionDelegate;
-     while ((connectionDelegate = [e nextObject])) {
-     [connectionDelegate onDisconnectWithErrorCode:error];
-     }
-     [errorString release];
-     CXmpp::instance().setDelegate(nil);*/
+    [xmppThread cancel];
+    gloox::ConnectionError error = (gloox::ConnectionError)[errorString intValue];
+    NSEnumerator* e = [connectionDelegates objectEnumerator];
+    id < SinaUCConnectionDelegate > connectionDelegate;
+    while ((connectionDelegate = [e nextObject])) {
+        [connectionDelegate didDisConnectedWithError:error];
+    }
+    CXmpp::instance().setDelegate(nil);
 }
-
 
 - (void) requestVcard:(NSString*) jid {
     CXmpp::instance().requestVcard(jid);
-}
-
-- (void) updateVcard:(Contact*) item
-{
-    /* if ([[myVcard valueForKey:@"uid"] isEqualTo:@""] == YES) {
-     NSArray* jidArr = [[NSArray alloc] initWithArray:[[item jid] componentsSeparatedByString:@"@"]];
-     [myVcard setValue:[jidArr objectAtIndex:0] forKey:@"uid"];
-     [myVcard setValue:[item jid] forKey:@"jid"];
-     [myVcard setValue:[item name] forKey:@"name"];
-     [myVcard setValue:[item photo] forKey:@"image"];
-     [tgtRequest setMyJid:[item jid]];
-     }*/
-}
-
-
-- (void) updateContact:(Contact*) contact
-{
-    /* NSEnumerator* e = [vcardUpdateDelegates objectEnumerator];
-     id <XMPPVcardUpdateDelegate> vcardUpdateDelegate;
-     while (vcardUpdateDelegate = [e nextObject]) {
-     [vcardUpdateDelegate vcardUpdate: contact];
-     }
-     if (![contact vcard]) {
-     CXmpp::instance().requestVcard([contact fullJid]);
-     }*/
 }
 
 - (void) startChat:(NSString*) jid

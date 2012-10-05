@@ -87,7 +87,7 @@
 			_readonly = YES;
 		}
 		else {
-			NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
+			NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], [NSString stringWithFormat:@"SinaUC/%@", database], nil]];
 	        if (![fileManager fileExistsAtPath: workingPath]) {
 	            NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
 	            if ([fileManager fileExistsAtPath: resourcePath]) {
@@ -153,7 +153,6 @@
 	}
 
 	//sqlite3_stmt *statement = NULL;
-
 	//if ((sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) || (sqlite3_step(statement) != SQLITE_DONE)) {
 	if (sqlite3_exec(_database, [sql UTF8String], NULL, nil, nil) != SQLITE_OK) {
         //sqlite3_finalize(statement);
@@ -206,7 +205,6 @@
 	}
 
 	sqlite3_stmt *statement = NULL;
-	
 	if (sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) {
 		sqlite3_finalize(statement);
 		

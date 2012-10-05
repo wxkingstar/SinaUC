@@ -55,38 +55,6 @@ NSString *ZIMSqlDefaultValue(id value) {
 	}
 }
 
-NSString *ZIMSqlDataTypeChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"CHAR(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"CHARACTER(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeDecimal(NSUInteger x, NSUInteger y) {
-	return [NSString stringWithFormat: @"DECIMAL(%u, %u)", x, y];
-}
-
-NSString *ZIMSqlDataTypeNativeCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"NATIVE CHARACTER(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeNChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"NCHAR(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeNVarChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"NVARCHAR(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeVarChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"VARCHAR(%u)", x];
-}
-
-NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"VARYING CHARACTER(%u)", x];
-}
-
 @implementation ZIMSqlExpression
 
 - (id) initWithSqlExpression: (NSString *)sql {
