@@ -2,7 +2,7 @@
 //  Room.m
 //  SinaUC
 //
-//  Created by shuoshi on 10/03/12.
+//  Created by shuoshi on 10/05/12.
 //  Copyright 2012 shuoshi. All rights reserved.
 //
 
@@ -11,6 +11,11 @@
 @implementation Room
 
 @synthesize pk = _pk;
+@synthesize jid = _jid;
+@synthesize name = _name;
+@synthesize intro = _intro;
+@synthesize notice = _notice;
+@synthesize image = _image;
 
 - (id) init {
 	if ((self = [super init])) {

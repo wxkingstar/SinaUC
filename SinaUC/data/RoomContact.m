@@ -2,7 +2,7 @@
 //  RoomContact.m
 //  SinaUC
 //
-//  Created by shuoshi on 10/03/12.
+//  Created by shuoshi on 10/05/12.
 //  Copyright 2012 shuoshi. All rights reserved.
 //
 
@@ -11,6 +11,11 @@
 @implementation RoomContact
 
 @synthesize pk = _pk;
+@synthesize jid = _jid;
+@synthesize rid = _rid;
+@synthesize name = _name;
+@synthesize image = _image;
+@synthesize precense = _precense;
 
 - (id) init {
 	if ((self = [super init])) {

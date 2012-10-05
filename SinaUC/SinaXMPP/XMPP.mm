@@ -25,6 +25,8 @@
 #import "ZIMSqlSdk.h"
 #import "Contact.h"
 #import "ContactGroup.h"
+#import "Room.h"
+#import "RoomContact.h"
 
 #include "gloox.h"
 #include "client.h"
@@ -273,26 +275,26 @@ void    CXmpp::initUserStore()
             //NSLog(@"%@", statement);
             [ZIMDbConnection dataSource: @"addressbook" execute: statement];
             
-            ZIMSqlCreateTableStatement *createRoomContactGroup = [[ZIMSqlCreateTableStatement alloc] init];
-            [createRoomContactGroup table: @"Room"];
-            [createRoomContactGroup column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-            [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
-            [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
-            [createContact column: @"intro" type: ZIMSqlDataTypeVarChar(100)];
-            [createContact column: @"notice" type: ZIMSqlDataTypeVarChar(50)];
-            [createContact column: @"image" type: ZIMSqlDataTypeBlob];
-            statement = [createRoomContactGroup statement];
+            ZIMSqlCreateTableStatement *createRoom = [[ZIMSqlCreateTableStatement alloc] init];
+            [createRoom table: @"Room"];
+            [createRoom column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createRoom column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
+            [createRoom column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            [createRoom column: @"intro" type: ZIMSqlDataTypeVarChar(100)];
+            [createRoom column: @"notice" type: ZIMSqlDataTypeVarChar(50)];
+            [createRoom column: @"image" type: ZIMSqlDataTypeBlob];
+            statement = [createRoom statement];
             //NSLog(@"%@", statement);
             [ZIMDbConnection dataSource: @"addressbook" execute: statement];
             
             ZIMSqlCreateTableStatement *createRoomContact = [[ZIMSqlCreateTableStatement alloc] init];
             [createRoomContact table: @"RoomContact"];
             [createRoomContact column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-            [createContact column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
-            [createContact column: @"rid" type: ZIMSqlDataTypeInteger];
-            [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
-            [createContact column: @"image" type: ZIMSqlDataTypeBlob];
-            [createContact column: @"precense" type: ZIMSqlDataTypeSmallInt];
+            [createRoomContact column: @"jid" type: ZIMSqlDataTypeVarChar(50)];
+            [createRoomContact column: @"rid" type: ZIMSqlDataTypeInteger];
+            [createRoomContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
+            [createRoomContact column: @"image" type: ZIMSqlDataTypeBlob];
+            [createRoomContact column: @"precense" type: ZIMSqlDataTypeSmallInt];
             statement = [createRoomContact statement];
             //NSLog(@"%@", statement);
             [ZIMDbConnection dataSource: @"addressbook" execute: statement];
@@ -310,7 +312,7 @@ void    CXmpp::initUserStore()
             [createMessage column: @"sendtime" type: ZIMSqlDataTypeBlob];
             NSString *statement = [createMessage statement];
             //NSLog(@"%@", statement);
-            NSNumber *result = [ZIMDbConnection dataSource: @"message" execute: statement];
+            [ZIMDbConnection dataSource: @"message" execute: statement];
             
             ZIMSqlCreateTableStatement *createRoomMessage = [[ZIMSqlCreateTableStatement alloc] init];
             [createRoomMessage table: @"RoomMessage"];
@@ -322,7 +324,7 @@ void    CXmpp::initUserStore()
             [createRoomMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
             statement = [createRoomMessage statement];
             //NSLog(@"%@", statement);
-            result = [ZIMDbConnection dataSource: @"message" execute: statement];
+            [ZIMDbConnection dataSource: @"message" execute: statement];
         }
     }
 }
@@ -333,11 +335,19 @@ void    CXmpp::joinRooms()
         return;
     }
     NSString* uid = [NSString stringWithUTF8String: m_pClient->jid().username().c_str()];
-    NSMutableArray* roomInfos = [[NSMutableArray alloc] initWithArray:[[m_pDelegate tgtRequest] getRoomList:uid]];
-    for(NSDictionary* roomInfo in roomInfos){
-        NSString* nickStr = [[NSString alloc] initWithFormat:@"%@@group.uc.sina.com.cn/%@darwin", [roomInfo valueForKey:@"groupid"], uid];
+    NSMutableArray* roomsData = [[NSMutableArray alloc] initWithArray:[[m_pDelegate tgtRequest] getRoomList:uid]];
+    for(NSDictionary* roomData in roomsData){
+        Room *room = [[Room alloc] init];
+        NSString *roomStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM `Room` WHERE gid=?" withValues:[roomData valueForKey:@"groupid"] , nil];
+        NSArray *roomRes = [ZIMDbConnection dataSource: @"addressbook" query: roomStatement];
+        if ([roomRes count] == 0) {
+            //[room setRid: [roomData valueForKey:@"groupid"]];
+        }
+        NSArray* contacts = [[m_pDelegate tgtRequest] getRoomContacts: [roomData valueForKey:@"groupid"]];
+        NSString* nickStr = [[NSString alloc] initWithFormat:@"%@@group.uc.sina.com.cn/%@darwin", [roomData valueForKey:@"groupid"], uid];
         gloox::JID roomJid([nickStr UTF8String]);
         gloox::MUCRoom* mucRoom = new gloox::MUCRoom(m_pClient, roomJid, 0, 0);
+        
         /*XMPPMUCRoom* room = [[XMPPMUCRoom alloc] init];
          [room setXmpp:m_pDelegate];
          [room setGid:[roomInfo valueForKey:@"groupid"]];
@@ -440,7 +450,7 @@ void 	CXmpp::onConnect ()
     }
     m_connected = true;
     initUserStore();
-    joinRooms();
+    //joinRooms();
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
     [m_pDelegate performSelectorOnMainThread:@selector(onConnect:) withObject:myJid waitUntilDone:NO];
 }
@@ -480,12 +490,12 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         gloox::StringList::iterator group;
         for (group = list.begin(); group != list.end(); group++) {
             [contactGroup setName:[NSString stringWithUTF8String:(*group).c_str()]];
-            NSString *contactGroupsStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM ContactGroup WHERE name = ? limit 1;" withValues:[contactGroup name], nil];
-            NSArray *contactGroups = [ZIMDbConnection dataSource:@"addressbook" query:contactGroupsStatement];
-            if ([contactGroups count] == 0) {
+            NSString *contactGroupStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM ContactGroup WHERE name = ? limit 1;" withValues:[contactGroup name], nil];
+            NSArray *contactGroupRes = [ZIMDbConnection dataSource:@"addressbook" query:contactGroupStatement];
+            if ([contactGroupRes count] == 0) {
                 [contactGroup save];
             } else {
-                [contactGroup setPk:[[contactGroups objectAtIndex:0] valueForKey:@"pk"]];
+                [contactGroup setPk:[[contactGroupRes objectAtIndex:0] valueForKey:@"pk"]];
                 [contactGroup save];
             }
             [contact setGid:[contactGroup pk]];
@@ -495,12 +505,12 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         [contact setName:[NSString stringWithUTF8String:pItem->name().c_str()]];
         [contact setPresence:[NSNumber numberWithInt:(pItem->online() ? 1 : 0)]];
         
-        NSString *contactsStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:[contact jid], nil];
-        NSArray *contacts = [ZIMDbConnection dataSource:@"addressbook" query:contactsStatement];
-        if ([contacts count] == 0) {
+        NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:[contact jid], nil];
+        NSArray *contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
+        if ([contactRes count] == 0) {
             [contact save];
         } else {
-            [contact setPk:[[contacts objectAtIndex:0] valueForKey:@"pk"]];
+            [contact setPk:[[contactRes objectAtIndex:0] valueForKey:@"pk"]];
             [contact save];
         }
         requestVcard([contact jid]);
