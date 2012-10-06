@@ -11,7 +11,7 @@
 #import "XMPP.h"
 #import "SinaUCMD5.h"
 #import "RequestWithTGT.h"
-#import "SinaUCDelegate.h"
+#import "SinaUCConnectionDelegate.h"
 /*#import "SynthesizeSingleton.h"
 #import "XMPPConnectionDelegate.h"
 #import "XMPPVcardUpdateDelegate.h"
@@ -324,10 +324,36 @@ void    CXmpp::joinRooms()
     NSString* uid = [NSString stringWithUTF8String:m_pClient->jid().username().c_str()];
     NSArray* roomsData = [[m_pDelegate requestWithTgt] getRoomList:uid];
     for (NSDictionary* roomData in roomsData) {
-        NSLog(@"%@", roomData);
+        //NSLog(@"%@", roomData);
+        Room* room = [[Room alloc] init];
+        [room setGid:[roomData valueForKey:@"groupid"]];
+        [room setName:[roomData valueForKey:@"groupname"]];
+        [room setJid:[NSString stringWithFormat:@"%@@group.uc.sina.com.cn", [roomData valueForKey:@"groupid"]]];
+        [room setIntro:[roomData valueForKey:@"intro"]];
+        NSString *roomStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Room WHERE gid = ?;" withValues:[roomData valueForKey:@"groupid"], nil];
+        NSArray *roomRes = [ZIMDbConnection dataSource:@"addressbook" query:roomStatement];
+        if ([roomRes count] == 0) {
+            [room save];
+        } else {
+            [room setPk:[[roomRes objectAtIndex:0] valueForKey:@"pk"]];
+            [room save];
+        }
         NSArray* contactsData = [[m_pDelegate requestWithTgt] getRoomContacts:[roomData valueForKey:@"groupid"] withUid:uid];
         for (NSDictionary* contactData in contactsData) {
-            NSLog(@"%@", contactData);
+            //NSLog(@"%@", contactData);
+            NSString* contactJid = [NSString stringWithFormat:@"%@@uc.sina.com.cn", [contactData valueForKey:@"uid"]];
+            RoomContact* roomContact = [[RoomContact alloc] init];
+            [roomContact setRid:[room pk]];
+            [roomContact setName:[contactData valueForKey:@"nickname"]];
+            [roomContact setJid:contactJid];
+            NSString *roomContactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM RoomContact WHERE jid = ?;" withValues:contactJid, nil];
+            NSArray *roomContactRes = [ZIMDbConnection dataSource:@"addressbook" query:roomContactStatement];
+            if ([roomContactRes count] == 0) {
+                [roomContact save];
+            } else {
+                [roomContact setPk:[[roomContactRes objectAtIndex:0] valueForKey:@"pk"]];
+                [roomContact save];
+            }
         }
     }
 }
@@ -475,7 +501,6 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         [contact setJid:[NSString stringWithUTF8String:pItem->jid().c_str()]];
         [contact setName:[NSString stringWithUTF8String:pItem->name().c_str()]];
         [contact setPresence:[NSNumber numberWithInt:(pItem->online() ? 1 : 0)]];
-        
         NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:[contact jid], nil];
         NSArray *contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
         if ([contactRes count] == 0) {
@@ -652,7 +677,7 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
     self = [super init];
     if (self) {
         // Initialization code here.
-        sinaUcDelegates = [[NSMutableArray alloc] init];
+        connectionDelegates = [[NSMutableArray alloc] init];
         tgtRequest = [[RequestWithTGT alloc] init];
         myVcard = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"", @"uid", @"", @"jid", @"", @"name", nil, @"image", nil];
     }
@@ -674,13 +699,18 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
     return tgtRequest;
 }
 
-- (void) registerSinaUCDelegate:(id <SinaUCDelegate>) delegate
+- (void) registerConnectionDelegate:(id <SinaUCConnectionDelegate>) delegate
 {
-    [sinaUcDelegates addObject: delegate];
+    [connectionDelegates addObject: delegate];
 }
 
-- (BOOL)login:(NSString*)username withPassword:(NSString*)password;
+- (BOOL) login:(NSString*)username withPassword:(NSString*)password;
 {
+    NSEnumerator* e = [connectionDelegates objectEnumerator];
+    id < SinaUCConnectionDelegate > connectionDelegate;
+    while (connectionDelegate = [e nextObject]) {
+        [connectionDelegate willConnect];
+    }
     CXmpp::instance().setDelegate(self);
     CXmpp::instance().login(username, password);
     if ([xmppThread isExecuting]) {
@@ -695,8 +725,8 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 
 - (void) onConnect:(NSString*) myJid
 {
-    NSEnumerator* e = [sinaUcDelegates objectEnumerator];
-    id < SinaUCDelegate > connectionDelegate;
+    NSEnumerator* e = [connectionDelegates objectEnumerator];
+    id < SinaUCConnectionDelegate > connectionDelegate;
     while (connectionDelegate = [e nextObject]) {
         [connectionDelegate didConnectedWithJid:myJid];
     }
@@ -705,11 +735,10 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 - (void) onDisconnect:(NSString*) errorString
 {
     [xmppThread cancel];
-    gloox::ConnectionError error = (gloox::ConnectionError)[errorString intValue];
-    NSEnumerator* e = [sinaUcDelegates objectEnumerator];
-    id < SinaUCDelegate > connectionDelegate;
+    NSEnumerator* e = [connectionDelegates objectEnumerator];
+    id < SinaUCConnectionDelegate > connectionDelegate;
     while ((connectionDelegate = [e nextObject])) {
-        [connectionDelegate didDisConnectedWithError:error];
+        [connectionDelegate didDisConnectedWithError:[errorString intValue]];
     }
     CXmpp::instance().setDelegate(nil);
 }

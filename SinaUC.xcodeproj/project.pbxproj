@@ -113,6 +113,10 @@
 		FC3929971617E77F000982C3 /* SinaUCMaxLengthFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */; };
 		FC392A1616194526000982C3 /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC392A1516194526000982C3 /* db.plist */; };
 		FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC392A1716194902000982C3 /* libsqlite3.dylib */; };
+		FC41A4A7161EA96200573F9B /* SinaUCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4A6161EA96200573F9B /* SinaUCRequest.m */; };
+		FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AA161EC05900573F9B /* SinaUCMD5.m */; };
+		FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */; };
+		FC41A4B1161FE38000573F9B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B0161FE38000573F9B /* User.m */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
 		FC8AE1E4160F26C50069F6E7 /* 0fix.bmp in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */; };
@@ -1854,7 +1858,6 @@
 		FCA7F3BF160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3C2160EE1D600DC038C /* SinaUCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */; };
 		FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AA81619620B002CA75E /* XMPP.mm */; };
-		FCBE1AAC1619DA2F002CA75E /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */; };
 		FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCDA54016132BFA00C1499D /* Quartz.framework */; };
 		FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63612161B3050002AF1FF /* ZIMDbConnection.m */; };
 		FCD63663161B3050002AF1FF /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63614161B3050002AF1FF /* ZIMDbConnectionPool.m */; };
@@ -2175,6 +2178,14 @@
 		FC39299C1617EA59000982C3 /* SinaUCConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCConnectionDelegate.h; sourceTree = "<group>"; };
 		FC392A1516194526000982C3 /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
 		FC392A1716194902000982C3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FC41A4A5161EA96200573F9B /* SinaUCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRequest.h; sourceTree = "<group>"; };
+		FC41A4A6161EA96200573F9B /* SinaUCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRequest.m; sourceTree = "<group>"; };
+		FC41A4A9161EC05900573F9B /* SinaUCMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMD5.h; sourceTree = "<group>"; };
+		FC41A4AA161EC05900573F9B /* SinaUCMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMD5.m; sourceTree = "<group>"; };
+		FC41A4AC161FBC5100573F9B /* RequestWithTGT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestWithTGT.h; sourceTree = "<group>"; };
+		FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestWithTGT.m; sourceTree = "<group>"; };
+		FC41A4AF161FE38000573F9B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FC41A4B0161FE38000573F9B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -3926,8 +3937,6 @@
 		FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCTests.m; sourceTree = "<group>"; };
 		FCBE1AA71619620B002CA75E /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		FCBE1AA81619620B002CA75E /* XMPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPP.mm; sourceTree = "<group>"; };
-		FCBE1AAA1619DA2F002CA75E /* RequestWithTGT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestWithTGT.h; sourceTree = "<group>"; };
-		FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestWithTGT.m; sourceTree = "<group>"; };
 		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		FCD63611161B3050002AF1FF /* ZIMDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbConnection.h; sourceTree = "<group>"; };
 		FCD63612161B3050002AF1FF /* ZIMDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDbConnection.m; sourceTree = "<group>"; };
@@ -6231,8 +6240,8 @@
 		FCBE1AA61619620B002CA75E /* SinaXMPP */ = {
 			isa = PBXGroup;
 			children = (
-				FCBE1AAA1619DA2F002CA75E /* RequestWithTGT.h */,
-				FCBE1AAB1619DA2F002CA75E /* RequestWithTGT.m */,
+				FC41A4AC161FBC5100573F9B /* RequestWithTGT.h */,
+				FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */,
 				FCBE1AA71619620B002CA75E /* XMPP.h */,
 				FCBE1AA81619620B002CA75E /* XMPP.mm */,
 			);
@@ -6242,6 +6251,10 @@
 		FCBE1AAD1619DCCA002CA75E /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				FC41A4A5161EA96200573F9B /* SinaUCRequest.h */,
+				FC41A4A6161EA96200573F9B /* SinaUCRequest.m */,
+				FC41A4A9161EC05900573F9B /* SinaUCMD5.h */,
+				FC41A4AA161EC05900573F9B /* SinaUCMD5.m */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -6361,6 +6374,8 @@
 		FCD63684161BD026002AF1FF /* data */ = {
 			isa = PBXGroup;
 			children = (
+				FC41A4AF161FE38000573F9B /* User.h */,
+				FC41A4B0161FE38000573F9B /* User.m */,
 				FCD63685161BD026002AF1FF /* Contact.h */,
 				FCD63686161BD026002AF1FF /* Contact.m */,
 				FCD63687161BD026002AF1FF /* ContactGroup.h */,
@@ -8327,7 +8342,6 @@
 				FC3929961617E77F000982C3 /* SinaUCLoginView.m in Sources */,
 				FC3929971617E77F000982C3 /* SinaUCMaxLengthFormatter.m in Sources */,
 				FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */,
-				FCBE1AAC1619DA2F002CA75E /* RequestWithTGT.m in Sources */,
 				FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */,
 				FCD63663161B3050002AF1FF /* ZIMDbConnectionPool.m in Sources */,
 				FCD63664161B3050002AF1FF /* NSString+ZIMString.m in Sources */,
@@ -8368,6 +8382,10 @@
 				FCD63694161BD026002AF1FF /* Room.m in Sources */,
 				FCD63695161BD026002AF1FF /* RoomContact.m in Sources */,
 				FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */,
+				FC41A4A7161EA96200573F9B /* SinaUCRequest.m in Sources */,
+				FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */,
+				FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */,
+				FC41A4B1161FE38000573F9B /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

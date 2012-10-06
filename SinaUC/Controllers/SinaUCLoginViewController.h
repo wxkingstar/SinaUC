@@ -7,12 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SinaUCDelegate.h"
+#import "SinaUCConnectionDelegate.h"
 
-@protocol SinaUCDelegate;
+@protocol SinaUCConnectionDelegate;
 @class XMPP;
 @class SinaUCLoginView;
-@interface SinaUCLoginViewController : NSViewController <SinaUCDelegate>
+@interface SinaUCLoginViewController : NSViewController <SinaUCConnectionDelegate>
 {
     IBOutlet XMPP *xmpp;
 }
@@ -20,7 +20,8 @@
 - (IBAction) showTop:(id)sender;
 - (IBAction) hideTop:(id)sender;
 - (IBAction) login:(id)sender;
-- (void)willConnect;
-- (void)didDisConnectedWithError:(NSInteger) error;
+- (void) willConnect;
+- (void) didDisConnectedWithError:(NSInteger) error;
+- (void) didConnectedWithJid:(NSString*) jid;
 
 @end

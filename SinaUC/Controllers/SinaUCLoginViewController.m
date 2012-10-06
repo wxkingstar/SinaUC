@@ -10,6 +10,9 @@
 #import "SinaUCLoginViewController.h"
 #import "SinaUCLoginView.h"
 #import "XMPP.h"
+#import "ZIMDbSdk.h"
+#import "ZIMSqlSdk.h"
+#import "User.h"
 
 @interface SinaUCLoginViewController ()
 
@@ -17,7 +20,7 @@
 
 @implementation SinaUCLoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -26,9 +29,38 @@
     return self;
 }
 
-- (void)awakeFromNib
+- (void) awakeFromNib
 {
-    [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];   
+    [xmpp registerConnectionDelegate:self];
+    //取最后一次登陆用户
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSString *userDbPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], @"SinaUC/user.sqlite", nil]];
+    if (![fileManager fileExistsAtPath:userDbPath]) {
+        if ([fileManager createFileAtPath:userDbPath contents:nil attributes:nil]) {
+            //创建user数据库
+            ZIMSqlCreateTableStatement *createUser = [[ZIMSqlCreateTableStatement alloc] init];
+            [createUser table: @"User"];
+            [createUser column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
+            [createUser column: @"username" type: ZIMSqlDataTypeVarChar(25)];
+            [createUser column: @"password" type: ZIMSqlDataTypeVarChar(16)];
+            [createUser column: @"status" type: ZIMSqlDataTypeSmallInt];
+            [createUser column: @"logintime" type: ZIMSqlDataTypeDateTime];
+            [createUser column: @"headimg" type: ZIMSqlDataTypeBlob];
+            NSString *statement = [createUser statement];
+            //NSLog(@"%@", statement);
+            [ZIMDbConnection dataSource: @"user" execute: statement];
+        }
+    }
+
+    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT username, password, headimg FROM User ORDER BY logintime DESC limit 1" withValues:nil, nil];
+    NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
+    if ([userRes count] == 0) {
+        [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];
+    } else {
+        [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[[NSImage alloc] initWithData:[[userRes objectAtIndex:0] valueForKey:@"headimg"]]];
+        [[(SinaUCLoginView*)self.view valueForKey:@"username"] setStringValue:[[userRes objectAtIndex:0] valueForKey:@"username"]];
+        [[(SinaUCLoginView*)self.view valueForKey:@"password"] setStringValue:[[userRes objectAtIndex:0] valueForKey:@"password"]];
+    }
 }
 
 - (IBAction) showTop:(id)sender
@@ -56,19 +88,39 @@
 
 - (IBAction) login:(id)sender
 {
-    [xmpp login:[[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue] withPassword:[[(SinaUCLoginView*)self.view valueForKey:@"password"] stringValue]];
+    NSString* username = [[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue];
+    NSString* password = [[(SinaUCLoginView*)self.view valueForKey:@"password"] stringValue];
+    [xmpp login:username withPassword:password];
+    User* user = [[User alloc] init];
+    [user setUsername:username];
+    [user setPassword:password];
+    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, username, headimg FROM User WHERE username=?" withValues:username, nil];
+    NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
+    if ([userRes count] == 0) {
+        [user save];
+    } else {
+        [user setPk:[[userRes objectAtIndex:0] valueForKey:@"pk"]];
+        [user save];
+    }
 }
 
-- (void)willConnect
+- (void) willConnect
 {
     //显示登录动画
+    [[(SinaUCLoginView*)self.view valueForKey:@"loginAnimationView"] setHidden:NO];
     //不允许修改用户名和密码
     //显示取消登录按钮
 }
 
-- (void)didDisConnectedWithError:(NSInteger) error
+- (void) didConnectedWithJid:(NSString*) jid
+{
+    
+}
+
+- (void) didDisConnectedWithError:(NSInteger) error
 {
     //取消后隐藏登陆动画
+    [[(SinaUCLoginView*)self.view valueForKey:@"loginAnimationView"] setHidden:YES];
     //允许修改用户名和密码
     //隐藏取消登陆按钮
 }

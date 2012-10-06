@@ -7,14 +7,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SinaUCConnectionDelegate.h"
 
-@protocol SinaUCDelegate;
-@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate, SinaUCDelegate>
+@protocol SinaUCConnectionDelegate;
+@class XMPP;
+@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate, SinaUCConnectionDelegate>
+{
+    IBOutlet XMPP *xmpp;    
+}
 
 @property (assign) IBOutlet NSWindow *loginWindow;
 @property (assign) IBOutlet NSWindow *launchedWindow;
 @property (retain) NSMutableArray *activeDelegates;
 
-- (void)onConnect;
+- (void) willConnect;
+- (void) didDisConnectedWithError:(NSInteger) error;
+- (void) didConnectedWithJid:(NSString*) jid;
 
 @end

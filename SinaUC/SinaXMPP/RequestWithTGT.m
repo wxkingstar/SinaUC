@@ -30,7 +30,6 @@
 {
     NSString* guid = [[NSUUID UUID] UUIDString];
     NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-user/%@?uid=%@&RandomGuid=%@", gid, uid, guid];
-    NSLog(@"%@", urlStr);
     NSURL* url = [[NSURL alloc] initWithString:urlStr];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];

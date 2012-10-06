@@ -1,5 +1,5 @@
 //
-//  SinaUCConnectionDelegate.h
+//  SinaUCDelegate.h
 //  SinaUC
 //
 //  Created by 陈 硕实 on 12-9-30.

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol SinaUCDelegate;
+@protocol SinaUCConnectionDelegate;
 @protocol XMPPVcardUpdateDelegate;
 @class RequestWithTGT;
 @class XMPPThread;
@@ -20,7 +20,7 @@
 @interface XMPP : NSObject {
 @private
     NSMutableDictionary* myVcard;
-    NSMutableArray* sinaUcDelegates;
+    NSMutableArray* connectionDelegates;
     NSMutableArray* stanzas;
     XMPPThread* xmppThread;
     IBOutlet XMPPSessionManager* sessionManager;
@@ -33,7 +33,7 @@
 - (XMPPSessionManager*) sessionManager;
 - (XMPPMUCRoomManager*) mucRoomManager;
 - (RequestWithTGT*) requestWithTgt;
-- (void)registerSinaUCDelegate:(id <SinaUCDelegate>) delegate;
+- (void)registerConnectionDelegate:(id <SinaUCConnectionDelegate>) delegate;
 - (BOOL)login:(NSString*) username withPassword:(NSString*) password;
 - (void)onConnect:(NSString*) myJid;
 - (void)disconnect;
