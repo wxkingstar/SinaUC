@@ -9,12 +9,11 @@
 #import "RequestWithTGT.h"
 
 @implementation RequestWithTGT
-@synthesize myJid;
 @synthesize tgt;
 
-- (NSMutableArray*) getRoomList:(NSString*) jid
+- (NSMutableArray*) getRoomList:(NSString*) uid
 {
-    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-list/%@", jid];
+    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-list/%@", uid];
     NSURL* url = [[NSURL alloc] initWithString:urlStr];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -24,15 +23,14 @@
     NSData *data=[NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
-    return jsonArray;
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
 }
 
-- (NSMutableArray*) getRoomContacts:(NSString*) gid
+- (NSMutableArray*) getRoomContacts:(NSString*) gid withUid: (NSString*) uid
 {
-    NSArray* jidArr = [[NSArray alloc] initWithArray:[myJid componentsSeparatedByString:@"@"]];
-    NSString* guid = [[RequestWithTGT class] stringWithUUID];
-    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-user/%@?uid=%@&RandomGuid=@%", gid, [jidArr objectAtIndex:0], guid];
+    NSString* guid = [[NSUUID UUID] UUIDString];
+    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-user/%@?uid=%@&RandomGuid=%@", gid, uid, guid];
+    NSLog(@"%@", urlStr);
     NSURL* url = [[NSURL alloc] initWithString:urlStr];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -42,9 +40,7 @@
     NSData *data=[NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
-    
-    return jsonArray;
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
 }
 
 - (void) exchangeTgt
@@ -57,17 +53,8 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    if (!err) {
-        NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&err];
-        self.tgt = [jsonArray valueForKey:@"tgt"];
-    }
-}
-
-+ (NSString*) stringWithUUID {
-    CFUUIDRef uuidObj = CFUUIDCreate(nil);
-    NSString* uuidString = (__bridge NSString*) CFUUIDCreateString(nil, uuidObj);
-    CFRelease(uuidObj);
-    return uuidString;
+    NSDictionary* ret = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+    tgt = [ret valueForKey:@"tgt"];
 }
 
 @end

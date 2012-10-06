@@ -1,14 +1,14 @@
 //
 //  XMPP.h
-//  cocoa-jabber-messenger
+//  SinaUC
 //
-//  Created by Sangeun Kim on 4/16/11.
-//  Copyright 2011 NHN Corporation. All rights reserved.
+//  Created by 硕实 陈 on 12-10-1.
+//  Copyright (c) 2012年 Sina Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@protocol SinaUCConnectionDelegate;
+@protocol SinaUCDelegate;
 @protocol XMPPVcardUpdateDelegate;
 @class RequestWithTGT;
 @class XMPPThread;
@@ -20,8 +20,7 @@
 @interface XMPP : NSObject {
 @private
     NSMutableDictionary* myVcard;
-    NSMutableArray* connectionDelegates;
-    NSMutableArray* vcardUpdateDelegates;
+    NSMutableArray* sinaUcDelegates;
     NSMutableArray* stanzas;
     XMPPThread* xmppThread;
     IBOutlet XMPPSessionManager* sessionManager;
@@ -33,9 +32,8 @@
 
 - (XMPPSessionManager*) sessionManager;
 - (XMPPMUCRoomManager*) mucRoomManager;
-- (RequestWithTGT*) tgtRequest;
-- (void)registerVcardUpdateDelegate:(id <XMPPVcardUpdateDelegate>) vcardUpdateDelegate;
-- (void)registerConnectionDelegate:(id <SinaUCConnectionDelegate>) connectionDelegate;
+- (RequestWithTGT*) requestWithTgt;
+- (void)registerSinaUCDelegate:(id <SinaUCDelegate>) delegate;
 - (BOOL)login:(NSString*) username withPassword:(NSString*) password;
 - (void)onConnect:(NSString*) myJid;
 - (void)disconnect;

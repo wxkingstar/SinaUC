@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol SinaUCConnectionDelegate;
+@protocol SinaUCDelegate;
 @class SinaUCButton;
-@interface SinaUCLoginView : NSView <SinaUCConnectionDelegate>
+@interface SinaUCLoginView : NSView <SinaUCDelegate>
 {
     //是否处于激活状态
     NSString *inited;

@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SinaUCDelegate.h"
 
-@protocol SinaUCConnectionDelegate;
+@protocol SinaUCDelegate;
 @class XMPP;
 @class SinaUCLoginView;
-@interface SinaUCLoginViewController : NSViewController <SinaUCConnectionDelegate>
+@interface SinaUCLoginViewController : NSViewController <SinaUCDelegate>
 {
     IBOutlet XMPP *xmpp;
 }

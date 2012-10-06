@@ -11,6 +11,7 @@
 @implementation Room
 
 @synthesize pk = _pk;
+@synthesize gid = _gid;
 @synthesize jid = _jid;
 @synthesize name = _name;
 @synthesize intro = _intro;

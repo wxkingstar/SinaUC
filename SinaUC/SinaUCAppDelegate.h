@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SinaUCConnectionDelegate.h"
 
-@protocol SinaUCConnectionDelegate;
-@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate, SinaUCConnectionDelegate>
+@protocol SinaUCDelegate;
+@interface SinaUCAppDelegate : NSObject <NSApplicationDelegate, SinaUCDelegate>
 
 @property (assign) IBOutlet NSWindow *loginWindow;
 @property (assign) IBOutlet NSWindow *launchedWindow;

@@ -11,15 +11,12 @@
 @interface RequestWithTGT : NSObject {
 @private
     NSString* tgt;
-    NSString* myJid;
 }
 
-@property (retain) NSString* tgt;
-@property (retain) NSString* myJid;
+@property (strong) NSString* tgt;
 
-- (NSMutableArray*) getRoomList :(NSString*) jid;
-- (NSMutableArray*) getRoomContacts :(NSString*) gid;
+- (NSMutableArray*) getRoomList :(NSString*) uid;
+- (NSMutableArray*) getRoomContacts :(NSString*) gid withUid: (NSString*) uid;
 - (void) exchangeTgt;
-+ (NSString*) stringWithUUID;
 
 @end

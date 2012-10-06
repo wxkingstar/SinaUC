@@ -17,6 +17,7 @@
 
 	@private
 		NSNumber *_pk;
+		NSNumber *_gid;
 		NSString *_jid;
 		NSString *_name;
 		NSString *_intro;
@@ -26,6 +27,7 @@
 }
 
 @property (strong, nonatomic) NSNumber *pk;
+@property (strong, nonatomic) NSNumber *gid;
 @property (strong, nonatomic) NSString *jid;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *intro;
