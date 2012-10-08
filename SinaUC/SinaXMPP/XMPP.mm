@@ -569,7 +569,7 @@ void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
         [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
     } else {
         NSImage *headImg = [[NSImage alloc] initWithData: imageData];
-        NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(96, 96)];
+        NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(93, 93)];
         NSSize originalSize = [headImg size];
         [resizeHeadImg lockFocus];
         [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)

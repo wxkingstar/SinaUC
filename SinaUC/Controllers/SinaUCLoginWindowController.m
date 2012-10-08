@@ -38,11 +38,11 @@
 - (void) didConnectedWithJid:(NSString*) jid
 {
     NSRect windowFrame = [self.window frame];
-     windowFrame.origin.y += 100;
-     NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
-     [[NSAnimationContext currentContext] setDuration:delay+0.5];
-     [[self.window animator] setAlphaValue:0.0];
-     [[self.window animator] setFrame:windowFrame display:YES animate:YES];
+    windowFrame.origin.y += 100;
+    NSTimeInterval delay = [[NSAnimationContext currentContext] duration];
+    [[NSAnimationContext currentContext] setDuration:delay];
+    [[self.window animator] setAlphaValue:0.0];
+    [[self.window animator] setFrame:windowFrame display:YES animate:YES];
 }
 
 

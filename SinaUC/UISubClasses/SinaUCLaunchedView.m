@@ -48,6 +48,7 @@
 }
 
 - (void) drawRect:(NSRect)rect {
+    NSLog(@"$$");
     // Clear the drawing rect.
     [super drawRect:rect];
     [[NSColor clearColor] set];
@@ -91,13 +92,13 @@
 - (void) deactivate
 {
     [self setIsActive:NO];
-    //[self display];
+    [self setNeedsDisplay:YES];
 }
 
 - (void) activate
 {
     [self setIsActive:YES];
-    //[self display];
+    [self setNeedsDisplay:YES];
 }
 
 @end

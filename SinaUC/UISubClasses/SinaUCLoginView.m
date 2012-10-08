@@ -98,11 +98,11 @@
 }
 
 - (void)drawRect:(NSRect)rect {
+    NSLog(@"!!");
     // Clear the drawing rect.
     [super drawRect:rect];
     [[NSColor clearColor] set];
     NSRectFill([self frame]);
-
     //窗口focused
     BOOL changed = NO;
     if ([self isActive]) {
@@ -141,11 +141,13 @@
 - (void) deactivate
 {
     [self setIsActive:NO];
+    [self setNeedsDisplay:YES];
 }
 
 - (void) activate
 {
     [self setIsActive:YES];
+    [self setNeedsDisplay:YES];
 }
 
 @end
