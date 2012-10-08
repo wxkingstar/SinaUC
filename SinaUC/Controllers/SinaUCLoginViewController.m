@@ -6,13 +6,7 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
-#import "SinaUCAppDelegate.h"
 #import "SinaUCLoginViewController.h"
-#import "SinaUCLoginView.h"
-#import "XMPP.h"
-#import "ZIMDbSdk.h"
-#import "ZIMSqlSdk.h"
-#import "User.h"
 
 @interface SinaUCLoginViewController ()
 
@@ -32,6 +26,8 @@
 - (void) awakeFromNib
 {
     [xmpp registerConnectionDelegate:self];
+    [[(SinaUCLoginView*)self.view valueForKey:@"username"] setDelegate:self];
+    
     //取最后一次登陆用户
     NSFileManager *fileManager = [[NSFileManager alloc] init];
     NSString *userDbPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], @"SinaUC/user.sqlite", nil]];
@@ -51,7 +47,7 @@
             [ZIMDbConnection dataSource: @"user" execute: statement];
         }
     }
-
+    
     NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT username, password, headimg FROM User ORDER BY logintime DESC limit 1" withValues:nil, nil];
     NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
     if ([userRes count] == 0) {
@@ -86,6 +82,19 @@
     [NSAnimationContext endGrouping];
 }
 
+- (void) controlTextDidChange: (NSNotification *) notification {
+    NSString* username = [[notification object] stringValue];
+    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement:@"SELECT pk, password, headimg FROM User WHERE username=?" withValues:username, nil];
+    NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
+    if ([userRes count] == 0) {
+        [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[NSImage imageNamed:@"LoginWindow_BigDefaultHeadImage"]];
+        [[(SinaUCLoginView*)self.view valueForKey:@"password"] setStringValue:@""];
+    } else {
+        [[(SinaUCLoginView*)self.view valueForKey:@"myHeadimg"] setImage:[[NSImage alloc] initWithData:[[userRes objectAtIndex:0] valueForKey:@"headimg"]]];
+        [[(SinaUCLoginView*)self.view valueForKey:@"password"] setStringValue:[[userRes objectAtIndex:0] valueForKey:@"password"]];
+    }
+}
+
 - (IBAction) login:(id)sender
 {
     NSString* username = [[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue];
@@ -94,7 +103,8 @@
     User* user = [[User alloc] init];
     [user setUsername:username];
     [user setPassword:password];
-    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, username, headimg FROM User WHERE username=?" withValues:username, nil];
+    [user setLogintime:[NSDate date]];
+    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement:@"SELECT pk, username, headimg FROM User WHERE username=?" withValues:username, nil];
     NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
     if ([userRes count] == 0) {
         [user save];

@@ -6,7 +6,26 @@
 //  Copyright (c) 2012年 Sina Corporation. All rights reserved.
 //
 
+#include <sys/time.h>
 #import <Foundation/Foundation.h>
+#import "SinaUCMD5.h"
+#import "RequestWithTGT.h"
+#import "SinaUCConnectionDelegate.h"
+/*#import "SynthesizeSingleton.h"
+ #import "XMPPConnectionDelegate.h"
+ #import "XMPPVcardUpdateDelegate.h"
+ #import "ContactItem.h"
+ #import "MUCRoomItem.h"
+ #import "XMPPSession.h"
+ #import "XMPPMUCRoom.h"
+ #import "ChineseToPinyin.h"*/
+
+#import "ZIMDbSdk.h"
+#import "ZIMSqlSdk.h"
+#import "Contact.h"
+#import "ContactGroup.h"
+#import "Room.h"
+#import "RoomContact.h"
 
 @protocol SinaUCConnectionDelegate;
 @protocol XMPPVcardUpdateDelegate;

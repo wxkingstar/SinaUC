@@ -117,6 +117,15 @@
 		FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AA161EC05900573F9B /* SinaUCMD5.m */; };
 		FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */; };
 		FC41A4B1161FE38000573F9B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B0161FE38000573F9B /* User.m */; };
+		FC41A4B4162021F000573F9B /* SinaUCMenuControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B3162021F000573F9B /* SinaUCMenuControllerViewController.m */; };
+		FC41A4BA1620652500573F9B /* SinaUCLaunchedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B91620652400573F9B /* SinaUCLaunchedWindow.m */; };
+		FC41A4BD162075C900573F9B /* SinaUCLaunchedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */; };
+		FC41A4C0162075F000573F9B /* SinaUCLaunchedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4BF162075F000573F9B /* SinaUCLaunchedViewController.m */; };
+		FC41A4F91621AA5D00573F9B /* SinaUCStrechImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */; };
+		FC41A4FC1621B7B800573F9B /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC41A4FA1621B7B600573F9B /* LoginWindow.xib */; };
+		FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC41A5001621B81700573F9B /* LaunchedWindow.xib */; };
+		FC41A5051621BE7600573F9B /* SinaUCLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */; };
+		FC41A5081621BE8E00573F9B /* SinaUCLaunchedWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
 		FC8AE1E4160F26C50069F6E7 /* 0fix.bmp in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */; };
@@ -2186,6 +2195,23 @@
 		FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestWithTGT.m; sourceTree = "<group>"; };
 		FC41A4AF161FE38000573F9B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FC41A4B0161FE38000573F9B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FC41A4B2162021F000573F9B /* SinaUCMenuControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMenuControllerViewController.h; sourceTree = "<group>"; };
+		FC41A4B3162021F000573F9B /* SinaUCMenuControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMenuControllerViewController.m; sourceTree = "<group>"; };
+		FC41A4B81620652400573F9B /* SinaUCLaunchedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLaunchedWindow.h; path = UISubClasses/SinaUCLaunchedWindow.h; sourceTree = "<group>"; };
+		FC41A4B91620652400573F9B /* SinaUCLaunchedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLaunchedWindow.m; path = UISubClasses/SinaUCLaunchedWindow.m; sourceTree = "<group>"; };
+		FC41A4BB162075C900573F9B /* SinaUCLaunchedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLaunchedView.h; path = UISubClasses/SinaUCLaunchedView.h; sourceTree = "<group>"; };
+		FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLaunchedView.m; path = UISubClasses/SinaUCLaunchedView.m; sourceTree = "<group>"; };
+		FC41A4BE162075F000573F9B /* SinaUCLaunchedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLaunchedViewController.h; sourceTree = "<group>"; };
+		FC41A4BF162075F000573F9B /* SinaUCLaunchedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLaunchedViewController.m; sourceTree = "<group>"; };
+		FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCStrechImage.h; path = UISubClasses/SinaUCStrechImage.h; sourceTree = "<group>"; };
+		FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCStrechImage.m; path = UISubClasses/SinaUCStrechImage.m; sourceTree = "<group>"; };
+		FC41A4FB1621B7B800573F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginWindow.xib; sourceTree = "<group>"; };
+		FC41A5011621B81900573F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchedWindow.xib; sourceTree = "<group>"; };
+		FC41A5031621BE7500573F9B /* SinaUCLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLoginWindowController.h; sourceTree = "<group>"; };
+		FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLoginWindowController.m; sourceTree = "<group>"; };
+		FC41A5061621BE8D00573F9B /* SinaUCLaunchedWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLaunchedWindowController.h; sourceTree = "<group>"; };
+		FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLaunchedWindowController.m; sourceTree = "<group>"; };
+		FC41A50D162272F300573F9B /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -4342,12 +4368,18 @@
 			children = (
 				FC39298F1617E77F000982C3 /* SinaUCButton.h */,
 				FC3929901617E77F000982C3 /* SinaUCButton.m */,
-				FC3929911617E77F000982C3 /* SinaUCLoginView.h */,
-				FC3929921617E77F000982C3 /* SinaUCLoginView.m */,
 				FC3929931617E77F000982C3 /* SinaUCMaxLengthFormatter.h */,
 				FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */,
+				FC3929911617E77F000982C3 /* SinaUCLoginView.h */,
+				FC3929921617E77F000982C3 /* SinaUCLoginView.m */,
 				FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */,
 				FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */,
+				FC41A4BB162075C900573F9B /* SinaUCLaunchedView.h */,
+				FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */,
+				FC41A4B81620652400573F9B /* SinaUCLaunchedWindow.h */,
+				FC41A4B91620652400573F9B /* SinaUCLaunchedWindow.m */,
+				FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */,
+				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -6141,6 +6173,14 @@
 			children = (
 				FC8AE8A6160F325E0069F6E7 /* SinaUCLoginViewController.h */,
 				FC8AE8A7160F325E0069F6E7 /* SinaUCLoginViewController.m */,
+				FC41A4B2162021F000573F9B /* SinaUCMenuControllerViewController.h */,
+				FC41A4B3162021F000573F9B /* SinaUCMenuControllerViewController.m */,
+				FC41A4BE162075F000573F9B /* SinaUCLaunchedViewController.h */,
+				FC41A4BF162075F000573F9B /* SinaUCLaunchedViewController.m */,
+				FC41A5031621BE7500573F9B /* SinaUCLoginWindowController.h */,
+				FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */,
+				FC41A5061621BE8D00573F9B /* SinaUCLaunchedWindowController.h */,
+				FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -6200,6 +6240,8 @@
 				FCA7F3A6160EE1D600DC038C /* SinaUCAppDelegate.h */,
 				FCA7F3A7160EE1D600DC038C /* SinaUCAppDelegate.m */,
 				FCA7F3A9160EE1D600DC038C /* MainMenu.xib */,
+				FC41A4FA1621B7B600573F9B /* LoginWindow.xib */,
+				FC41A5001621B81700573F9B /* LaunchedWindow.xib */,
 				FCA7F39B160EE1D600DC038C /* Supporting Files */,
 			);
 			path = SinaUC;
@@ -6251,6 +6293,7 @@
 		FCBE1AAD1619DCCA002CA75E /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				FC41A50D162272F300573F9B /* SynthesizeSingleton.h */,
 				FC41A4A5161EA96200573F9B /* SinaUCRequest.h */,
 				FC41A4A6161EA96200573F9B /* SinaUCRequest.m */,
 				FC41A4A9161EC05900573F9B /* SinaUCMD5.h */,
@@ -8200,6 +8243,8 @@
 				FC8AE8A2160F26C70069F6E7 /* ZIP_Out@2x.png in Resources */,
 				FC2C05E31615EB780020BE29 /* rename.php in Resources */,
 				FC392A1616194526000982C3 /* db.plist in Resources */,
+				FC41A4FC1621B7B800573F9B /* LoginWindow.xib in Resources */,
+				FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8386,6 +8431,13 @@
 				FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */,
 				FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */,
 				FC41A4B1161FE38000573F9B /* User.m in Sources */,
+				FC41A4B4162021F000573F9B /* SinaUCMenuControllerViewController.m in Sources */,
+				FC41A4BA1620652500573F9B /* SinaUCLaunchedWindow.m in Sources */,
+				FC41A4BD162075C900573F9B /* SinaUCLaunchedView.m in Sources */,
+				FC41A4C0162075F000573F9B /* SinaUCLaunchedViewController.m in Sources */,
+				FC41A4F91621AA5D00573F9B /* SinaUCStrechImage.m in Sources */,
+				FC41A5051621BE7600573F9B /* SinaUCLoginWindowController.m in Sources */,
+				FC41A5081621BE8E00573F9B /* SinaUCLaunchedWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8408,6 +8460,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FC41A4FA1621B7B600573F9B /* LoginWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC41A4FB1621B7B800573F9B /* en */,
+			);
+			name = LoginWindow.xib;
+			sourceTree = "<group>";
+		};
+		FC41A5001621B81700573F9B /* LaunchedWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC41A5011621B81900573F9B /* en */,
+			);
+			name = LaunchedWindow.xib;
+			sourceTree = "<group>";
+		};
 		FCA7F39D160EE1D600DC038C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

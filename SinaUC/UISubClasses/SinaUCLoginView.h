@@ -7,12 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
+#import "SinaUCMaxLengthFormatter.h"
+#import "SinaUCButton.h"
 
 @class SinaUCButton;
 @interface SinaUCLoginView : NSView
 {
     //是否处于激活状态
-    NSString *inited;
+    BOOL isActive;
+    BOOL focused;
     //上半部分-我的账号
     NSView * backgroundUpsideMyAccountView;
     //上半部分-其它账号
@@ -47,9 +51,9 @@
     NSImageView *loginAnimationView;
     NSMutableArray *loginAnimationImages;
     int loginAnimationImagesCurrentIndex;
-    BOOL focused;
 }
 
+@property (assign) BOOL isActive;
 @property (assign) BOOL focused;
 @property (retain) IBOutlet NSView *backgroundUpsideMyAccountView;
 @property (retain) IBOutlet NSView *backgroundUpsideOtherAccountsView;

@@ -6,13 +6,12 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
-#import <Quartz/Quartz.h>
 #import "SinaUCLoginView.h"
-#import "SinaUCMaxLengthFormatter.h"
-#import "SinaUCButton.h"
 
 @implementation SinaUCLoginView
 
+@synthesize isActive;
+@synthesize focused;
 @synthesize myHeadimg;
 @synthesize loginAnimationView;
 @synthesize backgroundUpsideMyAccountView;
@@ -25,7 +24,6 @@
 @synthesize passwordBackgroundView;
 @synthesize username;
 @synthesize password;
-@synthesize focused;
 @synthesize loginBtn;
 @synthesize hideTopBtn;
 @synthesize showTopBtn;
@@ -50,6 +48,11 @@
 }
 
 - (void)awakeFromNib {
+    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 256, 351) display:YES animate:NO];
+    [backgroundUpsideMyAccountView setFrame:NSMakeRect(0, 109, 256, 242)];
+    [backgroundUpsideOtherAccountsView setFrame:NSMakeRect(0, 109, 256, 242)];
+    [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
+    
     [loginAnimationView setHidden:YES];
     loginAnimationImages = [[NSMutableArray alloc] init];
     for (loginAnimationImagesCurrentIndex=1; loginAnimationImagesCurrentIndex<=12; loginAnimationImagesCurrentIndex++) {
@@ -82,10 +85,6 @@
     SinaUCMaxLengthFormatter* pf = [[SinaUCMaxLengthFormatter alloc] init];
     [pf setMaximumLength:16];
     [password setFormatter:pf];
-    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 256, 271) display:YES animate:NO];
-    [backgroundUpsideMyAccountView setFrame:NSMakeRect(0, 109, 256, 242)];
-    [backgroundUpsideOtherAccountsView setFrame:NSMakeRect(0, 109, 256, 242)];
-    [backgroundDownsideView setFrame:NSMakeRect(0, 80, 256, 29)];
     [self setIsActive:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(activate)
@@ -106,9 +105,10 @@
     //窗口focused
     BOOL changed = NO;
     if ([self isActive]) {
-        changed = (focused == YES);
-        focused = NO;
-        //if (changed) {
+        NSLog(@"!!");
+        changed = ([self focused] == YES);
+        [self setFocused:NO];
+        if (changed) {
             @synchronized(self) {
                 [myAccountBtn setOrig:@"LoginWindow_HeadMask_Active"];
                 [myAccountBtn setHover:@"LoginWindow_HeadMask_Active_Hover"];
@@ -117,11 +117,11 @@
                 [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_Active"]];
                 [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Active"]];
             }
-        //}
+        }
     } else {
-        changed = (focused == NO);
-        focused = YES;
-        //if (changed) {
+        changed = ([self focused] == NO);
+        [self setFocused:YES];
+        if (changed) {
             @synchronized(self){
                 [myAccountBtn setOrig:@"LoginWindow_HeadMask_InActive"];
                 [myAccountBtn setHover:@"LoginWindow_HeadMask_InActive_Hover"];
@@ -130,7 +130,7 @@
                 [backgroundImageView setImage:[NSImage imageNamed:@"LoginWindow_Background_InActive"]];
                 [accountBackgroundView setImage:[NSImage imageNamed:@"LoginWindow_Accounts_Logining"]];
             }
-        //}
+        }
     }
 
     if (changed) {

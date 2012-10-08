@@ -6,27 +6,8 @@
  * 的manager，再通过各自manager转给各个session和room的实例。session、room和各自manager的实现请看
  * XMPPSession.mm和XMPPMUCRoom.mm
  */
-#include <sys/time.h>
 
 #import "XMPP.h"
-#import "SinaUCMD5.h"
-#import "RequestWithTGT.h"
-#import "SinaUCConnectionDelegate.h"
-/*#import "SynthesizeSingleton.h"
-#import "XMPPConnectionDelegate.h"
-#import "XMPPVcardUpdateDelegate.h"
-#import "ContactItem.h"
-#import "MUCRoomItem.h"
-#import "XMPPSession.h"
-#import "XMPPMUCRoom.h"
-#import "ChineseToPinyin.h"*/
-
-#import "ZIMDbSdk.h"
-#import "ZIMSqlSdk.h"
-#import "Contact.h"
-#import "ContactGroup.h"
-#import "Room.h"
-#import "RoomContact.h"
 
 #include "gloox.h"
 #include "client.h"
@@ -373,7 +354,7 @@ void    CXmpp::heartBeat()
 
 void    CXmpp::sendVcardRequest()
 {
-    if ([vcardRequestStack count] > 0 && [vcardRequestStack objectAtIndex:0] != nil) {
+    if (m_pVcardManager && [vcardRequestStack count] > 0 && [vcardRequestStack objectAtIndex:0] != nil) {
         NSString *jidStr = [vcardRequestStack objectAtIndex:0];
         NSLog(@"%@", jidStr);
         gloox::JID jid([jidStr UTF8String]);
@@ -423,7 +404,7 @@ void    CXmpp::connect()
                 if (i%900 == 0) {
                     exchangeTgt();
                 }
-                if (i%5 == 0) {
+                if (i%100 == 0) {
                     heartBeat();
                 }
             }
@@ -449,6 +430,7 @@ void 	CXmpp::onConnect ()
     initUserStore();
     joinRooms();
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
+    requestVcard(myJid);
     [m_pDelegate performSelectorOnMainThread:@selector(onConnect:) withObject:myJid waitUntilDone:NO];
 }
 
@@ -557,7 +539,7 @@ void    CXmpp::handleEvent (const gloox::Event &event) {
             break;
         case gloox::Event::PingPong:
             sEvent = "PingPong";
-            --m_heartbeat;
+            m_heartbeat = 0;
             break;
         case gloox::Event::PingError:
             sEvent = "PingError";
@@ -578,13 +560,28 @@ void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
     if (!m_pClient || !m_pDelegate) {
         return;
     }
+    NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
+    NSString* handleJid = [NSString stringWithUTF8String: jid.bare().c_str()];
     NSURL* url = [NSURL URLWithString:[NSString stringWithUTF8String:vcard->photo().extval.c_str()]];
     NSData *imageData = [NSData dataWithContentsOfURL:url];
-    NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:
-                                  imageData,
-                                  [NSString stringWithUTF8String:jid.bare().c_str()],
-                                  nil];
-    //[ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
+    if ([handleJid isNotEqualTo: myJid]) {
+        NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
+        [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
+    } else {
+        NSImage *headImg = [[NSImage alloc] initWithData: imageData];
+        NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(96, 96)];
+        NSSize originalSize = [headImg size];
+        [resizeHeadImg lockFocus];
+        [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)
+                   fromRect: NSMakeRect(0, 0, originalSize.width, originalSize.height)
+                  operation: NSCompositeSourceOver
+                   fraction: 1.0];
+        [resizeHeadImg unlockFocus];
+        NSData *resizedData = [resizeHeadImg TIFFRepresentation];
+        NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:resizedData, nil];
+        [ZIMDbConnection dataSource: @"user" execute: userStatement];
+    }
+    
 }
 
 void 	CXmpp::handleVCardResult (gloox::VCardHandler::VCardContext context, const gloox::JID &jid, gloox::StanzaError se)
@@ -670,18 +667,19 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 @implementation XMPP
 @synthesize myVcard;
 
-//SYNTHESIZE_SINGLETON_FOR_CLASS(XMPP)
-
+static XMPP *instance;
 - (id) init
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-        connectionDelegates = [[NSMutableArray alloc] init];
-        tgtRequest = [[RequestWithTGT alloc] init];
-        myVcard = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"", @"uid", @"", @"jid", @"", @"name", nil, @"image", nil];
+    @synchronized(self) {
+        if (!instance) {
+            instance = [super init];
+            // Initialization code here.
+            connectionDelegates = [[NSMutableArray alloc] init];
+            tgtRequest = [[RequestWithTGT alloc] init];
+            myVcard = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"", @"uid", @"", @"jid", @"", @"name", nil, @"image", nil];
+        }
+        return instance;
     }
-    return self;
 }
 
 - (XMPPSessionManager*) sessionManager

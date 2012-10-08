@@ -7,7 +7,6 @@
 //
 
 #import "SinaUCMD5.h"
-#import <CommonCrypto/CommonDigest.h>
 
 @implementation SinaUCMD5
 
