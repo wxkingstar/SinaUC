@@ -13,7 +13,8 @@
 @class XMPP;
 @interface SinaUCLaunchedWindowController : NSWindowController <SinaUCConnectionDelegate>
 {
-    IBOutlet XMPP* xmpp;
+    IBOutlet XMPP *xmpp;
+    IBOutlet NSView *titleBar;
 }
 
 - (void)willConnect;

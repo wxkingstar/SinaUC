@@ -68,5 +68,31 @@
          landmarkName = "-drawRect:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCLaunchedWindow.m"
+         timestampString = "371449541.971391"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-drawNoiseWithOpacity:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCLaunchedWindow.m"
+         timestampString = "371471112.414995"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "577"
+         endingLineNumber = "577"
+         landmarkName = "-_layoutTrafficLightsAndContent"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

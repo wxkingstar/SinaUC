@@ -43,6 +43,7 @@
     [[NSAnimationContext currentContext] setDuration:delay];
     [[self.window animator] setAlphaValue:0.0];
     [[self.window animator] setFrame:windowFrame display:YES animate:YES];
+    [self.window orderOut:nil];
 }
 
 

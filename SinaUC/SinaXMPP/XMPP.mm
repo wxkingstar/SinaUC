@@ -397,7 +397,7 @@ void    CXmpp::connect()
     if (m_pClient->connect(false)) {
         int i = 1;
         do {
-            ce = m_pClient->recv(100000);
+            ce = m_pClient->recv(1000000);
             //NSLog(@"%s", m_pClient->jid().bare().c_str());
             //每900次执行tgt换票
             if (m_connected) {

@@ -48,40 +48,43 @@
 }
 
 - (void) drawRect:(NSRect)rect {
-    NSLog(@"$$");
     // Clear the drawing rect.
+    NSLog(@"$$");
     [super drawRect:rect];
     [[NSColor clearColor] set];
     NSRectFill([self frame]);
         
     NSImage *backgroundBuddy = [NSImage imageNamed:@"main_buddylist_bkg"];
-    NSEdgeInsets insets = {1,2,1,2};
-    [backgroundBuddy drawStretchableInRect:NSMakeRect(0, 35, 221, 250)
-                                edgeInsets:insets
+    NSEdgeInsets buddyInsets = {1,2,1,2};
+    [backgroundBuddy drawStretchableInRect:NSMakeRect(0, 35, [backgroundContactsImageView frame].size.width, [backgroundContactsImageView frame].size.height)
+                                edgeInsets:buddyInsets
                                  operation:NSCompositeSourceOver
                                   fraction:1.0];
-    [backgroundContactsImageView setImage:backgroundBuddy];
-    
     //窗口focused
     BOOL changed = NO;
     if ([self isActive]) {
         changed = ([self focused] == YES);
         [self setFocused:NO];
-        if (changed) {
+        //if (changed) {
             @synchronized(self) {
                 [backgroundHeaderImageView setImage:[NSImage imageNamed:@"Header+Search_Active"]];
-                [backgroundBottomImageView setImage:[NSImage imageNamed:@"main_bottonbar_active"]];
+                NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_active"];
+                NSEdgeInsets bodyInsets = {10,10,10,10};
+                [backgroundBottom drawStretchableInRect:[backgroundBottomImageView bounds] edgeInsets:bodyInsets operation:NSCompositeSourceOver fraction:1.0];
+                //[backgroundBottomImageView setImage:];
             }
-        }
+        //}
     } else {
         changed = ([self focused] == NO);
         [self setFocused:YES];
-        if (changed) {
+        //if (changed) {
             @synchronized(self){
                 [backgroundHeaderImageView setImage:[NSImage imageNamed:@"Header+Search_Inactive"]];
-                [backgroundBottomImageView setImage:[NSImage imageNamed:@"main_bottonbar_inactive"]];
+                NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_inactive"];
+                NSEdgeInsets bodyInsets = {10,10,10,10};
+                [backgroundBottom drawStretchableInRect:[backgroundBottomImageView bounds] edgeInsets:bodyInsets operation:NSCompositeSourceOver fraction:1.0];
             }
-        }
+        //}
     }
     
     if (changed) {
