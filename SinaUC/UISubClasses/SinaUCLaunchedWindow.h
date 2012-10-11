@@ -37,6 +37,7 @@
  */
 @interface INAppStoreWindow : NSWindow
 
+@property (assign) NSPoint initialLocation;
 /** The height of the title bar. By default, this is set to the standard title bar height. */
 @property (nonatomic) CGFloat titleBarHeight;
 

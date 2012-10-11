@@ -49,29 +49,38 @@
 
 - (void) drawRect:(NSRect)rect {
     // Clear the drawing rect.
-    NSLog(@"$$");
+    NSBezierPath* roundRectPath = [NSBezierPath bezierPathWithRoundedRect: [self bounds] xRadius:5 yRadius:5];
+    [roundRectPath addClip];
+    
     [super drawRect:rect];
     [[NSColor clearColor] set];
     NSRectFill([self frame]);
         
     NSImage *backgroundBuddy = [NSImage imageNamed:@"main_buddylist_bkg"];
     NSEdgeInsets buddyInsets = {1,2,1,2};
-    [backgroundBuddy drawStretchableInRect:NSMakeRect(0, 35, [backgroundContactsImageView frame].size.width, [backgroundContactsImageView frame].size.height)
+    [backgroundBuddy drawStretchableInRect:[contactsView frame]
                                 edgeInsets:buddyInsets
                                  operation:NSCompositeSourceOver
                                   fraction:1.0];
     //窗口focused
     BOOL changed = NO;
+    NSEdgeInsets bodyInsets = {10,10,10,10};
+
     if ([self isActive]) {
         changed = ([self focused] == YES);
         [self setFocused:NO];
         //if (changed) {
             @synchronized(self) {
-                [backgroundHeaderImageView setImage:[NSImage imageNamed:@"Header+Search_Active"]];
+                NSImage *backgroundHead = [NSImage imageNamed:@"Header+Search_Active"];
                 NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_active"];
-                NSEdgeInsets bodyInsets = {10,10,10,10};
-                [backgroundBottom drawStretchableInRect:[backgroundBottomImageView bounds] edgeInsets:bodyInsets operation:NSCompositeSourceOver fraction:1.0];
-                //[backgroundBottomImageView setImage:];
+                [backgroundHead drawStretchableInRect:[headerView frame]
+                                           edgeInsets:bodyInsets
+                                            operation:NSCompositeSourceOver
+                                             fraction:1.0];
+                [backgroundBottom drawStretchableInRect:[bottomView frame]
+                                             edgeInsets:bodyInsets
+                                              operation:NSCompositeSourceOver
+                                               fraction:1.0];
             }
         //}
     } else {
@@ -79,10 +88,16 @@
         [self setFocused:YES];
         //if (changed) {
             @synchronized(self){
-                [backgroundHeaderImageView setImage:[NSImage imageNamed:@"Header+Search_Inactive"]];
+                NSImage *backgroundHead = [NSImage imageNamed:@"Header+Search_Inactive"];
                 NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_inactive"];
-                NSEdgeInsets bodyInsets = {10,10,10,10};
-                [backgroundBottom drawStretchableInRect:[backgroundBottomImageView bounds] edgeInsets:bodyInsets operation:NSCompositeSourceOver fraction:1.0];
+                [backgroundHead drawStretchableInRect:[headerView frame]
+                                           edgeInsets:bodyInsets
+                                            operation:NSCompositeSourceOver
+                                             fraction:1.0];
+                [backgroundBottom drawStretchableInRect:[bottomView frame]
+                                             edgeInsets:bodyInsets
+                                              operation:NSCompositeSourceOver
+                                               fraction:1.0];
             }
         //}
     }

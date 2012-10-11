@@ -33,10 +33,7 @@
 - (void)didConnectedWithJid:(NSString*) jid
 {
     INAppStoreWindow *aWindow = (INAppStoreWindow*)[self window];
-    // Set titlebar height
-    aWindow.titleBarHeight = 110.0;
-    // Add the custom View as a SubView of the titleBar
-    [aWindow.titleBarView addSubview:titleBar];
+    aWindow.titleBarHeight = 0;
     [[self window] setAlphaValue:0.0];
     [[self window] makeKeyAndOrderFront:self];
     NSRect windowFrame = [self.window frame];

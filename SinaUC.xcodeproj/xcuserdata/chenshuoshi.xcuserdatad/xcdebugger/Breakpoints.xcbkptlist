@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/UISubClasses/SinaUCLaunchedWindow.m"
-         timestampString = "371471112.414995"
+         timestampString = "371660495.066913"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "577"
-         endingLineNumber = "577"
+         startingLineNumber = "578"
+         endingLineNumber = "578"
          landmarkName = "-_layoutTrafficLightsAndContent"
          landmarkType = "5">
       </FileBreakpoint>
