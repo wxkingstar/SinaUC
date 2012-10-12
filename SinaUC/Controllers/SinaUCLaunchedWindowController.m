@@ -23,6 +23,8 @@
 
 - (void) awakeFromNib
 {
+    INAppStoreWindow *aWindow = (INAppStoreWindow*)[self window];
+    aWindow.titleBarHeight = 0;
     [xmpp registerConnectionDelegate:self];
 }
 
@@ -32,8 +34,6 @@
 
 - (void)didConnectedWithJid:(NSString*) jid
 {
-    INAppStoreWindow *aWindow = (INAppStoreWindow*)[self window];
-    aWindow.titleBarHeight = 0;
     [[self window] setAlphaValue:0.0];
     [[self window] makeKeyAndOrderFront:self];
     NSRect windowFrame = [self.window frame];

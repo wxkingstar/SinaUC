@@ -43,20 +43,20 @@
 			<object class="NSWindowTemplate" id="988611408">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{0, 300}, {221, 395}}</string>
+				<string key="NSWindowRect">{{0, 300}, {221, 406}}</string>
 				<int key="NSWTFlags">1949828096</int>
 				<string key="NSWindowTitle"/>
 				<string key="NSWindowClass">INAppStoreWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMinSize">{221, 395}</string>
+				<string key="NSWindowContentMinSize">{221, 406}</string>
 				<object class="NSView" key="NSWindowView" id="486740808">
 					<reference key="NSNextResponder"/>
-					<int key="NSvFlags">260</int>
+					<int key="NSvFlags">288</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSCustomView" id="1004616371">
 							<reference key="NSNextResponder" ref="486740808"/>
-							<int key="NSvFlags">266</int>
+							<int key="NSvFlags">10</int>
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSImageView" id="373788907">
 									<reference key="NSNextResponder" ref="1004616371"/>
@@ -88,7 +88,7 @@
 									<bool key="NSEditable">YES</bool>
 								</object>
 							</array>
-							<string key="NSFrame">{{0, 285}, {221, 110}}</string>
+							<string key="NSFrame">{{0, 285}, {221, 131}}</string>
 							<reference key="NSSuperview" ref="486740808"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="373788907"/>
@@ -98,7 +98,7 @@
 						</object>
 						<object class="NSCustomView" id="298624839">
 							<reference key="NSNextResponder" ref="486740808"/>
-							<int key="NSvFlags">274</int>
+							<int key="NSvFlags">4370</int>
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSImageView" id="194058183">
 									<reference key="NSNextResponder" ref="298624839"/>
@@ -181,14 +181,14 @@
 							<string key="NSClassName">NSView</string>
 						</object>
 					</array>
-					<string key="NSFrameSize">{221, 395}</string>
+					<string key="NSFrameSize">{221, 406}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="1004616371"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
-				<string key="NSMinSize">{221, 417}</string>
+				<string key="NSMinSize">{221, 428}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">NO</bool>
 			</object>
@@ -431,7 +431,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100</int>
+			<int key="maxID">124</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

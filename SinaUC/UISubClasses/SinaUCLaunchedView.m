@@ -32,7 +32,7 @@
 
 - (void) awakeFromNib
 {
-    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 221, 395) display:YES animate:NO];
+    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 221, 416) display:YES animate:NO];
     [headerView setFrame:NSMakeRect(0, 285, 221, 110)];
     [contactsView setFrame:NSMakeRect(0, 35, 221, 250)];
     [bottomView setFrame:NSMakeRect(0, 0, 221, 35)];
@@ -64,7 +64,7 @@
                                   fraction:1.0];
     //窗口focused
     BOOL changed = NO;
-    NSEdgeInsets bodyInsets = {10,10,10,10};
+    NSEdgeInsets bodyInsets = {20,20,20,20};
 
     if ([self isActive]) {
         changed = ([self focused] == YES);
