@@ -14,8 +14,6 @@
     //是否处于激活状态
     BOOL isActive;
     BOOL focused;
-    NSView *headerView;
-    NSView *contactsView;
     NSView *bottomView;
     NSTabView *contactsTabView;
     NSImageView *backgroundHeaderImageView;

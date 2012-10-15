@@ -39,6 +39,9 @@
             [createUser column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
             [createUser column: @"username" type: ZIMSqlDataTypeVarChar(25)];
             [createUser column: @"password" type: ZIMSqlDataTypeVarChar(16)];
+            [createUser column: @"jid" type:ZIMSqlDataTypeVarChar(50)];
+            [createUser column: @"nickname" type:ZIMSqlDataTypeVarChar(20)];
+            [createUser column: @"mood" type:ZIMSqlDataTypeVarChar(20)];
             [createUser column: @"status" type: ZIMSqlDataTypeSmallInt];
             [createUser column: @"logintime" type: ZIMSqlDataTypeDateTime];
             [createUser column: @"headimg" type: ZIMSqlDataTypeBlob];
@@ -99,12 +102,11 @@
 {
     NSString* username = [[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue];
     NSString* password = [[(SinaUCLoginView*)self.view valueForKey:@"password"] stringValue];
-    [xmpp login:username withPassword:password];
     User* user = [[User alloc] init];
     [user setUsername:username];
     [user setPassword:password];
     [user setLogintime:[NSDate date]];
-    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement:@"SELECT pk, username, headimg FROM User WHERE username=?" withValues:username, nil];
+    NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement:@"SELECT pk FROM User WHERE username=?" withValues:username, nil];
     NSArray *userRes = [ZIMDbConnection dataSource:@"user" query:userStatement];
     if ([userRes count] == 0) {
         [user save];
@@ -112,6 +114,7 @@
         [user setPk:[[userRes objectAtIndex:0] valueForKey:@"pk"]];
         [user save];
     }
+    [xmpp login:username withPassword:password];
 }
 
 - (void) willConnect

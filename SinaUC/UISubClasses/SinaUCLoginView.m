@@ -55,7 +55,7 @@
     for (loginAnimationImagesCurrentIndex=1; loginAnimationImagesCurrentIndex<=12; loginAnimationImagesCurrentIndex++) {
         [loginAnimationImages addObject:[NSImage imageNamed:[NSString stringWithFormat:@"LoginWindow_WelcomeAnimation_%02d", loginAnimationImagesCurrentIndex]]];
     }
-    //[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loginAnimate:) userInfo:nil repeats:YES];
+    //[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(loginAnimate:) userInfo:nil repeats:NO];
     // Load the images from the bundle's Resources directory
     [myAccountBtn setOrig:@"LoginWindow_HeadMask_Active"];
     [myAccountBtn setHover:@"LoginWindow_HeadMask_Active_Hover"];
@@ -98,7 +98,6 @@
 }
 
 - (void)drawRect:(NSRect)rect {
-    NSLog(@"!!");
     // Clear the drawing rect.
     [super drawRect:rect];
     [[NSColor clearColor] set];

@@ -1,10 +1,12 @@
 /**
  * @desc
  * 运行过程中一直存在。其中CXmpp的C代表C++，是负责监听各种gloox消息的类。实现了众多主要接口。
- * 要让gloox循环正常运行，最好的方法是单独建立一个进程，由XMPP类代理实现对该进程的访问和控制。
+ * 要让gloox循环正常运行，最好的方法是单独建立一个XMPP线程，由XMPP类代理实现对该进程的访问和控制。
  * XMPP是负责和XMPPSession、XMPPMUCRoom进行交互的类，主要作用是把CXmpp接收到的消息转发给session和room
  * 的manager，再通过各自manager转给各个session和room的实例。session、room和各自manager的实现请看
  * XMPPSession.mm和XMPPMUCRoom.mm
+ *
+ * 对于数据更新，在XMPP线程中做完，performSelectorOnMainThread仅负责对UI类进行更新操作（由Delegate调用各个控制器，再通过控制器更新UI
  */
 
 #import "XMPP.h"
@@ -493,6 +495,7 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         }
         requestVcard([contact jid]);
     }
+    //[m_pDelegate performSelectorOnMainThread:@selector(:) withObject:myJid waitUntilDone:NO];
 }
 
 void 	CXmpp::handleRosterError (const gloox::IQ &iq)
@@ -561,12 +564,14 @@ void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
         return;
     }
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
+    NSString* nickname = [NSString stringWithUTF8String:vcard->nickname().c_str()];
     NSString* handleJid = [NSString stringWithUTF8String: jid.bare().c_str()];
     NSURL* url = [NSURL URLWithString:[NSString stringWithUTF8String:vcard->photo().extval.c_str()]];
     NSData *imageData = [NSData dataWithContentsOfURL:url];
     if ([handleJid isNotEqualTo: myJid]) {
         NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
         [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
+        [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:handleJid waitUntilDone:NO];
     } else {
         NSImage *headImg = [[NSImage alloc] initWithData: imageData];
         NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(93, 93)];
@@ -578,10 +583,10 @@ void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
                    fraction: 1.0];
         [resizeHeadImg unlockFocus];
         NSData *resizedData = [resizeHeadImg TIFFRepresentation];
-        NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:resizedData, nil];
+        NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=?, headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", resizedData, nil];
         [ZIMDbConnection dataSource: @"user" execute: userStatement];
+        [m_pDelegate performSelectorOnMainThread:@selector(updateSelfVcard) withObject:nil waitUntilDone:NO];
     }
-    
 }
 
 void 	CXmpp::handleVCardResult (gloox::VCardHandler::VCardContext context, const gloox::JID &jid, gloox::StanzaError se)
@@ -637,7 +642,7 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
 }
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
-    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
+    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
 #pragma mark -
@@ -665,7 +670,9 @@ void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::
 #pragma mark *** XMPP Implementation ***
 
 @implementation XMPP
-@synthesize myVcard;
+@synthesize myJid;
+@synthesize cDelegate;
+@synthesize rDelegate;
 
 static XMPP *instance;
 - (id) init
@@ -675,8 +682,9 @@ static XMPP *instance;
             instance = [super init];
             // Initialization code here.
             connectionDelegates = [[NSMutableArray alloc] init];
+            sVcardUpdateDelegates = [[NSMutableArray alloc] init];
+            cVcardUpdateDelegates = [[NSMutableArray alloc] init];
             tgtRequest = [[RequestWithTGT alloc] init];
-            myVcard = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"", @"uid", @"", @"jid", @"", @"name", nil, @"image", nil];
         }
         return instance;
     }
@@ -702,6 +710,16 @@ static XMPP *instance;
     [connectionDelegates addObject: delegate];
 }
 
+- (void)registerSVcardUpdateDelegate:(id <SinaUCSVcardUpdateDelegate>) delegate
+{
+    [sVcardUpdateDelegates addObject: delegate];
+}
+
+- (void)registerCVcardUpdateDelegate:(id <SinaUCCVcardUpdateDelegate>) delegate
+{
+    [cVcardUpdateDelegates addObject: delegate];
+}
+
 - (BOOL) login:(NSString*)username withPassword:(NSString*)password;
 {
     NSEnumerator* e = [connectionDelegates objectEnumerator];
@@ -721,12 +739,13 @@ static XMPP *instance;
     }
 }
 
-- (void) onConnect:(NSString*) myJid
+- (void) onConnect:(NSString*) _myJid
 {
+    [self setMyJid:_myJid];
     NSEnumerator* e = [connectionDelegates objectEnumerator];
     id < SinaUCConnectionDelegate > connectionDelegate;
     while (connectionDelegate = [e nextObject]) {
-        [connectionDelegate didConnectedWithJid:myJid];
+        [connectionDelegate didConnectedWithJid:_myJid];
     }
 }
 
@@ -743,6 +762,34 @@ static XMPP *instance;
 
 - (void) requestVcard:(NSString*) jid {
     CXmpp::instance().requestVcard(jid);
+}
+
+- (void) updateContactRoster
+{
+    [cDelegate updateRoster];
+}
+
+- (void) updateRoomRoster
+{
+    [rDelegate updateRoster];
+}
+
+- (void) updateContact:(NSString*) jid
+{
+    NSEnumerator* e = [cVcardUpdateDelegates objectEnumerator];
+    id < SinaUCCVcardUpdateDelegate > cVcardDelegate;
+    while (cVcardDelegate = [e nextObject]) {
+        [cVcardDelegate updateVcard: jid];
+    }
+}
+
+- (void) updateSelfVcard
+{
+    NSEnumerator* e = [sVcardUpdateDelegates objectEnumerator];
+    id < SinaUCSVcardUpdateDelegate > sVcardDelegate;
+    while (sVcardDelegate = [e nextObject]) {
+        [sVcardDelegate updateVcard];
+    }
 }
 
 - (void) startChat:(NSString*) jid
