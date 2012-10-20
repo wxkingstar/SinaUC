@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC23DDA81632DB7400825BFB /* SinaUCHeadImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */; };
 		FC2C059E1615EB780020BE29 /* adhoc.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C049F1615EB780020BE29 /* adhoc.mm */; };
 		FC2C059F1615EB780020BE29 /* amp.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A31615EB780020BE29 /* amp.mm */; };
 		FC2C05A01615EB780020BE29 /* annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A51615EB780020BE29 /* annotations.mm */; };
@@ -1927,6 +1928,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCHeadImageCell.h; path = UISubClasses/SinaUCHeadImageCell.h; sourceTree = "<group>"; };
+		FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCHeadImageCell.m; path = UISubClasses/SinaUCHeadImageCell.m; sourceTree = "<group>"; };
 		FC2C049E1615EB780020BE29 /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
 		FC2C049F1615EB780020BE29 /* adhoc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adhoc.mm; sourceTree = "<group>"; };
 		FC2C04A01615EB780020BE29 /* adhoccommandprovider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoccommandprovider.h; sourceTree = "<group>"; };
@@ -4409,6 +4412,8 @@
 				FC68524516287791006366A7 /* SinaUCTabviewItem.m */,
 				FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */,
 				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
+				FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */,
+				FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -8478,6 +8483,7 @@
 				FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */,
 				FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */,
 				FC8E223A162A9C5200DD36DD /* SinaUCHeaderView.m in Sources */,
+				FC23DDA81632DB7400825BFB /* SinaUCHeadImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

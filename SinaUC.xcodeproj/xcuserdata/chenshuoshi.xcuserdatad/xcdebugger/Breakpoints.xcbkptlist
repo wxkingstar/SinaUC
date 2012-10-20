@@ -7,13 +7,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "371892881.41704"
+         filePath = "SinaUC/Controllers/SinaUCContactsViewController.m"
+         timestampString = "372430484.73672"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "588"
-         endingLineNumber = "588"
-         landmarkName = "CXmpp::handleVCard (const gloox::JID &amp;jid, const gloox::VCard *vcard)"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-outlineView:objectValueForTableColumn:byItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/Controllers/SinaUCContactsViewController.m"
+         timestampString = "372433912.18112"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "114"
+         endingLineNumber = "114"
+         landmarkName = "-outlineView:dataCellForTableColumn:item:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

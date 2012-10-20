@@ -7,11 +7,25 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ContactGroup.h"
+#import "SinaUCContactRosterUpdateDelegate.h"
+#import "XMPP.h"
+
+#import "ZIMDbSdk.h"
+#import "ZIMSqlSdk.h"
 #import "Contact.h"
+#import "ContactGroup.h"
 
-@interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate>
+@class XMPP;
+@protocol SinaUCContactRosterUpdateDelegate;
+@interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCContactRosterUpdateDelegate>
+{
+    NSMutableArray *contacts;
+    IBOutlet XMPP *xmpp;
+    
+    NSTextFieldCell *iGroupRowCell;
+}
 
+- (void)updateRoster;
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;

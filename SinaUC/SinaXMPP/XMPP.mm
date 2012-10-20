@@ -495,7 +495,7 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         }
         requestVcard([contact jid]);
     }
-    //[m_pDelegate performSelectorOnMainThread:@selector(:) withObject:myJid waitUntilDone:NO];
+    [m_pDelegate performSelectorOnMainThread:@selector(updateContactRoster) withObject:nil waitUntilDone:NO];
 }
 
 void 	CXmpp::handleRosterError (const gloox::IQ &iq)
@@ -630,7 +630,7 @@ void 	CXmpp::onSessionCreateError (const gloox::Error *error)
         errorString = "";
     }
     NSString* errorMessage = [[NSString init ]initWithCString:errorString.c_str() encoding:NSASCIIStringEncoding];
-    [m_pDelegate performSelectorOnMainThread:@selector(onDisconnect:) withObject:errorMessage waitUntilDone:NO];    
+    [m_pDelegate performSelectorOnMainThread:@selector(onDisconnect:) withObject:errorMessage waitUntilDone:NO];
 }
 
 void    CXmpp::closeSession(gloox::MessageSession* pSession)
@@ -642,7 +642,7 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
 }
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
-    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
+    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
 #pragma mark -
