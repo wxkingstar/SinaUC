@@ -19,8 +19,8 @@
     // Insert code here to initialize your application
     loginWindowController = [[SinaUCLoginWindowController alloc] init];
     launchedWindowController = [[SinaUCLaunchedWindowController alloc] init];
-    [launchedWindowController showWindow:nil];
     [[launchedWindowController window] orderOut:nil];
+    //[launchedWindowController showWindow:nil];
     [loginWindowController showWindow:nil];
 }
 

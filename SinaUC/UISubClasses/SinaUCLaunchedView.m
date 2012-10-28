@@ -64,7 +64,7 @@
                                   fraction:1.0];
     //窗口focused
     BOOL changed = NO;
-    NSEdgeInsets bodyInsets = {20,20,20,20};
+    NSEdgeInsets bodyInsets = {4,1,23,1};
 
     if ([self isActive]) {
         changed = ([self focused] == YES);

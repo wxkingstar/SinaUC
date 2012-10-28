@@ -61,25 +61,37 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    if ([item valueForKey:@"contacts"]) {
+    if ([item objectForKey:@"contacts"]) {
         return YES;
     } else {
         return NO;
     }
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayOutlineCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
-    if ([item valueForKey:@"contacts"]) {
-        return YES;
-    } else {
-        return NO;
+    if ([item objectForKey:@"contacts"]) {
+        BOOL expanded = [outlineView isItemExpanded:item];
+        BOOL selected = [outlineView rowForItem:item] == [outlineView selectedRow];
+        if (expanded) {
+            if (selected) {
+                [cell setImage:[NSImage imageNamed:@"buddy_arrow_down_selected"]];
+            } else {
+                [cell setImage:[NSImage imageNamed:@"buddy_arrow_down"]];
+            }
+        } else {
+            if (selected) {
+                [cell setImage:[NSImage imageNamed:@"buddy_arrow_right_selected"]];
+            } else {
+                [cell setImage:[NSImage imageNamed:@"buddy_arrow_right"]];
+            }
+        }
     }
 }
 
 - (CGFloat) outlineView:(NSOutlineView*) outlineView heightOfRowByItem:(id) item
 {
-    if ([item valueForKey:@"contacts"]) {
+    if ([item objectForKey:@"contacts"]) {
         return 20;
     } else {
         return 42;
@@ -91,7 +103,7 @@
     if (item == nil) { //item is nil when the outline view wants to inquire for root level items
         return [contacts count];
     }
-    if ([item valueForKey:@"contacts"]) {
+    if ([item objectForKey:@"contacts"]) {
         return [[item objectForKey:@"contacts"] count];
     }
     return 0;
@@ -102,7 +114,7 @@
     if (item == nil) { //item is nil when the outline view wants to inquire for root level items
         return [contacts objectAtIndex:index];
     }
-    if ([item isKindOfClass:[NSDictionary class]]) {
+    if ([item objectForKey:@"contacts"]) {
         return [[item objectForKey:@"contacts"] objectAtIndex:index];
     }
     return nil;
@@ -110,21 +122,16 @@
 
 - (NSCell*) outlineView:(NSOutlineView*) outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id) item
 {
-    if (tableColumn == nil && [item valueForKey:@"contacts"]) {
+    if (tableColumn == nil && [item objectForKey:@"contacts"]) {
         return iGroupRowCell;
     }
 	return nil;
 }
 
-- (NSTableRowView *)outlineView:(NSOutlineView *)outlineView rowViewForItem:(id)item
-{
-    
-}
-
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    if ([item valueForKey:@"contacts"]) {
-        return [item valueForKey:@"name"];
+    if ([item objectForKey:@"contacts"]) {
+        return [NSString stringWithFormat:@" %@", [item valueForKey:@"name"]];
     }
     if ([[tableColumn identifier] isEqualToString:@"photo"]) {
         return [NSImage imageNamed:@"NSUser"];
@@ -139,9 +146,10 @@
         [(BuddyCell*)[tableColumn dataCell] setSubTitle:[obj valueForKey:@"jid"]];*/
         return [item valueForKey:@"name"];
     }
-    /*if ([[tableColumn identifier] isEqualToString:@"status"]) {
-        return [ContactItem statusImage:[[obj valueForKey:@"presence"] integerValue]];
-    }*/
+    if ([[tableColumn identifier] isEqualToString:@"status"]) {
+        return [NSImage imageNamed:@""];
+        //return [ContactItem statusImage:[[obj valueForKey:@"presence"] integerValue]];
+    }
     return nil;
 }
 
