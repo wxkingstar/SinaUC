@@ -396,31 +396,35 @@ void    CXmpp::connect()
         return;
     }
     gloox::ConnectionError ce = gloox::ConnNoError;
-    if (m_pClient->connect(false)) {
-        int i = 1;
-        do {
-            ce = m_pClient->recv(1000000);
-            //NSLog(@"%s", m_pClient->jid().bare().c_str());
-            //每900次执行tgt换票
-            if (m_connected) {
-                if (i%900 == 0) {
-                    exchangeTgt();
+    while (true) {
+        if (m_pClient->connect(false)) {
+            int i = 1;
+            do {
+                ce = m_pClient->recv(10000);
+                //NSLog(@"%s", m_pClient->jid().bare().c_str());
+                //每900次执行tgt换票
+                if (m_connected) {
+                    if (i%900 == 0) {
+                        exchangeTgt();
+                    }
+                    if (i%100 == 0) {
+                        heartBeat();
+                    }
                 }
-                if (i%100 == 0) {
-                    heartBeat();
+                //重置i
+                if (i > 1000) {
+                    i = 1;
                 }
-            }
-            //重置i
-            if (i > 1000) {
-                i = 1;
-            }
-            //接收后发送Vcard请求，保证xmpp读写互斥
-            sendVcardRequest();
-            //接收后发送消息，保证xmpp读写互斥
-            //sendMessage();
-        } while (ce == gloox::ConnNoError && ++i);
+                //接收后发送Vcard请求，保证xmpp读写互斥
+                sendVcardRequest();
+                //接收后发送消息，保证xmpp读写互斥
+                //sendMessage();
+            } while (ce == gloox::ConnNoError && ++i);
+            NSLog(@"error: %d", ce);
+        }
+        sleep(2);
+        NSLog(@"try to reconnect");
     }
-    NSLog(@"error: %d", ce);
 }
 
 void 	CXmpp::onConnect ()
@@ -642,7 +646,7 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
 }
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
-    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
+    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
 #pragma mark -

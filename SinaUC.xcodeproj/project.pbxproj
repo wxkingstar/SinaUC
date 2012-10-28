@@ -2196,6 +2196,7 @@
 		FC2C059B1615EB780020BE29 /* vikahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vikahandler.h; sourceTree = "<group>"; };
 		FC2C059C1615EB780020BE29 /* xhtmlim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xhtmlim.h; sourceTree = "<group>"; };
 		FC2C059D1615EB780020BE29 /* xhtmlim.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xhtmlim.mm; sourceTree = "<group>"; };
+		FC2CD6DE163D169600FCB480 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FC39298F1617E77F000982C3 /* SinaUCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCButton.h; path = UISubClasses/SinaUCButton.h; sourceTree = "<group>"; };
 		FC3929901617E77F000982C3 /* SinaUCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCButton.m; path = UISubClasses/SinaUCButton.m; sourceTree = "<group>"; };
 		FC3929911617E77F000982C3 /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginView.h; path = UISubClasses/SinaUCLoginView.h; sourceTree = "<group>"; };
@@ -6297,6 +6298,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC2CD6DE163D169600FCB480 /* PSMTabBarControl.framework */,
 				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
@@ -8682,6 +8684,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SinaUC/frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -8702,6 +8708,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SinaUC/frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
