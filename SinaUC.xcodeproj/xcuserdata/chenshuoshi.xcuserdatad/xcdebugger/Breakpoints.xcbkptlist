@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/Controllers/SinaUCContactsViewController.m"
-         timestampString = "372430484.73672"
+         timestampString = "372953554.978905"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
          landmarkName = "-outlineView:objectValueForTableColumn:byItem:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,12 +21,90 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/Controllers/SinaUCContactsViewController.m"
-         timestampString = "372433912.18112"
+         timestampString = "372953554.978905"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-outlineView:dataCellForTableColumn:item:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/Controllers/SinaUCContactsViewController.m"
+         timestampString = "372953554.978905"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
+         landmarkName = "-outlineView:objectValueForTableColumn:byItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCOutlineView.m"
+         timestampString = "372956358.295645"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-reloadData"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCOutlineView.m"
+         timestampString = "372956358.295645"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-expandOrCollapseItemsOfItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCOutlineView.m"
+         timestampString = "372956358.295645"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
+         landmarkName = "-expandOrCollapseItemsOfItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCOutlineView.m"
+         timestampString = "372956355.180724"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "-expandItem:expandChildren:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCOutlineView.m"
+         timestampString = "372956403.498341"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "-collapseItem:collapseChildren:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

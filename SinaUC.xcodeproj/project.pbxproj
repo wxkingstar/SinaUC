@@ -1872,6 +1872,16 @@
 		FCA7F3B7160EE1D600DC038C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F394160EE1D600DC038C /* Cocoa.framework */; };
 		FCA7F3BF160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3C2160EE1D600DC038C /* SinaUCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */; };
+		FCAB7746163AD6A3000F4558 /* SinaUCOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB7745163AD6A3000F4558 /* SinaUCOutlineView.m */; };
+		FCAB774B163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */; };
+		FCAB774E163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */; };
+		FCAB777D163ADF89000F4558 /* SinaUCAlternatingRowOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */; };
+		FCAB7794163BCC8E000F4558 /* SinaUCGradientAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB7793163BCC8E000F4558 /* SinaUCGradientAdditions.m */; };
+		FCAB7798163BCD14000F4558 /* SinaUCColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB7797163BCD14000F4558 /* SinaUCColorAdditions.m */; };
+		FCAB779B163BCE88000F4558 /* SinaUCStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB779A163BCE88000F4558 /* SinaUCStringAdditions.m */; };
+		FCAB779E163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB779D163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m */; };
+		FCAB77A1163BD14E000F4558 /* SinaUCImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */; };
+		FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */; };
 		FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AA81619620B002CA75E /* XMPP.mm */; };
 		FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCDA54016132BFA00C1499D /* Quartz.framework */; };
 		FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63612161B3050002AF1FF /* ZIMDbConnection.m */; };
@@ -3984,6 +3994,26 @@
 		FCA7F3BE160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA7F3C0160EE1D600DC038C /* SinaUCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCTests.h; sourceTree = "<group>"; };
 		FCA7F3C1160EE1D600DC038C /* SinaUCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaUCTests.m; sourceTree = "<group>"; };
+		FCAB7744163AD6A3000F4558 /* SinaUCOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCOutlineView.h; path = UISubClasses/SinaUCOutlineView.h; sourceTree = "<group>"; };
+		FCAB7745163AD6A3000F4558 /* SinaUCOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCOutlineView.m; path = UISubClasses/SinaUCOutlineView.m; sourceTree = "<group>"; };
+		FCAB7749163ADA7A000F4558 /* SinaUCOutlineViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCOutlineViewAdditions.h; path = UISubClasses/SinaUCOutlineViewAdditions.h; sourceTree = "<group>"; };
+		FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCOutlineViewAdditions.m; path = UISubClasses/SinaUCOutlineViewAdditions.m; sourceTree = "<group>"; };
+		FCAB774C163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCVariableHeightOutlineView.h; path = UISubClasses/SinaUCVariableHeightOutlineView.h; sourceTree = "<group>"; };
+		FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCVariableHeightOutlineView.m; path = UISubClasses/SinaUCVariableHeightOutlineView.m; sourceTree = "<group>"; };
+		FCAB777B163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCAlternatingRowOutlineView.h; path = UISubClasses/SinaUCAlternatingRowOutlineView.h; sourceTree = "<group>"; };
+		FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCAlternatingRowOutlineView.m; path = UISubClasses/SinaUCAlternatingRowOutlineView.m; sourceTree = "<group>"; };
+		FCAB7792163BCC8E000F4558 /* SinaUCGradientAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCGradientAdditions.h; path = UISubClasses/SinaUCGradientAdditions.h; sourceTree = "<group>"; };
+		FCAB7793163BCC8E000F4558 /* SinaUCGradientAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCGradientAdditions.m; path = UISubClasses/SinaUCGradientAdditions.m; sourceTree = "<group>"; };
+		FCAB7796163BCD14000F4558 /* SinaUCColorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCColorAdditions.h; path = UISubClasses/SinaUCColorAdditions.h; sourceTree = "<group>"; };
+		FCAB7797163BCD14000F4558 /* SinaUCColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCColorAdditions.m; path = UISubClasses/SinaUCColorAdditions.m; sourceTree = "<group>"; };
+		FCAB7799163BCE88000F4558 /* SinaUCStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCStringAdditions.h; path = UISubClasses/SinaUCStringAdditions.h; sourceTree = "<group>"; };
+		FCAB779A163BCE88000F4558 /* SinaUCStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCStringAdditions.m; path = UISubClasses/SinaUCStringAdditions.m; sourceTree = "<group>"; };
+		FCAB779C163BD0EB000F4558 /* SinaUCImageDrawingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCImageDrawingAdditions.h; path = UISubClasses/SinaUCImageDrawingAdditions.h; sourceTree = "<group>"; };
+		FCAB779D163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCImageDrawingAdditions.m; path = UISubClasses/SinaUCImageDrawingAdditions.m; sourceTree = "<group>"; };
+		FCAB779F163BD14D000F4558 /* SinaUCImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCImageAdditions.h; path = UISubClasses/SinaUCImageAdditions.h; sourceTree = "<group>"; };
+		FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCImageAdditions.m; path = UISubClasses/SinaUCImageAdditions.m; sourceTree = "<group>"; };
+		FCAB77A2163BD2E7000F4558 /* SinaUCBezierPathAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCBezierPathAdditions.h; path = UISubClasses/SinaUCBezierPathAdditions.h; sourceTree = "<group>"; };
+		FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCBezierPathAdditions.m; path = UISubClasses/SinaUCBezierPathAdditions.m; sourceTree = "<group>"; };
 		FCBE1AA71619620B002CA75E /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		FCBE1AA81619620B002CA75E /* XMPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPP.mm; sourceTree = "<group>"; };
 		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -4414,6 +4444,26 @@
 				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
 				FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */,
 				FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */,
+				FCAB7744163AD6A3000F4558 /* SinaUCOutlineView.h */,
+				FCAB7745163AD6A3000F4558 /* SinaUCOutlineView.m */,
+				FCAB7749163ADA7A000F4558 /* SinaUCOutlineViewAdditions.h */,
+				FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */,
+				FCAB774C163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.h */,
+				FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */,
+				FCAB777B163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.h */,
+				FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */,
+				FCAB7792163BCC8E000F4558 /* SinaUCGradientAdditions.h */,
+				FCAB7793163BCC8E000F4558 /* SinaUCGradientAdditions.m */,
+				FCAB7796163BCD14000F4558 /* SinaUCColorAdditions.h */,
+				FCAB7797163BCD14000F4558 /* SinaUCColorAdditions.m */,
+				FCAB7799163BCE88000F4558 /* SinaUCStringAdditions.h */,
+				FCAB779A163BCE88000F4558 /* SinaUCStringAdditions.m */,
+				FCAB779C163BD0EB000F4558 /* SinaUCImageDrawingAdditions.h */,
+				FCAB779D163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m */,
+				FCAB779F163BD14D000F4558 /* SinaUCImageAdditions.h */,
+				FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */,
+				FCAB77A2163BD2E7000F4558 /* SinaUCBezierPathAdditions.h */,
+				FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -8484,6 +8534,16 @@
 				FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */,
 				FC8E223A162A9C5200DD36DD /* SinaUCHeaderView.m in Sources */,
 				FC23DDA81632DB7400825BFB /* SinaUCHeadImageCell.m in Sources */,
+				FCAB7746163AD6A3000F4558 /* SinaUCOutlineView.m in Sources */,
+				FCAB774B163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m in Sources */,
+				FCAB774E163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m in Sources */,
+				FCAB777D163ADF89000F4558 /* SinaUCAlternatingRowOutlineView.m in Sources */,
+				FCAB7794163BCC8E000F4558 /* SinaUCGradientAdditions.m in Sources */,
+				FCAB7798163BCD14000F4558 /* SinaUCColorAdditions.m in Sources */,
+				FCAB779B163BCE88000F4558 /* SinaUCStringAdditions.m in Sources */,
+				FCAB779E163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m in Sources */,
+				FCAB77A1163BD14E000F4558 /* SinaUCImageAdditions.m in Sources */,
+				FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
