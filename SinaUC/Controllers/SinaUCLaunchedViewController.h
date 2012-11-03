@@ -7,20 +7,29 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <PSMTabBarControl/PSMTabBarControl.h>
+#import <PSMTabBarControl/PSMTabStyle.h>
 #import "SinaUCConnectionDelegate.h"
+#import "SinaUCTabStyle.h"
 #import "SinaUCLaunchedView.h"
+#import "SinaUCContractTabViewItem.h"
 #import "XMPP.h"
 
 @protocol SinaUCConnectionDelegate;
 @class XMPP;
+@class PSMTabBarControl;
 @class SinaUCLaunchedView;
-@interface SinaUCLaunchedViewController : NSViewController <SinaUCConnectionDelegate>
+@interface SinaUCLaunchedViewController : NSViewController <SinaUCConnectionDelegate, PSMTabBarControlDelegate>
 {
-    IBOutlet XMPP *xmpp;
+    IBOutlet XMPP               *xmpp;
+    IBOutlet NSTabView			*tabView;
+    IBOutlet PSMTabBarControl	*tabBar;
 }
 
+- (PSMTabBarControl *)tabBar;
 - (void) willConnect;
 - (void) didDisConnectedWithError:(NSInteger) error;
 - (void) didConnectedWithJid:(NSString*) jid;
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
 
 @end

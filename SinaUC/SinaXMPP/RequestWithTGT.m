@@ -52,8 +52,10 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    NSDictionary* ret = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-    tgt = [ret valueForKey:@"tgt"];
+    if (data) {
+        NSDictionary* ret = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+        tgt = [ret valueForKey:@"tgt"];
+    }
 }
 
 @end

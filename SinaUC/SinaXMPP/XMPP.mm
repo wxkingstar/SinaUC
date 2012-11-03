@@ -402,9 +402,9 @@ void    CXmpp::connect()
             do {
                 ce = m_pClient->recv(10000);
                 //NSLog(@"%s", m_pClient->jid().bare().c_str());
-                //每900次执行tgt换票
+                //每90000次执行tgt换票
                 if (m_connected) {
-                    if (i%900 == 0) {
+                    if (i%90000 == 0) {
                         exchangeTgt();
                     }
                     if (i%100 == 0) {
@@ -646,7 +646,7 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
 }
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
-    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
+    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
 #pragma mark -

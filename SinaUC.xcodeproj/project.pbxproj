@@ -127,7 +127,6 @@
 		FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC41A5001621B81700573F9B /* LaunchedWindow.xib */; };
 		FC41A5051621BE7600573F9B /* SinaUCLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */; };
 		FC41A5081621BE8E00573F9B /* SinaUCLaunchedWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */; };
-		FC68524616287791006366A7 /* SinaUCTabviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68524516287791006366A7 /* SinaUCTabviewItem.m */; };
 		FC685259162A6ECE006366A7 /* SinaUCHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC685258162A6ECE006366A7 /* SinaUCHeaderViewController.m */; };
 		FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */; };
 		FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */; };
@@ -1925,6 +1924,9 @@
 		FCD63695161BD026002AF1FF /* RoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* RoomContact.m */; };
 		FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* RoomMessage.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
+		FCEEC2221640009A00D7BB1B /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */; };
+		FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */; };
+		FCEEC2281641631100D7BB1B /* SinaUCTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1936,6 +1938,18 @@
 			remoteInfo = SinaUC;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCEEC1DF163FF9EB00D7BB1B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCHeadImageCell.h; path = UISubClasses/SinaUCHeadImageCell.h; sourceTree = "<group>"; };
@@ -2196,7 +2210,6 @@
 		FC2C059B1615EB780020BE29 /* vikahandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vikahandler.h; sourceTree = "<group>"; };
 		FC2C059C1615EB780020BE29 /* xhtmlim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xhtmlim.h; sourceTree = "<group>"; };
 		FC2C059D1615EB780020BE29 /* xhtmlim.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xhtmlim.mm; sourceTree = "<group>"; };
-		FC2CD6DE163D169600FCB480 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FC39298F1617E77F000982C3 /* SinaUCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCButton.h; path = UISubClasses/SinaUCButton.h; sourceTree = "<group>"; };
 		FC3929901617E77F000982C3 /* SinaUCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCButton.m; path = UISubClasses/SinaUCButton.m; sourceTree = "<group>"; };
 		FC3929911617E77F000982C3 /* SinaUCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginView.h; path = UISubClasses/SinaUCLoginView.h; sourceTree = "<group>"; };
@@ -2231,8 +2244,6 @@
 		FC41A5061621BE8D00573F9B /* SinaUCLaunchedWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLaunchedWindowController.h; sourceTree = "<group>"; };
 		FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLaunchedWindowController.m; sourceTree = "<group>"; };
 		FC41A50D162272F300573F9B /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		FC68524416287791006366A7 /* SinaUCTabviewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCTabviewItem.h; path = UISubClasses/SinaUCTabviewItem.h; sourceTree = "<group>"; };
-		FC68524516287791006366A7 /* SinaUCTabviewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCTabviewItem.m; path = UISubClasses/SinaUCTabviewItem.m; sourceTree = "<group>"; };
 		FC685251162A5AD8006366A7 /* SinaUCSVcardUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCSVcardUpdateDelegate.h; sourceTree = "<group>"; };
 		FC685252162A5AE9006366A7 /* SinaUCCVcardUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCCVcardUpdateDelegate.h; sourceTree = "<group>"; };
 		FC685254162A5D25006366A7 /* SinaUCRoomRosterUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomRosterUpdateDelegate.h; sourceTree = "<group>"; };
@@ -4109,6 +4120,11 @@
 		FCD63690161BD026002AF1FF /* RoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomMessage.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
+		FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
+		FCEEC2231640056000D7BB1B /* SinaUCContractTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContractTabViewItem.h; path = UISubClasses/SinaUCContractTabViewItem.h; sourceTree = "<group>"; };
+		FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContractTabViewItem.m; path = UISubClasses/SinaUCContractTabViewItem.m; sourceTree = "<group>"; };
+		FCEEC2261641631000D7BB1B /* SinaUCTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCTabStyle.h; path = UISubClasses/SinaUCTabStyle.h; sourceTree = "<group>"; };
+		FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCTabStyle.m; path = UISubClasses/SinaUCTabStyle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4119,6 +4135,7 @@
 				FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */,
 				FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */,
 				FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */,
+				FCEEC2221640009A00D7BB1B /* PSMTabBarControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4439,8 +4456,6 @@
 				FC8E2239162A9C5200DD36DD /* SinaUCHeaderView.m */,
 				FC41A4B81620652400573F9B /* SinaUCLaunchedWindow.h */,
 				FC41A4B91620652400573F9B /* SinaUCLaunchedWindow.m */,
-				FC68524416287791006366A7 /* SinaUCTabviewItem.h */,
-				FC68524516287791006366A7 /* SinaUCTabviewItem.m */,
 				FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */,
 				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
 				FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */,
@@ -4465,6 +4480,10 @@
 				FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */,
 				FCAB77A2163BD2E7000F4558 /* SinaUCBezierPathAdditions.h */,
 				FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */,
+				FCEEC2231640056000D7BB1B /* SinaUCContractTabViewItem.h */,
+				FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */,
+				FCEEC2261641631000D7BB1B /* SinaUCTabStyle.h */,
+				FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -6298,7 +6317,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC2CD6DE163D169600FCB480 /* PSMTabBarControl.framework */,
+				FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */,
 				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
@@ -6537,6 +6556,7 @@
 				FCA7F38C160EE1D600DC038C /* Sources */,
 				FCA7F38D160EE1D600DC038C /* Frameworks */,
 				FCA7F38E160EE1D600DC038C /* Resources */,
+				FCEEC1DF163FF9EB00D7BB1B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -8530,7 +8550,6 @@
 				FC41A4F91621AA5D00573F9B /* SinaUCStrechImage.m in Sources */,
 				FC41A5051621BE7600573F9B /* SinaUCLoginWindowController.m in Sources */,
 				FC41A5081621BE8E00573F9B /* SinaUCLaunchedWindowController.m in Sources */,
-				FC68524616287791006366A7 /* SinaUCTabviewItem.m in Sources */,
 				FC685259162A6ECE006366A7 /* SinaUCHeaderViewController.m in Sources */,
 				FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */,
 				FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */,
@@ -8546,6 +8565,8 @@
 				FCAB779E163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m in Sources */,
 				FCAB77A1163BD14E000F4558 /* SinaUCImageAdditions.m in Sources */,
 				FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */,
+				FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */,
+				FCEEC2281641631100D7BB1B /* SinaUCTabStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8641,7 +8662,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lresolv",
@@ -8669,7 +8690,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lresolv",
 					"-lssl",
@@ -8686,7 +8707,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/SinaUC/frameworks\"",
+					"\"$(SRCROOT)/../build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
@@ -8710,7 +8731,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/SinaUC/frameworks\"",
+					"\"$(SRCROOT)/../build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
