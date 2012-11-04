@@ -28,11 +28,10 @@
 {
     if (!contacts) {
         [xmpp setCDelegate:self];
+        [xmpp registerCVcardUpdateDelegate:self];
         
         contacts = [[NSMutableArray alloc] init];
-        iGroupRowCell = [[NSTextFieldCell alloc] init];
-        [iGroupRowCell setEditable:NO];
-        [iGroupRowCell setLineBreakMode:NSLineBreakByTruncatingTail];
+        iGroupRowCell = [[SinaUCListGroupCell alloc] init];
         
         [(NSOutlineView*)self.view setIntercellSpacing:NSMakeSize(0,0)];
         [(NSOutlineView*)self.view setTarget:self];
@@ -49,19 +48,33 @@
         NSMutableDictionary *group = [[NSMutableDictionary alloc] init];
         [group setValue:[groupInfo valueForKey:@"name"] forKey:@"name"];
         NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE gid=?" withValues:[groupInfo valueForKey:@"pk"], nil];
-        NSArray *groupContacts = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
-        [group setObject:groupContacts forKey:@"contacts"];        
+        NSMutableArray *groupContacts = [NSMutableArray arrayWithArray:[ZIMDbConnection dataSource:@"addressbook" query:cStatement]];
+        [group setObject:groupContacts forKey:@"children"];
         [contacts addObject:group];
     }
     [(NSOutlineView*)self.view reloadData];
-    /*
-     ({name=xx, contacts=()}, {name=xx, contacts=()})
-     */
+}
+
+- (void)updateVcard:(NSString*) jid
+{
+    for (NSDictionary* group in contacts) {
+        for (NSDictionary* contact in [group objectForKey:@"children"]) {
+            if ([[contact valueForKey:@"jid"] isEqualToString:jid]) {
+                NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
+                NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
+                NSInteger groupIndex = [contacts indexOfObject:group];
+                NSInteger contactIndex = [[group valueForKey:@"children"] indexOfObject:contact];                
+                [[[contacts objectAtIndex:groupIndex] objectForKey:@"children"] replaceObjectAtIndex:contactIndex withObject:[contactInfo objectAtIndex:0]];
+                [(NSOutlineView*)self.view reloadData];
+                break;
+            }
+        }
+    }
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    if ([item objectForKey:@"contacts"]) {
+    if ([item objectForKey:@"children"]) {
         return YES;
     } else {
         return NO;
@@ -70,7 +83,7 @@
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayOutlineCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
-    if ([item objectForKey:@"contacts"]) {
+    if ([item objectForKey:@"children"]) {
         BOOL expanded = [outlineView isItemExpanded:item];
         BOOL selected = [outlineView rowForItem:item] == [outlineView selectedRow];
         if (expanded) {
@@ -91,10 +104,10 @@
 
 - (CGFloat) outlineView:(NSOutlineView*) outlineView heightOfRowByItem:(id) item
 {
-    if ([item objectForKey:@"contacts"]) {
+    if ([item objectForKey:@"children"]) {
         return 20;
     } else {
-        return 42;
+        return 52;
     }
 }
 
@@ -103,8 +116,8 @@
     if (item == nil) { //item is nil when the outline view wants to inquire for root level items
         return [contacts count];
     }
-    if ([item objectForKey:@"contacts"]) {
-        return [[item objectForKey:@"contacts"] count];
+    if ([item objectForKey:@"children"]) {
+        return [[item objectForKey:@"children"] count];
     }
     return 0;
 }
@@ -114,15 +127,15 @@
     if (item == nil) { //item is nil when the outline view wants to inquire for root level items
         return [contacts objectAtIndex:index];
     }
-    if ([item objectForKey:@"contacts"]) {
-        return [[item objectForKey:@"contacts"] objectAtIndex:index];
+    if ([item objectForKey:@"children"]) {
+        return [[item objectForKey:@"children"] objectAtIndex:index];
     }
     return nil;
 }
 
 - (NSCell*) outlineView:(NSOutlineView*) outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id) item
 {
-    if (tableColumn == nil && [item objectForKey:@"contacts"]) {
+    if (tableColumn == nil && [item objectForKey:@"children"]) {
         return iGroupRowCell;
     }
 	return nil;
@@ -130,25 +143,21 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    if ([item objectForKey:@"contacts"]) {
-        return [NSString stringWithFormat:@" %@", [item valueForKey:@"name"]];
+    if ([item objectForKey:@"children"]) {
+        return [NSString stringWithFormat:@"\t%@", [item valueForKey:@"name"]];
     }
     if ([[tableColumn identifier] isEqualToString:@"photo"]) {
-        return [NSImage imageNamed:@"NSUser"];
         NSData* imageData = [item valueForKey:@"image"];
-        if (imageData) {
+        if ([imageData length] > 0) {
             NSImage* image = [[NSImage alloc] initWithData:imageData];
             return image;
         }
+        return [NSImage imageNamed:@"NSUser"];
     }
     if ([[tableColumn identifier] isEqualToString:@"name"]) {
-        /*[(BuddyCell*)[tableColumn dataCell] setTitle:[obj valueForKey:@"name"]];
-        [(BuddyCell*)[tableColumn dataCell] setSubTitle:[obj valueForKey:@"jid"]];*/
+        [(SinaUCListNameCell*)[tableColumn dataCell] setTitle:[item valueForKey:@"name"]];
+        [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"jid"]];
         return [item valueForKey:@"name"];
-    }
-    if ([[tableColumn identifier] isEqualToString:@"status"]) {
-        return [NSImage imageNamed:@""];
-        //return [ContactItem statusImage:[[obj valueForKey:@"presence"] integerValue]];
     }
     return nil;
 }

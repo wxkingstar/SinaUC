@@ -13,7 +13,7 @@
 
 - (NSMutableArray*) getRoomList:(NSString*) uid
 {
-    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-list/%@", uid];
+    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://218.30.115.181/group-list/%@", uid];
     NSURL* url = [[NSURL alloc] initWithString:urlStr];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -23,13 +23,15 @@
     NSData *data=[NSURLConnection sendSynchronousRequest:request
                                        returningResponse:nil 
                                                    error:&err];
-    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+    if (data) {
+        return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+    }
 }
 
 - (NSMutableArray*) getRoomContacts:(NSString*) gid withUid: (NSString*) uid
 {
     NSString* guid = [[NSUUID UUID] UUIDString];
-    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://202.106.184.141/group-user/%@?uid=%@&RandomGuid=%@", gid, uid, guid];
+    NSString* urlStr = [[NSString alloc] initWithFormat:@"http://218.30.115.181/group-user/%@?uid=%@&RandomGuid=%@", gid, uid, guid];
     NSURL* url = [[NSURL alloc] initWithString:urlStr];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];

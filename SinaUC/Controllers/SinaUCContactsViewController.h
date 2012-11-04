@@ -8,7 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "XMPP.h"
+#import "SinaUCCVcardUpdateDelegate.h"
 #import "SinaUCContactRosterUpdateDelegate.h"
+#import "SinaUCListGroupCell.h"
+#import "SinaUCListNameCell.h"
+#import "SinaUCListImageCell.h"
 
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
@@ -17,10 +21,11 @@
 
 @class XMPP;
 @protocol SinaUCContactRosterUpdateDelegate;
-@interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCContactRosterUpdateDelegate>
+@protocol SinaUCCVcardUpdateDelegate;
+@interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCContactRosterUpdateDelegate, SinaUCCVcardUpdateDelegate>
 {
     NSMutableArray              *contacts;
-    NSTextFieldCell             *iGroupRowCell;
+    SinaUCListGroupCell         *iGroupRowCell;
     IBOutlet XMPP               *xmpp;
 }
 

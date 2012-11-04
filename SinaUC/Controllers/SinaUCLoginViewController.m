@@ -44,7 +44,7 @@
             [createUser column: @"mood" type:ZIMSqlDataTypeVarChar(20)];
             [createUser column: @"status" type: ZIMSqlDataTypeSmallInt];
             [createUser column: @"logintime" type: ZIMSqlDataTypeDateTime];
-            [createUser column: @"headimg" type: ZIMSqlDataTypeBlob];
+            [createUser column: @"headimg" type: ZIMSqlDataTypeClob];
             NSString *statement = [createUser statement];
             //NSLog(@"%@", statement);
             [ZIMDbConnection dataSource: @"user" execute: statement];

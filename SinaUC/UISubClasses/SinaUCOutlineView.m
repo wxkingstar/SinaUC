@@ -57,7 +57,7 @@
 		//General expand notification
 		[[NSNotificationCenter defaultCenter] postNotificationName:SinaUCOutlineViewUserDidExpandItemNotification
 															object:self
-														  userInfo:[NSDictionary dictionaryWithObject:item forKey:@"contacts"]];
+														  userInfo:[NSDictionary dictionaryWithObject:item forKey:@"children"]];
         
 		//Inform our delegate directly
 		if ([[self delegate] respondsToSelector:@selector(outlineView:setExpandState:ofItem:)]) {
@@ -74,7 +74,7 @@
 		//General expand notification
 		[[NSNotificationCenter defaultCenter] postNotificationName:SinaUCOutlineViewUserDidCollapseItemNotification
 															object:self
-														  userInfo:[NSDictionary dictionaryWithObject:item forKey:@"contacts"]];
+														  userInfo:[NSDictionary dictionaryWithObject:item forKey:@"children"]];
         
 		//Inform our delegate directly
 		if ([[self delegate] respondsToSelector:@selector(outlineView:setExpandState:ofItem:)]) {
@@ -158,7 +158,7 @@
 	// Let super handle it if it's not a group, or the command key is down (dealing with selection)
 	// Allow clickthroughs for triangle disclosure only.
 	//if (![item objectForKey:@"contacts"] || [NSEvent cmdKey] || ![[self window] isKeyWindow]) {
-    if (![item objectForKey:@"contacts"] || ![[self window] isKeyWindow]) {
+    if (![item objectForKey:@"children"] || ![[self window] isKeyWindow]) {
 		[super mouseDown:theEvent];
 		return;
 	}
@@ -196,5 +196,95 @@
 	}
 }
 
+- (void)keyDown:(NSEvent *)theEvent
+{
+	if (!([theEvent modifierFlags] & NSCommandKeyMask)) {
+        
+		NSString	*charString = [theEvent charactersIgnoringModifiers];
+		unichar		pressedChar = 0;
+        
+		//Get the pressed character
+		if ([charString length] == 1) pressedChar = [charString characterAtIndex:0];
+        
+        switch (pressedChar) {
+            case NSDeleteCharacter:
+            case NSBackspaceCharacter:
+            case NSDeleteFunctionKey:
+            {
+                if ([[self dataSource] respondsToSelector:@selector(outlineViewDeleteSelectedRows:)]) {
+                    [(id<SinaUCOutlineViewDelegate>)[self dataSource] outlineViewDeleteSelectedRows:self];
+                }
+            }
+                break;
+            case NSCarriageReturnCharacter:
+            case NSEnterCharacter:
+            {
+                SEL doubleActionSelector = [self doubleAction];
+                if (doubleActionSelector) {
+                    [[self delegate] performSelector:doubleActionSelector withObject:self];
+                }
+            }
+                break;
+            case NSLeftArrowFunctionKey:
+            {
+                NSArray *selectedItems = [self arrayOfSelectedItems];
+                
+                BOOL anyCollapsable = NO;
+                for (id object in selectedItems) {
+                    if ([self isExpandable:object] && [self isItemExpanded:object]) {
+                        anyCollapsable = YES;
+                        [self collapseItem:object];
+                    }
+                }
+                if (!anyCollapsable && selectedItems.count == 1) {
+                    id parentObject = [self parentForItem:[selectedItems objectAtIndex:0]];
+                    if (parentObject) {
+                        [self selectItemsInArray:[NSArray arrayWithObject:parentObject]];
+                    }
+                }
+            }
+                break;
+            case NSRightArrowFunctionKey:
+            {
+                [self.arrayOfSelectedItems enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+                    if ([self isExpandable:object] && ![self isItemExpanded:object]) {
+                        [self expandItem:object];
+                    }
+                }];
+            }
+                break;
+            case '\031':
+            {
+                if ([self respondsToSelector:@selector(findPrevious:)] &&
+                    [self tabPerformsTypeSelectFind]) {
+                    /* KFTypeSelectTableView supports findPrevious; backtab is added to AIOutlineView as a find previous action
+                     * if KFTypeSelectTableView is being used via posing */
+                    [self findPrevious:self];
+                }
+            }
+                break;
+            case '\t':
+            {
+                if ([self respondsToSelector:@selector(findNext:)] &&
+                    [self tabPerformsTypeSelectFind]) {
+                    /* KFTypeSelectTableView supports findNext; tab is added to AIOutlineView as a find next action
+                     * if KFTypeSelectTableView is being used via posing */
+                    [self findNext:self];
+                }
+            }
+                break;
+            default:
+            {
+                [super keyDown:theEvent];
+            }
+                break;
+        }
+    }
+}
+
+- (BOOL)tabPerformsTypeSelectFind
+{
+	return NO;
+}
 
 @end

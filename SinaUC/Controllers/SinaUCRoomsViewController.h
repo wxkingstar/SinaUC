@@ -7,7 +7,31 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "XMPP.h"
+#import "SinaUCContactRosterUpdateDelegate.h"
+#import "SinaUCListGroupCell.h"
+#import "SinaUCListNameCell.h"
+#import "SinaUCListImageCell.h"
 
-@interface SinaUCRoomsViewController : NSViewController
+#import "ZIMDbSdk.h"
+#import "ZIMSqlSdk.h"
+#import "Contact.h"
+#import "ContactGroup.h"
+
+@class XMPP;
+@interface SinaUCRoomsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCRoomRosterUpdateDelegate>
+{
+    NSMutableArray              *rooms;
+    SinaUCListGroupCell         *iGroupRowCell;
+    IBOutlet XMPP               *xmpp;
+}
+
+- (void)updateRoster;
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item;
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item;
+- (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item;
+
 
 @end

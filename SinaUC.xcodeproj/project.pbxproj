@@ -1927,6 +1927,9 @@
 		FCEEC2221640009A00D7BB1B /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */; };
 		FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */; };
 		FCEEC2281641631100D7BB1B /* SinaUCTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */; };
+		FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */; };
+		FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */; };
+		FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4125,6 +4128,12 @@
 		FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContractTabViewItem.m; path = UISubClasses/SinaUCContractTabViewItem.m; sourceTree = "<group>"; };
 		FCEEC2261641631000D7BB1B /* SinaUCTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCTabStyle.h; path = UISubClasses/SinaUCTabStyle.h; sourceTree = "<group>"; };
 		FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCTabStyle.m; path = UISubClasses/SinaUCTabStyle.m; sourceTree = "<group>"; };
+		FCEEC232164552C000D7BB1B /* SinaUCListImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListImageCell.h; path = UISubClasses/SinaUCListImageCell.h; sourceTree = "<group>"; };
+		FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListImageCell.m; path = UISubClasses/SinaUCListImageCell.m; sourceTree = "<group>"; };
+		FCEEC2351645530000D7BB1B /* SinaUCListNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListNameCell.h; path = UISubClasses/SinaUCListNameCell.h; sourceTree = "<group>"; };
+		FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListNameCell.m; path = UISubClasses/SinaUCListNameCell.m; sourceTree = "<group>"; };
+		FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListGroupCell.h; path = UISubClasses/SinaUCListGroupCell.h; sourceTree = "<group>"; };
+		FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListGroupCell.m; path = UISubClasses/SinaUCListGroupCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4484,6 +4493,12 @@
 				FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */,
 				FCEEC2261641631000D7BB1B /* SinaUCTabStyle.h */,
 				FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */,
+				FCEEC232164552C000D7BB1B /* SinaUCListImageCell.h */,
+				FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */,
+				FCEEC2351645530000D7BB1B /* SinaUCListNameCell.h */,
+				FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */,
+				FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */,
+				FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -8567,6 +8582,9 @@
 				FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */,
 				FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */,
 				FCEEC2281641631100D7BB1B /* SinaUCTabStyle.m in Sources */,
+				FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */,
+				FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */,
+				FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
