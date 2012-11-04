@@ -161,15 +161,8 @@
 - (void) onDoubleClick:(id) sender
 {
     NSInteger selected = [(NSOutlineView*)self.view selectedRow];
-    NSTreeNode* node = [(NSOutlineView*)self.view itemAtRow:selected];
-    /*NSManagedObject* object = [node representedObject];
-     if ([[[object entity] valueForKey:@"name"] isEqualToString:@"Contact"] == YES) {
-     NSString* jid = [object valueForKey:@"jid"];
-     if (!jid) {
-     return;
-     }
-     [xmpp startChat:jid];
-     }*/
+    NSDictionary* room = [(NSOutlineView*)self.view itemAtRow:selected];
+    
 }
 
 @end

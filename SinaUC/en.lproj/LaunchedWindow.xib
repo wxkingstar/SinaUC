@@ -276,7 +276,6 @@
 																		<string key="NSFrameSize">{237, 218}</string>
 																		<reference key="NSSuperview" ref="40684199"/>
 																		<reference key="NSWindow"/>
-																		<reference key="NSNextKeyView" ref="103757016"/>
 																		<string key="NSReuseIdentifierKey">_NS:13</string>
 																		<bool key="NSEnabled">YES</bool>
 																		<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -474,7 +473,7 @@
 																		<array class="NSMutableArray" key="NSSubviews"/>
 																		<string key="NSFrameSize">{227, 218}</string>
 																		<reference key="NSSuperview" ref="83774851"/>
-																		<reference key="NSNextKeyView" ref="103757016"/>
+																		<reference key="NSNextKeyView" ref="974691593"/>
 																		<string key="NSReuseIdentifierKey">_NS:13</string>
 																		<bool key="NSEnabled">YES</bool>
 																		<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -607,7 +606,7 @@
 														</array>
 														<string key="NSFrameSize">{221, 218}</string>
 														<reference key="NSSuperview" ref="1034487456"/>
-														<reference key="NSNextKeyView" ref="974691593"/>
+														<reference key="NSNextKeyView" ref="83774851"/>
 														<string key="NSReuseIdentifierKey">_NS:9</string>
 														<int key="NSsFlags">133776</int>
 														<reference key="NSVScroller" ref="974691593"/>
@@ -757,7 +756,6 @@
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{1, 201}, {219, 16}}</string>
 																<reference key="NSSuperview" ref="682158895"/>
-																<reference key="NSNextKeyView" ref="103757016"/>
 																<string key="NSReuseIdentifierKey">_NS:60</string>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 																<int key="NSsFlags">1</int>
@@ -852,7 +850,6 @@
 									<string key="NSFrameSize">{221, 35}</string>
 									<reference key="NSSuperview" ref="103757016"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="1003266387">
@@ -1632,7 +1629,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">247</int>
+			<int key="maxID">251</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1895,6 +1892,22 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/XMPP.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">XMPPMUCRoomManager</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/XMPPMUCRoomManager.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">XMPPSessionManager</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/XMPPSessionManager.h</string>
 					</object>
 				</object>
 			</array>

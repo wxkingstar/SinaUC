@@ -25,9 +25,9 @@
 #include "vcardmanager.h"
 #include "mutex.h"
 #include "pubsubmanager.h"
+#include "message.h"
 #include "messagesessionhandler.h"
 #include "messagesession.h"
-#include "message.h"
 #include "mucroom.h"
 #include "mucroomhandler.h"
 
@@ -276,9 +276,9 @@ void    CXmpp::initUserStore()
             ZIMSqlCreateTableStatement *createMessage = [[ZIMSqlCreateTableStatement alloc] init];
             [createMessage table: @"Message"];
             [createMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-            //[createMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
-            [createMessage column: @"receier" type: ZIMSqlDataTypeInteger];
-            //[createMessage column: @"message" type: ZIMSqlDataTypeVarChar(l20)];
+            [createMessage column: @"sender" type: ZIMSqlDataTypeVarChar(50)];
+            [createMessage column: @"recevier" type: ZIMSqlDataTypeInteger];
+            [createMessage column: @"message" type: ZIMSqlDataTypeText];
             [createMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
             NSString *statement = [createMessage statement];
             //NSLog(@"%@", statement);
@@ -288,8 +288,8 @@ void    CXmpp::initUserStore()
             [createRoomMessage table: @"RoomMessage"];
             [createRoomMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
             [createRoomMessage column: @"rid" type: ZIMSqlDataTypeInteger];
-            //[createRoomMessage column: @"sender" type: ZIMSqlDataTypeVarChar(l50)];
-            //[createRoomMessage column: @"receier" type: ZIMSqlDataTypeVarChar(l50)];
+            [createRoomMessage column: @"sender" type: ZIMSqlDataTypeVarChar(50)];
+            [createRoomMessage column: @"receier" type: ZIMSqlDataTypeVarChar(50)];
             [createRoomMessage column: @"message" type: ZIMSqlDataTypeText];
             [createRoomMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
             statement = [createRoomMessage statement];
@@ -425,9 +425,9 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
     gloox::Roster* pRoster = new gloox::Roster(roster);
     gloox::Roster::iterator it;
     for (it = pRoster->begin(); it != pRoster->end(); it++) {
-        Contact *contact = [[Contact alloc] init];
+        SinaUCContact *contact = [[SinaUCContact alloc] init];
         [contact setGid:[NSNumber numberWithInt:1]];
-        ContactGroup *contactGroup = [[ContactGroup alloc] init];
+        SinaUCContactGroup *contactGroup = [[SinaUCContactGroup alloc] init];
         gloox::RosterItem* pItem = (*it).second;
         gloox::StringList list(pItem->groups());
         gloox::StringList::iterator group;
@@ -473,7 +473,7 @@ void    CXmpp::joinRooms()
     NSArray* roomsData = [[m_pDelegate requestWithTgt] getRoomList:uid];
     for (NSDictionary* roomData in roomsData) {
         //NSLog(@"%@", roomData);
-        Room* room = [[Room alloc] init];
+        SinaUCRoom* room = [[SinaUCRoom alloc] init];
         [room setGid:[roomData valueForKey:@"groupid"]];
         [room setName:[roomData valueForKey:@"groupname"]];
         [room setJid:[NSString stringWithFormat:@"%@@group.uc.sina.com.cn", [roomData valueForKey:@"groupid"]]];
@@ -490,7 +490,7 @@ void    CXmpp::joinRooms()
         for (NSDictionary* contactData in contactsData) {
             //NSLog(@"%@", contactData);
             NSString* contactJid = [NSString stringWithFormat:@"%@@uc.sina.com.cn", [contactData valueForKey:@"uid"]];
-            RoomContact* roomContact = [[RoomContact alloc] init];
+            SinaUCRoomContact* roomContact = [[SinaUCRoomContact alloc] init];
             [roomContact setRid:[room pk]];
             [roomContact setName:[contactData valueForKey:@"nickname"]];
             [roomContact setJid:contactJid];
@@ -608,10 +608,10 @@ void 	CXmpp::handleVCardResult (gloox::VCardHandler::VCardContext context, const
 
 void    CXmpp::startChat(gloox::JID& jid)
 {
-    if (!m_pClient || !m_pDelegate) {
+    /*if (!m_pClient || !m_pDelegate) {
         return; 
     }
-    /*gloox::MessageSession* pSession = new gloox::MessageSession( m_pClient, jid );
+    gloox::MessageSession* pSession = new gloox::MessageSession( m_pClient, jid );
     XMPPSession* session = [[XMPPSession alloc] init];
     [session setSession:pSession];
     [session setXmpp:m_pDelegate];
@@ -804,21 +804,18 @@ static XMPP *instance;
     }
 }
 
-- (void) startChat:(NSString*) jid
+- (void) startChat:(NSString*) jidStr
 {
-    /*if (!jid) {
+    /*if ([sessionManager activateSession:jidStr]) {
         return;
     }
-    if ([sessionManager activateSession:jid]) {
-        return;
-    }
-    gloox::JID glooxJid([jid UTF8String]);
-    CXmpp::instance().startChat(glooxJid);*/
+    gloox::JID jid([jidStr UTF8String]);
+    CXmpp::instance().startChat(jid);*/
 }
 
-- (void) startRoomChat:(NSString*) jid
+- (void) startRoomChat:(NSString*) jidStr
 {
-    /*if ([mucRoomManager activateRoom:jid]) {
+    /*if ([mucRoomManager activateRoom:jidStr]) {
         return;
     }*/
 }

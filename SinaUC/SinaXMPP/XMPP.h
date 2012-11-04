@@ -16,20 +16,14 @@
 #import "SinaUCRoomUpdateDelegate.h"
 #import "SinaUCContactRosterUpdateDelegate.h"
 #import "SinaUCRoomRosterUpdateDelegate.h"
-/* #import "XMPPConnectionDelegate.h"
- #import "XMPPVcardUpdateDelegate.h"
- #import "ContactItem.h"
- #import "MUCRoomItem.h"
- #import "XMPPSession.h"
- #import "XMPPMUCRoom.h"
- #import "ChineseToPinyin.h"*/
-
+//#import "XMPPSession.h"
+//#import "XMPPMUCRoom.h"
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
-#import "Contact.h"
-#import "ContactGroup.h"
-#import "Room.h"
-#import "RoomContact.h"
+#import "SinaUCContact.h"
+#import "SinaUCContactGroup.h"
+#import "SinaUCRoom.h"
+#import "SinaUCRoomContact.h"
 
 @protocol SinaUCConnectionDelegate;
 @protocol SinaUCSVcardUpdateDelegate;
@@ -42,7 +36,7 @@
 @class XMPPSessionManager;
 @class XMPPMUCRoom;
 @class XMPPMUCRoomManager;
-@class Contact;
+@class SinaUCContact;
 @interface XMPP : NSObject {
 @private
     NSString* myJid;

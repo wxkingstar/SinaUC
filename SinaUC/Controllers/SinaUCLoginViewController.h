@@ -12,7 +12,7 @@
 #import "XMPP.h"
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
-#import "User.h"
+#import "SinaUCUser.h"
 
 @protocol SinaUCConnectionDelegate;
 @class XMPP;

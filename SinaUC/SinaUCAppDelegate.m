@@ -16,6 +16,13 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSString *userStorePath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex: 0], @"SinaUC", nil]];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    if (![fileManager fileExistsAtPath: userStorePath]) {
+        NSError *error;
+        [fileManager createDirectoryAtPath:userStorePath withIntermediateDirectories:NO attributes:nil error:&error];
+    }
+
     // Insert code here to initialize your application
     loginWindowController = [[SinaUCLoginWindowController alloc] init];
     launchedWindowController = [[SinaUCLaunchedWindowController alloc] init];

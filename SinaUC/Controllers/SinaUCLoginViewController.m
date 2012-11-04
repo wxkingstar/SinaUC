@@ -44,7 +44,7 @@
             [createUser column: @"mood" type:ZIMSqlDataTypeVarChar(20)];
             [createUser column: @"status" type: ZIMSqlDataTypeSmallInt];
             [createUser column: @"logintime" type: ZIMSqlDataTypeDateTime];
-            [createUser column: @"headimg" type: ZIMSqlDataTypeClob];
+            [createUser column: @"headimg" type: ZIMSqlDataTypeBlob];
             NSString *statement = [createUser statement];
             //NSLog(@"%@", statement);
             [ZIMDbConnection dataSource: @"user" execute: statement];
@@ -102,7 +102,7 @@
 {
     NSString* username = [[(SinaUCLoginView*)self.view valueForKey:@"username"] stringValue];
     NSString* password = [[(SinaUCLoginView*)self.view valueForKey:@"password"] stringValue];
-    User* user = [[User alloc] init];
+    SinaUCUser* user = [[SinaUCUser alloc] init];
     [user setUsername:username];
     [user setPassword:password];
     [user setLogintime:[NSDate date]];

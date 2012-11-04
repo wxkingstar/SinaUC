@@ -15,8 +15,8 @@
 
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
-#import "Contact.h"
-#import "ContactGroup.h"
+#import "SinaUCContact.h"
+#import "SinaUCContactGroup.h"
 
 @class XMPP;
 @interface SinaUCRoomsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCRoomRosterUpdateDelegate>

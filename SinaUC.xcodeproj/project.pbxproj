@@ -117,7 +117,7 @@
 		FC41A4A7161EA96200573F9B /* SinaUCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4A6161EA96200573F9B /* SinaUCRequest.m */; };
 		FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AA161EC05900573F9B /* SinaUCMD5.m */; };
 		FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */; };
-		FC41A4B1161FE38000573F9B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B0161FE38000573F9B /* User.m */; };
+		FC41A4B1161FE38000573F9B /* SinaUCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B0161FE38000573F9B /* SinaUCUser.m */; };
 		FC41A4B4162021F000573F9B /* SinaUCMenuControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B3162021F000573F9B /* SinaUCMenuControllerViewController.m */; };
 		FC41A4BA1620652500573F9B /* SinaUCLaunchedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4B91620652400573F9B /* SinaUCLaunchedWindow.m */; };
 		FC41A4BD162075C900573F9B /* SinaUCLaunchedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */; };
@@ -130,6 +130,9 @@
 		FC685259162A6ECE006366A7 /* SinaUCHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC685258162A6ECE006366A7 /* SinaUCHeaderViewController.m */; };
 		FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */; };
 		FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */; };
+		FC7469481646ACD300DC412F /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
+		FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
+		FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469501646AD9400DC412F /* Foundation.framework */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
 		FC8AE1E4160F26C50069F6E7 /* 0fix.bmp in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */; };
@@ -1917,19 +1920,20 @@
 		FCD63681161B3050002AF1FF /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6365C161B3050002AF1FF /* ZIMSqlUpdateStatement.m */; };
 		FCD63682161B3050002AF1FF /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6365E161B3050002AF1FF /* ZIMSqlUpsertStatement.m */; };
 		FCD63683161B3050002AF1FF /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63661161B3050002AF1FF /* ZIMMessageDigest.m */; };
-		FCD63691161BD026002AF1FF /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63686161BD026002AF1FF /* Contact.m */; };
-		FCD63692161BD026002AF1FF /* ContactGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63688161BD026002AF1FF /* ContactGroup.m */; };
-		FCD63693161BD026002AF1FF /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368A161BD026002AF1FF /* Message.m */; };
-		FCD63694161BD026002AF1FF /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368C161BD026002AF1FF /* Room.m */; };
-		FCD63695161BD026002AF1FF /* RoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* RoomContact.m */; };
-		FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* RoomMessage.m */; };
+		FCD63691161BD026002AF1FF /* SinaUCContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63686161BD026002AF1FF /* SinaUCContact.m */; };
+		FCD63692161BD026002AF1FF /* SinaUCContactGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63688161BD026002AF1FF /* SinaUCContactGroup.m */; };
+		FCD63693161BD026002AF1FF /* SinaUCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368A161BD026002AF1FF /* SinaUCMessage.m */; };
+		FCD63694161BD026002AF1FF /* SinaUCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368C161BD026002AF1FF /* SinaUCRoom.m */; };
+		FCD63695161BD026002AF1FF /* SinaUCRoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */; };
+		FCD63696161BD026002AF1FF /* SinaUCRoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
-		FCEEC2221640009A00D7BB1B /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */; };
 		FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */; };
 		FCEEC2281641631100D7BB1B /* SinaUCTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2271641631000D7BB1B /* SinaUCTabStyle.m */; };
 		FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */; };
 		FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */; };
 		FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */; };
+		FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */; };
+		FCEEC256164687C000D7BB1B /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCEEC254164687AF00D7BB1B /* MessageWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1949,6 +1953,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FC7469481646ACD300DC412F /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2228,8 +2233,8 @@
 		FC41A4AA161EC05900573F9B /* SinaUCMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMD5.m; sourceTree = "<group>"; };
 		FC41A4AC161FBC5100573F9B /* RequestWithTGT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestWithTGT.h; sourceTree = "<group>"; };
 		FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestWithTGT.m; sourceTree = "<group>"; };
-		FC41A4AF161FE38000573F9B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		FC41A4B0161FE38000573F9B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FC41A4AF161FE38000573F9B /* SinaUCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCUser.h; sourceTree = "<group>"; };
+		FC41A4B0161FE38000573F9B /* SinaUCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCUser.m; sourceTree = "<group>"; };
 		FC41A4B2162021F000573F9B /* SinaUCMenuControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMenuControllerViewController.h; sourceTree = "<group>"; };
 		FC41A4B3162021F000573F9B /* SinaUCMenuControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMenuControllerViewController.m; sourceTree = "<group>"; };
 		FC41A4B81620652400573F9B /* SinaUCLaunchedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLaunchedWindow.h; path = UISubClasses/SinaUCLaunchedWindow.h; sourceTree = "<group>"; };
@@ -2258,6 +2263,10 @@
 		FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCContactsViewController.m; sourceTree = "<group>"; };
 		FC68525D162A731A006366A7 /* SinaUCRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomsViewController.h; sourceTree = "<group>"; };
 		FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomsViewController.m; sourceTree = "<group>"; };
+		FC74692316469B3700DC412F /* SInaUCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SInaUCMessage.h; sourceTree = "<group>"; };
+		FC74693C16469B8900DC412F /* SinaUCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoom.h; sourceTree = "<group>"; };
+		FC7469471646ACD300DC412F /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
+		FC7469501646AD9400DC412F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -3994,7 +4003,6 @@
 		FCA7F390160EE1D600DC038C /* SinaUC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaUC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA7F394160EE1D600DC038C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FCA7F397160EE1D600DC038C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		FCA7F399160EE1D600DC038C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCA7F39C160EE1D600DC038C /* SinaUC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinaUC-Info.plist"; sourceTree = "<group>"; };
 		FCA7F39E160EE1D600DC038C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCA7F3A0160EE1D600DC038C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -4109,21 +4117,18 @@
 		FCD6365E161B3050002AF1FF /* ZIMSqlUpsertStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlUpsertStatement.m; sourceTree = "<group>"; };
 		FCD63660161B3050002AF1FF /* ZIMMessageDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMMessageDigest.h; sourceTree = "<group>"; };
 		FCD63661161B3050002AF1FF /* ZIMMessageDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMMessageDigest.m; sourceTree = "<group>"; };
-		FCD63685161BD026002AF1FF /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		FCD63686161BD026002AF1FF /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		FCD63687161BD026002AF1FF /* ContactGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactGroup.h; sourceTree = "<group>"; };
-		FCD63688161BD026002AF1FF /* ContactGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactGroup.m; sourceTree = "<group>"; };
-		FCD63689161BD026002AF1FF /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		FCD6368A161BD026002AF1FF /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		FCD6368B161BD026002AF1FF /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
-		FCD6368C161BD026002AF1FF /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
-		FCD6368D161BD026002AF1FF /* RoomContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomContact.h; sourceTree = "<group>"; };
-		FCD6368E161BD026002AF1FF /* RoomContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomContact.m; sourceTree = "<group>"; };
-		FCD6368F161BD026002AF1FF /* RoomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomMessage.h; sourceTree = "<group>"; };
-		FCD63690161BD026002AF1FF /* RoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomMessage.m; sourceTree = "<group>"; };
+		FCD63685161BD026002AF1FF /* SinaUCContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCContact.h; sourceTree = "<group>"; };
+		FCD63686161BD026002AF1FF /* SinaUCContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCContact.m; sourceTree = "<group>"; };
+		FCD63687161BD026002AF1FF /* SinaUCContactGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCContactGroup.h; sourceTree = "<group>"; };
+		FCD63688161BD026002AF1FF /* SinaUCContactGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCContactGroup.m; sourceTree = "<group>"; };
+		FCD6368A161BD026002AF1FF /* SinaUCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessage.m; sourceTree = "<group>"; };
+		FCD6368C161BD026002AF1FF /* SinaUCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoom.m; sourceTree = "<group>"; };
+		FCD6368D161BD026002AF1FF /* SinaUCRoomContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomContact.h; sourceTree = "<group>"; };
+		FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomContact.m; sourceTree = "<group>"; };
+		FCD6368F161BD026002AF1FF /* SinaUCRoomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomMessage.h; sourceTree = "<group>"; };
+		FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomMessage.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
-		FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FCEEC2231640056000D7BB1B /* SinaUCContractTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContractTabViewItem.h; path = UISubClasses/SinaUCContractTabViewItem.h; sourceTree = "<group>"; };
 		FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContractTabViewItem.m; path = UISubClasses/SinaUCContractTabViewItem.m; sourceTree = "<group>"; };
 		FCEEC2261641631000D7BB1B /* SinaUCTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCTabStyle.h; path = UISubClasses/SinaUCTabStyle.h; sourceTree = "<group>"; };
@@ -4134,6 +4139,9 @@
 		FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListNameCell.m; path = UISubClasses/SinaUCListNameCell.m; sourceTree = "<group>"; };
 		FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListGroupCell.h; path = UISubClasses/SinaUCListGroupCell.h; sourceTree = "<group>"; };
 		FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListGroupCell.m; path = UISubClasses/SinaUCListGroupCell.m; sourceTree = "<group>"; };
+		FCEEC24F1646873D00D7BB1B /* SinaUCMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageWindowController.h; sourceTree = "<group>"; };
+		FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessageWindowController.m; sourceTree = "<group>"; };
+		FCEEC255164687C000D7BB1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MessageWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4141,10 +4149,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */,
+				FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */,
 				FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */,
 				FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */,
 				FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */,
-				FCEEC2221640009A00D7BB1B /* PSMTabBarControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6306,6 +6315,8 @@
 				FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */,
 				FC41A5061621BE8D00573F9B /* SinaUCLaunchedWindowController.h */,
 				FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */,
+				FCEEC24F1646873D00D7BB1B /* SinaUCMessageWindowController.h */,
+				FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -6332,7 +6343,6 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FCEEC2211640009A00D7BB1B /* PSMTabBarControl.framework */,
 				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
@@ -6345,8 +6355,9 @@
 		FCA7F396160EE1D600DC038C /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC7469501646AD9400DC412F /* Foundation.framework */,
+				FC7469471646ACD300DC412F /* PSMTabBarControl.framework */,
 				FCA7F397160EE1D600DC038C /* AppKit.framework */,
-				FCA7F399160EE1D600DC038C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -6366,6 +6377,7 @@
 				FCA7F3A6160EE1D600DC038C /* SinaUCAppDelegate.h */,
 				FCA7F3A7160EE1D600DC038C /* SinaUCAppDelegate.m */,
 				FCA7F3A9160EE1D600DC038C /* MainMenu.xib */,
+				FCEEC254164687AF00D7BB1B /* MessageWindow.xib */,
 				FC41A4FA1621B7B600573F9B /* LoginWindow.xib */,
 				FC41A5001621B81700573F9B /* LaunchedWindow.xib */,
 				FCA7F39B160EE1D600DC038C /* Supporting Files */,
@@ -6543,20 +6555,20 @@
 		FCD63684161BD026002AF1FF /* data */ = {
 			isa = PBXGroup;
 			children = (
-				FC41A4AF161FE38000573F9B /* User.h */,
-				FC41A4B0161FE38000573F9B /* User.m */,
-				FCD63685161BD026002AF1FF /* Contact.h */,
-				FCD63686161BD026002AF1FF /* Contact.m */,
-				FCD63687161BD026002AF1FF /* ContactGroup.h */,
-				FCD63688161BD026002AF1FF /* ContactGroup.m */,
-				FCD63689161BD026002AF1FF /* Message.h */,
-				FCD6368A161BD026002AF1FF /* Message.m */,
-				FCD6368B161BD026002AF1FF /* Room.h */,
-				FCD6368C161BD026002AF1FF /* Room.m */,
-				FCD6368D161BD026002AF1FF /* RoomContact.h */,
-				FCD6368E161BD026002AF1FF /* RoomContact.m */,
-				FCD6368F161BD026002AF1FF /* RoomMessage.h */,
-				FCD63690161BD026002AF1FF /* RoomMessage.m */,
+				FC41A4AF161FE38000573F9B /* SinaUCUser.h */,
+				FC41A4B0161FE38000573F9B /* SinaUCUser.m */,
+				FCD63685161BD026002AF1FF /* SinaUCContact.h */,
+				FCD63686161BD026002AF1FF /* SinaUCContact.m */,
+				FCD63687161BD026002AF1FF /* SinaUCContactGroup.h */,
+				FCD63688161BD026002AF1FF /* SinaUCContactGroup.m */,
+				FC74692316469B3700DC412F /* SInaUCMessage.h */,
+				FCD6368A161BD026002AF1FF /* SinaUCMessage.m */,
+				FC74693C16469B8900DC412F /* SinaUCRoom.h */,
+				FCD6368C161BD026002AF1FF /* SinaUCRoom.m */,
+				FCD6368D161BD026002AF1FF /* SinaUCRoomContact.h */,
+				FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */,
+				FCD6368F161BD026002AF1FF /* SinaUCRoomMessage.h */,
+				FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -8372,6 +8384,7 @@
 				FC392A1616194526000982C3 /* db.plist in Resources */,
 				FC41A4FC1621B7B800573F9B /* LoginWindow.xib in Resources */,
 				FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */,
+				FCEEC256164687C000D7BB1B /* MessageWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8548,16 +8561,16 @@
 				FCD63681161B3050002AF1FF /* ZIMSqlUpdateStatement.m in Sources */,
 				FCD63682161B3050002AF1FF /* ZIMSqlUpsertStatement.m in Sources */,
 				FCD63683161B3050002AF1FF /* ZIMMessageDigest.m in Sources */,
-				FCD63691161BD026002AF1FF /* Contact.m in Sources */,
-				FCD63692161BD026002AF1FF /* ContactGroup.m in Sources */,
-				FCD63693161BD026002AF1FF /* Message.m in Sources */,
-				FCD63694161BD026002AF1FF /* Room.m in Sources */,
-				FCD63695161BD026002AF1FF /* RoomContact.m in Sources */,
-				FCD63696161BD026002AF1FF /* RoomMessage.m in Sources */,
+				FCD63691161BD026002AF1FF /* SinaUCContact.m in Sources */,
+				FCD63692161BD026002AF1FF /* SinaUCContactGroup.m in Sources */,
+				FCD63693161BD026002AF1FF /* SinaUCMessage.m in Sources */,
+				FCD63694161BD026002AF1FF /* SinaUCRoom.m in Sources */,
+				FCD63695161BD026002AF1FF /* SinaUCRoomContact.m in Sources */,
+				FCD63696161BD026002AF1FF /* SinaUCRoomMessage.m in Sources */,
 				FC41A4A7161EA96200573F9B /* SinaUCRequest.m in Sources */,
 				FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */,
 				FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */,
-				FC41A4B1161FE38000573F9B /* User.m in Sources */,
+				FC41A4B1161FE38000573F9B /* SinaUCUser.m in Sources */,
 				FC41A4B4162021F000573F9B /* SinaUCMenuControllerViewController.m in Sources */,
 				FC41A4BA1620652500573F9B /* SinaUCLaunchedWindow.m in Sources */,
 				FC41A4BD162075C900573F9B /* SinaUCLaunchedView.m in Sources */,
@@ -8585,6 +8598,7 @@
 				FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */,
 				FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */,
 				FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */,
+				FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8653,6 +8667,14 @@
 				FCA7F3BE160EE1D600DC038C /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FCEEC254164687AF00D7BB1B /* MessageWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCEEC255164687C000D7BB1B /* en */,
+			);
+			name = MessageWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
