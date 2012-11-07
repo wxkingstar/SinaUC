@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "XMPP.h"
-#import "SinaUCContactRosterUpdateDelegate.h"
+#import "SinaUCRoomRosterUpdateDelegate.h"
 #import "SinaUCListGroupCell.h"
 #import "SinaUCListNameCell.h"
 #import "SinaUCListImageCell.h"

@@ -133,6 +133,7 @@
 		FC7469481646ACD300DC412F /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
 		FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
 		FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469501646AD9400DC412F /* Foundation.framework */; };
+		FC7469541646AE4800DC412F /* XMPPSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC7469531646AE4700DC412F /* XMPPSession.mm */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
 		FC8AE1E3160F26C50069F6E7 /* 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */; };
 		FC8AE1E4160F26C50069F6E7 /* 0fix.bmp in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */; };
@@ -2267,6 +2268,8 @@
 		FC74693C16469B8900DC412F /* SinaUCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoom.h; sourceTree = "<group>"; };
 		FC7469471646ACD300DC412F /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FC7469501646AD9400DC412F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FC7469521646AE4700DC412F /* XMPPSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPSession.h; sourceTree = "<group>"; };
+		FC7469531646AE4700DC412F /* XMPPSession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPPSession.mm; sourceTree = "<group>"; };
 		FC8ADB1B160F26BF0069F6E7 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0@2x.png"; sourceTree = "<group>"; };
 		FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 0fix.bmp; sourceTree = "<group>"; };
@@ -6420,6 +6423,8 @@
 		FCBE1AA61619620B002CA75E /* SinaXMPP */ = {
 			isa = PBXGroup;
 			children = (
+				FC7469521646AE4700DC412F /* XMPPSession.h */,
+				FC7469531646AE4700DC412F /* XMPPSession.mm */,
 				FC41A4AC161FBC5100573F9B /* RequestWithTGT.h */,
 				FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */,
 				FCBE1AA71619620B002CA75E /* XMPP.h */,
@@ -8599,6 +8604,7 @@
 				FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */,
 				FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */,
 				FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */,
+				FC7469541646AE4800DC412F /* XMPPSession.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8753,6 +8759,8 @@
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SinaUC/SinaUC-Info.plist";
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = "-gfull";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lresolv",
 					"-lssl",
@@ -8777,6 +8785,7 @@
 				GCC_PREFIX_HEADER = "SinaUC/SinaUC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SinaUC/SinaUC-Info.plist";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

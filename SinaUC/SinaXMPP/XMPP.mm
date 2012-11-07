@@ -31,6 +31,22 @@
 #include "mucroom.h"
 #include "mucroomhandler.h"
 
+#include <sys/time.h>
+#import "SinaUCMD5.h"
+#import "RequestWithTGT.h"
+#import "SinaUCConnectionDelegate.h"
+#import "SinaUCSVcardUpdateDelegate.h"
+#import "SinaUCCVcardUpdateDelegate.h"
+#import "SinaUCRoomUpdateDelegate.h"
+#import "SinaUCContactRosterUpdateDelegate.h"
+#import "SinaUCRoomRosterUpdateDelegate.h"
+//#import "XMPPMUCRoom.h"
+#import "XMPPSession.h"
+#import "SinaUCContact.h"
+#import "SinaUCContactGroup.h"
+#import "SinaUCRoom.h"
+#import "SinaUCRoomContact.h"
+
 //CXmpp实现
 class CXmpp:public gloox::EventHandler, gloox::ConnectionListener , gloox::RosterListener, gloox::PresenceHandler, gloox::VCardHandler, gloox::MessageSessionHandler, gloox::LogHandler
 {
@@ -143,7 +159,6 @@ protected:
     //联系人列表请求失败回调
     virtual void 	handleRosterError (const gloox::IQ &iq);
     
-    
     virtual void    handleEvent(const gloox::Event& event);
     
     //日志回调
@@ -151,6 +166,7 @@ protected:
 
 private:
     CXmpp();
+    gloox::PrivateXML* m_pXML;
     gloox::Client* m_pClient;
     gloox::PubSub::Manager* m_pPubSubManager;
     gloox::RosterManager* m_pRosterManager;
@@ -239,6 +255,7 @@ void    CXmpp::initUserStore()
             [createContact column: @"name" type: ZIMSqlDataTypeVarChar(20)];
             [createContact column: @"pinyin" type: ZIMSqlDataTypeVarChar(30)];
             [createContact column: @"image" type: ZIMSqlDataTypeBlob];
+            [createContact column: @"mood" type: ZIMSqlDataTypeVarChar(30)];
             [createContact column: @"presence" type: ZIMSqlDataTypeSmallInt];
             statement = [createContact statement];
             //NSLog(@"%@", statement);
@@ -336,11 +353,11 @@ bool    CXmpp::login(NSString* username, NSString* password)
                                                                                        withString:@"\\40"]];
     jid->setUsername([loginId UTF8String]);
     m_pClient = new gloox::Client(*jid, [password UTF8String]);
-    m_pClient->registerPresenceHandler(this);
-    m_pClient->registerConnectionListener(this);
     m_pClient->logInstance().registerLogHandler(gloox::LogLevelDebug, gloox::LogAreaAll, this);
+    m_pClient->registerConnectionListener(this);
+    m_pClient->registerPresenceHandler(this);
     m_pClient->registerMessageSessionHandler(this);
-    m_pRosterManager = m_pClient->rosterManager();
+    m_pRosterManager = m_pClient->rosterManager();//new gloox::RosterManager(m_pClient);//;
     m_pRosterManager->registerRosterListener(this, false);
     m_pRosterManager->fill();
     m_pVcardManager = new gloox::VCardManager(m_pClient);
@@ -429,6 +446,7 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
         [contact setGid:[NSNumber numberWithInt:1]];
         SinaUCContactGroup *contactGroup = [[SinaUCContactGroup alloc] init];
         gloox::RosterItem* pItem = (*it).second;
+        printf("%s\n", pItem->data()->tag()->findAttribute("mood").c_str());
         gloox::StringList list(pItem->groups());
         gloox::StringList::iterator group;
         for (group = list.begin(); group != list.end(); group++) {
@@ -443,6 +461,7 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
             }
             [contact setGid:[contactGroup pk]];
         }
+
         //[contact setKey:[NSString stringWithUTF8String:(*it).first.c_str()]];
         [contact setJid:[NSString stringWithUTF8String:pItem->jid().c_str()]];
         [contact setName:[NSString stringWithUTF8String:pItem->name().c_str()]];
@@ -608,14 +627,14 @@ void 	CXmpp::handleVCardResult (gloox::VCardHandler::VCardContext context, const
 
 void    CXmpp::startChat(gloox::JID& jid)
 {
-    /*if (!m_pClient || !m_pDelegate) {
+    if (!m_pClient || !m_pDelegate) {
         return; 
     }
     gloox::MessageSession* pSession = new gloox::MessageSession( m_pClient, jid );
     XMPPSession* session = [[XMPPSession alloc] init];
     [session setSession:pSession];
     [session setXmpp:m_pDelegate];
-    [[m_pDelegate sessionManager] addSession:session];*/
+    [[m_pDelegate sessionManager] addSession:session];
 }
 
 void 	CXmpp::handleMessageSession(gloox::MessageSession *session)
@@ -653,7 +672,8 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
     m_pClient->disposeMessageSession(pSession);
 }
 
-void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message){
+void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message)
+{
     //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
@@ -806,11 +826,11 @@ static XMPP *instance;
 
 - (void) startChat:(NSString*) jidStr
 {
-    /*if ([sessionManager activateSession:jidStr]) {
+    if ([sessionManager activateSession:jidStr]) {
         return;
     }
     gloox::JID jid([jidStr UTF8String]);
-    CXmpp::instance().startChat(jid);*/
+    CXmpp::instance().startChat(jid);
 }
 
 - (void) startRoomChat:(NSString*) jidStr

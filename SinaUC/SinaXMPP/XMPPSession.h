@@ -20,6 +20,7 @@
 #import "SinaUCMessageWindowController.h"
 #import "SinaUCMessage.h"
 //#import "GrowlLinker.h"
+#include <string.h>
 
 namespace gloox {
     class MessageSession;
@@ -44,9 +45,9 @@ class CMessageSessionEventHandler;
     NSString* jid;
     XMPP* xmpp;
 }
-@property (nonatomic, assign) gloox::MessageSession* session;
+@property (assign) gloox::MessageSession* session;
 @property (assign) BOOL incomingSession;
-@property (assign) XMPP* xmpp;
+@property (retain) XMPP* xmpp;
 @property (readonly) NSString* jid;
 @property (readonly) NSString* name;
 

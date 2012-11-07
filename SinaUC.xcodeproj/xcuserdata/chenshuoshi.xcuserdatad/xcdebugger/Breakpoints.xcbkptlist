@@ -7,27 +7,235 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/UISubClasses/SinaUCTabStyle.m"
-         timestampString = "373618192.29371"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
-         landmarkName = "-drawBezelOfTabCell:withFrame:inTabBarControl:"
+         startingLineNumber = "807"
+         endingLineNumber = "807"
+         landmarkName = "Parser::streamEvent( Tag* tag )"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/Controllers/SinaUCLoginViewController.m"
-         timestampString = "373729300.26208"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "28"
-         endingLineNumber = "28"
-         landmarkName = "-awakeFromNib"
+         startingLineNumber = "646"
+         endingLineNumber = "646"
+         landmarkName = "Parser::addTag()"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "702"
+         endingLineNumber = "702"
+         landmarkName = "Parser::addAttribute()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "511"
+         endingLineNumber = "511"
+         landmarkName = "Parser::feed( std::string&amp; data )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "Parser::feed( std::string&amp; data )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "369"
+         endingLineNumber = "369"
+         landmarkName = "Parser::feed( std::string&amp; data )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "764"
+         endingLineNumber = "764"
+         landmarkName = "Parser::closeTag()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/tag.mm"
+         timestampString = "373891943.983877"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "520"
+         endingLineNumber = "520"
+         landmarkName = "Tag::setXmlns( const std::string&amp; xmlns, const std::string&amp; prefix )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/parser.mm"
+         timestampString = "373910012.911467"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "741"
+         endingLineNumber = "741"
+         landmarkName = "Parser::closeTag()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/tag.mm"
+         timestampString = "373903802.491918"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "610"
+         endingLineNumber = "610"
+         landmarkName = "Tag::hasAttribute( const std::string&amp; name, const std::string&amp; value )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/tag.mm"
+         timestampString = "373902497.392814"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "603"
+         endingLineNumber = "603"
+         landmarkName = "Tag::hasAttribute( const std::string&amp; name, const std::string&amp; value )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/tag.mm"
+         timestampString = "373903802.491918"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "609"
+         endingLineNumber = "609"
+         landmarkName = "Tag::hasAttribute( const std::string&amp; name, const std::string&amp; value )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/tag.mm"
+         timestampString = "373903803.08182"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "607"
+         endingLineNumber = "607"
+         landmarkName = "Tag::hasAttribute( const std::string&amp; name, const std::string&amp; value )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/clientbase.mm"
+         timestampString = "373949758.568632"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1537"
+         endingLineNumber = "1537"
+         landmarkName = "ClientBase::notifyTagHandlers( Tag* tag )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/clientbase.mm"
+         timestampString = "373949758.568632"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1536"
+         endingLineNumber = "1536"
+         landmarkName = "ClientBase::notifyTagHandlers( Tag* tag )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/SinaXMPP/XMPP.mm"
+         timestampString = "373959067.379403"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "445"
+         endingLineNumber = "445"
+         landmarkName = "CXmpp::handleRoster (const gloox::Roster &amp;roster)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/rostermanager.mm"
+         timestampString = "373953984.990294"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
+         landmarkName = "RosterManager::Query::Query( const Tag* tag )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/gloox/rosteritemdata.h"
+         timestampString = "373954037.769721"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "tag()"
+         landmarkType = "7">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

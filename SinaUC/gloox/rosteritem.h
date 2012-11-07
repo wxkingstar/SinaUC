@@ -17,6 +17,7 @@
 #include "gloox.h"
 #include "resource.h"
 #include "presence.h"
+#include "rosteritemdata.h"
 
 #include <string>
 #include <list>
@@ -138,6 +139,9 @@ namespace gloox
        * @return The Resource with the highest priority.
        */
       const Resource* highestResource() const;
+
+      //add by shuoshi return rosteritemdata
+      const RosterItemData* data() const;
 
     protected:
       /**

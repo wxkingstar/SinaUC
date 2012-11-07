@@ -90,7 +90,7 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
     
 //    delete handler;
 //    [windowController close];
-    [xmpp close:self];
+    //[xmpp close:self];
 /*    if (chatStateFilter) {
         chatStateFilter->removeChatStateHandler();
         delete chatStateFilter;
@@ -109,17 +109,14 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 
 - (void) openChatWindow:(NSDictionary*) contactInfo;
 {
-    windowController = [[ChatWindowController alloc] initWithWindowNibName:@"ChatWindow"];
+    windowController = [[SinaUCMessageWindowController alloc] initWithWindowNibName:@"MessageWindow"];
     [[windowController window] makeKeyAndOrderFront:nil];
-    NSImage* image = [[NSImage alloc] initWithData:[[xmpp myVcard] valueForKey:@"image"]];
-    [windowController setMyImage: image];
     NSData* imageData = [contactInfo valueForKey:@"image"];
     if (imageData) {
         NSImage* image = [[NSImage alloc] initWithData:imageData];
-        [windowController setTargetImage:image];
-        [image release];
+        //[windowController setTargetImage:image];
     } else {
-        [windowController setTargetImage:[NSImage imageNamed:@"NSUser"]];   
+        //[windowController setTargetImage:[NSImage imageNamed:@"NSUser"]];
     }
     jid = [contactInfo valueForKey:@"jid"];
     if (!jid) {
@@ -130,9 +127,9 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         //requestVcard
         name = jid;
     }
-    [windowController setTargetName:name];
+    /*[windowController setTargetName:name];
     [windowController setTargetJid:jid];
-    [windowController registerSession:self];
+    [windowController registerSession:self];*/
     handler = new CMessageSessionEventHandler(self);
     session->registerMessageHandler(handler);
     chatStateFilter = new gloox::ChatStateFilter(session);
@@ -148,20 +145,20 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 
 #pragma mark -
 #pragma *** SessionHandler ***
-- (void) handleMessage:(MessageItem*) item
+- (void) handleMessage:(SinaUCMessage*) item
 {
-    [item setType:@"from"];
+    /*[item setType:@"from"];
     [item setJid:jid];
     [item setName:name];
     [windowController onMessageReceived:item];
 	if (![NSApp isActive]) {
         [[NSNotificationCenter defaultCenter]postNotificationName:@"unreadMessage" object:item];
-	}
+	}*/
 }
 #pragma mark -
 #pragma *** sendMessage ***
 
-- (BOOL) sendMessage:(MessageItem*) item
+- (BOOL) sendMessage:(SinaUCMessage*) item
 {
     std::string message = [[item message] UTF8String];
     if (session) {
@@ -184,28 +181,24 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         // Initialization code here.
         sessions = [[NSMutableArray alloc]init];
     }
-    
     return self;
-}
-
-- (void) dealloc
-{
-    [sessions release];
-    [super dealloc];
 }
 
 - (void) addSession:(XMPPSession*) session
 {
     if ([sessions indexOfObject:session] == NSNotFound) {
         NSString* jid = [[NSString alloc] initWithUTF8String:[session session]->target().bare().c_str()];
-        NSManagedObject* obj = [contactDataContxt findContactByJid:jid];
-        if (!obj) {
+        NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:jid, nil];
+        NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
+        NSDictionary* contactInfo;
+        if ([contactRes count] == 0) {
             [[session xmpp] requestVcard:jid];
-            obj = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext: contactDataContxt];
-            [obj setValue:jid forKey:@"jid"];
+            /*obj = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext: contactDataContxt];
+            [obj setValue:jid forKey:@"jid"];*/
+        } else {
+            contactInfo = [contactRes objectAtIndex:0];
         }
-        [jid release];
-        [session createChatWindow];
+        [session openChatWindow: contactInfo];
         [sessions addObject:session];
     }
 }

@@ -157,21 +157,27 @@ namespace gloox
        */
       Tag* tag() const
       {
-        Tag* i = new Tag( "item" );
-        i->addAttribute( "jid", m_jid );
-        if( m_remove )
-          i->addAttribute( "subscription", "remove" );
-        else
-        {
-          i->addAttribute( "name", m_name );
-          StringList::const_iterator it = m_groups.begin();
-          for( ; it != m_groups.end(); ++it )
-            new Tag( i, "group", (*it) );
-          i->addAttribute( "subscription", m_sub );
-          i->addAttribute( "ask", m_ask );
-        }
-        return i;
+          if (!m_tag) {
+              Tag* i = new Tag( "item" );
+              i->addAttribute( "jid", m_jid );
+              if( m_remove )
+                  i->addAttribute( "subscription", "remove" );
+              else
+              {
+                  i->addAttribute( "name", m_name );
+                  StringList::const_iterator it = m_groups.begin();
+                  for( ; it != m_groups.end(); ++it )
+                      new Tag( i, "group", (*it) );
+                  i->addAttribute( "subscription", m_sub );
+                  i->addAttribute( "ask", m_ask );
+              }
+              return i;
+          } else {
+              return m_tag;
+          }
       }
+      
+      void setTag(const Tag* tag) {m_tag = tag->clone();}
 
     protected:
       std::string m_jid;
@@ -182,6 +188,7 @@ namespace gloox
       std::string m_ask;
       bool m_changed;
       bool m_remove;
+      Tag* m_tag;
 
   };
 

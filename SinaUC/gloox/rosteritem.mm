@@ -13,7 +13,6 @@
 
 
 #include "rosteritem.h"
-#include "rosteritemdata.h"
 #include "util.h"
 
 namespace gloox
@@ -137,6 +136,11 @@ namespace gloox
       }
     }
     return highestResource;
+  }
+
+  const RosterItemData* RosterItem::data() const
+  {
+  	return m_data;
   }
 
   void RosterItem::setExtensions( const std::string& resource, const StanzaExtensionList& exts )

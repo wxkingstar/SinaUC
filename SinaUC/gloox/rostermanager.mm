@@ -64,6 +64,7 @@ namespace gloox
                                                   (*it)->findAttribute( "name" ),
                                                   groups );
         rid->setSubscription( sub, (*it)->findAttribute( "ask" ) );
+        rid->setTag((Tag*)(*it));
         m_roster.push_back( rid );
       }
     }

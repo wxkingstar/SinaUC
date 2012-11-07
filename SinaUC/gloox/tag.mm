@@ -352,6 +352,7 @@ namespace gloox
 
   bool Tag::addAttribute( Attribute* attr )
   {
+
     if( !attr )
       return false;
 
@@ -375,9 +376,9 @@ namespace gloox
         return true;
       }
     }
-
+    
     m_attribs->push_back( attr );
-
+      
     return true;
   }
 
@@ -600,9 +601,14 @@ namespace gloox
       return false;
 
     AttributeList::const_iterator it = m_attribs->begin();
-    for( ; it != m_attribs->end(); ++it )
-      if( (*it)->name() == name )
-        return value.empty() || (*it)->value() == value;
+      for( ; it != m_attribs->end(); ++it ){
+          if( (*it)->name() == name ){
+              if ((*it)->value() == value) {
+                  return true;
+              }
+              return value.empty();
+          }
+      }
 
     return false;
   }

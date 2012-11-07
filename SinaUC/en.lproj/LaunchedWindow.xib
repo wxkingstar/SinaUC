@@ -48,6 +48,12 @@
 			<object class="NSCustomObject" id="252895082">
 				<string key="NSClassName">XMPP</string>
 			</object>
+			<object class="NSCustomObject" id="81640869">
+				<string key="NSClassName">XMPPSessionManager</string>
+			</object>
+			<object class="NSCustomObject" id="314648022">
+				<string key="NSClassName">XMPPMUCRoomManager</string>
+			</object>
 			<object class="NSViewController" id="594567523"/>
 			<object class="NSViewController" id="225025019"/>
 			<object class="NSViewController" id="488806732"/>
@@ -68,7 +74,7 @@
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSCustomView" id="1004616371">
 							<reference key="NSNextResponder" ref="486740808"/>
-							<int key="NSvFlags">10</int>
+							<int key="NSvFlags">266</int>
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSTextField" id="596445058">
 									<reference key="NSNextResponder" ref="1004616371"/>
@@ -147,8 +153,8 @@
 								</object>
 								<object class="NSTextField" id="583858767">
 									<reference key="NSNextResponder" ref="1004616371"/>
-									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{91, 81}, {38, 17}}</string>
+									<int key="NSvFlags">266</int>
+									<string key="NSFrame">{{91, 81}, {150, 17}}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="800140628"/>
@@ -276,6 +282,7 @@
 																		<string key="NSFrameSize">{237, 218}</string>
 																		<reference key="NSSuperview" ref="40684199"/>
 																		<reference key="NSWindow"/>
+																		<reference key="NSNextKeyView" ref="103757016"/>
 																		<string key="NSReuseIdentifierKey">_NS:13</string>
 																		<bool key="NSEnabled">YES</bool>
 																		<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -850,6 +857,7 @@
 									<string key="NSFrameSize">{221, 35}</string>
 									<reference key="NSSuperview" ref="103757016"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="1003266387">
@@ -1015,6 +1023,22 @@
 						<reference key="destination" ref="1050722510"/>
 					</object>
 					<int key="connectionID">215</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">mucRoomManager</string>
+						<reference key="source" ref="252895082"/>
+						<reference key="destination" ref="314648022"/>
+					</object>
+					<int key="connectionID">250</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">sessionManager</string>
+						<reference key="source" ref="252895082"/>
+						<reference key="destination" ref="81640869"/>
+					</object>
+					<int key="connectionID">251</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1547,6 +1571,16 @@
 						<reference key="object" ref="587985145"/>
 						<reference key="parent" ref="794486490"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">249</int>
+						<reference key="object" ref="314648022"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">248</int>
+						<reference key="object" ref="81640869"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1607,6 +1641,8 @@
 				<string key="246.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="247.CustomClassName">SinaUCListImageCell</string>
 				<string key="247.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="248.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="249.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="3.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="NO" key="3.IBNSWindowAutoPositionCentersVertical"/>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "gloox::RosterManager::Query::Query(gloox::Tag const*):rostermanager.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "it-&gt;findAttribute(&quot;name&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gloox::RosterManager::handleIqID(gloox::IQ const&amp;, int):rostermanager.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_roster">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CXmpp::handleRoster(std::map&lt;std::string const, gloox::RosterItem*, std::less&lt;std::string const&gt;, std::allocator&lt;std::pair&lt;std::string const, gloox::RosterItem*&gt; &gt; &gt; const&amp;):XMPP.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "(*it).second-&gt;data()-&gt;tag()">
+            </PersistentString>
+            <PersistentString
+               value = "(*it).first">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gloox::RosterManager::fill():rostermanager.mm">
+      </ContextState>
+      <ContextState
+         contextName = "gloox::Tag::hasAttribute(std::string const&amp;, std::string const&amp;) const:tag.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "(*it)-&gt;value()">
+            </PersistentString>
+            <PersistentString
+               value = "(*it)-&gt;name()">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;m_attribs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -2,7 +2,7 @@
 //  Contact.m
 //  SinaUC
 //
-//  Created by shuoshi on 10/03/12.
+//  Created by shuoshi on 11/07/12.
 //  Copyright 2012 shuoshi. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @synthesize name = _name;
 @synthesize pinyin = _pinyin;
 @synthesize image = _image;
+@synthesize mood = _mood;
 @synthesize presence = _presence;
 
 - (id) init {

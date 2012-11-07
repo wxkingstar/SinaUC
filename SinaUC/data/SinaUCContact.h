@@ -2,7 +2,7 @@
 //  Contact.h
 //  SinaUC
 //
-//  Created by shuoshi on 10/03/12.
+//  Created by shuoshi on 11/07/12.
 //  Copyright 2012 shuoshi. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 /*!
  @class Contact
  @discussion This class represents a record in the "Contact" table.
- @updated 2012-10-03
+ @updated 2012-11-07
  */
 @interface SinaUCContact : ZIMOrmModel {
 
@@ -22,6 +22,7 @@
 		NSString *_name;
 		NSString *_pinyin;
 		NSData *_image;
+		NSString *_mood;
 		NSNumber *_presence;
 
 }
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *pinyin;
 @property (strong, nonatomic) NSData *image;
+@property (strong, nonatomic) NSString *mood;
 @property (strong, nonatomic) NSNumber *presence;
 
 @end
