@@ -71,7 +71,7 @@ CGRect drawingRect, CGPathRef clippingPath);
 
 - (void)setTitleBarDrawingBlock:(INAppStoreWindowTitleBarDrawingBlock)titleBarDrawingBlock;
 - (void)willConnect;
-- (void)didConnectedWithJid:(NSString*) jid;
+- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool) first;
 - (void)didDisConnectedWithError:(NSInteger) error;
 
 @end

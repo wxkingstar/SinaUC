@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0D2AE7164B4F6C007D2D63 /* NSImage+Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0D2AE6164B4F6C007D2D63 /* NSImage+Grayscale.m */; };
 		FC23DDA81632DB7400825BFB /* SinaUCHeadImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */; };
 		FC2C059E1615EB780020BE29 /* adhoc.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C049F1615EB780020BE29 /* adhoc.mm */; };
 		FC2C059F1615EB780020BE29 /* amp.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC2C04A31615EB780020BE29 /* amp.mm */; };
@@ -1961,6 +1962,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC0D2AE5164B4F6C007D2D63 /* NSImage+Grayscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Grayscale.h"; path = "UISubClasses/NSImage+Grayscale.h"; sourceTree = "<group>"; };
+		FC0D2AE6164B4F6C007D2D63 /* NSImage+Grayscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Grayscale.m"; path = "UISubClasses/NSImage+Grayscale.m"; sourceTree = "<group>"; };
 		FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCHeadImageCell.h; path = UISubClasses/SinaUCHeadImageCell.h; sourceTree = "<group>"; };
 		FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCHeadImageCell.m; path = UISubClasses/SinaUCHeadImageCell.m; sourceTree = "<group>"; };
 		FC2C049E1615EB780020BE29 /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
@@ -4511,6 +4514,8 @@
 				FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */,
 				FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */,
 				FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */,
+				FC0D2AE5164B4F6C007D2D63 /* NSImage+Grayscale.h */,
+				FC0D2AE6164B4F6C007D2D63 /* NSImage+Grayscale.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -8605,6 +8610,7 @@
 				FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */,
 				FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */,
 				FC7469541646AE4800DC412F /* XMPPSession.mm in Sources */,
+				FC0D2AE7164B4F6C007D2D63 /* NSImage+Grayscale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

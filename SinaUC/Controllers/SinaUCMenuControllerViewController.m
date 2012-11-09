@@ -40,7 +40,7 @@
 {
 }
 
-- (void)didConnectedWithJid:(NSString*) jid
+- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool)first
 {
     messageCenter = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [messageCenter setImage:[NSImage imageNamed:@"remind_QQlogo_normal"]];
@@ -48,7 +48,7 @@
     [messageCenter setAction:@selector(showRemindMessages:)];
 }
 
-- (void)didDisConnectedWithError:(NSInteger) error
+- (void)didDisConnectedWithError:(NSInteger) error 
 {
 }
 

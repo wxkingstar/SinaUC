@@ -7,6 +7,7 @@
 //
 
 #import "SinaUCLoginViewController.h"
+#import "NSImage+Grayscale.h"
 
 @interface SinaUCLoginViewController ()
 
@@ -125,7 +126,7 @@
     //显示取消登录按钮
 }
 
-- (void) didConnectedWithJid:(NSString*) jid
+- (void) didConnectedWithJid:(NSString*) jid forFistTime:(bool) first
 {
     
 }

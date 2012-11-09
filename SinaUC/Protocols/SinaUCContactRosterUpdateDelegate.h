@@ -11,5 +11,6 @@
 @protocol SinaUCContactRosterUpdateDelegate <NSObject>
 
 - (void)updateRoster;
+- (void)updatePresence:(NSString*) jid;
 
 @end

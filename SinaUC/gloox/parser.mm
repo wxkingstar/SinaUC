@@ -8,18 +8,6 @@
   other than expressed in the named license agreement.
 
   This software is distributed without any warranty.
- 
- if (strstr(data.c_str(), "jabber:iq:roster" )) {
- printf("%s\n", data.c_str());
- printf("%s\n", m_xmlns.c_str());
- if (m_xmlnss) {
- StringMap::const_iterator it = m_xmlnss->begin();
- for( ; it != m_xmlnss->end(); ++it )
- {
- printf("%s\n", (*it).second.c_str());
- }
- }
- }
 */
 
 #include "gloox.h"

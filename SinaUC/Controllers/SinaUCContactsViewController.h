@@ -13,6 +13,7 @@
 #import "SinaUCListGroupCell.h"
 #import "SinaUCListNameCell.h"
 #import "SinaUCListImageCell.h"
+#import "NSImage+Grayscale.h"
 
 #import "ZIMDbSdk.h"
 #import "ZIMSqlSdk.h"
@@ -25,6 +26,7 @@
 @interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCContactRosterUpdateDelegate, SinaUCCVcardUpdateDelegate>
 {
     NSMutableArray              *contacts;
+    NSMutableDictionary         *contactsKV;
     SinaUCListGroupCell         *iGroupRowCell;
     IBOutlet XMPP               *xmpp;
 }

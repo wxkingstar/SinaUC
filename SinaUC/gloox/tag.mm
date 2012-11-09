@@ -601,14 +601,11 @@ namespace gloox
       return false;
 
     AttributeList::const_iterator it = m_attribs->begin();
-      for( ; it != m_attribs->end(); ++it ){
-          if( (*it)->name() == name ){
-              if ((*it)->value() == value) {
-                  return true;
-              }
-              return value.empty();
-          }
-      }
+    for( ; it != m_attribs->end(); ++it ) {
+    	if( (*it)->name() == name ) {
+       		return value.empty() || (*it)->value() == value;
+    	}
+    }
 
     return false;
   }

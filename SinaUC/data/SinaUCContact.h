@@ -21,6 +21,7 @@
 		NSNumber *_gid;
 		NSString *_name;
 		NSString *_pinyin;
+        NSString *_avatar;
 		NSData *_image;
 		NSString *_mood;
 		NSNumber *_presence;
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) NSNumber *gid;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *pinyin;
+@property (strong, nonatomic) NSString *avatar;
 @property (strong, nonatomic) NSData *image;
 @property (strong, nonatomic) NSString *mood;
 @property (strong, nonatomic) NSNumber *presence;

@@ -11,7 +11,7 @@
 @protocol SinaUCConnectionDelegate <NSObject>
 
 - (void)willConnect;
-- (void)didConnectedWithJid:(NSString*) jid;
+- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool) first;
 - (void)didDisConnectedWithError:(NSInteger) error;
 
 @end

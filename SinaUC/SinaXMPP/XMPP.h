@@ -66,6 +66,7 @@
 - (void)onDisconnect:(NSString*) errorString;
 - (void)updateContactRoster;
 - (void)updateRoomRoster;
+- (void)updateRosterItem:(NSString*) jid;
 - (void)requestVcard:(NSString*) jid;
 - (void)updateContact:(NSString*) jid;
 - (void)updateSelfVcard;

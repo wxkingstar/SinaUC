@@ -29,7 +29,7 @@
 - (PSMTabBarControl *)tabBar;
 - (void) willConnect;
 - (void) didDisConnectedWithError:(NSInteger) error;
-- (void) didConnectedWithJid:(NSString*) jid;
+- (void) didConnectedWithJid:(NSString*) jid forFistTime:(bool)first;
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
 
 @end

@@ -31,6 +31,7 @@
         [xmpp registerCVcardUpdateDelegate:self];
         
         contacts = [[NSMutableArray alloc] init];
+        contactsKV = [[NSMutableDictionary alloc] init];
         iGroupRowCell = [[SinaUCListGroupCell alloc] init];
         
         [(NSOutlineView*)self.view setIntercellSpacing:NSMakeSize(0,0)];
@@ -42,22 +43,100 @@
 
 - (void)updateRoster
 {
-    NSString *cgStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM ContactGroup" withValues:nil, nil];
-    NSArray *contactGroupRes = [ZIMDbConnection dataSource:@"addressbook" query:cgStatement];
+    [contacts removeAllObjects];
+    NSArray *contactGroupRes;
+    do {
+        @try {
+            NSString *cgStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM ContactGroup" withValues:nil, nil];
+            contactGroupRes = [ZIMDbConnection dataSource:@"addressbook" query:cgStatement];
+            break;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+        }
+    } while (1);
+
+    int i = 0;
     for (NSDictionary *groupInfo in contactGroupRes) {
         NSMutableDictionary *group = [[NSMutableDictionary alloc] init];
         [group setValue:[groupInfo valueForKey:@"name"] forKey:@"name"];
-        NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE gid=?" withValues:[groupInfo valueForKey:@"pk"], nil];
-        NSMutableArray *groupContacts = [NSMutableArray arrayWithArray:[ZIMDbConnection dataSource:@"addressbook" query:cStatement]];
-        [group setObject:groupContacts forKey:@"children"];
-        [contacts addObject:group];
+        do {
+            @try {
+                NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE gid=? ORDER BY presence" withValues:[groupInfo valueForKey:@"pk"], nil];
+                NSArray *contactsRes = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
+                int j = 0;
+                for (NSDictionary *contactInfo in contactsRes) {
+                    [contactsKV setObject:
+                     [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:i], @"g_idx",
+                      [NSNumber numberWithInt:j++], @"c_idx",
+                      nil]
+                                   forKey:[contactInfo valueForKey:@"jid"]];
+                }
+                [group setObject:[NSMutableArray arrayWithArray:contactsRes] forKey:@"children"];
+                [contacts addObject:group];
+                break;
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+            }
+        } while (1);
+        i++;
     }
     [(NSOutlineView*)self.view reloadData];
 }
 
+- (void)updatePresence:(NSString*) jid
+{
+    NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
+    NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
+    
+    [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] removeObjectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue]];
+    
+    if ([[[contactInfo objectAtIndex:0] valueForKey:@"presence"] intValue] <= 4) {
+        [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:0];
+        for (NSString* idx in contactsKV) {
+            if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] < [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
+                NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]+1];
+                [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
+            }
+        }
+        [[contactsKV objectForKey:jid] setValue:[NSNumber numberWithInt:0] forKey:@"c_idx"];
+    } else {
+        NSNumber* lastIdx = [NSNumber numberWithLong:([[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] count]-1)];
+        [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:[lastIdx intValue]];
+        for (NSString* idx in contactsKV) {
+            if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] > [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
+                NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]-1];
+                [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
+            }
+        }
+        [[contactsKV objectForKey:jid] setValue:lastIdx forKey:@"c_idx"];
+    }
+    [(NSOutlineView*)self.view reloadData];
+    /*for (NSDictionary* group in contacts) {
+        for (NSDictionary* contact in [group objectForKey:@"children"]) {
+            if ([[contact valueForKey:@"jid"] isEqualToString:jid]) {
+                NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
+                NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
+                NSInteger groupIndex = [contacts indexOfObject:group];
+                NSInteger contactIndex = [[group valueForKey:@"children"] indexOfObject:contact];
+                [[[contacts objectAtIndex:groupIndex] objectForKey:@"children"] replaceObjectAtIndex:contactIndex withObject:[contactInfo objectAtIndex:0]];
+                [(NSOutlineView*)self.view reloadData];
+                break;
+            }
+        }
+    }*/
+}
+
 - (void)updateVcard:(NSString*) jid
 {
-    for (NSDictionary* group in contacts) {
+    NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
+    NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
+    [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] replaceObjectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue] withObject:[contactInfo objectAtIndex:0]];
+    [(NSOutlineView*)self.view reloadData];
+    /*for (NSDictionary* group in contacts) {
         for (NSDictionary* contact in [group objectForKey:@"children"]) {
             if ([[contact valueForKey:@"jid"] isEqualToString:jid]) {
                 NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
@@ -69,7 +148,7 @@
                 break;
             }
         }
-    }
+    }*/
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
@@ -135,7 +214,7 @@
 
 - (NSCell*) outlineView:(NSOutlineView*) outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id) item
 {
-    if (tableColumn == nil && [item objectForKey:@"children"]) {
+    if (tableColumn == nil && item && [item objectForKey:@"children"]) {
         return iGroupRowCell;
     }
 	return nil;
@@ -149,14 +228,17 @@
     if ([[tableColumn identifier] isEqualToString:@"photo"]) {
         NSData* imageData = [item valueForKey:@"image"];
         if ([imageData length] > 0) {
-            NSImage* image = [[NSImage alloc] initWithData:imageData];
-            return image;
+            if ([[item valueForKey:@"presence"] intValue] <= 4) {
+                return [[NSImage alloc] initWithData:imageData];
+            } else {
+                return [[[NSImage alloc] initWithData:imageData] grayscaleImageWithAlphaValue:1.0 saturationValue:0.0 brightnessValue:0.0 contrastValue:0.8];
+            }
         }
         return [NSImage imageNamed:@"NSUser"];
     }
     if ([[tableColumn identifier] isEqualToString:@"name"]) {
         [(SinaUCListNameCell*)[tableColumn dataCell] setTitle:[item valueForKey:@"name"]];
-        [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"jid"]];
+        [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"mood"]];
         return [item valueForKey:@"name"];
     }
     return nil;

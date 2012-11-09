@@ -15,6 +15,7 @@
 @synthesize gid = _gid;
 @synthesize name = _name;
 @synthesize pinyin = _pinyin;
+@synthesize avatar = _avatar;
 @synthesize image = _image;
 @synthesize mood = _mood;
 @synthesize presence = _presence;

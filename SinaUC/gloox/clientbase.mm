@@ -233,7 +233,6 @@ namespace gloox
     }
     else
     {
-        //add by shuoshi debug
       if( !handleNormalNode( tag ) && (bool)m_seFactory )
       {
         if( tag->xmlns().empty() || tag->xmlns() == XMLNS_CLIENT )
@@ -1532,11 +1531,8 @@ namespace gloox
     TagHandlerList::const_iterator it = m_tagHandlers.begin();
     for( ; it != m_tagHandlers.end(); ++it )
     {
-        if( (*it).tag == tag->name() ) {
-            if ( tag->hasAttribute( XMLNS, (*it).xmlns ) ) {
-                (*it).th->handleTag( tag );
-            }
-        }
+        if( (*it).tag == tag->name() && tag->hasAttribute( XMLNS, (*it).xmlns ) )
+            (*it).th->handleTag( tag );
     }
   }
 

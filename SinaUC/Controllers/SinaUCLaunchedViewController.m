@@ -77,7 +77,7 @@
 {
 }
 
-- (void) didConnectedWithJid:(NSString*) jid
+- (void) didConnectedWithJid:(NSString*) jid forFistTime:(bool)first
 {
 }
 

@@ -44,14 +44,12 @@
     if (subTitle) {
         titleRect.size.height /=2;
         NSRect subtitleRect = titleRect;
-        subtitleRect.origin.y += titleRect.size.height;
-        subtitleRect.origin.y += (subtitleRect.size.height-subtitleSize)/2-4;
+        subtitleRect.origin.y += titleRect.size.height+(subtitleRect.size.height-subtitleSize)/2-5;
         subtitleRect.size.height = subtitleSize+2;
         subtitleRect.origin.x += 5;
         subtitleRect.size.width -= 8;
-        
         NSDictionary *subtitleAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       [self isHighlighted]?[NSColor lightGrayColor]:[NSColor grayColor],
+                                       [self isHighlighted]?[NSColor darkGrayColor]:[NSColor grayColor],
                                        NSForegroundColorAttributeName,
                                        [NSFont userFontOfSize:subtitleSize],
                                        NSFontAttributeName,

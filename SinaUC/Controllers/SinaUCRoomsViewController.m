@@ -41,6 +41,7 @@
 
 - (void)updateRoster
 {
+    [rooms removeAllObjects];
     NSString *rmStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Room" withValues:nil, nil];
     NSArray *roomRes = [ZIMDbConnection dataSource:@"addressbook" query:rmStatement];
     NSMutableDictionary *roomGroup = [[NSMutableDictionary alloc] init];
@@ -126,7 +127,7 @@
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
     if ([item objectForKey:@"children"]) {
-        return [NSString stringWithFormat:@" %@", [item valueForKey:@"name"]];
+        return [NSString stringWithFormat:@"\t%@", [item valueForKey:@"name"]];
     }
     /*if ([[tableColumn identifier] isEqualToString:@"photo"]) {
         return [NSImage imageNamed:@"NSUser"];
@@ -138,7 +139,7 @@
     }*/
     if ([[tableColumn identifier] isEqualToString:@"name"]) {
         [(SinaUCListNameCell*)[tableColumn dataCell] setTitle:[item valueForKey:@"name"]];
-        [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"jid"]];
+        [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"intro"]];
         return [item valueForKey:@"name"];
     }
     return nil;
