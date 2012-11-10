@@ -14,21 +14,12 @@
 
 @implementation SinaUCMessageWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    
+    self = [super initWithWindowNibName:@"MessageWindow"];
+    INAppStoreWindow *aWindow = ((INAppStoreWindow*)[self window]);
+    aWindow.titleBarHeight = 0;
     return self;
-}
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "XMPP.h"
+#import "SinaUCHeadlessWindow.h"
 
 @interface SinaUCMessageWindowController : NSWindowController
+{
+    IBOutlet XMPP *xmpp;
+}
 
 @end

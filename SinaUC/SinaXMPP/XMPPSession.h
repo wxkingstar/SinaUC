@@ -38,7 +38,7 @@ class CMessageSessionEventHandler;
     gloox::ChatStateFilter* chatStateFilter;
     gloox::MessageEventFilter* messageEventFilter;
     CMessageSessionEventHandler* handler;
-    SinaUCMessageWindowController* windowController;
+    SinaUCMessageWindowController* msgWindowController;
     NSDictionary* contact;
     BOOL incomingSession;
     NSString* name;

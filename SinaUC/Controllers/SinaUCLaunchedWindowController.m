@@ -7,7 +7,6 @@
 //
 
 #import "SinaUCLaunchedWindowController.h"
-#import "SinaUCLaunchedWindow.h"
 
 @interface SinaUCLaunchedWindowController ()
 
@@ -18,13 +17,13 @@
 - (id)init
 {
     self = [super initWithWindowNibName:@"LaunchedWindow"];
+    INAppStoreWindow *aWindow = ((INAppStoreWindow*)[self window]);
+    aWindow.titleBarHeight = 0;
     return self;
 }
 
 - (void) awakeFromNib
 {
-    INAppStoreWindow *aWindow = (INAppStoreWindow*)[self window];
-    aWindow.titleBarHeight = 0;
     [xmpp registerConnectionDelegate:self];
 }
 

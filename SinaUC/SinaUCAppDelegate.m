@@ -27,7 +27,6 @@
     loginWindowController = [[SinaUCLoginWindowController alloc] init];
     launchedWindowController = [[SinaUCLaunchedWindowController alloc] init];
     [[launchedWindowController window] orderOut:nil];
-    //[launchedWindowController showWindow:nil];
     [loginWindowController showWindow:nil];
 }
 

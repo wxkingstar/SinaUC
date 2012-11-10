@@ -109,8 +109,8 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 
 - (void) openChatWindow:(NSDictionary*) contactInfo;
 {
-    windowController = [[SinaUCMessageWindowController alloc] initWithWindowNibName:@"MessageWindow"];
-    [[windowController window] makeKeyAndOrderFront:nil];
+    msgWindowController = [[SinaUCMessageWindowController alloc] init];
+    [[msgWindowController window] makeKeyAndOrderFront:nil];
     NSData* imageData = [contactInfo valueForKey:@"image"];
     if (imageData) {
         NSImage* image = [[NSImage alloc] initWithData:imageData];
@@ -140,7 +140,7 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 
 - (void) activateWindow
 {
-    [[windowController window] makeKeyAndOrderFront:self];
+    [[msgWindowController window] makeKeyAndOrderFront:self];
 }
 
 #pragma mark -

@@ -26,7 +26,7 @@
 - (void) awakeFromNib
 {
     [xmpp registerConnectionDelegate:self];
-    [PSMTabBarControl registerTabStyleClass:[SinaUCTabStyle class]];
+    [PSMTabBarControl registerTabStyleClass:[SinaUCContactTabStyle class]];
     [tabBar setStyleNamed:@"SinaUC"];
     SinaUCContractTabViewItem *contractModel = [[SinaUCContractTabViewItem alloc] init];
     [contractModel setIcon:[NSImage imageNamed:@"group1"]];

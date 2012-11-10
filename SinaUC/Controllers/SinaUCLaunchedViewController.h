@@ -10,15 +10,11 @@
 #import <PSMTabBarControl/PSMTabBarControl.h>
 #import <PSMTabBarControl/PSMTabStyle.h>
 #import "SinaUCConnectionDelegate.h"
-#import "SinaUCTabStyle.h"
+#import "SinaUCContactTabStyle.h"
 #import "SinaUCLaunchedView.h"
 #import "SinaUCContractTabViewItem.h"
 #import "XMPP.h"
 
-@protocol SinaUCConnectionDelegate;
-@class XMPP;
-@class PSMTabBarControl;
-@class SinaUCLaunchedView;
 @interface SinaUCLaunchedViewController : NSViewController <SinaUCConnectionDelegate, PSMTabBarControlDelegate>
 {
     IBOutlet XMPP               *xmpp;
