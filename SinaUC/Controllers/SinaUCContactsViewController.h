@@ -20,9 +20,6 @@
 #import "SinaUCContact.h"
 #import "SinaUCContactGroup.h"
 
-@class XMPP;
-@protocol SinaUCContactRosterUpdateDelegate;
-@protocol SinaUCCVcardUpdateDelegate;
 @interface SinaUCContactsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCContactRosterUpdateDelegate, SinaUCCVcardUpdateDelegate>
 {
     NSMutableArray              *contacts;

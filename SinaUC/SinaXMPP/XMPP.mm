@@ -8,8 +8,7 @@
  *
  * 对于数据更新，在XMPP线程中做完，performSelectorOnMainThread仅负责对UI类进行更新操作（由Delegate调用各个控制器，再通过控制器更新UI
  */
-
-#import "XMPP.h"
+#include <sys/time.h>
 
 #include "gloox.h"
 #include "client.h"
@@ -31,21 +30,14 @@
 #include "mucroom.h"
 #include "mucroomhandler.h"
 
-#include <sys/time.h>
-#import "SinaUCMD5.h"
-#import "RequestWithTGT.h"
-#import "SinaUCConnectionDelegate.h"
-#import "SinaUCSVcardUpdateDelegate.h"
-#import "SinaUCCVcardUpdateDelegate.h"
-#import "SinaUCRoomUpdateDelegate.h"
-#import "SinaUCContactRosterUpdateDelegate.h"
-#import "SinaUCRoomRosterUpdateDelegate.h"
-//#import "XMPPMUCRoom.h"
+#import "XMPP.h"
 #import "XMPPSession.h"
 #import "SinaUCContact.h"
 #import "SinaUCContactGroup.h"
 #import "SinaUCRoom.h"
 #import "SinaUCRoomContact.h"
+#import "SinaUCMD5.h"
+
 
 //CXmpp实现
 class CXmpp:public gloox::EventHandler, gloox::ConnectionListener , gloox::RosterListener, gloox::PresenceHandler, gloox::VCardHandler, gloox::MessageSessionHandler, gloox::LogHandler
@@ -131,7 +123,7 @@ protected:
     virtual void 	handlePresence (const gloox::Presence &presence);
     
     //个人聊天新消息回调
-    virtual void    handleMessageSession (gloox::MessageSession* session);
+    virtual void    handleMessageSession (gloox::MessageSession* pSession);
     
     //联系人在线状态回调
     virtual void 	handleRosterPresence (const gloox::RosterItem &item,
@@ -451,7 +443,7 @@ void    CXmpp::connect()
     }
 }
 
-void 	CXmpp::onConnect ()
+void 	CXmpp::onConnect()
 {
     if (!m_pClient || !m_pDelegate) {
         return;
@@ -465,7 +457,7 @@ void 	CXmpp::onConnect ()
     [m_pDelegate performSelectorOnMainThread:@selector(onConnect:) withObject:dict waitUntilDone:NO];
 }
 
-void 	CXmpp::onDisconnect (gloox::ConnectionError e)
+void 	CXmpp::onDisconnect(gloox::ConnectionError e)
 {
     m_connected = false;
     m_heartbeat = 0;
@@ -484,7 +476,7 @@ void 	CXmpp::onDisconnect (gloox::ConnectionError e)
     [m_pDelegate performSelectorOnMainThread:@selector(onDisconnect:) withObject:errorString waitUntilDone:NO];
 }
 
-void 	CXmpp::handleRoster (const gloox::Roster &roster)
+void 	CXmpp::handleRoster(const gloox::Roster &roster)
 {
     if (!m_pClient || !m_pDelegate) {
         return;
@@ -545,7 +537,7 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
     m_roster = true;
 }
 
-void 	CXmpp::handleRosterError (const gloox::IQ &iq)
+void 	CXmpp::handleRosterError(const gloox::IQ &iq)
 {
 }
 
@@ -590,7 +582,7 @@ void    CXmpp::joinRooms()
     [m_pDelegate performSelectorOnMainThread:@selector(updateRoomRoster) withObject:nil waitUntilDone:YES];
 }
 
-void 	CXmpp::handlePresence (const gloox::Presence &presence)
+void 	CXmpp::handlePresence(const gloox::Presence &presence)
 {
     if (!m_pDelegate) {
         return;
@@ -615,7 +607,7 @@ void 	CXmpp::handlePresence (const gloox::Presence &presence)
     [m_pDelegate performSelectorOnMainThread:@selector(updatePresence:) withObject:jid waitUntilDone:YES];
 }
 
-bool 	CXmpp::handleSubscriptionRequest (const gloox::JID &jid, const std::string &msg)
+bool 	CXmpp::handleSubscriptionRequest(const gloox::JID &jid, const std::string &msg)
 {
     /*m_delegateMutex.lock();
      if (!m_pRosterManager) {
@@ -631,7 +623,7 @@ bool 	CXmpp::handleSubscriptionRequest (const gloox::JID &jid, const std::string
     return false;
 }
 
-void    CXmpp::handleEvent (const gloox::Event &event) {
+void    CXmpp::handleEvent(const gloox::Event &event) {
     std::string sEvent;
     switch (event.eventType())
     {
@@ -656,7 +648,7 @@ void    CXmpp::requestVcard(NSString* jid)
     [vcardRequestStack addObject:jid];
 }
 
-void 	CXmpp::handleVCard (const gloox::JID &jid, const gloox::VCard *vcard)
+void 	CXmpp::handleVCard(const gloox::JID &jid, const gloox::VCard *vcard)
 {
     if (!m_pClient || !m_pDelegate) {
         return;
@@ -714,23 +706,23 @@ void    CXmpp::startChat(gloox::JID& jid)
     NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
     [session setSession:pSession];
     [session setContactInfo:[contactRes objectAtIndex:0]];
-    //[session setXmpp:m_pDelegate];
-    if ([[m_pDelegate sessionManager] activateSession:session]) {
-        return;
-    }
-    [[m_pDelegate sessionManager] addSession:session];
+    [session openChatWindow];
 }
 
-void 	CXmpp::handleMessageSession(gloox::MessageSession *session)
+void 	CXmpp::handleMessageSession(gloox::MessageSession *pSession)
 {
     if (!m_pDelegate) {
         return;
     }
-    /*XMPPSession* s = [[XMPPSession alloc] init];
-     [s setSession:session];
-     [s setIncomingSession:YES];
-     [s setXmpp:m_pDelegate];
-     [[m_pDelegate sessionManager] performSelectorOnMainThread:@selector(addSession:) withObject:s waitUntilDone:YES];*/
+    XMPPSession* session = [[XMPPSession alloc] init];
+    [session setSession:pSession];
+    NSString* jidStr = [NSString stringWithUTF8String:pSession->target().bare().c_str()];
+    NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, jid, name, image FROM Contact WHERE jid = ?;" withValues:jidStr, nil];
+    NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
+    [session setContactInfo:[contactRes objectAtIndex:0]];
+    [session openChatWindow];
+    //[s setIncomingSession:YES];
+    //[s setXmpp:m_pDelegate];
 }
 
 void 	CXmpp::onSessionCreateError (const gloox::Error *error)
@@ -804,16 +796,6 @@ static XMPP *instance;
         }
         return instance;
     }
-}
-
-- (XMPPSessionManager*)sessionManager
-{
-    return sessionManager;
-}
-
-- (XMPPMUCRoomManager*)mucRoomManager
-{
-    return mucRoomManager;
 }
 
 - (RequestWithTGT*)requestWithTgt
@@ -927,9 +909,9 @@ static XMPP *instance;
 
 - (void)joinRooms:(NSMutableArray*) rooms
 {
-    if (!mucRoomManager) {
+    /*if (!mucRoomManager) {
         return;
-    }
+    }*/
     /*for (XMPPMUCRoom* room in rooms) {
      [mucRoomManager updateRoom:room];
      [mucRoomManager joinRoom:room];

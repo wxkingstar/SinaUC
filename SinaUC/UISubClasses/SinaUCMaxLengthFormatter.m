@@ -39,7 +39,7 @@
        originalSelectedRange:(NSRange)origSelRange
             errorDescription:(NSString **)error
 {
-    int size = [*partialStringPtr length];
+    long size = [*partialStringPtr length];
     if ( size > maxLength )
     {
         return NO;

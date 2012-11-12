@@ -18,7 +18,6 @@
 #import "SinaUCContact.h"
 #import "SinaUCContactGroup.h"
 
-@class XMPP;
 @interface SinaUCRoomsViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, SinaUCRoomRosterUpdateDelegate>
 {
     NSMutableArray              *rooms;

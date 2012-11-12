@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SinaUCMessageTabViewItem : NSObject {
-	NSImage     *_icon;
-}
+@interface SinaUCMessageTabViewItem : NSObject 
 
 @property (retain) NSImage *icon;
+@property (retain) NSString *jid;
 
 @end

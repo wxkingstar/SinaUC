@@ -48,12 +48,6 @@
 			<object class="NSCustomObject" id="252895082">
 				<string key="NSClassName">XMPP</string>
 			</object>
-			<object class="NSCustomObject" id="81640869">
-				<string key="NSClassName">XMPPSessionManager</string>
-			</object>
-			<object class="NSCustomObject" id="314648022">
-				<string key="NSClassName">XMPPMUCRoomManager</string>
-			</object>
 			<object class="NSViewController" id="594567523"/>
 			<object class="NSViewController" id="225025019"/>
 			<object class="NSViewController" id="488806732"/>
@@ -81,6 +75,7 @@
 									<int key="NSvFlags">266</int>
 									<string key="NSFrame">{{17, 18}, {204, 22}}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="298624839"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -121,6 +116,7 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{79, 57}, {38, 17}}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="596445058"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
 									<bool key="NSEnabled">YES</bool>
@@ -154,6 +150,7 @@
 									<int key="NSvFlags">266</int>
 									<string key="NSFrame">{{91, 81}, {150, 17}}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="800140628"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
 									<bool key="NSEnabled">YES</bool>
@@ -183,6 +180,7 @@
 									</set>
 									<string key="NSFrame">{{17, 53}, {48, 48}}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="583858767"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -211,6 +209,7 @@
 									</set>
 									<string key="NSFrameSize">{221, 110}</string>
 									<reference key="NSSuperview" ref="1004616371"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="687666436"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -229,6 +228,7 @@
 							</array>
 							<string key="NSFrame">{{0, 285}, {221, 131}}</string>
 							<reference key="NSSuperview" ref="486740808"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="373788907"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSClassName">SinaUCHeaderView</string>
@@ -242,6 +242,7 @@
 									<int key="NSvFlags">266</int>
 									<string key="NSFrame">{{0, 218}, {221, 32}}</string>
 									<reference key="NSSuperview" ref="298624839"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="1050722510"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<string key="NSClassName">PSMTabBarControl</string>
@@ -251,7 +252,7 @@
 									<int key="NSvFlags">4114</int>
 									<string key="NSFrameSize">{221, 218}</string>
 									<reference key="NSSuperview" ref="298624839"/>
-									<reference key="NSNextKeyView" ref="1034487456"/>
+									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<array class="NSMutableArray" key="NSTabViewItems">
 										<object class="NSTabViewItem" id="169029468">
@@ -464,7 +465,8 @@
 																		<array class="NSMutableArray" key="NSSubviews"/>
 																		<string key="NSFrameSize">{227, 218}</string>
 																		<reference key="NSSuperview" ref="83774851"/>
-																		<reference key="NSNextKeyView" ref="103757016"/>
+																		<reference key="NSWindow"/>
+																		<reference key="NSNextKeyView" ref="974691593"/>
 																		<string key="NSReuseIdentifierKey">_NS:13</string>
 																		<bool key="NSEnabled">YES</bool>
 																		<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -558,6 +560,7 @@
 																</array>
 																<string key="NSFrameSize">{221, 218}</string>
 																<reference key="NSSuperview" ref="942576764"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="241507485"/>
 																<string key="NSReuseIdentifierKey">_NS:11</string>
 																<reference key="NSDocView" ref="241507485"/>
@@ -574,6 +577,7 @@
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {15, 102}}</string>
 																<reference key="NSSuperview" ref="942576764"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="673771609"/>
 																<string key="NSReuseIdentifierKey">_NS:58</string>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -586,6 +590,7 @@
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {223, 15}}</string>
 																<reference key="NSSuperview" ref="942576764"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="83774851"/>
 																<string key="NSReuseIdentifierKey">_NS:60</string>
 																<bool key="NSEnabled">YES</bool>
@@ -598,7 +603,8 @@
 														</array>
 														<string key="NSFrameSize">{221, 218}</string>
 														<reference key="NSSuperview" ref="1034487456"/>
-														<reference key="NSNextKeyView" ref="974691593"/>
+														<reference key="NSWindow"/>
+														<reference key="NSNextKeyView" ref="83774851"/>
 														<string key="NSReuseIdentifierKey">_NS:9</string>
 														<int key="NSsFlags">133776</int>
 														<reference key="NSVScroller" ref="974691593"/>
@@ -612,6 +618,7 @@
 												</array>
 												<string key="NSFrameSize">{221, 218}</string>
 												<reference key="NSSuperview" ref="1050722510"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="942576764"/>
 												<string key="NSReuseIdentifierKey">_NS:28</string>
 											</object>
@@ -800,6 +807,7 @@
 									</set>
 									<string key="NSFrameSize">{221, 250}</string>
 									<reference key="NSSuperview" ref="298624839"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="893315155"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
@@ -818,6 +826,7 @@
 							</array>
 							<string key="NSFrame">{{0, 35}, {221, 250}}</string>
 							<reference key="NSSuperview" ref="486740808"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="194058183"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -840,6 +849,7 @@
 									</set>
 									<string key="NSFrameSize">{221, 35}</string>
 									<reference key="NSSuperview" ref="103757016"/>
+									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="1003266387">
@@ -857,6 +867,7 @@
 							</array>
 							<string key="NSFrameSize">{221, 35}</string>
 							<reference key="NSSuperview" ref="486740808"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="909831029"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -865,6 +876,7 @@
 					</array>
 					<string key="NSFrameSize">{221, 406}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="1004616371"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
@@ -1011,22 +1023,6 @@
 						<reference key="destination" ref="1050722510"/>
 					</object>
 					<int key="connectionID">215</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">mucRoomManager</string>
-						<reference key="source" ref="252895082"/>
-						<reference key="destination" ref="314648022"/>
-					</object>
-					<int key="connectionID">250</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">sessionManager</string>
-						<reference key="source" ref="252895082"/>
-						<reference key="destination" ref="81640869"/>
-					</object>
-					<int key="connectionID">251</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1559,16 +1555,6 @@
 						<reference key="object" ref="587985145"/>
 						<reference key="parent" ref="794486490"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">249</int>
-						<reference key="object" ref="314648022"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">248</int>
-						<reference key="object" ref="81640869"/>
-						<reference key="parent" ref="0"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1629,8 +1615,6 @@
 				<string key="246.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="247.CustomClassName">SinaUCListImageCell</string>
 				<string key="247.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="248.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="249.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="3.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="NO" key="3.IBNSWindowAutoPositionCentersVertical"/>
@@ -1655,7 +1639,254 @@
 			<nil key="sourceID"/>
 			<int key="maxID">253</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">INAppStoreWindow</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/INAppStoreWindow.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PSMTabBarControl</string>
+					<string key="superclassName">NSControl</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="delegate">id</string>
+						<string key="partnerView">id</string>
+						<string key="tabView">NSTabView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="delegate">
+							<string key="name">delegate</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="partnerView">
+							<string key="name">partnerView</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabView">
+							<string key="name">tabView</string>
+							<string key="candidateClassName">NSTabView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PSMTabBarControl.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCContactsViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">xmpp</string>
+						<string key="NS.object.0">XMPP</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">xmpp</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">xmpp</string>
+							<string key="candidateClassName">XMPP</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCContactsViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCHeaderView</string>
+					<string key="superclassName">NSView</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="myHeadImg">NSImageView</string>
+						<string key="nickname">NSTextField</string>
+						<string key="note">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="myHeadImg">
+							<string key="name">myHeadImg</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="nickname">
+							<string key="name">nickname</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="note">
+							<string key="name">note</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCHeaderView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCHeaderViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">xmpp</string>
+						<string key="NS.object.0">XMPP</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">xmpp</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">xmpp</string>
+							<string key="candidateClassName">XMPP</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCHeaderViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCLaunchedView</string>
+					<string key="superclassName">NSView</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="backgroundBottomImageView">NSImageView</string>
+						<string key="backgroundContactsImageView">NSImageView</string>
+						<string key="backgroundHeaderImageView">NSImageView</string>
+						<string key="bottomView">NSView</string>
+						<string key="contactsTabView">NSTabView</string>
+						<string key="contactsView">NSView</string>
+						<string key="headerView">NSView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="backgroundBottomImageView">
+							<string key="name">backgroundBottomImageView</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="backgroundContactsImageView">
+							<string key="name">backgroundContactsImageView</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="backgroundHeaderImageView">
+							<string key="name">backgroundHeaderImageView</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="bottomView">
+							<string key="name">bottomView</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="contactsTabView">
+							<string key="name">contactsTabView</string>
+							<string key="candidateClassName">NSTabView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="contactsView">
+							<string key="name">contactsView</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="headerView">
+							<string key="name">headerView</string>
+							<string key="candidateClassName">NSView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCLaunchedView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCLaunchedViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="tabBar">PSMTabBarControl</string>
+						<string key="tabView">NSTabView</string>
+						<string key="xmpp">XMPP</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="tabBar">
+							<string key="name">tabBar</string>
+							<string key="candidateClassName">PSMTabBarControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabView">
+							<string key="name">tabView</string>
+							<string key="candidateClassName">NSTabView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="xmpp">
+							<string key="name">xmpp</string>
+							<string key="candidateClassName">XMPP</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCLaunchedViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCLaunchedWindowController</string>
+					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">xmpp</string>
+						<string key="NS.object.0">XMPP</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">xmpp</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">xmpp</string>
+							<string key="candidateClassName">XMPP</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCLaunchedWindowController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCListImageCell</string>
+					<string key="superclassName">NSImageCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCListImageCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCListNameCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCListNameCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCOutlineView</string>
+					<string key="superclassName">NSOutlineView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCOutlineView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCRoomsViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">xmpp</string>
+						<string key="NS.object.0">XMPP</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">xmpp</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">xmpp</string>
+							<string key="candidateClassName">XMPP</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCRoomsViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">XMPP</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/XMPP.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

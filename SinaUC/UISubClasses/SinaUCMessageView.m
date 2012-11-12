@@ -12,11 +12,7 @@
 
 @synthesize isActive;
 @synthesize focused;
-@synthesize headerView;
 @synthesize contactsView;
-@synthesize dialogView;
-@synthesize inputView;
-@synthesize shadowLine;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -30,16 +26,6 @@
 
 - (void) awakeFromNib
 {
-    [historyBtn setOrig:@"toolbar_history_normal"];
-    [historyBtn setHover:@"toolbar_history_hover"];
-    [historyBtn setAlternate:@"toolbar_history_no"];
-    
-    [emotionBtn setOrig:@"toolbar_emotion_normal"];
-    [emotionBtn setHover:@"toolbar_emotion_hover"];
-    [emotionBtn setAlternate:@"toolbar_emotion_no"];
-    
-    [inputArea setFont:[NSFont fontWithName:@"Menlo" size:12]];
-
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(activate)
                                                  name:@"NSApplicationDidBecomeActiveNotification"
@@ -70,13 +56,6 @@
             NSColor * contactsColor = [NSColor colorWithPatternImage:backgroundContacts];
             [contactsColor set];
             NSRectFill([contactsView frame]);
-            NSImage *backgroundDialog = [NSImage imageNamed:@"dialog_bg"];
-            NSColor * dialogColor = [NSColor colorWithPatternImage:backgroundDialog];
-            [dialogColor set];
-            NSRectFill(NSMakeRect(150, 100, [dialogView frame].size.width, [dialogView frame].size.height));
-            NSRectFill(NSMakeRect(150, [headerView frame].origin.y, [headerView frame].size.width, 100));
-            [[NSColor whiteColor] set];
-            NSRectFill(NSMakeRect(150, 0, [inputView frame].size.width, 100));
         }
         //}
     } else {
@@ -88,13 +67,6 @@
             NSColor * imgColor = [NSColor colorWithPatternImage:backgroundContacts];
             [imgColor set];
             NSRectFill([contactsView frame]);
-            NSImage *backgroundDialog = [NSImage imageNamed:@"dialog_bg_Inactive"];
-            NSColor * dialogColor = [NSColor colorWithPatternImage:backgroundDialog];
-            [dialogColor set];
-            NSRectFill(NSMakeRect(150, 100, [dialogView frame].size.width, [dialogView frame].size.height));
-            NSRectFill(NSMakeRect(150, [headerView frame].origin.y, [headerView frame].size.width, 100));
-            [[NSColor whiteColor] set];
-            NSRectFill(NSMakeRect(150, 0, [inputView frame].size.width, 100));
         }
         //}
     }

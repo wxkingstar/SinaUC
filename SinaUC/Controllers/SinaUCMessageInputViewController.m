@@ -1,18 +1,18 @@
 //
-//  SinaUCMessageViewController.m
+//  SinaUCMessageInputViewController.m
 //  SinaUC
 //
-//  Created by 陈 硕实 on 12-11-11.
+//  Created by 陈 硕实 on 12-11-12.
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
-#import "SinaUCMessageViewController.h"
+#import "SinaUCMessageInputViewController.h"
 
-@interface SinaUCMessageViewController ()
+@interface SinaUCMessageInputViewController ()
 
 @end
 
-@implementation SinaUCMessageViewController
+@implementation SinaUCMessageInputViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,11 +22,6 @@
     }
     
     return self;
-}
-
-- (void)awakeFromNib
-{
-    
 }
 
 @end

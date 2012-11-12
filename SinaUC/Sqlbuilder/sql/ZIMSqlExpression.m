@@ -34,7 +34,7 @@ NSString *ZIMSqlDefaultValue(id value) {
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
-		int length = [data length];
+		long length = [data length];
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"DEFAULT x'"];
 		const unsigned char *dataBuffer = [data bytes];

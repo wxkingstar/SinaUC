@@ -168,9 +168,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "459"
-         endingLineNumber = "459"
-         landmarkName = "CXmpp::onConnect ()"
-         landmarkType = "5">
+         endingLineNumber = "459">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -182,7 +180,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "470"
          endingLineNumber = "470"
-         landmarkName = "CXmpp::onDisconnect (gloox::ConnectionError e)"
+         landmarkName = "CXmpp::onDisconnect(gloox::ConnectionError e)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -220,7 +218,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "548"
-         endingLineNumber = "548">
+         endingLineNumber = "548"
+         landmarkName = "CXmpp::joinRooms()"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -232,7 +232,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "538"
          endingLineNumber = "538"
-         landmarkName = "CXmpp::handleRoster (const gloox::Roster &amp;roster)"
+         landmarkName = "CXmpp::handleRoster(const gloox::Roster &amp;roster)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -244,9 +244,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "539"
-         endingLineNumber = "539"
-         landmarkName = "CXmpp::handleRoster (const gloox::Roster &amp;roster)"
-         landmarkType = "5">
+         endingLineNumber = "539">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -258,7 +256,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "608"
          endingLineNumber = "608"
-         landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
+         landmarkName = "CXmpp::handlePresence(const gloox::Presence &amp;presence)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -271,7 +269,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "615"
          endingLineNumber = "615"
-         landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
+         landmarkName = "CXmpp::handleSubscriptionRequest(const gloox::JID &amp;jid, const std::string &amp;msg)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -284,7 +282,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "603"
          endingLineNumber = "603"
-         landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
+         landmarkName = "CXmpp::handlePresence(const gloox::Presence &amp;presence)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -297,7 +295,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "671"
          endingLineNumber = "671"
-         landmarkName = "CXmpp::handleVCard (const gloox::JID &amp;jid, const gloox::VCard *vcard)"
+         landmarkName = "CXmpp::handleVCard(const gloox::JID &amp;jid, const gloox::VCard *vcard)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -330,32 +328,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
-         timestampString = "374345405.953316"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
-         landmarkName = "-removeSession:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SinaUC/UISubClasses/SinaUCMessageView.m"
-         timestampString = "374347034.069193"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-awakeFromNib"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../PSMTabBarControl/Source/PSMTabBarControl.m"
          timestampString = "374229354.968576"
          startingColumnNumber = "9223372036854775807"
@@ -370,12 +342,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/Controllers/SinaUCMessageWindowController.m"
-         timestampString = "374348469.370295"
+         timestampString = "374391171.12843"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "58"
          endingLineNumber = "58"
-         landmarkName = "-createDialog:"
+         landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -383,11 +355,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
-         timestampString = "374345405.953316"
+         timestampString = "374426758.688202"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-openChatWindow"
          landmarkType = "5">
       </FileBreakpoint>
@@ -395,14 +367,14 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
-         timestampString = "374345405.953316"
+         filePath = "SinaUC/Controllers/SinaUCMessageWindowController.h"
+         timestampString = "374415973.916052"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
-         landmarkName = "-addSession:"
-         landmarkType = "5">
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-activateSession:"
+         landmarkType = "4">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

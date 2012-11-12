@@ -9,5 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface SinaUCMessageViewController : NSViewController
+{
+}
 
 @end

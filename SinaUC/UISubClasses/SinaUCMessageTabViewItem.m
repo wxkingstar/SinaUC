@@ -9,11 +9,13 @@
 #import "SinaUCMessageTabViewItem.h"
 
 @implementation SinaUCMessageTabViewItem
-@synthesize icon = _icon;
+@synthesize icon;
+@synthesize jid;
 
 - (id)init {
 	if((self = [super init])) {
-		_icon = nil;
+		icon = nil;
+        jid = @"";
 	}
 	return self;
 }

@@ -11,7 +11,6 @@
 #import "SinaUCHeadlessWindow.h"
 #import "SinaUCConnectionDelegate.h"
 
-@class XMPP;
 @interface SinaUCLaunchedWindowController : NSWindowController <SinaUCConnectionDelegate>
 {
     IBOutlet XMPP *xmpp;

@@ -10,8 +10,6 @@
 #import "XMPP.h"
 #import "SinaUCConnectionDelegate.h"
 
-@class XMPP;
-@protocol SinaUCConnectionDelegate;
 @interface SinaUCMenuControllerViewController : NSViewController <SinaUCConnectionDelegate>
 {
     NSStatusItem* messageCenter;

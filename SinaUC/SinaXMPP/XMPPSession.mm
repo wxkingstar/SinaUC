@@ -7,10 +7,16 @@
 //
 
 #import "XMPPSession.h"
+#import "XMPP.h"
+#import "SinaUCMessageWindowController.h"
 
-@interface XMPPSession(SessionHandler)
-- (void) handleMessage:(SinaUCMessage*) item;
-@end
+#include "message.h"
+#include "messagesession.h"
+#include "messagehandler.h"
+#include "messageeventhandler.h"
+#include "chatstatehandler.h"
+#include "chatstatefilter.h"
+#include "messageeventfilter.h"
 
 #pragma mark *** CMessageSessionEventHandler Implementation ***
 class CMessageSessionEventHandler:public gloox::MessageHandler, public gloox::MessageEventHandler, public gloox::ChatStateHandler
@@ -25,7 +31,7 @@ protected:
     virtual void 	handleChatState (const gloox::JID &from, gloox::ChatStateType state);
     
 private:
-    XMPPSession* m_pSession;
+    XMPPSession*    m_pSession;
     
 };
 
@@ -101,13 +107,17 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 {
     SinaUCMessageWindowController* msgWindowController = [[SinaUCMessageWindowController alloc] init];
     [[msgWindowController window] makeKeyAndOrderFront:nil];
-    [msgWindowController addContact:contactInfo];
-    handler = new CMessageSessionEventHandler(self);
-    session->registerMessageHandler(handler);
-    //chatStateFilter = new gloox::ChatStateFilter(session);
-    //chatStateFilter->registerChatStateHandler(handler);
-    //messageEventFilter = new gloox::MessageEventFilter(session);
-    //messageEventFilter->registerMessageEventHandler(handler);
+    if ([msgWindowController hasSession:self] == NO) {
+        CMessageSessionEventHandler* handler = new CMessageSessionEventHandler(self);
+        session->registerMessageHandler(handler);
+        //chatStateFilter = new gloox::ChatStateFilter(session);
+        //chatStateFilter->registerChatStateHandler(handler);
+        //messageEventFilter = new gloox::MessageEventFilter(session);
+        //messageEventFilter->registerMessageEventHandler(handler);
+        [msgWindowController addSession:self];
+    }
+    [msgWindowController activateSession:[contactInfo valueForKey:@"jid"]];
+    //[msgWindowController addContact:contactInfo];
 }
 
 - (void)handleMessage:(SinaUCMessage*) item
@@ -129,36 +139,6 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         return YES;
     }
     return NO;
-}
-
-@end
-
-@implementation XMPPSessionManager
-
-- (id) init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-        sessions = [[NSMutableArray alloc]init];
-    }
-    return self;
-}
-
-- (void)addSession:(XMPPSession*) session
-{
-    [session openChatWindow];
-    [sessions addObject:[[session contactInfo] valueForKey:@"jid"]];
-}
-
-- (void)removeSession:(XMPPSession*) session
-{
-    [sessions removeObject:[[session contactInfo] valueForKey:@"jid"]];
-}
-
-- (BOOL)activateSession:(XMPPSession*) session
-{
-    return ([sessions indexOfObject:[[session contactInfo] valueForKey:@"jid"]] != NSNotFound);
 }
 
 @end

@@ -10,13 +10,8 @@
 #import "SinaUCConnectionDelegate.h"
 #import "SinaUCLoginView.h"
 #import "XMPP.h"
-#import "ZIMDbSdk.h"
-#import "ZIMSqlSdk.h"
 #import "SinaUCUser.h"
 
-@protocol SinaUCConnectionDelegate;
-@class XMPP;
-@class SinaUCLoginView;
 @interface SinaUCLoginViewController : NSViewController <SinaUCConnectionDelegate, NSTextViewDelegate>
 {
     IBOutlet XMPP *xmpp;

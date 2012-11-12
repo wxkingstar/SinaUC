@@ -10,8 +10,6 @@
 #import "XMPP.h"
 #import "SinaUCSVcardUpdateDelegate.h"
 
-@protocol SinaUCSVcardUpdateDelegate;
-@class XMPP;
 @interface SinaUCHeaderViewController : NSViewController <SinaUCSVcardUpdateDelegate>
 {
     IBOutlet XMPP *xmpp;

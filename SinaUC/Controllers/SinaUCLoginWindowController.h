@@ -10,7 +10,6 @@
 #import "XMPP.h"
 #import "SinaUCConnectionDelegate.h"
 
-@class XMPP;
 @interface SinaUCLoginWindowController : NSWindowController <SinaUCConnectionDelegate>
 {
     IBOutlet XMPP *xmpp;
