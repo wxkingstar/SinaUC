@@ -1,0 +1,71 @@
+//
+//  SinaUCMessageWindowController.h
+//  SinaUC
+//
+//  Created by 陈 硕实 on 12-11-4.
+//  Copyright (c) 2012年 陈 硕实. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import "XMPP.h"
+#import "SinaUCCVcardUpdateDelegate.h"
+#import "SinaUCMessageViewController.h"
+#import "SinaUCHeadlessWindow.h"
+
+typedef enum
+{
+	SinaUCTabPositionBottom = 0,
+	SinaUCTabPositionTop,
+	SinaUCTabPositionLeft,
+	SinaUCTabPositionRight,
+} SinaUCTabPosition;
+
+@interface SinaUCMessageWindowController : NSWindowController <NSToolbarDelegate, NSSplitViewDelegate> {
+	IBOutlet	NSTabView			*tabView_messages;
+	IBOutlet	PSMTabBarControl	*tabView_tabBar;
+	NSBox							*tabView_horzLine;
+	SinaUCMessageTabStyle			*tabView_tabStyle;
+	//SinaUCMessageTabSplitView		*tabView_splitView;
+	//AIDualWindowInterfacePlugin 	*interface;
+	NSString						*containerName;
+	NSString						*containerID;
+    
+	BOOL                windowIsClosing;
+	BOOL                alwaysShowTabs;		//YES if the tabs should always be visible, even if there is only 1
+    
+	SinaUCTabPosition   tabPosition;
+	CGFloat             lastTabBarWidth;
+    
+	NSDictionary        *toolbarItems;
+	NSMutableArray      *m_containedChats;
+	
+	BOOL                toolbar_selectedTabChanged;
+}
+
+/*+ (SinaUCMessageWindowController *)messageWindowControllerForInterface:(AIDualWindowInterfacePlugin *)inInterface
+                                                                withID:(NSString *)inContainerID
+                                                                  name:(NSString *)inName;*/
+- (IBAction)closeWindow:(id) sender;
+@property (weak, readonly, nonatomic) NSString *containerID;
+@property (weak, readonly, nonatomic) PSMTabBarControl *tabBar;
+@property (readonly, nonatomic) SinaUCTabPosition tabPosition;
+@property (weak, readonly, nonatomic) NSString *name;
+//@property (weak, readonly, nonatomic) AIChat *activeChat;
+
+/*
+ * @brief Get an array of all the chats within this window controller's window.
+ */
+@property (readonly, nonatomic) NSArray *containedChats;
+
+/*
+ * @brief The window
+ */
+@property (weak, readonly, nonatomic) NSWindow *window;
+
+//Contained Chats
+- (void)addTabViewItem:(SinaUCMessageTabViewItem *)inTabViewItem;
+- (void)addTabViewItem:(SinaUCMessageTabViewItem *)inTabViewItem atIndex:(NSInteger)index silent:(BOOL)silent;
+- (void)removeTabViewItem:(SinaUCMessageTabViewItem *)inTabViewItem silent:(BOOL)silent;
+- (void)moveTabViewItem:(SinaUCMessageTabViewItem *)inTabViewItem toIndex:(NSInteger)index;
+@property (readonly, nonatomic) BOOL containerIsEmpty;
+@end

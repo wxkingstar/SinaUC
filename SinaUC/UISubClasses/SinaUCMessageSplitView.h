@@ -1,5 +1,5 @@
 //
-//  SinaUCMessageViewController.h
+//  SinaUCMessageSplitView.h
 //  SinaUC
 //
 //  Created by 陈 硕实 on 12-11-11.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SinaUCMessageViewController : NSViewController
+@interface SinaUCMessageSplitView : NSSplitView
 
 @end

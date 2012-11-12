@@ -69,29 +69,19 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 {
     
 }
+
 #pragma mark -
 #pragma mark *** XMPPSession Implementation ***
 @implementation XMPPSession
 @synthesize session;
-@synthesize incomingSession;
-@synthesize xmpp;
-@synthesize jid;
-@synthesize name;
-
-- (void) setSession:(gloox::MessageSession *)theSession
-{
-    @synchronized(self) {
-        session = theSession;
-    }
-}
+@synthesize contactInfo;
 
 - (void) close
 {
-    
-//    delete handler;
-//    [windowController close];
-    //[xmpp close:self];
-/*    if (chatStateFilter) {
+    /*delete handler;
+    [windowController close];
+    [xmpp close:self];
+    if (chatStateFilter) {
         chatStateFilter->removeChatStateHandler();
         delete chatStateFilter;
     }
@@ -100,52 +90,27 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         messageEventFilter->removeMessageEventHandler();
         delete messageEventFilter;
     }
-*/    
-//    if (session) {
-//        session->removeMessageHandler();
-//    }
-//    session = nil;
+    
+    if (session) {
+        session->removeMessageHandler();
+    }
+    session = nil;*/
 }
 
-- (void) openChatWindow:(NSDictionary*) contactInfo;
+- (void) openChatWindow
 {
-    msgWindowController = [[SinaUCMessageWindowController alloc] init];
+    SinaUCMessageWindowController* msgWindowController = [[SinaUCMessageWindowController alloc] init];
     [[msgWindowController window] makeKeyAndOrderFront:nil];
-    NSData* imageData = [contactInfo valueForKey:@"image"];
-    if (imageData) {
-        NSImage* image = [[NSImage alloc] initWithData:imageData];
-        //[windowController setTargetImage:image];
-    } else {
-        //[windowController setTargetImage:[NSImage imageNamed:@"NSUser"]];
-    }
-    jid = [contactInfo valueForKey:@"jid"];
-    if (!jid) {
-        return;
-    }
-    name = [contactInfo valueForKey:@"name"];
-    if (!name) {
-        //requestVcard
-        name = jid;
-    }
-    /*[windowController setTargetName:name];
-    [windowController setTargetJid:jid];
-    [windowController registerSession:self];*/
+    [msgWindowController addContact:contactInfo];
     handler = new CMessageSessionEventHandler(self);
     session->registerMessageHandler(handler);
-    chatStateFilter = new gloox::ChatStateFilter(session);
-    chatStateFilter->registerChatStateHandler(handler);
-    messageEventFilter = new gloox::MessageEventFilter(session);
-    messageEventFilter->registerMessageEventHandler(handler);
+    //chatStateFilter = new gloox::ChatStateFilter(session);
+    //chatStateFilter->registerChatStateHandler(handler);
+    //messageEventFilter = new gloox::MessageEventFilter(session);
+    //messageEventFilter->registerMessageEventHandler(handler);
 }
 
-- (void) activateWindow
-{
-    [[msgWindowController window] makeKeyAndOrderFront:self];
-}
-
-#pragma mark -
-#pragma *** SessionHandler ***
-- (void) handleMessage:(SinaUCMessage*) item
+- (void)handleMessage:(SinaUCMessage*) item
 {
     /*[item setType:@"from"];
     [item setJid:jid];
@@ -155,19 +120,15 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         [[NSNotificationCenter defaultCenter]postNotificationName:@"unreadMessage" object:item];
 	}*/
 }
-#pragma mark -
-#pragma *** sendMessage ***
 
-- (BOOL) sendMessage:(SinaUCMessage*) item
+- (BOOL)sendMessage:(SinaUCMessage*) item
 {
     std::string message = [[item message] UTF8String];
     if (session) {
         session->send(message);
         return YES;
     }
-    
     return NO;
-    
 }
 
 @end
@@ -184,41 +145,20 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
     return self;
 }
 
-- (void) addSession:(XMPPSession*) session
+- (void)addSession:(XMPPSession*) session
 {
-    if ([sessions indexOfObject:session] == NSNotFound) {
-        NSString* jid = [[NSString alloc] initWithUTF8String:[session session]->target().bare().c_str()];
-        NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk FROM Contact WHERE jid = ?;" withValues:jid, nil];
-        NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
-        NSDictionary* contactInfo;
-        if ([contactRes count] == 0) {
-            [[session xmpp] requestVcard:jid];
-            /*obj = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext: contactDataContxt];
-            [obj setValue:jid forKey:@"jid"];*/
-        } else {
-            contactInfo = [contactRes objectAtIndex:0];
-        }
-        [session openChatWindow: contactInfo];
-        [sessions addObject:session];
-    }
+    [session openChatWindow];
+    [sessions addObject:[[session contactInfo] valueForKey:@"jid"]];
 }
 
-- (void) removeSession:(XMPPSession*) session
+- (void)removeSession:(XMPPSession*) session
 {
-    [sessions removeObject:session];
+    [sessions removeObject:[[session contactInfo] valueForKey:@"jid"]];
 }
 
-- (BOOL) activateSession:(NSString*) jid
+- (BOOL)activateSession:(XMPPSession*) session
 {
-    NSEnumerator* e = [sessions objectEnumerator];
-    XMPPSession* session;
-    while ((session = [e nextObject])) {
-        if ([[session jid] isEqualToString:jid]) {
-            [session activateWindow];
-            return YES;
-        }
-    }
-    return NO;    
+    return ([sessions indexOfObject:[[session contactInfo] valueForKey:@"jid"]] != NSNotFound);
 }
 
 @end

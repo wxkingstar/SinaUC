@@ -21,37 +21,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374132456.224343"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
-         landmarkName = "CXmpp::connect()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374132456.224343"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "430"
-         endingLineNumber = "430"
-         landmarkName = "CXmpp::connect()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374132456.224343"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "426"
          endingLineNumber = "426"
+         landmarkName = "CXmpp::connect()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/SinaXMPP/XMPP.mm"
+         timestampString = "374291717.171075"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "432"
+         endingLineNumber = "432"
+         landmarkName = "CXmpp::connect()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/SinaXMPP/XMPP.mm"
+         timestampString = "374291717.171075"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "428"
+         endingLineNumber = "428"
          landmarkName = "CXmpp::connect()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374132456.224343"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "457"
-         endingLineNumber = "457"
+         startingLineNumber = "459"
+         endingLineNumber = "459"
          landmarkName = "CXmpp::onConnect ()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374132456.224343"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "468"
-         endingLineNumber = "468"
+         startingLineNumber = "470"
+         endingLineNumber = "470"
          landmarkName = "CXmpp::onDisconnect (gloox::ConnectionError e)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,22 +216,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "545"
-         endingLineNumber = "545">
+         startingLineNumber = "548"
+         endingLineNumber = "548">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "536"
-         endingLineNumber = "536"
+         startingLineNumber = "538"
+         endingLineNumber = "538"
          landmarkName = "CXmpp::handleRoster (const gloox::Roster &amp;roster)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -240,11 +240,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "537"
-         endingLineNumber = "537"
+         startingLineNumber = "539"
+         endingLineNumber = "539"
          landmarkName = "CXmpp::handleRoster (const gloox::Roster &amp;roster)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -253,11 +253,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "602"
-         endingLineNumber = "602"
+         startingLineNumber = "608"
+         endingLineNumber = "608"
          landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -266,11 +266,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "609"
-         endingLineNumber = "609"
+         startingLineNumber = "615"
+         endingLineNumber = "615"
          landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -279,11 +279,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "597"
-         endingLineNumber = "597"
+         startingLineNumber = "603"
+         endingLineNumber = "603"
          landmarkName = "CXmpp::handlePresence (const gloox::Presence &amp;presence)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -292,11 +292,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SinaUC/SinaXMPP/XMPP.mm"
-         timestampString = "374135888.390312"
+         timestampString = "374291717.171075"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "665"
-         endingLineNumber = "665"
+         startingLineNumber = "671"
+         endingLineNumber = "671"
          landmarkName = "CXmpp::handleVCard (const gloox::JID &amp;jid, const gloox::VCard *vcard)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -330,13 +330,78 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/Controllers/SinaUCMessageWindowController.m"
-         timestampString = "374209918.19571"
+         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
+         timestampString = "374345405.953316"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
-         landmarkName = "-init"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-removeSession:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/UISubClasses/SinaUCMessageView.m"
+         timestampString = "374347034.069193"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-awakeFromNib"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../PSMTabBarControl/Source/PSMTabBarControl.m"
+         timestampString = "374229354.968576"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1076"
+         endingLineNumber = "1076"
+         landmarkName = "-animateShowHide:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/Controllers/SinaUCMessageWindowController.m"
+         timestampString = "374348469.370295"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-createDialog:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
+         timestampString = "374345405.953316"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
+         landmarkName = "-openChatWindow"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
+         timestampString = "374345405.953316"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
+         landmarkName = "-addSession:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

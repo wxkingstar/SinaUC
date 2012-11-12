@@ -12,7 +12,7 @@
 @synthesize hasDivider;
 
 + (NSString *)name {
-    return @"SinaUC";
+    return @"SinaUCMessage";
 }
 
 - (NSString *)name {
@@ -139,7 +139,7 @@
 }
 
 - (CGFloat)heightOfTabCellsForTabBarControl:(PSMTabBarControl *)tabBarControl {
-    return 32;
+    return 40;
 }
 
 @end

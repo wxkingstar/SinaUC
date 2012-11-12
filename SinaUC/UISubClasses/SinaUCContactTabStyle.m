@@ -12,7 +12,7 @@
 @synthesize hasDivider;
 
 + (NSString *)name {
-    return @"SinaUC";
+    return @"SinaUCContact";
 }
 
 - (NSString *)name {

@@ -115,19 +115,6 @@
         [[contactsKV objectForKey:jid] setValue:lastIdx forKey:@"c_idx"];
     }
     [(NSOutlineView*)self.view reloadData];
-    /*for (NSDictionary* group in contacts) {
-        for (NSDictionary* contact in [group objectForKey:@"children"]) {
-            if ([[contact valueForKey:@"jid"] isEqualToString:jid]) {
-                NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
-                NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
-                NSInteger groupIndex = [contacts indexOfObject:group];
-                NSInteger contactIndex = [[group valueForKey:@"children"] indexOfObject:contact];
-                [[[contacts objectAtIndex:groupIndex] objectForKey:@"children"] replaceObjectAtIndex:contactIndex withObject:[contactInfo objectAtIndex:0]];
-                [(NSOutlineView*)self.view reloadData];
-                break;
-            }
-        }
-    }*/
 }
 
 - (void)updateVcard:(NSString*) jid

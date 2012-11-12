@@ -1887,8 +1887,30 @@
 		FCAB77A1163BD14E000F4558 /* SinaUCImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */; };
 		FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */; };
 		FCB2395A164E00480028C038 /* SinaUCMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB23959164E00480028C038 /* SinaUCMessageView.m */; };
-		FCB2395D164E12DD0028C038 /* SinaUCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2395C164E12DC0028C038 /* SinaUCMessageViewController.m */; };
 		FCB23960164E14960028C038 /* SinaUCMessageTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2395F164E14960028C038 /* SinaUCMessageTabStyle.m */; };
+		FCB23963164E2E8B0028C038 /* SinaUCMessageTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB23962164E2E8A0028C038 /* SinaUCMessageTabViewItem.m */; };
+		FCB23969164EB2550028C038 /* sinauc.icns in Resources */ = {isa = PBXBuildFile; fileRef = FCB23968164EB2550028C038 /* sinauc.icns */; };
+		FCB2396D164F3AF00028C038 /* SinaUCMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2396C164F3AF00028C038 /* SinaUCMessageWindowController.m */; };
+		FCB2397C164F5BF30028C038 /* tab_bg_texture_InActive.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB23978164F5BF30028C038 /* tab_bg_texture_InActive.png */; };
+		FCB2397D164F5BF30028C038 /* tab_bg_texture_InActive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB23979164F5BF30028C038 /* tab_bg_texture_InActive@2x.png */; };
+		FCB2397E164F5BF30028C038 /* tab_bg_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2397A164F5BF30028C038 /* tab_bg_texture.png */; };
+		FCB2397F164F5BF30028C038 /* tab_bg_texture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2397B164F5BF30028C038 /* tab_bg_texture@2x.png */; };
+		FCB23982164F64860028C038 /* dialog_bg_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB23980164F64840028C038 /* dialog_bg_Inactive.png */; };
+		FCB23983164F64860028C038 /* dialog_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB23981164F64850028C038 /* dialog_bg.png */; };
+		FCB23997164FF76B0028C038 /* SinaUCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB23995164FF7690028C038 /* SinaUCMessageViewController.m */; };
+		FCB23998164FF76B0028C038 /* SinaUCMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB23996164FF76A0028C038 /* SinaUCMessageViewController.xib */; };
+		FCB2399F1650155B0028C038 /* toolbar_history_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239991650155B0028C038 /* toolbar_history_hover.png */; };
+		FCB239A01650155B0028C038 /* toolbar_history_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2399A1650155B0028C038 /* toolbar_history_hover@2x.png */; };
+		FCB239A11650155B0028C038 /* toolbar_history_no.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2399B1650155B0028C038 /* toolbar_history_no.png */; };
+		FCB239A21650155B0028C038 /* toolbar_history_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2399C1650155B0028C038 /* toolbar_history_no@2x.png */; };
+		FCB239A31650155B0028C038 /* toolbar_history_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2399D1650155B0028C038 /* toolbar_history_normal.png */; };
+		FCB239A41650155B0028C038 /* toolbar_history_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB2399E1650155B0028C038 /* toolbar_history_normal@2x.png */; };
+		FCB239AB165015F00028C038 /* toolbar_emotion_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239A5165015F00028C038 /* toolbar_emotion_hover.png */; };
+		FCB239AC165015F00028C038 /* toolbar_emotion_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239A6165015F00028C038 /* toolbar_emotion_hover@2x.png */; };
+		FCB239AD165015F00028C038 /* toolbar_emotion_no.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239A7165015F00028C038 /* toolbar_emotion_no.png */; };
+		FCB239AE165015F00028C038 /* toolbar_emotion_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239A8165015F00028C038 /* toolbar_emotion_no@2x.png */; };
+		FCB239AF165015F00028C038 /* toolbar_emotion_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239A9165015F00028C038 /* toolbar_emotion_normal.png */; };
+		FCB239B0165015F00028C038 /* toolbar_emotion_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB239AA165015F00028C038 /* toolbar_emotion_normal@2x.png */; };
 		FCBE1AA91619620B002CA75E /* XMPP.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCBE1AA81619620B002CA75E /* XMPP.mm */; };
 		FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCDA54016132BFA00C1499D /* Quartz.framework */; };
 		FCD63662161B3050002AF1FF /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63612161B3050002AF1FF /* ZIMDbConnection.m */; };
@@ -1932,12 +1954,11 @@
 		FCD63695161BD026002AF1FF /* SinaUCRoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */; };
 		FCD63696161BD026002AF1FF /* SinaUCRoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
-		FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */; };
+		FCEEC2251640056000D7BB1B /* SinaUCContactTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContactTabViewItem.m */; };
 		FCEEC2281641631100D7BB1B /* SinaUCContactTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2271641631000D7BB1B /* SinaUCContactTabStyle.m */; };
 		FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */; };
 		FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */; };
 		FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */; };
-		FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */; };
 		FCEEC256164687C000D7BB1B /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCEEC254164687AF00D7BB1B /* MessageWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -4048,10 +4069,34 @@
 		FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCBezierPathAdditions.m; path = UISubClasses/SinaUCBezierPathAdditions.m; sourceTree = "<group>"; };
 		FCB23958164E00480028C038 /* SinaUCMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMessageView.h; path = UISubClasses/SinaUCMessageView.h; sourceTree = "<group>"; };
 		FCB23959164E00480028C038 /* SinaUCMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMessageView.m; path = UISubClasses/SinaUCMessageView.m; sourceTree = "<group>"; };
-		FCB2395B164E12DB0028C038 /* SinaUCMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageViewController.h; sourceTree = "<group>"; };
-		FCB2395C164E12DC0028C038 /* SinaUCMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessageViewController.m; sourceTree = "<group>"; };
 		FCB2395E164E14950028C038 /* SinaUCMessageTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMessageTabStyle.h; path = UISubClasses/SinaUCMessageTabStyle.h; sourceTree = "<group>"; };
 		FCB2395F164E14960028C038 /* SinaUCMessageTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMessageTabStyle.m; path = UISubClasses/SinaUCMessageTabStyle.m; sourceTree = "<group>"; };
+		FCB23961164E2E890028C038 /* SinaUCMessageTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMessageTabViewItem.h; path = UISubClasses/SinaUCMessageTabViewItem.h; sourceTree = "<group>"; };
+		FCB23962164E2E8A0028C038 /* SinaUCMessageTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMessageTabViewItem.m; path = UISubClasses/SinaUCMessageTabViewItem.m; sourceTree = "<group>"; };
+		FCB23968164EB2550028C038 /* sinauc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = sinauc.icns; path = ../../sinauc.icns; sourceTree = "<group>"; };
+		FCB2396B164F3AF00028C038 /* SinaUCMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageWindowController.h; sourceTree = "<group>"; };
+		FCB2396C164F3AF00028C038 /* SinaUCMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessageWindowController.m; sourceTree = "<group>"; };
+		FCB23978164F5BF30028C038 /* tab_bg_texture_InActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bg_texture_InActive.png; sourceTree = "<group>"; };
+		FCB23979164F5BF30028C038 /* tab_bg_texture_InActive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_bg_texture_InActive@2x.png"; sourceTree = "<group>"; };
+		FCB2397A164F5BF30028C038 /* tab_bg_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bg_texture.png; sourceTree = "<group>"; };
+		FCB2397B164F5BF30028C038 /* tab_bg_texture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_bg_texture@2x.png"; sourceTree = "<group>"; };
+		FCB23980164F64840028C038 /* dialog_bg_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog_bg_Inactive.png; sourceTree = "<group>"; };
+		FCB23981164F64850028C038 /* dialog_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog_bg.png; sourceTree = "<group>"; };
+		FCB23994164FF7680028C038 /* SinaUCMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageViewController.h; sourceTree = "<group>"; };
+		FCB23995164FF7690028C038 /* SinaUCMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessageViewController.m; sourceTree = "<group>"; };
+		FCB23996164FF76A0028C038 /* SinaUCMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinaUCMessageViewController.xib; sourceTree = "<group>"; };
+		FCB239991650155B0028C038 /* toolbar_history_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_history_hover.png; sourceTree = "<group>"; };
+		FCB2399A1650155B0028C038 /* toolbar_history_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_history_hover@2x.png"; sourceTree = "<group>"; };
+		FCB2399B1650155B0028C038 /* toolbar_history_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_history_no.png; sourceTree = "<group>"; };
+		FCB2399C1650155B0028C038 /* toolbar_history_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_history_no@2x.png"; sourceTree = "<group>"; };
+		FCB2399D1650155B0028C038 /* toolbar_history_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_history_normal.png; sourceTree = "<group>"; };
+		FCB2399E1650155B0028C038 /* toolbar_history_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_history_normal@2x.png"; sourceTree = "<group>"; };
+		FCB239A5165015F00028C038 /* toolbar_emotion_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_emotion_hover.png; sourceTree = "<group>"; };
+		FCB239A6165015F00028C038 /* toolbar_emotion_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_emotion_hover@2x.png"; sourceTree = "<group>"; };
+		FCB239A7165015F00028C038 /* toolbar_emotion_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_emotion_no.png; sourceTree = "<group>"; };
+		FCB239A8165015F00028C038 /* toolbar_emotion_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_emotion_no@2x.png"; sourceTree = "<group>"; };
+		FCB239A9165015F00028C038 /* toolbar_emotion_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_emotion_normal.png; sourceTree = "<group>"; };
+		FCB239AA165015F00028C038 /* toolbar_emotion_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_emotion_normal@2x.png"; sourceTree = "<group>"; };
 		FCBE1AA71619620B002CA75E /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		FCBE1AA81619620B002CA75E /* XMPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPP.mm; sourceTree = "<group>"; };
 		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -4144,8 +4189,8 @@
 		FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomMessage.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
-		FCEEC2231640056000D7BB1B /* SinaUCContractTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContractTabViewItem.h; path = UISubClasses/SinaUCContractTabViewItem.h; sourceTree = "<group>"; };
-		FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContractTabViewItem.m; path = UISubClasses/SinaUCContractTabViewItem.m; sourceTree = "<group>"; };
+		FCEEC2231640056000D7BB1B /* SinaUCContactTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContactTabViewItem.h; path = UISubClasses/SinaUCContactTabViewItem.h; sourceTree = "<group>"; };
+		FCEEC2241640056000D7BB1B /* SinaUCContactTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContactTabViewItem.m; path = UISubClasses/SinaUCContactTabViewItem.m; sourceTree = "<group>"; };
 		FCEEC2261641631000D7BB1B /* SinaUCContactTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContactTabStyle.h; path = UISubClasses/SinaUCContactTabStyle.h; sourceTree = "<group>"; };
 		FCEEC2271641631000D7BB1B /* SinaUCContactTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCContactTabStyle.m; path = UISubClasses/SinaUCContactTabStyle.m; sourceTree = "<group>"; };
 		FCEEC232164552C000D7BB1B /* SinaUCListImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListImageCell.h; path = UISubClasses/SinaUCListImageCell.h; sourceTree = "<group>"; };
@@ -4154,8 +4199,6 @@
 		FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListNameCell.m; path = UISubClasses/SinaUCListNameCell.m; sourceTree = "<group>"; };
 		FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCListGroupCell.h; path = UISubClasses/SinaUCListGroupCell.h; sourceTree = "<group>"; };
 		FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCListGroupCell.m; path = UISubClasses/SinaUCListGroupCell.m; sourceTree = "<group>"; };
-		FCEEC24F1646873D00D7BB1B /* SinaUCMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageWindowController.h; sourceTree = "<group>"; };
-		FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCMessageWindowController.m; sourceTree = "<group>"; };
 		FCEEC255164687C000D7BB1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MessageWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -4475,60 +4518,18 @@
 		FC8ADB15160F0AC20069F6E7 /* UISubClasses */ = {
 			isa = PBXGroup;
 			children = (
-				FC39298F1617E77F000982C3 /* SinaUCButton.h */,
-				FC3929901617E77F000982C3 /* SinaUCButton.m */,
-				FC3929931617E77F000982C3 /* SinaUCMaxLengthFormatter.h */,
-				FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */,
-				FC3929911617E77F000982C3 /* SinaUCLoginView.h */,
-				FC3929921617E77F000982C3 /* SinaUCLoginView.m */,
-				FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */,
-				FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */,
-				FC41A4BB162075C900573F9B /* SinaUCLaunchedView.h */,
-				FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */,
-				FC8E2238162A9C5200DD36DD /* SinaUCHeaderView.h */,
-				FC8E2239162A9C5200DD36DD /* SinaUCHeaderView.m */,
-				FC41A4B81620652400573F9B /* SinaUCHeadlessWindow.h */,
-				FC41A4B91620652400573F9B /* SinaUCHeadlessWindow.m */,
-				FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */,
-				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
-				FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */,
-				FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */,
-				FCAB7744163AD6A3000F4558 /* SinaUCOutlineView.h */,
-				FCAB7745163AD6A3000F4558 /* SinaUCOutlineView.m */,
-				FCAB7749163ADA7A000F4558 /* SinaUCOutlineViewAdditions.h */,
-				FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */,
-				FCAB774C163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.h */,
-				FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */,
-				FCAB777B163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.h */,
-				FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */,
-				FCAB7792163BCC8E000F4558 /* SinaUCGradientAdditions.h */,
-				FCAB7793163BCC8E000F4558 /* SinaUCGradientAdditions.m */,
-				FCAB7796163BCD14000F4558 /* SinaUCColorAdditions.h */,
-				FCAB7797163BCD14000F4558 /* SinaUCColorAdditions.m */,
-				FCAB7799163BCE88000F4558 /* SinaUCStringAdditions.h */,
-				FCAB779A163BCE88000F4558 /* SinaUCStringAdditions.m */,
-				FCAB779C163BD0EB000F4558 /* SinaUCImageDrawingAdditions.h */,
-				FCAB779D163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m */,
-				FCAB779F163BD14D000F4558 /* SinaUCImageAdditions.h */,
-				FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */,
-				FCAB77A2163BD2E7000F4558 /* SinaUCBezierPathAdditions.h */,
-				FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */,
-				FCEEC2231640056000D7BB1B /* SinaUCContractTabViewItem.h */,
-				FCEEC2241640056000D7BB1B /* SinaUCContractTabViewItem.m */,
+				FCB23972164F4DA60028C038 /* base components */,
+				FCB23971164F4D120028C038 /* ui components */,
+				FCB2396F164F4C600028C038 /* additions */,
+				FCB2396E164F4C380028C038 /* cells */,
 				FCEEC2261641631000D7BB1B /* SinaUCContactTabStyle.h */,
 				FCEEC2271641631000D7BB1B /* SinaUCContactTabStyle.m */,
-				FCEEC232164552C000D7BB1B /* SinaUCListImageCell.h */,
-				FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */,
-				FCEEC2351645530000D7BB1B /* SinaUCListNameCell.h */,
-				FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */,
-				FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */,
-				FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */,
-				FC0D2AE5164B4F6C007D2D63 /* NSImage+Grayscale.h */,
-				FC0D2AE6164B4F6C007D2D63 /* NSImage+Grayscale.m */,
-				FCB23958164E00480028C038 /* SinaUCMessageView.h */,
-				FCB23959164E00480028C038 /* SinaUCMessageView.m */,
 				FCB2395E164E14950028C038 /* SinaUCMessageTabStyle.h */,
 				FCB2395F164E14960028C038 /* SinaUCMessageTabStyle.m */,
+				FCEEC2231640056000D7BB1B /* SinaUCContactTabViewItem.h */,
+				FCEEC2241640056000D7BB1B /* SinaUCContactTabViewItem.m */,
+				FCB23961164E2E890028C038 /* SinaUCMessageTabViewItem.h */,
+				FCB23962164E2E8A0028C038 /* SinaUCMessageTabViewItem.m */,
 			);
 			name = UISubClasses;
 			sourceTree = "<group>";
@@ -4536,6 +4537,25 @@
 		FC8ADB1A160F26BF0069F6E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCB239A5165015F00028C038 /* toolbar_emotion_hover.png */,
+				FCB239A6165015F00028C038 /* toolbar_emotion_hover@2x.png */,
+				FCB239A7165015F00028C038 /* toolbar_emotion_no.png */,
+				FCB239A8165015F00028C038 /* toolbar_emotion_no@2x.png */,
+				FCB239A9165015F00028C038 /* toolbar_emotion_normal.png */,
+				FCB239AA165015F00028C038 /* toolbar_emotion_normal@2x.png */,
+				FCB239991650155B0028C038 /* toolbar_history_hover.png */,
+				FCB2399A1650155B0028C038 /* toolbar_history_hover@2x.png */,
+				FCB2399B1650155B0028C038 /* toolbar_history_no.png */,
+				FCB2399C1650155B0028C038 /* toolbar_history_no@2x.png */,
+				FCB2399D1650155B0028C038 /* toolbar_history_normal.png */,
+				FCB2399E1650155B0028C038 /* toolbar_history_normal@2x.png */,
+				FCB23980164F64840028C038 /* dialog_bg_Inactive.png */,
+				FCB23981164F64850028C038 /* dialog_bg.png */,
+				FCB23978164F5BF30028C038 /* tab_bg_texture_InActive.png */,
+				FCB23979164F5BF30028C038 /* tab_bg_texture_InActive@2x.png */,
+				FCB2397A164F5BF30028C038 /* tab_bg_texture.png */,
+				FCB2397B164F5BF30028C038 /* tab_bg_texture@2x.png */,
+				FCB23968164EB2550028C038 /* sinauc.icns */,
 				FC8ADB1B160F26BF0069F6E7 /* 0.png */,
 				FC8ADB1C160F26BF0069F6E7 /* 0@2x.png */,
 				FC8ADB1D160F26BF0069F6E7 /* 0fix.bmp */,
@@ -6336,10 +6356,11 @@
 				FC685258162A6ECE006366A7 /* SinaUCHeaderViewController.m */,
 				FC68525A162A7305006366A7 /* SinaUCContactsViewController.h */,
 				FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */,
-				FCEEC24F1646873D00D7BB1B /* SinaUCMessageWindowController.h */,
-				FCEEC2501646874000D7BB1B /* SinaUCMessageWindowController.m */,
-				FCB2395B164E12DB0028C038 /* SinaUCMessageViewController.h */,
-				FCB2395C164E12DC0028C038 /* SinaUCMessageViewController.m */,
+				FCB2396B164F3AF00028C038 /* SinaUCMessageWindowController.h */,
+				FCB2396C164F3AF00028C038 /* SinaUCMessageWindowController.m */,
+				FCB23994164FF7680028C038 /* SinaUCMessageViewController.h */,
+				FCB23995164FF7690028C038 /* SinaUCMessageViewController.m */,
+				FCB23996164FF76A0028C038 /* SinaUCMessageViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -6438,6 +6459,82 @@
 				FCA7F3BD160EE1D600DC038C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCB2396E164F4C380028C038 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				FC23DDA61632DB7400825BFB /* SinaUCHeadImageCell.h */,
+				FC23DDA71632DB7400825BFB /* SinaUCHeadImageCell.m */,
+				FCEEC232164552C000D7BB1B /* SinaUCListImageCell.h */,
+				FCEEC233164552C000D7BB1B /* SinaUCListImageCell.m */,
+				FCEEC2351645530000D7BB1B /* SinaUCListNameCell.h */,
+				FCEEC2361645530000D7BB1B /* SinaUCListNameCell.m */,
+				FCEEC2381646120C00D7BB1B /* SinaUCListGroupCell.h */,
+				FCEEC2391646120E00D7BB1B /* SinaUCListGroupCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		FCB2396F164F4C600028C038 /* additions */ = {
+			isa = PBXGroup;
+			children = (
+				FC0D2AE5164B4F6C007D2D63 /* NSImage+Grayscale.h */,
+				FC0D2AE6164B4F6C007D2D63 /* NSImage+Grayscale.m */,
+				FC41A4F71621AA5B00573F9B /* SinaUCStrechImage.h */,
+				FC41A4F81621AA5C00573F9B /* SinaUCStrechImage.m */,
+				FCAB7792163BCC8E000F4558 /* SinaUCGradientAdditions.h */,
+				FCAB7793163BCC8E000F4558 /* SinaUCGradientAdditions.m */,
+				FCAB7796163BCD14000F4558 /* SinaUCColorAdditions.h */,
+				FCAB7797163BCD14000F4558 /* SinaUCColorAdditions.m */,
+				FCAB7799163BCE88000F4558 /* SinaUCStringAdditions.h */,
+				FCAB779A163BCE88000F4558 /* SinaUCStringAdditions.m */,
+				FCAB779C163BD0EB000F4558 /* SinaUCImageDrawingAdditions.h */,
+				FCAB779D163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m */,
+				FCAB779F163BD14D000F4558 /* SinaUCImageAdditions.h */,
+				FCAB77A0163BD14D000F4558 /* SinaUCImageAdditions.m */,
+				FCAB77A2163BD2E7000F4558 /* SinaUCBezierPathAdditions.h */,
+				FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */,
+				FCAB7749163ADA7A000F4558 /* SinaUCOutlineViewAdditions.h */,
+				FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */,
+			);
+			name = additions;
+			sourceTree = "<group>";
+		};
+		FCB23971164F4D120028C038 /* ui components */ = {
+			isa = PBXGroup;
+			children = (
+				FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */,
+				FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */,
+				FC3929911617E77F000982C3 /* SinaUCLoginView.h */,
+				FC3929921617E77F000982C3 /* SinaUCLoginView.m */,
+				FC41A4BB162075C900573F9B /* SinaUCLaunchedView.h */,
+				FC41A4BC162075C900573F9B /* SinaUCLaunchedView.m */,
+				FC8E2238162A9C5200DD36DD /* SinaUCHeaderView.h */,
+				FC8E2239162A9C5200DD36DD /* SinaUCHeaderView.m */,
+				FCB23958164E00480028C038 /* SinaUCMessageView.h */,
+				FCB23959164E00480028C038 /* SinaUCMessageView.m */,
+			);
+			name = "ui components";
+			sourceTree = "<group>";
+		};
+		FCB23972164F4DA60028C038 /* base components */ = {
+			isa = PBXGroup;
+			children = (
+				FC39298F1617E77F000982C3 /* SinaUCButton.h */,
+				FC3929901617E77F000982C3 /* SinaUCButton.m */,
+				FC3929931617E77F000982C3 /* SinaUCMaxLengthFormatter.h */,
+				FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */,
+				FC41A4B81620652400573F9B /* SinaUCHeadlessWindow.h */,
+				FC41A4B91620652400573F9B /* SinaUCHeadlessWindow.m */,
+				FCAB7744163AD6A3000F4558 /* SinaUCOutlineView.h */,
+				FCAB7745163AD6A3000F4558 /* SinaUCOutlineView.m */,
+				FCAB774C163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.h */,
+				FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */,
+				FCAB777B163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.h */,
+				FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */,
+			);
+			name = "base components";
 			sourceTree = "<group>";
 		};
 		FCBE1AA61619620B002CA75E /* SinaXMPP */ = {
@@ -8410,6 +8507,26 @@
 				FC41A4FC1621B7B800573F9B /* LoginWindow.xib in Resources */,
 				FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */,
 				FCEEC256164687C000D7BB1B /* MessageWindow.xib in Resources */,
+				FCB23969164EB2550028C038 /* sinauc.icns in Resources */,
+				FCB2397C164F5BF30028C038 /* tab_bg_texture_InActive.png in Resources */,
+				FCB2397D164F5BF30028C038 /* tab_bg_texture_InActive@2x.png in Resources */,
+				FCB2397E164F5BF30028C038 /* tab_bg_texture.png in Resources */,
+				FCB2397F164F5BF30028C038 /* tab_bg_texture@2x.png in Resources */,
+				FCB23982164F64860028C038 /* dialog_bg_Inactive.png in Resources */,
+				FCB23983164F64860028C038 /* dialog_bg.png in Resources */,
+				FCB23998164FF76B0028C038 /* SinaUCMessageViewController.xib in Resources */,
+				FCB2399F1650155B0028C038 /* toolbar_history_hover.png in Resources */,
+				FCB239A01650155B0028C038 /* toolbar_history_hover@2x.png in Resources */,
+				FCB239A11650155B0028C038 /* toolbar_history_no.png in Resources */,
+				FCB239A21650155B0028C038 /* toolbar_history_no@2x.png in Resources */,
+				FCB239A31650155B0028C038 /* toolbar_history_normal.png in Resources */,
+				FCB239A41650155B0028C038 /* toolbar_history_normal@2x.png in Resources */,
+				FCB239AB165015F00028C038 /* toolbar_emotion_hover.png in Resources */,
+				FCB239AC165015F00028C038 /* toolbar_emotion_hover@2x.png in Resources */,
+				FCB239AD165015F00028C038 /* toolbar_emotion_no.png in Resources */,
+				FCB239AE165015F00028C038 /* toolbar_emotion_no@2x.png in Resources */,
+				FCB239AF165015F00028C038 /* toolbar_emotion_normal.png in Resources */,
+				FCB239B0165015F00028C038 /* toolbar_emotion_normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8618,17 +8735,18 @@
 				FCAB779E163BD0EC000F4558 /* SinaUCImageDrawingAdditions.m in Sources */,
 				FCAB77A1163BD14E000F4558 /* SinaUCImageAdditions.m in Sources */,
 				FCAB77A4163BD2E8000F4558 /* SinaUCBezierPathAdditions.m in Sources */,
-				FCEEC2251640056000D7BB1B /* SinaUCContractTabViewItem.m in Sources */,
+				FCEEC2251640056000D7BB1B /* SinaUCContactTabViewItem.m in Sources */,
 				FCEEC2281641631100D7BB1B /* SinaUCContactTabStyle.m in Sources */,
 				FCEEC234164552C100D7BB1B /* SinaUCListImageCell.m in Sources */,
 				FCEEC2371645530100D7BB1B /* SinaUCListNameCell.m in Sources */,
 				FCEEC23A1646121000D7BB1B /* SinaUCListGroupCell.m in Sources */,
-				FCEEC2521646874400D7BB1B /* SinaUCMessageWindowController.m in Sources */,
 				FC7469541646AE4800DC412F /* XMPPSession.mm in Sources */,
 				FC0D2AE7164B4F6C007D2D63 /* NSImage+Grayscale.m in Sources */,
 				FCB2395A164E00480028C038 /* SinaUCMessageView.m in Sources */,
-				FCB2395D164E12DD0028C038 /* SinaUCMessageViewController.m in Sources */,
 				FCB23960164E14960028C038 /* SinaUCMessageTabStyle.m in Sources */,
+				FCB23963164E2E8B0028C038 /* SinaUCMessageTabViewItem.m in Sources */,
+				FCB2396D164F3AF00028C038 /* SinaUCMessageWindowController.m in Sources */,
+				FCB23997164FF76B0028C038 /* SinaUCMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

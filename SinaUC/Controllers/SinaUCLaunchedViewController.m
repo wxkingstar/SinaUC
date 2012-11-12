@@ -27,12 +27,12 @@
 {
     [xmpp registerConnectionDelegate:self];
     [PSMTabBarControl registerTabStyleClass:[SinaUCContactTabStyle class]];
-    [tabBar setStyleNamed:@"SinaUC"];
-    SinaUCContractTabViewItem *contractModel = [[SinaUCContractTabViewItem alloc] init];
+    [tabBar setStyleNamed:@"SinaUCContact"];
+    SinaUCContactTabViewItem *contractModel = [[SinaUCContactTabViewItem alloc] init];
     [contractModel setIcon:[NSImage imageNamed:@"group1"]];
-    SinaUCContractTabViewItem *groupModel = [[SinaUCContractTabViewItem alloc] init];
+    SinaUCContactTabViewItem *groupModel = [[SinaUCContactTabViewItem alloc] init];
     [groupModel setIcon:[NSImage imageNamed:@"group2"]];
-    SinaUCContractTabViewItem *historyModel = [[SinaUCContractTabViewItem alloc] init];
+    SinaUCContactTabViewItem *historyModel = [[SinaUCContactTabViewItem alloc] init];
     [historyModel setIcon:[NSImage imageNamed:@"group3"]];
     [[tabView tabViewItemAtIndex:0] setIdentifier:contractModel];
     [[tabView tabViewItemAtIndex:1] setIdentifier:groupModel];

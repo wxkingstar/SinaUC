@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[SinaUCContactsViewController updateRoster]:SinaUCContactsViewController.m">
+         contextName = "-[XMPPSessionManager activateSession:]:XMPPSession.mm">
          <PersistentStrings>
             <PersistentString
-               value = "[contactsRes indexOfObject:contactInfo]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "gloox::RosterManager::Query::Query(gloox::Tag const*):rostermanager.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "it-&gt;findAttribute(&quot;name&quot;)">
+               value = "[session jid]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -51,6 +43,22 @@
             </PersistentString>
             <PersistentString
                value = "(*it)-&gt;name()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCContactsViewController updateRoster]:SinaUCContactsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[contactsRes indexOfObject:contactInfo]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gloox::RosterManager::Query::Query(gloox::Tag const*):rostermanager.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "it-&gt;findAttribute(&quot;name&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

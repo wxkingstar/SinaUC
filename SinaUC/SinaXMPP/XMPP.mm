@@ -186,6 +186,7 @@ private:
     XMPP* m_pDelegate;
     gloox::util::Mutex m_delegateMutex;
     bool m_connected;
+    bool m_roster;
     bool m_first;
     int m_heartbeat;
     NSMutableArray* vcardRequestStack;
@@ -204,6 +205,7 @@ m_pRosterManager(0),
 m_pVcardManager(0),
 m_pPubSubManager(0),
 m_connected(false),
+m_roster(false),
 m_first(true),
 m_heartbeat(0)
 {
@@ -539,7 +541,8 @@ void 	CXmpp::handleRoster (const gloox::Roster &roster)
             [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
         }
     }
-    [m_pDelegate performSelectorOnMainThread:@selector(updateContactRoster) withObject:nil waitUntilDone:NO];
+    [m_pDelegate performSelectorOnMainThread:@selector(updateContactRoster) withObject:nil waitUntilDone:YES];
+    m_roster = true;
 }
 
 void 	CXmpp::handleRosterError (const gloox::IQ &iq)
@@ -591,6 +594,9 @@ void 	CXmpp::handlePresence (const gloox::Presence &presence)
 {
     if (!m_pDelegate) {
         return;
+    }
+    while (!m_roster) {
+        sleep(1);
     }
     NSString* jid = [NSString stringWithUTF8String:presence.from().bare().c_str()];
     NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, avatar, image FROM Contact WHERE jid = ?;" withValues:jid, nil];
@@ -703,8 +709,15 @@ void    CXmpp::startChat(gloox::JID& jid)
     }
     gloox::MessageSession* pSession = new gloox::MessageSession( m_pClient, jid );
     XMPPSession* session = [[XMPPSession alloc] init];
+    NSString* jidStr = [NSString stringWithUTF8String:jid.bare().c_str()];
+    NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, jid, name, image FROM Contact WHERE jid = ?;" withValues:jidStr, nil];
+    NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
     [session setSession:pSession];
-    [session setXmpp:m_pDelegate];
+    [session setContactInfo:[contactRes objectAtIndex:0]];
+    //[session setXmpp:m_pDelegate];
+    if ([[m_pDelegate sessionManager] activateSession:session]) {
+        return;
+    }
     [[m_pDelegate sessionManager] addSession:session];
 }
 
@@ -901,9 +914,6 @@ static XMPP *instance;
 
 - (void)startChat:(NSString*) jidStr
 {
-    if ([sessionManager activateSession:jidStr]) {
-        return;
-    }
     gloox::JID jid([jidStr UTF8String]);
     CXmpp::instance().startChat(jid);
 }

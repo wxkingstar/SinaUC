@@ -30,38 +30,27 @@ namespace gloox {
 
 class CMessageSessionEventHandler;
 
-@class XMPP;
-@class SinaUCMessageWindowController;
 @interface XMPPSession : NSObject {
 @private
-    gloox::MessageSession* session;
-    gloox::ChatStateFilter* chatStateFilter;
-    gloox::MessageEventFilter* messageEventFilter;
     CMessageSessionEventHandler* handler;
-    SinaUCMessageWindowController* msgWindowController;
-    NSDictionary* contact;
-    BOOL incomingSession;
-    NSString* name;
-    NSString* jid;
-    XMPP* xmpp;
 }
-@property (assign) gloox::MessageSession* session;
-@property (assign) BOOL incomingSession;
-@property (retain) XMPP* xmpp;
-@property (readonly) NSString* jid;
-@property (readonly) NSString* name;
 
-- (void) openChatWindow:(NSDictionary*) contactInfo;
+@property (assign) gloox::MessageSession* session;
+@property (retain) NSDictionary* contactInfo;
+
+- (void) openChatWindow;
 - (BOOL) sendMessage:(SinaUCMessage*) msg;
 - (void) close;
-- (void) activateWindow;
+
 @end
 
 @interface XMPPSessionManager : NSObject {
 @private
     NSMutableArray* sessions;
 }
+
 - (void) addSession:(XMPPSession*) session;
 - (void) removeSession:(XMPPSession*) session;
-- (BOOL) activateSession:(NSString*)jid;
+- (BOOL) activateSession:(XMPPSession*) session;
+
 @end

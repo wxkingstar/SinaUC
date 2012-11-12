@@ -14,12 +14,9 @@
 @synthesize focused;
 @synthesize headerView;
 @synthesize contactsView;
-@synthesize contactsTabView;
 @synthesize dialogView;
 @synthesize inputView;
-@synthesize backgroundHeaderImageView;
-@synthesize backgroundContactsImageView;
-@synthesize backgroundBottomImageView;
+@synthesize shadowLine;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -33,10 +30,16 @@
 
 - (void) awakeFromNib
 {
-    [[self window] setFrame:NSMakeRect(_window.frame.origin.x, _window.frame.origin.y, 430, 450) display:YES animate:NO];
-    [headerView setFrame:NSMakeRect(0, 285, 430, 79)];
-    /*[contactsView setFrame:NSMakeRect(0, 35, 430, 250)];
-    [bottomView setFrame:NSMakeRect(0, 0, 430, 35)];*/
+    [historyBtn setOrig:@"toolbar_history_normal"];
+    [historyBtn setHover:@"toolbar_history_hover"];
+    [historyBtn setAlternate:@"toolbar_history_no"];
+    
+    [emotionBtn setOrig:@"toolbar_emotion_normal"];
+    [emotionBtn setHover:@"toolbar_emotion_hover"];
+    [emotionBtn setAlternate:@"toolbar_emotion_no"];
+    
+    [inputArea setFont:[NSFont fontWithName:@"Menlo" size:12]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(activate)
                                                  name:@"NSApplicationDidBecomeActiveNotification"
@@ -50,38 +53,30 @@
 
 - (void) drawRect:(NSRect)rect {
     // Clear the drawing rect.
-    NSBezierPath* roundRectPath = [NSBezierPath bezierPathWithRoundedRect: [self bounds] xRadius:5 yRadius:5];
-    [roundRectPath addClip];
     
     [super drawRect:rect];
     [[NSColor clearColor] set];
     NSRectFill([self frame]);
     
-    NSImage *backgroundBuddy = [NSImage imageNamed:@"main_buddylist_bkg"];
-    NSEdgeInsets buddyInsets = {1,2,1,2};
-    [backgroundBuddy drawStretchableInRect:[contactsView frame]
-                                edgeInsets:buddyInsets
-                                 operation:NSCompositeSourceOver
-                                  fraction:1.0];
     //窗口focused
     BOOL changed = NO;
-    NSEdgeInsets bodyInsets = {4,1,23,1};
     
     if ([self isActive]) {
         changed = ([self focused] == YES);
         [self setFocused:NO];
         //if (changed) {
         @synchronized(self) {
-            NSImage *backgroundHead = [NSImage imageNamed:@"Header+Search_Active"];
-            NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_active"];
-            [backgroundHead drawStretchableInRect:[headerView frame]
-                                       edgeInsets:bodyInsets
-                                        operation:NSCompositeSourceOver
-                                         fraction:1.0];
-            /*[backgroundBottom drawStretchableInRect:[bottomView frame]
-                                         edgeInsets:bodyInsets
-                                          operation:NSCompositeSourceOver
-                                           fraction:1.0];*/
+            NSImage *backgroundContacts = [NSImage imageNamed:@"tab_bg_texture"];
+            NSColor * contactsColor = [NSColor colorWithPatternImage:backgroundContacts];
+            [contactsColor set];
+            NSRectFill([contactsView frame]);
+            NSImage *backgroundDialog = [NSImage imageNamed:@"dialog_bg"];
+            NSColor * dialogColor = [NSColor colorWithPatternImage:backgroundDialog];
+            [dialogColor set];
+            NSRectFill(NSMakeRect(150, 100, [dialogView frame].size.width, [dialogView frame].size.height));
+            NSRectFill(NSMakeRect(150, [headerView frame].origin.y, [headerView frame].size.width, 100));
+            [[NSColor whiteColor] set];
+            NSRectFill(NSMakeRect(150, 0, [inputView frame].size.width, 100));
         }
         //}
     } else {
@@ -89,16 +84,17 @@
         [self setFocused:YES];
         //if (changed) {
         @synchronized(self){
-            NSImage *backgroundHead = [NSImage imageNamed:@"Header+Search_Inactive"];
-            NSImage *backgroundBottom = [NSImage imageNamed:@"main_bottonbar_inactive"];
-            [backgroundHead drawStretchableInRect:[headerView frame]
-                                       edgeInsets:bodyInsets
-                                        operation:NSCompositeSourceOver
-                                         fraction:1.0];
-            /*[backgroundBottom drawStretchableInRect:[bottomView frame]
-                                         edgeInsets:bodyInsets
-                                          operation:NSCompositeSourceOver
-                                           fraction:1.0];*/
+            NSImage *backgroundContacts = [NSImage imageNamed:@"tab_bg_texture_InActive"];
+            NSColor * imgColor = [NSColor colorWithPatternImage:backgroundContacts];
+            [imgColor set];
+            NSRectFill([contactsView frame]);
+            NSImage *backgroundDialog = [NSImage imageNamed:@"dialog_bg_Inactive"];
+            NSColor * dialogColor = [NSColor colorWithPatternImage:backgroundDialog];
+            [dialogColor set];
+            NSRectFill(NSMakeRect(150, 100, [dialogView frame].size.width, [dialogView frame].size.height));
+            NSRectFill(NSMakeRect(150, [headerView frame].origin.y, [headerView frame].size.width, 100));
+            [[NSColor whiteColor] set];
+            NSRectFill(NSMakeRect(150, 0, [inputView frame].size.width, 100));
         }
         //}
     }

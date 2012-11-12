@@ -12,7 +12,7 @@
 #import "SinaUCConnectionDelegate.h"
 #import "SinaUCContactTabStyle.h"
 #import "SinaUCLaunchedView.h"
-#import "SinaUCContractTabViewItem.h"
+#import "SinaUCContactTabViewItem.h"
 #import "XMPP.h"
 
 @interface SinaUCLaunchedViewController : NSViewController <SinaUCConnectionDelegate, PSMTabBarControlDelegate>

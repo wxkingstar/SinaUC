@@ -8,18 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SinaUCStrechImage.h"
+#import "SinaUCButton.h"
 
 @interface SinaUCMessageView : NSView
+{
+    IBOutlet SinaUCButton *historyBtn;
+    IBOutlet SinaUCButton *emotionBtn;
+    IBOutlet NSTextView *inputArea;
+}
 
 @property (assign) BOOL isActive;
 @property (assign) BOOL focused;
 @property (retain) IBOutlet NSView *headerView;
 @property (retain) IBOutlet NSView *contactsView;
-@property (retain) IBOutlet NSTabView *contactsTabView;
 @property (retain) IBOutlet NSView *dialogView;
 @property (retain) IBOutlet NSView *inputView;
-@property (retain) IBOutlet NSImageView *backgroundHeaderImageView;
-@property (retain) IBOutlet NSImageView *backgroundContactsImageView;
-@property (retain) IBOutlet NSImageView *backgroundBottomImageView;
+@property (retain) IBOutlet NSImageView *shadowLine;
 
 @end
