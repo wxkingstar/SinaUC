@@ -1954,6 +1954,10 @@
 		FCD63694161BD026002AF1FF /* SinaUCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368C161BD026002AF1FF /* SinaUCRoom.m */; };
 		FCD63695161BD026002AF1FF /* SinaUCRoomContact.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */; };
 		FCD63696161BD026002AF1FF /* SinaUCRoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */; };
+		FCDB1E5B1653787700B0D155 /* SinaUCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB1E5A1653787700B0D155 /* SinaUCTextView.m */; };
+		FCDB1E6F1658879A00B0D155 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB1E6D165886C500B0D155 /* WebKit.framework */; };
+		FCDB1E72165887BD00B0D155 /* SinaUCWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB1E71165887BD00B0D155 /* SinaUCWebView.m */; };
+		FCDB1E801659098B00B0D155 /* SinaUCMutableStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB1E7F1659098B00B0D155 /* SinaUCMutableStringAdditions.m */; };
 		FCE29D01160F44F90092CC9A /* SinaUCLoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */; };
 		FCEEC2251640056000D7BB1B /* SinaUCContactTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2241640056000D7BB1B /* SinaUCContactTabViewItem.m */; };
 		FCEEC2281641631100D7BB1B /* SinaUCContactTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEEC2271641631000D7BB1B /* SinaUCContactTabStyle.m */; };
@@ -4100,7 +4104,6 @@
 		FCB239A8165015F00028C038 /* toolbar_emotion_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_emotion_no@2x.png"; sourceTree = "<group>"; };
 		FCB239A9165015F00028C038 /* toolbar_emotion_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_emotion_normal.png; sourceTree = "<group>"; };
 		FCB239AA165015F00028C038 /* toolbar_emotion_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_emotion_normal@2x.png"; sourceTree = "<group>"; };
-		FCB239B41650A88F0028C038 /* SinaUCMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCMessageDelegate.h; sourceTree = "<group>"; };
 		FCBE1AA71619620B002CA75E /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		FCBE1AA81619620B002CA75E /* XMPP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPP.mm; sourceTree = "<group>"; };
 		FCCDA54016132BFA00C1499D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -4191,6 +4194,15 @@
 		FCD6368E161BD026002AF1FF /* SinaUCRoomContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomContact.m; sourceTree = "<group>"; };
 		FCD6368F161BD026002AF1FF /* SinaUCRoomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomMessage.h; sourceTree = "<group>"; };
 		FCD63690161BD026002AF1FF /* SinaUCRoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomMessage.m; sourceTree = "<group>"; };
+		FCDB1E591653787700B0D155 /* SinaUCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCTextView.h; path = UISubClasses/SinaUCTextView.h; sourceTree = "<group>"; };
+		FCDB1E5A1653787700B0D155 /* SinaUCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCTextView.m; path = UISubClasses/SinaUCTextView.m; sourceTree = "<group>"; };
+		FCDB1E6D165886C500B0D155 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FCDB1E70165887BC00B0D155 /* SinaUCWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCWebView.h; path = UISubClasses/SinaUCWebView.h; sourceTree = "<group>"; };
+		FCDB1E71165887BD00B0D155 /* SinaUCWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCWebView.m; path = UISubClasses/SinaUCWebView.m; sourceTree = "<group>"; };
+		FCDB1E7C1658E76700B0D155 /* SinaUCContentControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCContentControllerProtocol.h; sourceTree = "<group>"; };
+		FCDB1E7D1658E78500B0D155 /* SinaUCControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCControllerProtocol.h; sourceTree = "<group>"; };
+		FCDB1E7E1659098A00B0D155 /* SinaUCMutableStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMutableStringAdditions.h; path = UISubClasses/SinaUCMutableStringAdditions.h; sourceTree = "<group>"; };
+		FCDB1E7F1659098B00B0D155 /* SinaUCMutableStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMutableStringAdditions.m; path = UISubClasses/SinaUCMutableStringAdditions.m; sourceTree = "<group>"; };
 		FCE29CFF160F44F90092CC9A /* SinaUCLoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCLoginWindow.h; path = UISubClasses/SinaUCLoginWindow.h; sourceTree = "<group>"; };
 		FCE29D00160F44F90092CC9A /* SinaUCLoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCLoginWindow.m; path = UISubClasses/SinaUCLoginWindow.m; sourceTree = "<group>"; };
 		FCEEC2231640056000D7BB1B /* SinaUCContactTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCContactTabViewItem.h; path = UISubClasses/SinaUCContactTabViewItem.h; sourceTree = "<group>"; };
@@ -4211,6 +4223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDB1E6F1658879A00B0D155 /* WebKit.framework in Frameworks */,
 				FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */,
 				FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */,
 				FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */,
@@ -4515,7 +4528,8 @@
 				FC685256162A5D69006366A7 /* SinaUCRoomUpdateDelegate.h */,
 				FC685255162A5D4A006366A7 /* SinaUCContactRosterUpdateDelegate.h */,
 				FC685254162A5D25006366A7 /* SinaUCRoomRosterUpdateDelegate.h */,
-				FCB239B41650A88F0028C038 /* SinaUCMessageDelegate.h */,
+				FCDB1E7C1658E76700B0D155 /* SinaUCContentControllerProtocol.h */,
+				FCDB1E7D1658E78500B0D155 /* SinaUCControllerProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -6392,6 +6406,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCDB1E6D165886C500B0D155 /* WebKit.framework */,
 				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
 				FCA7F394160EE1D600DC038C /* Cocoa.framework */,
@@ -6502,6 +6517,8 @@
 				FCAB77A3163BD2E8000F4558 /* SinaUCBezierPathAdditions.m */,
 				FCAB7749163ADA7A000F4558 /* SinaUCOutlineViewAdditions.h */,
 				FCAB774A163ADA7A000F4558 /* SinaUCOutlineViewAdditions.m */,
+				FCDB1E7E1659098A00B0D155 /* SinaUCMutableStringAdditions.h */,
+				FCDB1E7F1659098B00B0D155 /* SinaUCMutableStringAdditions.m */,
 			);
 			name = additions;
 			sourceTree = "<group>";
@@ -6540,6 +6557,10 @@
 				FCAB774D163ADD5B000F4558 /* SinaUCVariableHeightOutlineView.m */,
 				FCAB777B163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.h */,
 				FCAB777C163ADF88000F4558 /* SinaUCAlternatingRowOutlineView.m */,
+				FCDB1E591653787700B0D155 /* SinaUCTextView.h */,
+				FCDB1E5A1653787700B0D155 /* SinaUCTextView.m */,
+				FCDB1E70165887BC00B0D155 /* SinaUCWebView.h */,
+				FCDB1E71165887BD00B0D155 /* SinaUCWebView.m */,
 			);
 			name = "base components";
 			sourceTree = "<group>";
@@ -8755,6 +8776,9 @@
 				FCB2396D164F3AF00028C038 /* SinaUCMessageWindowController.mm in Sources */,
 				FCB23997164FF76B0028C038 /* SinaUCMessageViewController.m in Sources */,
 				FC01EF2C1650E3B400933952 /* SinaUCDialogView.m in Sources */,
+				FCDB1E5B1653787700B0D155 /* SinaUCTextView.m in Sources */,
+				FCDB1E72165887BD00B0D155 /* SinaUCWebView.m in Sources */,
+				FCDB1E801659098B00B0D155 /* SinaUCMutableStringAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

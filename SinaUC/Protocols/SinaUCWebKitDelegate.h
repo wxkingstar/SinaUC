@@ -6,8 +6,16 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
-@interface SinaUCWebKitDelegate : NSObject
+@class SinaUCWebView, SinaUCWebKitMessageViewController;
+
+@interface SinaUCWebKitDelegate : NSObject {
+	NSMutableDictionary *mapping;
+}
+
++ (SinaUCWebKitDelegate *)sharedWebKitDelegate;
+- (void) addDelegate:(SinaUCWebKitMessageViewController *)controller forView:(SinaUCWebView *)wv;
+- (void) removeDelegate:(SinaUCWebKitMessageViewController *)controller;
 
 @end

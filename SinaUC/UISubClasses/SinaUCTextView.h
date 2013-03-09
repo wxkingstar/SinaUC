@@ -9,5 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 @interface SinaUCTextView : NSTextView
+{
+    id target;
+    SEL action;
+}
+
+@property (nonatomic, retain) id target;
+@property (nonatomic, assign) SEL action;
 
 @end

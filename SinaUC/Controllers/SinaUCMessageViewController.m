@@ -7,6 +7,8 @@
 //
 
 #import "SinaUCMessageViewController.h"
+#import "SinaUCMessage.h"
+#import "SinaUCTextView.h"
 
 @interface SinaUCMessageViewController ()
 
@@ -26,7 +28,20 @@
 
 - (void)awakeFromNib
 {
-    
+    messages = [[NSMutableArray alloc] init];
+    [input setTarget:self];
+    [input setAction:@selector(send:)];
+    //messageDisplayController = [SinaUCWebKitMessageViewController messageDisplayControllerForChat];
+}
+
+- (IBAction)send:(id)sender
+{
+    NSLog(@"%@", [input string]);
+    SinaUCMessage *msg = [[SinaUCMessage alloc] init];
+    [msg setMessage:[input string]];
+    //[msg setRecevier:];
+    //[msg setSender:];
+    [messages addObject:msg];
 }
 
 @end

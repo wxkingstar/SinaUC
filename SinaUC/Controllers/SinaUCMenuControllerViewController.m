@@ -7,6 +7,7 @@
 //
 
 #import "SinaUCMenuControllerViewController.h"
+#import "SinaUCMessageWindowController.h"
 
 @interface SinaUCMenuControllerViewController ()
 
@@ -50,6 +51,13 @@
 
 - (void)didDisConnectedWithError:(NSInteger) error 
 {
+}
+
+- (IBAction)showChatWindow:(id)sender
+{
+    SinaUCMessageWindowController* msgWindowController = [[SinaUCMessageWindowController alloc] init];
+    [[msgWindowController window] setAlphaValue:1];
+    [[msgWindowController window] makeKeyAndOrderFront:nil];
 }
 
 @end

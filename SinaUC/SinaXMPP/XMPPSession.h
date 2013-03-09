@@ -7,6 +7,9 @@
 //  实现一对一对话
 
 #import <Foundation/Foundation.h>
+#import "SinaUCMessage.h"
+#import "SinaUCMessageWindowController.h"
+#import "SinaUCMessageViewController.h"
 
 namespace gloox {
     class MessageSession;
@@ -16,16 +19,14 @@ namespace gloox {
 
 class CMessageSessionEventHandler;
 
-@class SinaUCMessage;
-@interface XMPPSession : NSObject {
-@private
-    gloox::MessageSession* session;
-}
+@interface XMPPSession : NSObject
 
+@property (retain) SinaUCMessageWindowController* chatCtrl;
+@property (retain) SinaUCMessageViewController* dialogCtrl;
 @property (nonatomic, assign) gloox::MessageSession* session;
 @property (retain) NSDictionary* contactInfo;
 
-- (void) openChatWindow;
+- (void) openChatWindowInitiative:(BOOL) positive;
 - (BOOL) sendMessage:(SinaUCMessage*) item;
 - (void) close;
 @end

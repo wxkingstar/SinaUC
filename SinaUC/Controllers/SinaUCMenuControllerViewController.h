@@ -21,7 +21,9 @@
 @property (strong) IBOutlet NSPopover* popView;
 
 - (void)willConnect;
-- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool)first;
+- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool) first;
 - (void)didDisConnectedWithError:(NSInteger) error;
+- (IBAction)showChatWindow:(id) sender;
+- (IBAction)showRemindMessages:(id) sender;
 
 @end

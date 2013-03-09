@@ -318,6 +318,7 @@ void    CXmpp::initUserStore()
             [createMessage column: @"pk" type: ZIMSqlDataTypeInteger defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
             [createMessage column: @"sender" type: ZIMSqlDataTypeVarChar(50)];
             [createMessage column: @"recevier" type: ZIMSqlDataTypeInteger];
+            [createMessage column: @"outgoing" type: ZIMSqlDataTypeBoolean];
             [createMessage column: @"message" type: ZIMSqlDataTypeText];
             [createMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
             NSString *statement = [createMessage statement];
@@ -338,6 +339,7 @@ void    CXmpp::initUserStore()
             [createRoomMessage column: @"rid" type: ZIMSqlDataTypeInteger];
             [createRoomMessage column: @"sender" type: ZIMSqlDataTypeVarChar(50)];
             [createRoomMessage column: @"recevier" type: ZIMSqlDataTypeVarChar(50)];
+            [createRoomMessage column: @"outgoing" type: ZIMSqlDataTypeBoolean];
             [createRoomMessage column: @"message" type: ZIMSqlDataTypeText];
             [createRoomMessage column: @"sendtime" type: ZIMSqlDataTypeDateTime];
             statement = [createRoomMessage statement];
@@ -449,8 +451,10 @@ void 	CXmpp::onConnect()
         return;
     }
     m_connected = true;
-    initUserStore();
-    joinRooms();
+    if (m_first) {
+        initUserStore();
+        joinRooms();
+    }
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
     requestVcard(myJid);
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:myJid, @"jid", m_first, @"first", nil];
@@ -591,6 +595,10 @@ void 	CXmpp::handlePresence(const gloox::Presence &presence)
         sleep(1);
     }
     NSString* jid = [NSString stringWithUTF8String:presence.from().bare().c_str()];
+    NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
+    if ([jid isEqualToString: myJid] == YES) {
+        return;
+    }
     NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, avatar, image FROM Contact WHERE jid = ?;" withValues:jid, nil];
     NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
     if ([contactRes count] > 0) {
@@ -609,6 +617,13 @@ void 	CXmpp::handlePresence(const gloox::Presence &presence)
 
 bool 	CXmpp::handleSubscriptionRequest(const gloox::JID &jid, const std::string &msg)
 {
+    printf( "subscription: %s\n", jid.bare().c_str() );
+    NSError *err;
+    //NSXMLDocument *subscription = [[NSXMLDocument alloc] initWithXMLString:[NSString stringWithUTF8String:msg.c_str()] options:0 error:&err];
+    NSString *root = [NSString stringWithFormat:@"<root>%@</root>", [NSString stringWithUTF8String:msg.c_str()]];
+    NSXMLDocument *subscription = [[NSXMLDocument alloc] initWithXMLString:root options:0 error:&err];
+    NSArray *nick = [subscription nodesForXPath:@"/root/nick" error:&err];
+    NSLog(@"%@", [[nick objectAtIndex:0] stringValue]);
     /*m_delegateMutex.lock();
      if (!m_pRosterManager) {
      m_delegateMutex.unlock();
@@ -657,35 +672,42 @@ void 	CXmpp::handleVCard(const gloox::JID &jid, const gloox::VCard *vcard)
     NSString* nickname = [NSString stringWithUTF8String:vcard->nickname().c_str()];
     NSString* handleJid = [NSString stringWithUTF8String: jid.bare().c_str()];
     NSURL* url = [NSURL URLWithString:[NSString stringWithUTF8String:vcard->photo().extval.c_str()]];
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
-    if ([handleJid isNotEqualTo: myJid]) {
-        if ([imageData length] > 0) {
-            NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
-            try {
+    NSError* error = nil;
+    try {
+        NSData *imageData = [NSData dataWithContentsOfURL:url options:0 error:&error];
+        if ([handleJid isNotEqualTo: myJid]) {
+            if (!error) {
+                NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
                 [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
-            } catch (NSException* e) {
             }
-        }
-        [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:handleJid waitUntilDone:YES];
-    } else {
-        if ([imageData length] > 0) {
-            NSImage *headImg = [[NSImage alloc] initWithData: imageData];
-            NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(95, 95)];
-            NSSize originalSize = [headImg size];
-            [resizeHeadImg lockFocus];
-            [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)
-                       fromRect: NSMakeRect(0, 0, originalSize.width, originalSize.height)
-                      operation: NSCompositeSourceOver
-                       fraction: 1.0];
-            [resizeHeadImg unlockFocus];
-            NSData *resizedData = [resizeHeadImg TIFFRepresentation];
-            NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=?, headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", resizedData, nil];
-            [ZIMDbConnection dataSource: @"user" execute: userStatement];
+            [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:handleJid waitUntilDone:YES];
         } else {
-            NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", nil];
-            [ZIMDbConnection dataSource: @"user" execute: userStatement];
+            do {
+                if (!error) {
+                    NSImage *headImg = [[NSImage alloc] initWithData: imageData];
+                    NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(95, 95)];
+                    NSSize originalSize = [headImg size];
+                    [resizeHeadImg lockFocus];
+                    [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)
+                               fromRect: NSMakeRect(0, 0, originalSize.width, originalSize.height)
+                              operation: NSCompositeSourceOver
+                               fraction: 1.0];
+                    [resizeHeadImg unlockFocus];
+                    NSData *resizedData = [resizeHeadImg TIFFRepresentation];
+                    if ([resizedData length] > 0) {
+                        NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=?, headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", resizedData, nil];
+                        [ZIMDbConnection dataSource: @"user" execute: userStatement];
+                        break;
+                    }
+                }
+                
+                NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", nil];
+                [ZIMDbConnection dataSource: @"user" execute: userStatement];
+            } while (0);
+            [m_pDelegate performSelectorOnMainThread:@selector(updateSelfVcard) withObject:nil waitUntilDone:NO];
         }
-        [m_pDelegate performSelectorOnMainThread:@selector(updateSelfVcard) withObject:nil waitUntilDone:NO];
+    } catch (NSException* e) {
+        NSLog(@"%@", e);
     }
 }
 
@@ -706,7 +728,7 @@ void    CXmpp::startChat(gloox::JID& jid)
     NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
     [session setSession:pSession];
     [session setContactInfo:[contactRes objectAtIndex:0]];
-    [session openChatWindow];
+    [session openChatWindowInitiative:YES];
 }
 
 void 	CXmpp::handleMessageSession(gloox::MessageSession *pSession)
@@ -720,7 +742,7 @@ void 	CXmpp::handleMessageSession(gloox::MessageSession *pSession)
     NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, jid, name, image FROM Contact WHERE jid = ?;" withValues:jidStr, nil];
     NSArray* contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
     [session setContactInfo:[contactRes objectAtIndex:0]];
-    [session openChatWindow];
+    [session openChatWindowInitiative:NO];
     //[s setIncomingSession:YES];
     //[s setXmpp:m_pDelegate];
 }
@@ -750,7 +772,7 @@ void    CXmpp::closeSession(gloox::MessageSession* pSession)
 
 void    CXmpp::handleLog(gloox::LogLevel level, gloox::LogArea area, const std::string &message)
 {
-    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
+    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str());
 }
 
 #pragma mark -

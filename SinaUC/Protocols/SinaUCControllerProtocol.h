@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol SinaUCControllerProtocol <NSObject>
-
+- (void)controllerDidLoad;
+- (void)controllerWillClose;
 @end

@@ -2,7 +2,7 @@
 //  RoomMessage.m
 //  SinaUC
 //
-//  Created by shuoshi on 11/04/12.
+//  Created by shuoshi on 11/18/12.
 //  Copyright 2012 shuoshi. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @synthesize rid = _rid;
 @synthesize sender = _sender;
 @synthesize receier = _receier;
+@synthesize outgoing = _outgoing;
 @synthesize message = _message;
 @synthesize sendtime = _sendtime;
 

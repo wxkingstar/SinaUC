@@ -92,29 +92,37 @@
     NSString *cStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT * FROM Contact WHERE jid=?" withValues:jid, nil];
     NSArray *contactInfo = [ZIMDbConnection dataSource:@"addressbook" query:cStatement];
     
-    [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] removeObjectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue]];
-    
-    if ([[[contactInfo objectAtIndex:0] valueForKey:@"presence"] intValue] <= 4) {
-        [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:0];
-        for (NSString* idx in contactsKV) {
-            if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] < [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
-                NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]+1];
-                [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
+    do {
+        @try {
+            [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] removeObjectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue]];
+            if ([[[contactInfo objectAtIndex:0] valueForKey:@"presence"] intValue] <= 4) {
+                [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:0];
+                for (NSString* idx in contactsKV) {
+                    if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] < [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
+                        NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]+1];
+                        [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
+                    }
+                }
+                [[contactsKV objectForKey:jid] setValue:[NSNumber numberWithInt:0] forKey:@"c_idx"];
+            } else {
+                NSNumber* lastIdx = [NSNumber numberWithLong:([[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] count]-1)];
+                [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:[lastIdx intValue]];
+                for (NSString* idx in contactsKV) {
+                    if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] > [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
+                        NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]-1];
+                        [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
+                    }
+                }
+                [[contactsKV objectForKey:jid] setValue:lastIdx forKey:@"c_idx"];
             }
+            [(NSOutlineView*)self.view reloadData];
+            break;
         }
-        [[contactsKV objectForKey:jid] setValue:[NSNumber numberWithInt:0] forKey:@"c_idx"];
-    } else {
-        NSNumber* lastIdx = [NSNumber numberWithLong:([[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] count]-1)];
-        [[[contacts objectAtIndex:[[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]] objectForKey:@"children"] insertObject:[contactInfo objectAtIndex:0] atIndex:[lastIdx intValue]];
-        for (NSString* idx in contactsKV) {
-            if (([[[contactsKV objectForKey:idx] valueForKey:@"g_idx"] intValue] == [[[contactsKV objectForKey:jid] valueForKey:@"g_idx"] intValue]) && ([[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue] > [[[contactsKV objectForKey:jid] valueForKey:@"c_idx"] intValue])) {
-                NSNumber* newIdx = [NSNumber numberWithInt:[[[contactsKV objectForKey:idx] valueForKey:@"c_idx"] intValue]-1];
-                [[contactsKV objectForKey:idx] setValue:newIdx forKey:@"c_idx"];
-            }
+        @catch (NSException *exception) {
         }
-        [[contactsKV objectForKey:jid] setValue:lastIdx forKey:@"c_idx"];
-    }
-    [(NSOutlineView*)self.view reloadData];
+        @finally {
+        }
+    } while (1);
 }
 
 - (void)updateVcard:(NSString*) jid

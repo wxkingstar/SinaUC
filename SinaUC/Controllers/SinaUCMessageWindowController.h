@@ -10,11 +10,11 @@
 #import <PSMTabBarControl/PSMTabStyle.h>
 #import <PSMTabBarControl/PSMTabBarControl.h>
 
+#import "XMPP.h"
 #import "SinaUCMessage.h"
-#import "SinaUCMessageDelegate.h"
 
 @class XMPPSession;
-@interface SinaUCMessageWindowController : NSWindowController <SinaUCMessageDelegate>
+@interface SinaUCMessageWindowController : NSWindowController
 {
     IBOutlet XMPP               *xmpp;
     IBOutlet NSTabView			*tabView;
@@ -26,11 +26,9 @@
 
 - (void)addContact:(NSDictionary*) contact;
 - (PSMTabBarControl*)tabBar;
-- (void)createDialog;
 - (BOOL)hasSession:(XMPPSession*) session;
 - (void)addSession:(XMPPSession*) session;
 - (void)activateSession:(NSString*) jid;
 - (void)handleMessage:(SinaUCMessage*) msg;
-- (void)sendMessage:(SinaUCMessage*) msg;
 
 @end

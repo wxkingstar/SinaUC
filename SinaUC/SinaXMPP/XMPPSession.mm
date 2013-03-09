@@ -81,6 +81,8 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
 @implementation XMPPSession
 @synthesize session;
 @synthesize contactInfo;
+@synthesize chatCtrl;
+@synthesize dialogCtrl;
 
 - (void) close
 {
@@ -103,9 +105,12 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
     session = nil;*/
 }
 
-- (void) openChatWindow
+- (void) openChatWindowInitiative:(BOOL) positive
 {
     SinaUCMessageWindowController* msgWindowController = [[SinaUCMessageWindowController alloc] init];
+    if (![[NSApplication sharedApplication] isActive]) {
+        [[msgWindowController window] setAlphaValue:0];
+    }
     [[msgWindowController window] makeKeyAndOrderFront:nil];
     if ([msgWindowController hasSession:self] == NO) {
         CMessageSessionEventHandler* handler = new CMessageSessionEventHandler(self);
@@ -114,9 +119,13 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         //chatStateFilter->registerChatStateHandler(handler);
         //messageEventFilter = new gloox::MessageEventFilter(session);
         //messageEventFilter->registerMessageEventHandler(handler);
+        //创建窗口的同时，设置session的chatWindow和dialog
         [msgWindowController addSession:self];
     }
-    [msgWindowController activateSession:[contactInfo valueForKey:@"jid"]];
+    if (positive) {
+        [msgWindowController activateSession:[contactInfo valueForKey:@"jid"]];
+    }
+    
     //[msgWindowController addContact:contactInfo];
 }
 
