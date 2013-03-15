@@ -596,7 +596,7 @@ void 	CXmpp::handlePresence(const gloox::Presence &presence)
     }
     NSString* jid = [NSString stringWithUTF8String:presence.from().bare().c_str()];
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
-    if ([jid isEqualToString: myJid] == YES) {
+    if ([jid isEqualToString: myJid]) {
         return;
     }
     NSString* contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, avatar, image FROM Contact WHERE jid = ?;" withValues:jid, nil];
