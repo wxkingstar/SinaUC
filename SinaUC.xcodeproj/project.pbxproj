@@ -132,8 +132,6 @@
 		FC685259162A6ECE006366A7 /* SinaUCHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC685258162A6ECE006366A7 /* SinaUCHeaderViewController.m */; };
 		FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */; };
 		FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */; };
-		FC7469481646ACD300DC412F /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
-		FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469471646ACD300DC412F /* PSMTabBarControl.framework */; };
 		FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7469501646AD9400DC412F /* Foundation.framework */; };
 		FC7469541646AE4800DC412F /* XMPPSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC7469531646AE4700DC412F /* XMPPSession.mm */; };
 		FC8AE1E2160F26C50069F6E7 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8ADB1B160F26BF0069F6E7 /* 0.png */; };
@@ -1867,6 +1865,8 @@
 		FC8AE8A2160F26C70069F6E7 /* ZIP_Out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC8AE1E1160F26C40069F6E7 /* ZIP_Out@2x.png */; };
 		FC8AE8A8160F325E0069F6E7 /* SinaUCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8AE8A7160F325E0069F6E7 /* SinaUCLoginViewController.m */; };
 		FC8E223A162A9C5200DD36DD /* SinaUCHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2239162A9C5200DD36DD /* SinaUCHeaderView.m */; };
+		FC8EB37316F2D52300692F38 /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC8EB37216F2D52300692F38 /* PSMTabBarControl.framework */; };
+		FC8EB37416F2D54B00692F38 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8EB37216F2D52300692F38 /* PSMTabBarControl.framework */; };
 		FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA7F394160EE1D600DC038C /* Cocoa.framework */; };
 		FCA7F39F160EE1D600DC038C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCA7F39D160EE1D600DC038C /* InfoPlist.strings */; };
 		FCA7F3A1160EE1D600DC038C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA7F3A0160EE1D600DC038C /* main.m */; };
@@ -1984,7 +1984,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC7469481646ACD300DC412F /* PSMTabBarControl.framework in CopyFiles */,
+				FC8EB37316F2D52300692F38 /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2300,7 +2300,6 @@
 		FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRoomsViewController.m; sourceTree = "<group>"; };
 		FC74692316469B3700DC412F /* SInaUCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SInaUCMessage.h; sourceTree = "<group>"; };
 		FC74693C16469B8900DC412F /* SinaUCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRoom.h; sourceTree = "<group>"; };
-		FC7469471646ACD300DC412F /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FC7469501646AD9400DC412F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FC7469521646AE4700DC412F /* XMPPSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPSession.h; sourceTree = "<group>"; };
 		FC7469531646AE4700DC412F /* XMPPSession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPPSession.mm; sourceTree = "<group>"; };
@@ -4037,6 +4036,7 @@
 		FC8AE8A7160F325E0069F6E7 /* SinaUCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLoginViewController.m; sourceTree = "<group>"; };
 		FC8E2238162A9C5200DD36DD /* SinaUCHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCHeaderView.h; path = UISubClasses/SinaUCHeaderView.h; sourceTree = "<group>"; };
 		FC8E2239162A9C5200DD36DD /* SinaUCHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCHeaderView.m; path = UISubClasses/SinaUCHeaderView.m; sourceTree = "<group>"; };
+		FC8EB37216F2D52300692F38 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = SinaUC/frameworks/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		FCA7F390160EE1D600DC038C /* SinaUC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaUC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA7F394160EE1D600DC038C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FCA7F397160EE1D600DC038C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -4223,9 +4223,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8EB37416F2D54B00692F38 /* PSMTabBarControl.framework in Frameworks */,
 				FCDB1E6F1658879A00B0D155 /* WebKit.framework in Frameworks */,
 				FC7469511646AD9500DC412F /* Foundation.framework in Frameworks */,
-				FC7469491646ACE000DC412F /* PSMTabBarControl.framework in Frameworks */,
 				FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */,
 				FCCDA54116132BFA00C1499D /* Quartz.framework in Frameworks */,
 				FCA7F395160EE1D600DC038C /* Cocoa.framework in Frameworks */,
@@ -6406,6 +6406,7 @@
 		FCA7F393160EE1D600DC038C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC8EB37216F2D52300692F38 /* PSMTabBarControl.framework */,
 				FCDB1E6D165886C500B0D155 /* WebKit.framework */,
 				FC392A1716194902000982C3 /* libsqlite3.dylib */,
 				FCCDA54016132BFA00C1499D /* Quartz.framework */,
@@ -6420,7 +6421,6 @@
 			isa = PBXGroup;
 			children = (
 				FC7469501646AD9400DC412F /* Foundation.framework */,
-				FC7469471646ACD300DC412F /* PSMTabBarControl.framework */,
 				FCA7F397160EE1D600DC038C /* AppKit.framework */,
 			);
 			name = "Other Frameworks";
@@ -8928,6 +8928,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../build/Release\"",
+					"\"$(SRCROOT)/SinaUC/frameworks\"",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -8956,6 +8957,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../build/Release\"",
+					"\"$(SRCROOT)/SinaUC/frameworks\"",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
