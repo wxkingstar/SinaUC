@@ -2,8 +2,8 @@
 //  Message.m
 //  SinaUC
 //
-//  Created by shuoshi on 11/18/12.
-//  Copyright 2012 shuoshi. All rights reserved.
+//  Created by shuoshi on 03/17/13.
+//  Copyright 2013 shuoshi. All rights reserved.
 //
 
 #import "SinaUCMessage.h"
@@ -38,10 +38,6 @@
 
 + (BOOL) isAutoIncremented {
 	return YES;
-}
-
-- (BOOL) isOutgoing {
-    return _outgoing == 0;
 }
 
 @end

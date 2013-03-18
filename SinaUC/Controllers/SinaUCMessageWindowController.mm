@@ -13,6 +13,8 @@
 #import "SinaUCMessageTabViewItem.h"
 #import "SinaUCMessageViewController.h"
 
+//instance.rooms instance.sessions
+
 @interface SinaUCMessageWindowController ()
 
 @end
@@ -100,10 +102,6 @@ static SinaUCMessageWindowController* instance;
 }
 
 - (void)handleMessage:(SinaUCMessage*) msg
-{
-}
-
-- (void)sendMessage:(SinaUCMessage*) msg
 {
 }
 

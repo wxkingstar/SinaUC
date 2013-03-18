@@ -33,16 +33,24 @@
          contextName = "gloox::RosterManager::fill():rostermanager.mm">
       </ContextState>
       <ContextState
+         contextName = "CXmpp::onConnect():XMPP.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_logintimes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "gloox::Tag::hasAttribute(std::string const&amp;, std::string const&amp;) const:tag.mm">
          <PersistentStrings>
             <PersistentString
-               value = "this-&gt;m_attribs">
+               value = "(*it)-&gt;name()">
             </PersistentString>
             <PersistentString
                value = "(*it)-&gt;value()">
             </PersistentString>
             <PersistentString
-               value = "(*it)-&gt;name()">
+               value = "this-&gt;m_attribs">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -36,6 +36,7 @@
 
 - (IBAction)send:(id)sender
 {
+    //notification 告知view和sinaucmessagewindowcontroller发送了消息，这样只需要一份xmpp拷贝即可。
     NSLog(@"%@", [input string]);
     SinaUCMessage *msg = [[SinaUCMessage alloc] init];
     [msg setMessage:[input string]];

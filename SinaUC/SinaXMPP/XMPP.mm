@@ -179,7 +179,7 @@ private:
     gloox::util::Mutex m_delegateMutex;
     bool m_connected;
     bool m_roster;
-    bool m_first;
+    int m_logintimes;
     int m_heartbeat;
     NSMutableArray* vcardRequestStack;
     NSMutableArray* rooms;
@@ -198,7 +198,7 @@ m_pVcardManager(0),
 m_pPubSubManager(0),
 m_connected(false),
 m_roster(false),
-m_first(true),
+m_logintimes(0),
 m_heartbeat(0)
 {
 }
@@ -416,6 +416,7 @@ void    CXmpp::connect()
     while (true) {
         if (m_pClient->connect(false)) {
             int i = 1;
+            ++m_logintimes;
             do {
                 ce = m_pClient->recv(10000);
                 //每90000次执行tgt换票
@@ -440,7 +441,6 @@ void    CXmpp::connect()
             login(m_username, m_password);
         }
         sleep(2);
-        m_first = false;
         NSLog(@"try to reconnect");
     }
 }
@@ -451,13 +451,11 @@ void 	CXmpp::onConnect()
         return;
     }
     m_connected = true;
-    if (m_first) {
-        initUserStore();
-        joinRooms();
-    }
+    initUserStore();
     NSString* myJid = [NSString stringWithUTF8String: m_pClient->jid().bare().c_str()];
     requestVcard(myJid);
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:myJid, @"jid", m_first, @"first", nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:myJid, @"jid", [NSNumber numberWithInt:m_logintimes], @"times", nil];
+    NSLog(@"%@", dict);
     [m_pDelegate performSelectorOnMainThread:@selector(onConnect:) withObject:dict waitUntilDone:NO];
 }
 
@@ -675,36 +673,33 @@ void 	CXmpp::handleVCard(const gloox::JID &jid, const gloox::VCard *vcard)
     NSError* error = nil;
     try {
         NSData *imageData = [NSData dataWithContentsOfURL:url options:0 error:&error];
+        if (error) {
+            return;
+        }
         if ([handleJid isNotEqualTo: myJid]) {
-            if (!error) {
-                NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
-                [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
-            }
+            NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `Contact` SET `image`=? WHERE jid=?" withValues:imageData, handleJid, nil];
+            [ZIMDbConnection dataSource: @"addressbook" execute: contactStatement];
             [m_pDelegate performSelectorOnMainThread:@selector(updateContact:) withObject:handleJid waitUntilDone:YES];
         } else {
-            do {
-                if (!error) {
-                    NSImage *headImg = [[NSImage alloc] initWithData: imageData];
-                    NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(95, 95)];
-                    NSSize originalSize = [headImg size];
-                    [resizeHeadImg lockFocus];
-                    [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)
-                               fromRect: NSMakeRect(0, 0, originalSize.width, originalSize.height)
-                              operation: NSCompositeSourceOver
-                               fraction: 1.0];
-                    [resizeHeadImg unlockFocus];
-                    NSData *resizedData = [resizeHeadImg TIFFRepresentation];
-                    if ([resizedData length] > 0) {
-                        NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=?, headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", resizedData, nil];
-                        [ZIMDbConnection dataSource: @"user" execute: userStatement];
-                        break;
-                    }
-                }
-                
-                NSString *userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", nil];
-                [ZIMDbConnection dataSource: @"user" execute: userStatement];
-            } while (0);
+            NSImage *headImg = [[NSImage alloc] initWithData: imageData];
+            NSImage *resizeHeadImg = [[NSImage alloc] initWithSize: NSMakeSize(95, 95)];
+            NSSize originalSize = [headImg size];
+            [resizeHeadImg lockFocus];
+            [headImg drawInRect: NSMakeRect(0, 0, [resizeHeadImg size].width, [resizeHeadImg size].height)
+                       fromRect: NSMakeRect(0, 0, originalSize.width, originalSize.height)
+                      operation: NSCompositeSourceOver
+                       fraction: 1.0];
+            [resizeHeadImg unlockFocus];
+            NSData *resizedData = [resizeHeadImg TIFFRepresentation];
+            NSString *userStatement;
+            if ([resizedData length] > 0) {
+                userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=?, headimg=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", resizedData, nil];
+            } else {
+                userStatement = [ZIMSqlPreparedStatement preparedStatement: @"UPDATE `User` SET jid=?, nickname=?, mood=? WHERE logintime=(SELECT MAX(logintime) FROM `User`)" withValues:myJid, nickname, @"", nil];
+            }
+            [ZIMDbConnection dataSource: @"user" execute: userStatement];
             [m_pDelegate performSelectorOnMainThread:@selector(updateSelfVcard) withObject:nil waitUntilDone:NO];
+            joinRooms();
         }
     } catch (NSException* e) {
         NSLog(@"%@", e);
@@ -864,8 +859,14 @@ static XMPP *instance;
     [self setMyJid:[dict valueForKey:@"jid"]];
     NSEnumerator* e = [connectionDelegates objectEnumerator];
     id < SinaUCConnectionDelegate > connectionDelegate;
-    while (connectionDelegate = [e nextObject]) {
-        [connectionDelegate didConnectedWithJid:[dict valueForKey:@"jid"] forFistTime:[dict valueForKey:@"first"]];
+    if ([[dict valueForKey:@"times"] intValue] == 1) {
+        while (connectionDelegate = [e nextObject]) {
+            [connectionDelegate didConnectedWithJidForFirstTime:[dict valueForKey:@"jid"]];
+        }
+    } else {
+        while (connectionDelegate = [e nextObject]) {
+            [connectionDelegate didConnectedWithJid:[dict valueForKey:@"jid"]];
+        }
     }
 }
 

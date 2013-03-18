@@ -17,7 +17,7 @@
 }
 
 - (void)willConnect;
-- (void)didConnectedWithJid:(NSString*) jid forFistTime:(bool) first;
+- (void)didConnectedWithJid:(NSString*) jid;
 - (void)didDisConnectedWithError:(NSInteger) error;
 
 

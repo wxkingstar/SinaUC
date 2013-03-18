@@ -25,6 +25,6 @@
 
 - (void) willConnect;
 - (void) didDisConnectedWithError:(NSInteger) error;
-- (void) didConnectedWithJid:(NSString*) jid forFistTime:(bool) first;
+- (void) didConnectedWithJid:(NSString*) jid;
 
 @end

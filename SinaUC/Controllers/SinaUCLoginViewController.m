@@ -126,7 +126,12 @@
     //显示取消登录按钮
 }
 
-- (void) didConnectedWithJid:(NSString*) jid forFistTime:(bool) first
+- (void) didConnectedWithJidForFirstTime:(NSString *)jid
+{
+    
+}
+
+- (void) didConnectedWithJid:(NSString*) jid
 {
     
 }
