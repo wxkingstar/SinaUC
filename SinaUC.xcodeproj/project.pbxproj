@@ -129,6 +129,7 @@
 		FC41A5021621B81900573F9B /* LaunchedWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC41A5001621B81700573F9B /* LaunchedWindow.xib */; };
 		FC41A5051621BE7600573F9B /* SinaUCLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5041621BE7500573F9B /* SinaUCLoginWindowController.m */; };
 		FC41A5081621BE8E00573F9B /* SinaUCLaunchedWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */; };
+		FC4221FF16F8AFDD00C6BCAE /* XMPPMUCRoom.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC4221FD16F8AFDD00C6BCAE /* XMPPMUCRoom.mm */; };
 		FC685259162A6ECE006366A7 /* SinaUCHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC685258162A6ECE006366A7 /* SinaUCHeaderViewController.m */; };
 		FC68525C162A7306006366A7 /* SinaUCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525B162A7305006366A7 /* SinaUCContactsViewController.m */; };
 		FC68525F162A731B006366A7 /* SinaUCRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC68525E162A731B006366A7 /* SinaUCRoomsViewController.m */; };
@@ -2287,6 +2288,8 @@
 		FC41A5061621BE8D00573F9B /* SinaUCLaunchedWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCLaunchedWindowController.h; sourceTree = "<group>"; };
 		FC41A5071621BE8D00573F9B /* SinaUCLaunchedWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCLaunchedWindowController.m; sourceTree = "<group>"; };
 		FC41A50D162272F300573F9B /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		FC4221FD16F8AFDD00C6BCAE /* XMPPMUCRoom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMPPMUCRoom.mm; sourceTree = "<group>"; };
+		FC4221FE16F8AFDD00C6BCAE /* XMPPMUCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPMUCRoom.h; sourceTree = "<group>"; };
 		FC685251162A5AD8006366A7 /* SinaUCSVcardUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCSVcardUpdateDelegate.h; sourceTree = "<group>"; };
 		FC685252162A5AE9006366A7 /* SinaUCCVcardUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCCVcardUpdateDelegate.h; sourceTree = "<group>"; };
 		FC685254162A5D25006366A7 /* SinaUCRoomRosterUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCRoomRosterUpdateDelegate.h; sourceTree = "<group>"; };
@@ -6572,6 +6575,8 @@
 				FCBE1AA81619620B002CA75E /* XMPP.mm */,
 				FC7469521646AE4700DC412F /* XMPPSession.h */,
 				FC7469531646AE4700DC412F /* XMPPSession.mm */,
+				FC4221FE16F8AFDD00C6BCAE /* XMPPMUCRoom.h */,
+				FC4221FD16F8AFDD00C6BCAE /* XMPPMUCRoom.mm */,
 				FC41A4AC161FBC5100573F9B /* RequestWithTGT.h */,
 				FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */,
 			);
@@ -8779,6 +8784,7 @@
 				FCDB1E5B1653787700B0D155 /* SinaUCTextView.m in Sources */,
 				FCDB1E72165887BD00B0D155 /* SinaUCWebView.m in Sources */,
 				FCDB1E801659098B00B0D155 /* SinaUCMutableStringAdditions.m in Sources */,
+				FC4221FF16F8AFDD00C6BCAE /* XMPPMUCRoom.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "XMPPSession.h"
 #import "XMPP.h"
+#import "SinaUCMessage.h"
+#import "SinaUCMessageViewController.h"
 #import "SinaUCMessageWindowController.h"
 
 #include "message.h"
@@ -18,12 +20,13 @@
 #include "chatstatefilter.h"
 #include "messageeventfilter.h"
 
-#pragma mark *** CMessageSessionEventHandler Implementation ***
-class CMessageSessionEventHandler:public gloox::MessageHandler, public gloox::MessageEventHandler, public gloox::ChatStateHandler
+
+#pragma mark *** CSessionEventHandler Implementation ***
+class CSessionEventHandler:public gloox::MessageHandler, public gloox::MessageEventHandler, public gloox::ChatStateHandler
 {
 public:
-    CMessageSessionEventHandler(XMPPSession* m_pSession);
-    virtual ~CMessageSessionEventHandler();
+    CSessionEventHandler(XMPPSession* m_pSession);
+    virtual ~CSessionEventHandler();
     
 protected:
     virtual void 	handleMessage (const gloox::Message &msg, gloox::MessageSession *session=0);
@@ -35,23 +38,25 @@ private:
     
 };
 
-CMessageSessionEventHandler::CMessageSessionEventHandler(XMPPSession* pSession)
+CSessionEventHandler::CSessionEventHandler(XMPPSession* pSession)
 :m_pSession(pSession)
 {
     
 }
 
-CMessageSessionEventHandler::~CMessageSessionEventHandler()
+CSessionEventHandler::~CSessionEventHandler()
 {
-    NSLog(@"destroy:CMessageSessionEventHandler");
+    NSLog(@"destroy:CSessionEventHandler");
 }
 
-void 	CMessageSessionEventHandler::handleMessage (const gloox::Message &msg, 
+void 	CSessionEventHandler::handleMessage (const gloox::Message &msg, 
                                         gloox::MessageSession *session)
 {
-    /*SinaUCMessage* message = [[SinaUCMessage alloc] init];
+    SinaUCMessage *message = [[SinaUCMessage alloc] init];
     NSString* messageString = [NSString stringWithUTF8String:msg.body().c_str()];
     [message setMessage:messageString];
+    //information
+    /*
     if (!msg.when()) {
         [message setTimeStamp:[NSDate date]];
     } else {
@@ -67,11 +72,11 @@ void 	CMessageSessionEventHandler::handleMessage (const gloox::Message &msg,
                          
 }
 
-void 	CMessageSessionEventHandler::handleMessageEvent (const gloox::JID &from, gloox::MessageEventType event)
+void 	CSessionEventHandler::handleMessageEvent (const gloox::JID &from, gloox::MessageEventType event)
 {
 }
 
-void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloox::ChatStateType state)
+void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::ChatStateType state)
 {
     
 }
@@ -113,7 +118,7 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
     }
     [[msgWindowController window] makeKeyAndOrderFront:nil];
     if ([msgWindowController hasSession:self] == NO) {
-        CMessageSessionEventHandler* handler = new CMessageSessionEventHandler(self);
+        CSessionEventHandler* handler = new CSessionEventHandler(self);
         session->registerMessageHandler(handler);
         //chatStateFilter = new gloox::ChatStateFilter(session);
         //chatStateFilter->registerChatStateHandler(handler);
@@ -147,6 +152,35 @@ void 	CMessageSessionEventHandler::handleChatState (const gloox::JID &from, gloo
         session->send(message);
         return YES;
     }
+    return NO;
+}
+
+@end
+
+@implementation XMPPSessionManager
+@synthesize sessions;
+
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        // Initialization code here.
+        sessions = [[NSMutableDictionary alloc]init];
+    }
+    
+    return self;
+}
+
+- (void) addSession:(XMPPSession*) session
+{
+}
+
+- (void) removeSession:(XMPPSession*) session
+{
+}
+
+- (BOOL) activateSession:(NSString*) jid
+{
     return NO;
 }
 

@@ -1,23 +1,10 @@
 //
-//  XMPPMUC.h
-//  cocoa-jabber-messenger
+//  XMPPMUCRoom.h
 //
 //  Created by 硕实 陈 on 12-1-29.
 //  
 
 #import <Foundation/Foundation.h>
-
-#include "mucroomhandler.h"
-#include "mucroom.h"
-#include "message.h"
-#include "mutex.h"
-
-#import "XMPP.h"
-#import "SinaUCMessageWindowController.h"
-#import "SinaUCRoom.h"
-#import "SinaUCRoomContact.h"
-#import "SinaUCRoomMessage.h"
-//#import "GrowlLinker.h"
 
 namespace gloox {
     class MUCRoom;
@@ -25,41 +12,30 @@ namespace gloox {
 
 class CMUCRoomEventHandler;
 
-@class GrowlLinker;
 @class SinaUCMessageWindowController;
-@class RoomMessage;
+@class SinaUCMessageViewController;
+@class SinaUCRoomMessage;
 @class XMPP;
-@interface XMPPMUCRoom : NSObject {
-@private
-    gloox::MUCRoom* room;
-    SinaUCMessageWindowController* windowController;
-    NSDictionary* roomInfo;
-    BOOL chatWindowCreated;
-    NSString* gid;
-    NSString* jid;
-    NSString* name;
-    XMPP* xmpp;
-}
+@interface XMPPMUCRoom : NSObject
 
-@property (assign) gloox::MUCRoom* room;
-@property (assign) BOOL chatWindowCreated;
+@property (retain) SinaUCMessageWindowController* chatCtrl;
+@property (retain) SinaUCMessageViewController* dialogCtrl;
+@property (nonatomic, assign) gloox::MUCRoom* room;
 @property (assign) XMPP* xmpp;
-@property (assign) NSString* jid;
-@property (assign) NSString* gid;
-@property (assign) NSString* name;
+@property (retain) NSDictionary* roomInfo;
 
 - (void) openChatWindow:(NSDictionary*) roomInfo;
 - (BOOL) sendMessage:(SinaUCRoomMessage*) msg;
 - (void) handleMessage:(SinaUCRoomMessage*) msg;
 - (void) close;
-- (void) activateWindow;
 @end
 
 @interface XMPPMUCRoomManager : NSObject {
 @private
-    NSMutableDictionary* rooms;
     CMUCRoomEventHandler* handler;
 }
+
+@property (retain) NSMutableDictionary* rooms;
 
 - (void) joinRoom:(XMPPMUCRoom*) room;
 - (void) removeRoom:(XMPPMUCRoom*) room;
