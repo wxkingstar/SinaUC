@@ -119,6 +119,7 @@
             break;
         }
         @catch (NSException *exception) {
+            NSLog(@"%@", exception);
         }
         @finally {
         }
@@ -215,7 +216,7 @@
 	return nil;
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+- (id) outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
     if ([item objectForKey:@"children"]) {
         return [NSString stringWithFormat:@"\t%@", [item valueForKey:@"name"]];
@@ -246,8 +247,7 @@
     if ([(NSOutlineView*)self.view isExpandable:node]) {
         if ([(NSOutlineView*)self.view isItemExpanded:node]) {
             [(NSOutlineView*)self.view collapseItem:node];
-        }
-        else {
+        } else {
             [(NSOutlineView*)self.view expandItem:node];
         }
     }
@@ -257,8 +257,9 @@
 {
     NSInteger selected = [(NSOutlineView*)self.view selectedRow];
     NSDictionary* contact = [(NSOutlineView*)self.view itemAtRow:selected];
+    
     if ([contact valueForKey:@"jid"]) {
-        [xmpp startChat:[contact valueForKey:@"jid"]];
+        [xmpp iStartChat:contact];
     }
 }
 

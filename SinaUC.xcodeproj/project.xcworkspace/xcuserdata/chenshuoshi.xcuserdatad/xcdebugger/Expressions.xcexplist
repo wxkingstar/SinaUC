@@ -30,6 +30,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[XMPPSessionManager openSession:withWindow:]:XMPPSession.mm">
+      </ContextState>
+      <ContextState
          contextName = "gloox::RosterManager::fill():rostermanager.mm">
       </ContextState>
       <ContextState
@@ -44,10 +47,10 @@
          contextName = "gloox::Tag::hasAttribute(std::string const&amp;, std::string const&amp;) const:tag.mm">
          <PersistentStrings>
             <PersistentString
-               value = "(*it)-&gt;name()">
+               value = "(*it)-&gt;value()">
             </PersistentString>
             <PersistentString
-               value = "(*it)-&gt;value()">
+               value = "(*it)-&gt;name()">
             </PersistentString>
             <PersistentString
                value = "this-&gt;m_attribs">
@@ -67,6 +70,22 @@
          <PersistentStrings>
             <PersistentString
                value = "it-&gt;findAttribute(&quot;name&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCMessageWindowController activateSession:]:SinaUCMessageWindowController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCContactsViewController onDoubleClick:]:SinaUCContactsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "xmpp">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

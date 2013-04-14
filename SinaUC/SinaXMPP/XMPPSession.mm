@@ -6,11 +6,11 @@
 //  Copyright 2011 NHN Corporation. All rights reserved.
 //
 
-#import "XMPPSession.h"
 #import "XMPP.h"
+#import "XMPPSession.h"
 #import "SinaUCMessage.h"
-#import "SinaUCMessageViewController.h"
 #import "SinaUCMessageWindowController.h"
+#import "SinaUCMessageViewController.h"
 
 #include "message.h"
 #include "messagesession.h"
@@ -53,8 +53,8 @@ void 	CSessionEventHandler::handleMessage (const gloox::Message &msg,
                                         gloox::MessageSession *session)
 {
     SinaUCMessage *message = [[SinaUCMessage alloc] init];
-    NSString* messageString = [NSString stringWithUTF8String:msg.body().c_str()];
-    [message setMessage:messageString];
+    [message setMessage:[NSString stringWithUTF8String:msg.body().c_str()]];
+    [m_pSession performSelectorOnMainThread:@selector(handleMessage:) withObject:message waitUntilDone:NO];
     //information
     /*
     if (!msg.when()) {
@@ -86,8 +86,19 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 @implementation XMPPSession
 @synthesize session;
 @synthesize contactInfo;
-@synthesize chatCtrl;
-@synthesize dialogCtrl;
+
+- (void) setSession:(gloox::MessageSession *)theSession
+{
+    @synchronized(self) {
+        session = theSession;
+        handler = new CSessionEventHandler(self);
+        session->registerMessageHandler(handler);
+        chatStateFilter = new gloox::ChatStateFilter(session);
+        chatStateFilter->registerChatStateHandler(handler);
+        messageEventFilter = new gloox::MessageEventFilter(session);
+        messageEventFilter->registerMessageEventHandler(handler);
+    }
+}
 
 - (void) close
 {
@@ -110,31 +121,13 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
     session = nil;*/
 }
 
-- (void) openChatWindowInitiative:(BOOL) positive
+- (void)addMessage:(SinaUCMessage*) message
 {
-    SinaUCMessageWindowController* msgWindowController = [[SinaUCMessageWindowController alloc] init];
-    if (![[NSApplication sharedApplication] isActive]) {
-        [[msgWindowController window] setAlphaValue:0];
-    }
-    [[msgWindowController window] makeKeyAndOrderFront:nil];
-    if ([msgWindowController hasSession:self] == NO) {
-        CSessionEventHandler* handler = new CSessionEventHandler(self);
-        session->registerMessageHandler(handler);
-        //chatStateFilter = new gloox::ChatStateFilter(session);
-        //chatStateFilter->registerChatStateHandler(handler);
-        //messageEventFilter = new gloox::MessageEventFilter(session);
-        //messageEventFilter->registerMessageEventHandler(handler);
-        //创建窗口的同时，设置session的chatWindow和dialog
-        [msgWindowController addSession:self];
-    }
-    if (positive) {
-        [msgWindowController activateSession:[contactInfo valueForKey:@"jid"]];
-    }
-    
-    //[msgWindowController addContact:contactInfo];
+    //Notification
+    NSLog(@"%@", message);
 }
 
-- (void)handleMessage:(SinaUCMessage*) item
+- (void)handleMessage:(SinaUCMessage*) message
 {
     /*[item setType:@"from"];
     [item setJid:jid];
@@ -143,45 +136,51 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 	if (![NSApp isActive]) {
         [[NSNotificationCenter defaultCenter]postNotificationName:@"unreadMessage" object:item];
 	}*/
+    [self addMessage:message];
 }
 
-- (BOOL)sendMessage:(SinaUCMessage*) item
+- (BOOL)sendMessage:(SinaUCMessage*) message
 {
-    std::string message = [[item message] UTF8String];
-    if (session) {
-        session->send(message);
-        return YES;
-    }
+    std::string msg = [[message message] UTF8String];
+    session->send(msg);
+    [self addMessage:message];
     return NO;
 }
 
 @end
 
 @implementation XMPPSessionManager
+@synthesize xmpp;
 @synthesize sessions;
+@synthesize chatCtrl;
+@synthesize dialogCtrl;
 
 - (id) init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
-        sessions = [[NSMutableDictionary alloc]init];
+        sessions = [[NSMutableDictionary alloc] init];
+        chatCtrl = [[SinaUCMessageWindowController alloc] init];
     }
-    
     return self;
 }
 
-- (void) addSession:(XMPPSession*) session
+- (void) openSession:(XMPPSession*) session withWindow:(BOOL) active
 {
-}
-
-- (void) removeSession:(XMPPSession*) session
-{
-}
-
-- (BOOL) activateSession:(NSString*) jid
-{
-    return NO;
+    if (![[NSApplication sharedApplication] isActive]) {
+        //[[chatCtrl window] setAlphaValue:0];
+    }
+    [[chatCtrl window] makeKeyAndOrderFront:nil];
+    if (![sessions objectForKey: [[session contactInfo] valueForKey:@"jid"]]) {
+        [sessions setObject:session forKey:[[session contactInfo] valueForKey:@"jid"]];
+        [chatCtrl addSession:session];
+    } else {
+        session = [sessions objectForKey: [[session contactInfo] valueForKey:@"jid"]];
+    }
+    if (active) {
+        [chatCtrl activateSession:[[session contactInfo] valueForKey:@"jid"]];
+    }
 }
 
 @end

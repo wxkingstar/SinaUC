@@ -8,15 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class SinaUCWebKitMessageViewController, SinaUCTextView;
+@class SinaUCWebKitMessageViewController, SinaUCTextView, XMPPSession;
 @interface SinaUCMessageViewController : NSViewController
 {
     NSMutableArray *messages;
     IBOutlet SinaUCTextView *input;
     SinaUCWebKitMessageViewController	*messageDisplayController;
-
 }
 
-- (IBAction)send:(id)sender;
+@property (retain) XMPPSession *session;
+
+- (IBAction)send:(id) sender;
 
 @end

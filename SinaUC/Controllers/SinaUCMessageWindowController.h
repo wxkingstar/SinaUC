@@ -22,13 +22,9 @@
 }
 
 @property (retain) NSString* currentJid;
-@property (retain) NSMutableDictionary* sessions;
 
-- (void)addContact:(NSDictionary*) contact;
 - (PSMTabBarControl*)tabBar;
-- (BOOL)hasSession:(XMPPSession*) session;
 - (void)addSession:(XMPPSession*) session;
 - (void)activateSession:(NSString*) jid;
-- (void)handleMessage:(SinaUCMessage*) msg;
 
 @end
