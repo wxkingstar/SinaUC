@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 陈 硕实. All rights reserved.
 //
 
+#import "SinaUCWebKitMessageViewController.h"
 #import "SinaUCMessageViewController.h"
 #import "XMPPSession.h"
 #import "SinaUCMessage.h"
@@ -18,7 +19,7 @@
 @implementation SinaUCMessageViewController
 @synthesize session;
 
-- (id)initWithNibName:(NSString*) nibNameOrNil bundle:(NSBundle*) nibBundleOrNil
+- (id) initWithNibName:(NSString*) nibNameOrNil bundle:(NSBundle*) nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -27,20 +28,24 @@
     return self;
 }
 
-- (void)awakeFromNib
+- (void) awakeFromNib
 {
     messages = [[NSMutableArray alloc] init];
     [input setTarget:self];
     [input setAction:@selector(send:)];
-    //messageDisplayController = [SinaUCWebKitMessageViewController messageDisplayControllerForChat];
 }
 
-- (IBAction)send:(id) sender
+- (IBAction) send:(id) sender
 {
     //notification 告知view和sinaucmessagewindowcontroller发送了消息，这样只需要一份xmpp拷贝即可。
     SinaUCMessage *msg = [[SinaUCMessage alloc] init];
     [msg setMessage:[input string]];
     [session sendMessage: msg];
+}
+
+- (void) addMessage:(SinaUCMessage *)msg
+{
+    [messageDisplayController enqueueContentObject:msg];
 }
 
 @end

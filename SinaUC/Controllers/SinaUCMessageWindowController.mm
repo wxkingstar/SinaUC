@@ -45,6 +45,7 @@ static SinaUCMessageWindowController* instance;
     [tabView selectTabViewItem:dialog];
     SinaUCMessageViewController *dialogController = [[SinaUCMessageViewController alloc] initWithNibName:@"SinaUCMessageViewController" bundle:nil];
     [dialogController setSession:session];
+    [session setDialogCtrl:dialogController];
     dialogController.view.frame = NSMakeRect(0, 0, [[dialog view] frame].size.width, [[dialog view] frame].size.height);
     [[dialog view] addSubview:[dialogController view]];
 }

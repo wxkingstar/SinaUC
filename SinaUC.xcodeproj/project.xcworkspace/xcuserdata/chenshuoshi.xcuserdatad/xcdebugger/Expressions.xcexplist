@@ -3,10 +3,81 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "gloox::Tag::hasAttribute(std::string const&amp;, std::string const&amp;) const:tag.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;m_attribs">
+            </PersistentString>
+            <PersistentString
+               value = "(*it)-&gt;value()">
+            </PersistentString>
+            <PersistentString
+               value = "(*it)-&gt;name()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCContactsViewController updateRoster]:SinaUCContactsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[contactsRes indexOfObject:contactInfo]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gloox::RosterManager::fill():rostermanager.mm">
+      </ContextState>
+      <ContextState
          contextName = "-[XMPPSessionManager activateSession:]:XMPPSession.mm">
          <PersistentStrings>
             <PersistentString
                value = "[session jid]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCContactsViewController onDoubleClick:]:SinaUCContactsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "xmpp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[XMPPSessionManager openSession:withWindow:]:XMPPSession.mm">
+      </ContextState>
+      <ContextState
+         contextName = "CXmpp::onConnect():XMPP.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_logintimes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCMessageStyle scriptForAppendingContent:]:SinaUCMessageStyle.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "stylePath">
+            </PersistentString>
+            <PersistentString
+               value = "styleBundle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SinaUCMessageWindowController activateSession:]:SinaUCMessageWindowController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gloox::RosterManager::Query::Query(gloox::Tag const*):rostermanager.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "it-&gt;findAttribute(&quot;name&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -26,66 +97,6 @@
             </PersistentString>
             <PersistentString
                value = "(*it).first">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[XMPPSessionManager openSession:withWindow:]:XMPPSession.mm">
-      </ContextState>
-      <ContextState
-         contextName = "gloox::RosterManager::fill():rostermanager.mm">
-      </ContextState>
-      <ContextState
-         contextName = "CXmpp::onConnect():XMPP.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "m_logintimes">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "gloox::Tag::hasAttribute(std::string const&amp;, std::string const&amp;) const:tag.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "(*it)-&gt;value()">
-            </PersistentString>
-            <PersistentString
-               value = "(*it)-&gt;name()">
-            </PersistentString>
-            <PersistentString
-               value = "this-&gt;m_attribs">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[SinaUCContactsViewController updateRoster]:SinaUCContactsViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[contactsRes indexOfObject:contactInfo]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "gloox::RosterManager::Query::Query(gloox::Tag const*):rostermanager.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "it-&gt;findAttribute(&quot;name&quot;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[SinaUCMessageWindowController activateSession:]:SinaUCMessageWindowController.mm">
-         <PersistentStrings>
-            <PersistentString
-               value = "tabView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[SinaUCContactsViewController onDoubleClick:]:SinaUCContactsViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "xmpp">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

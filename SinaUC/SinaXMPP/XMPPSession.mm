@@ -86,6 +86,7 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 @implementation XMPPSession
 @synthesize session;
 @synthesize contactInfo;
+@synthesize dialogCtrl;
 
 - (void) setSession:(gloox::MessageSession *)theSession
 {
@@ -121,13 +122,14 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
     session = nil;*/
 }
 
-- (void)addMessage:(SinaUCMessage*) message
+- (void) addMessage:(SinaUCMessage*) message
 {
     //Notification
-    NSLog(@"%@", message);
+    NSLog(@"%@", [message message]);
+    //[dialogCtrl addMessage:message];
 }
 
-- (void)handleMessage:(SinaUCMessage*) message
+- (void) handleMessage:(SinaUCMessage*) message
 {
     /*[item setType:@"from"];
     [item setJid:jid];
@@ -139,7 +141,7 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
     [self addMessage:message];
 }
 
-- (BOOL)sendMessage:(SinaUCMessage*) message
+- (BOOL) sendMessage:(SinaUCMessage*) message
 {
     std::string msg = [[message message] UTF8String];
     session->send(msg);
@@ -153,7 +155,6 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 @synthesize xmpp;
 @synthesize sessions;
 @synthesize chatCtrl;
-@synthesize dialogCtrl;
 
 - (id) init
 {
@@ -172,14 +173,13 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
         //[[chatCtrl window] setAlphaValue:0];
     }
     [[chatCtrl window] makeKeyAndOrderFront:nil];
-    if (![sessions objectForKey: [[session contactInfo] valueForKey:@"jid"]]) {
-        [sessions setObject:session forKey:[[session contactInfo] valueForKey:@"jid"]];
+    NSString *jidStr = [[session contactInfo] valueForKey:@"jid"];
+    if (![sessions objectForKey: jidStr]) {
+        [sessions setObject:session forKey:jidStr];
         [chatCtrl addSession:session];
-    } else {
-        session = [sessions objectForKey: [[session contactInfo] valueForKey:@"jid"]];
     }
     if (active) {
-        [chatCtrl activateSession:[[session contactInfo] valueForKey:@"jid"]];
+        [chatCtrl activateSession:jidStr];
     }
 }
 

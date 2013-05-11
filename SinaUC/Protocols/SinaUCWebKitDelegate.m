@@ -7,8 +7,9 @@
 //
 
 #import "SinaUCWebKitDelegate.h"
-//#import "SinaUCWebKitMessageViewController.h"
+#import "SinaUCWebKitMessageViewController.h"
 #import "SinaUCWebView.h"
+#import "SinaUCURLProtocol.h"
 //#import "AIURLHandlerPlugin.h"
 //#import "AIEventAdditions.h"
 //#import "AIAdiumURLProtocol.h"
@@ -25,9 +26,8 @@ static SinaUCWebKitDelegate *sharedWebKitDelegate;
 {
 	if ((self = [super init]))  {
 		mapping = [[NSMutableDictionary alloc] init];
-		
-		//[NSURLProtocol registerClass:[AIAdiumURLProtocol class]];
-		[SinaUCWebView registerURLSchemeAsLocal:@"adium"];
+		[NSURLProtocol registerClass:[SinaUCURLProtocol class]];
+		[SinaUCWebView registerURLSchemeAsLocal:@"sinauc"];
 	}
 	return self;
 }
@@ -122,111 +122,14 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
     }
 }
 
-
-/*!
- * @brief Append our own menu items to the webview's contextual menus
- 
-- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	if(controller)
-		return [controller webView:sender contextMenuItemsForElement:element defaultMenuItems:defaultMenuItems];
-	return defaultMenuItems;
-}*/
-
 /*!
  * @brief Announce when the window script object is available for modification
- 
+ */
 - (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame {
-    SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
+    SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(void *)sender]];
 	if(controller)
         [controller webView:sender didClearWindowObject:windowObject forFrame:frame];
-}*/
-
-/*!
- * @brief Dragging entered
- 
-- (NSDragOperation)webView:(SinaUCWebView *)sender draggingEntered:(id <NSDraggingInfo>)info
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-    
-	return controller ? [controller draggingEntered:info] : NSDragOperationNone;
-}*/
-
-/*!
- * @brief Dragging updated
- 
-- (NSDragOperation)webView:(SinaUCWebView *)sender draggingUpdated:(id <NSDraggingInfo>)info
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	return controller ? [controller draggingUpdated:info] : NSDragOperationNone;
-}*/
-
-/*!
- * @brief Handle a drag onto the webview
- *
- * If we're getting a non-image file, we can handle it immediately.  Otherwise, the drag is the textView's problem.
- 
-- (BOOL)webView:(SinaUCWebView *)sender performDragOperation:(id <NSDraggingInfo>)info
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	return controller ? [controller performDragOperation:info] : NO;
-}*/
-
-/*!
- * @brief Pass on the prepareForDragOperation if it's not one we're handling in this class
- 
-- (BOOL)webView:(SinaUCWebView *)sender prepareForDragOperation:(id <NSDraggingInfo>)info
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	return controller ? [controller prepareForDragOperation:info] : NO;
-}*/
-
-/*!
- * @brief Pass on the concludeDragOperation if it's not one we're handling in this class
- 
-- (void)webView:(SinaUCWebView *)sender concludeDragOperation:(id <NSDraggingInfo>)info
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	if(controller)
-		[controller concludeDragOperation:info];
 }
 
-- (BOOL)webView:(SinaUCWebView *)sender shouldHandleDragWithPasteboard:(NSPasteboard *)pasteboard
-{
-	//AIWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:sender]];
-	//return controller ? [controller shouldHandleDragWithPasteboard:pasteboard] : NO;
-	return NO;
-}
-
-- (BOOL)webView:(SinaUCWebView *)sender shouldInsertText:(NSString *)text replacingDOMRange:(DOMRange *)range givenAction:(WebViewInsertAction)action
-{
-	if ([text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location != NSNotFound) {
-		SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-		if(controller)
-			[controller editingDidComplete:range];
-		
-		// The user pressed return; don't let it be entered into the text.
-		return NO;
-	} else {
-		return YES;
-	}
-}
-
-- (BOOL)webView:(SinaUCWebView *)sender shouldEndEditingInDOMRange:(DOMRange *)range
-{
-	SinaUCWebKitMessageViewController *controller = [mapping objectForKey:[NSValue valueWithPointer:(__bridge void *)sender]];
-	if(controller)
-		[controller editingDidComplete:range];
-	
-	return YES;
-}
-
-- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
-{
-	NSMutableURLRequest *newRequest = [request mutableCopy];
-	[newRequest setHTTPShouldHandleCookies:NO];
-	return newRequest;
-}*/
 @end
 

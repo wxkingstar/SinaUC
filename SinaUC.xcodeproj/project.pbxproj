@@ -116,6 +116,12 @@
 		FC3929971617E77F000982C3 /* SinaUCMaxLengthFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3929941617E77F000982C3 /* SinaUCMaxLengthFormatter.m */; };
 		FC392A1616194526000982C3 /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC392A1516194526000982C3 /* db.plist */; };
 		FC392A1816194902000982C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC392A1716194902000982C3 /* libsqlite3.dylib */; };
+		FC3FE173173D4946001781A0 /* SinaUCWebKitDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3FE172173D4946001781A0 /* SinaUCWebKitDelegate.m */; };
+		FC3FE175173D49C9001781A0 /* SinaUCWebKitMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3FE174173D49C9001781A0 /* SinaUCWebKitMessageViewController.m */; };
+		FC3FE17B173D4A50001781A0 /* SinaUCMessageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3FE17A173D4A50001781A0 /* SinaUCMessageStyle.m */; };
+		FC3FE18D173DD566001781A0 /* message style in Resources */ = {isa = PBXBuildFile; fileRef = FC3FE18C173DD566001781A0 /* message style */; };
+		FC3FE18F173DD573001781A0 /* Template.html in Resources */ = {isa = PBXBuildFile; fileRef = FC3FE18E173DD573001781A0 /* Template.html */; };
+		FC3FE192173DDC7F001781A0 /* SinaUCURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3FE191173DDC7F001781A0 /* SinaUCURLProtocol.m */; };
 		FC41A4A7161EA96200573F9B /* SinaUCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4A6161EA96200573F9B /* SinaUCRequest.m */; };
 		FC41A4AB161EC05900573F9B /* SinaUCMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AA161EC05900573F9B /* SinaUCMD5.m */; };
 		FC41A4AE161FBC5100573F9B /* RequestWithTGT.m in Sources */ = {isa = PBXBuildFile; fileRef = FC41A4AD161FBC5100573F9B /* RequestWithTGT.m */; };
@@ -2263,6 +2269,16 @@
 		FC39299C1617EA59000982C3 /* SinaUCConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinaUCConnectionDelegate.h; sourceTree = "<group>"; };
 		FC392A1516194526000982C3 /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
 		FC392A1716194902000982C3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FC3FE16A173D4856001781A0 /* SinaUCWebKitMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCWebKitMessageViewController.h; sourceTree = "<group>"; };
+		FC3FE171173D4946001781A0 /* SinaUCWebKitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCWebKitDelegate.h; sourceTree = "<group>"; };
+		FC3FE172173D4946001781A0 /* SinaUCWebKitDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCWebKitDelegate.m; sourceTree = "<group>"; };
+		FC3FE174173D49C9001781A0 /* SinaUCWebKitMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCWebKitMessageViewController.m; sourceTree = "<group>"; };
+		FC3FE179173D4A50001781A0 /* SinaUCMessageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCMessageStyle.h; path = UISubClasses/SinaUCMessageStyle.h; sourceTree = "<group>"; };
+		FC3FE17A173D4A50001781A0 /* SinaUCMessageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCMessageStyle.m; path = UISubClasses/SinaUCMessageStyle.m; sourceTree = "<group>"; };
+		FC3FE18C173DD566001781A0 /* message style */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "message style"; sourceTree = "<group>"; };
+		FC3FE18E173DD573001781A0 /* Template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Template.html; sourceTree = "<group>"; };
+		FC3FE190173DDC7F001781A0 /* SinaUCURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SinaUCURLProtocol.h; path = UISubClasses/SinaUCURLProtocol.h; sourceTree = "<group>"; };
+		FC3FE191173DDC7F001781A0 /* SinaUCURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinaUCURLProtocol.m; path = UISubClasses/SinaUCURLProtocol.m; sourceTree = "<group>"; };
 		FC41A4A5161EA96200573F9B /* SinaUCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCRequest.h; sourceTree = "<group>"; };
 		FC41A4A6161EA96200573F9B /* SinaUCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaUCRequest.m; sourceTree = "<group>"; };
 		FC41A4A9161EC05900573F9B /* SinaUCMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaUCMD5.h; sourceTree = "<group>"; };
@@ -4525,6 +4541,8 @@
 		FC4929F21610336000C30A11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				FC3FE171173D4946001781A0 /* SinaUCWebKitDelegate.h */,
+				FC3FE172173D4946001781A0 /* SinaUCWebKitDelegate.m */,
 				FC39299C1617EA59000982C3 /* SinaUCConnectionDelegate.h */,
 				FC685251162A5AD8006366A7 /* SinaUCSVcardUpdateDelegate.h */,
 				FC685252162A5AE9006366A7 /* SinaUCCVcardUpdateDelegate.h */,
@@ -4559,6 +4577,8 @@
 		FC8ADB1A160F26BF0069F6E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FC3FE18E173DD573001781A0 /* Template.html */,
+				FC3FE18C173DD566001781A0 /* message style */,
 				FCB239A5165015F00028C038 /* toolbar_emotion_hover.png */,
 				FCB239A6165015F00028C038 /* toolbar_emotion_hover@2x.png */,
 				FCB239A7165015F00028C038 /* toolbar_emotion_no.png */,
@@ -6383,6 +6403,8 @@
 				FCB23994164FF7680028C038 /* SinaUCMessageViewController.h */,
 				FCB23995164FF7690028C038 /* SinaUCMessageViewController.mm */,
 				FCB23996164FF76A0028C038 /* SinaUCMessageViewController.xib */,
+				FC3FE16A173D4856001781A0 /* SinaUCWebKitMessageViewController.h */,
+				FC3FE174173D49C9001781A0 /* SinaUCWebKitMessageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -6541,6 +6563,8 @@
 				FCB23959164E00480028C038 /* SinaUCMessageView.m */,
 				FC01EF2A1650E3B400933952 /* SinaUCDialogView.h */,
 				FC01EF2B1650E3B400933952 /* SinaUCDialogView.m */,
+				FC3FE179173D4A50001781A0 /* SinaUCMessageStyle.h */,
+				FC3FE17A173D4A50001781A0 /* SinaUCMessageStyle.m */,
 			);
 			name = "ui components";
 			sourceTree = "<group>";
@@ -6564,6 +6588,8 @@
 				FCDB1E5A1653787700B0D155 /* SinaUCTextView.m */,
 				FCDB1E70165887BC00B0D155 /* SinaUCWebView.h */,
 				FCDB1E71165887BD00B0D155 /* SinaUCWebView.m */,
+				FC3FE190173DDC7F001781A0 /* SinaUCURLProtocol.h */,
+				FC3FE191173DDC7F001781A0 /* SinaUCURLProtocol.m */,
 			);
 			name = "base components";
 			sourceTree = "<group>";
@@ -8560,6 +8586,8 @@
 				FCB239AE165015F00028C038 /* toolbar_emotion_no@2x.png in Resources */,
 				FCB239AF165015F00028C038 /* toolbar_emotion_normal.png in Resources */,
 				FCB239B0165015F00028C038 /* toolbar_emotion_normal@2x.png in Resources */,
+				FC3FE18D173DD566001781A0 /* message style in Resources */,
+				FC3FE18F173DD573001781A0 /* Template.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8785,6 +8813,10 @@
 				FCDB1E72165887BD00B0D155 /* SinaUCWebView.m in Sources */,
 				FCDB1E801659098B00B0D155 /* SinaUCMutableStringAdditions.m in Sources */,
 				FC4221FF16F8AFDD00C6BCAE /* XMPPMUCRoom.mm in Sources */,
+				FC3FE173173D4946001781A0 /* SinaUCWebKitDelegate.m in Sources */,
+				FC3FE175173D49C9001781A0 /* SinaUCWebKitMessageViewController.m in Sources */,
+				FC3FE17B173D4A50001781A0 /* SinaUCMessageStyle.m in Sources */,
+				FC3FE192173DDC7F001781A0 /* SinaUCURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

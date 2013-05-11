@@ -176,16 +176,13 @@
 															<int key="NSColorSpace">6</int>
 															<string key="NSCatalogName">System</string>
 															<string key="NSColorName">selectedTextColor</string>
-															<object class="NSColor" key="NSColor">
+															<object class="NSColor" key="NSColor" id="463893424">
 																<int key="NSColorSpace">3</int>
 																<bytes key="NSWhite">MAA</bytes>
 															</object>
 														</object>
 													</dictionary>
-													<object class="NSColor" key="NSInsertionColor">
-														<int key="NSColorSpace">3</int>
-														<bytes key="NSWhite">MAA</bytes>
-													</object>
+													<reference key="NSInsertionColor" ref="463893424"/>
 													<dictionary key="NSLinkAttributes">
 														<object class="NSColor" key="NSColor">
 															<int key="NSColorSpace">1</int>
@@ -374,7 +371,6 @@ wGw</bytes>
 										<string key="NSFrame">{{394, 0}, {16, 50}}</string>
 										<reference key="NSSuperview" ref="863532364"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:83</string>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 										<reference key="NSTarget" ref="863532364"/>
@@ -470,7 +466,7 @@ wGw</bytes>
 												<string key="NSFrameSize">{430, 295}</string>
 												<reference key="NSSuperview" ref="351396089"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="887161927"/>
+												<reference key="NSNextKeyView" ref="919560048"/>
 												<string key="NSReuseIdentifierKey">_NS:13</string>
 											</object>
 										</array>
@@ -494,7 +490,7 @@ wGw</bytes>
 										<string key="NSFrame">{{414, 0}, {16, 295}}</string>
 										<reference key="NSSuperview" ref="31069976"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="919560048"/>
+										<reference key="NSNextKeyView" ref="178849627"/>
 										<string key="NSReuseIdentifierKey">_NS:15</string>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 										<reference key="NSTarget" ref="31069976"/>
@@ -508,7 +504,7 @@ wGw</bytes>
 										<string key="NSFrame">{{0, 279}, {430, 16}}</string>
 										<reference key="NSSuperview" ref="31069976"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="178849627"/>
+										<reference key="NSNextKeyView" ref="887161927"/>
 										<string key="NSReuseIdentifierKey">_NS:26</string>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 										<int key="NSsFlags">1</int>
@@ -556,6 +552,9 @@ wGw</bytes>
 				<reference key="NSNextKeyView" ref="512688787"/>
 				<string key="NSClassName">SinaUCDialogView</string>
 			</object>
+			<object class="NSCustomObject" id="82915591">
+				<string key="NSClassName">SinaUCWebKitMessageViewController</string>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -574,6 +573,14 @@ wGw</bytes>
 						<reference key="destination" ref="480822400"/>
 					</object>
 					<int key="connectionID">38</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">messageDisplayController</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="82915591"/>
+					</object>
+					<int key="connectionID">44</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -646,6 +653,14 @@ wGw</bytes>
 						<reference key="destination" ref="889063233"/>
 					</object>
 					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">frameView</string>
+						<reference key="source" ref="82915591"/>
+						<reference key="destination" ref="31069976"/>
+					</object>
+					<int key="connectionID">45</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -798,6 +813,11 @@ wGw</bytes>
 						<reference key="object" ref="1014698115"/>
 						<reference key="parent" ref="31069976"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">43</int>
+						<reference key="object" ref="82915591"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -825,12 +845,13 @@ wGw</bytes>
 				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -903,17 +924,20 @@ wGw</bytes>
 							<string key="candidateClassName">id</string>
 						</object>
 					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">input</string>
-						<string key="NS.object.0">SinaUCTextView</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">input</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="input">SinaUCTextView</string>
+						<string key="messageDisplayController">SinaUCWebKitMessageViewController</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="input">
 							<string key="name">input</string>
 							<string key="candidateClassName">SinaUCTextView</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="messageDisplayController">
+							<string key="name">messageDisplayController</string>
+							<string key="candidateClassName">SinaUCWebKitMessageViewController</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SinaUCMessageViewController.h</string>
@@ -925,6 +949,25 @@ wGw</bytes>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SinaUCTextView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SinaUCWebKitMessageViewController</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">frameView</string>
+						<string key="NS.object.0">NSScrollView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">frameView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">frameView</string>
+							<string key="candidateClassName">NSScrollView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SinaUCWebKitMessageViewController.h</string>
 					</object>
 				</object>
 			</array>

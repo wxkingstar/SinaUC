@@ -13,7 +13,7 @@
 {
     NSMutableArray *messages;
     IBOutlet SinaUCTextView *input;
-    SinaUCWebKitMessageViewController	*messageDisplayController;
+    IBOutlet SinaUCWebKitMessageViewController	*messageDisplayController;
 }
 
 @property (retain) XMPPSession *session;

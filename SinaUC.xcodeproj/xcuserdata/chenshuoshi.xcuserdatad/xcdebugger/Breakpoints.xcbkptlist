@@ -7,14 +7,14 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SinaUC/SinaXMPP/XMPPSession.mm"
-         timestampString = "387649127.304224"
+         filePath = "SinaUC/UISubClasses/SinaUCMessageStyle.m"
+         timestampString = "389939329.953405"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "182"
-         endingLineNumber = "182"
-         landmarkName = "-openSession:withWindow:"
-         landmarkType = "5">
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "@implementation SinaUCMessageStyle"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
