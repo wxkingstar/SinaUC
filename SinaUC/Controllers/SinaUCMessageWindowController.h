@@ -13,7 +13,7 @@
 #import "XMPP.h"
 #import "SinaUCMessage.h"
 
-@class XMPPSession;
+@class XMPPSession, XMPPMUCRoom;
 @interface SinaUCMessageWindowController : NSWindowController
 {
     IBOutlet XMPP               *xmpp;
@@ -23,8 +23,9 @@
 
 @property (retain) NSString* currentJid;
 
-- (PSMTabBarControl*)tabBar;
-- (void)addSession:(XMPPSession*) session;
-- (void)activateSession:(NSString*) jid;
+- (PSMTabBarControl *)tabBar;
+- (void)addSession:(XMPPSession *) session;
+- (void)addRoom:(XMPPMUCRoom *) room;
+- (void)activate:(NSString *) jid;
 
 @end

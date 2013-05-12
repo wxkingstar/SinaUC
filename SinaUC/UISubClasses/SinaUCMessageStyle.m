@@ -8,6 +8,7 @@
 
 #import "SinaUCMessageStyle.h"
 #import "SinaUCMessage.h"
+#import "SinaUCRoomMessage.h"
 #import "SinaUCStringAdditions.h"
 #import "SinaUCMutableStringAdditions.h"
 
@@ -72,7 +73,7 @@
 
 #pragma mark Keyword replacement
 
-- (NSMutableString *)fillKeywords:(NSMutableString *)inString forContent:(SinaUCMessage *)content {
+- (NSMutableString *)fillKeywords:(NSMutableString *)inString forContent:(id) content {
 	NSDate			*date = nil;
 	NSRange			range;
     
@@ -96,15 +97,18 @@
                                                simpleTagsOnly:NO
                                                bodyBackground:NO
                                           allowJavascriptURLs:NO];*/
-    NSString *htmlEncodedMessage = [content message];
+    NSString *htmlEncodedMessage = [content valueForKey:@"message"];
 	//date
 	/*if ([content respondsToSelector:@selector(date)])
 		date = [(AIContentMessage *)content date];
-	
+	*/
 	//Replacements applicable to any AIContentObject
-	[inString replaceKeyword:@"%time%"
-				  withString:(date ? [timeStampFormatter stringFromDate:date] : @"")];
-    
+    if ([[[NSDate date] descriptionWithCalendarFormat:@"%d" timeZone:nil locale:nil] isEqualToString:[[content valueForKey:@"sendtime"] descriptionWithCalendarFormat:@"%d" timeZone:nil locale:nil]]) {
+        [inString replaceKeyword:@"%time%" withString:[[content valueForKey:@"sendtime"] descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil]];
+    } else {
+        [inString replaceKeyword:@"%time%" withString:[[content valueForKey:@"sendtime"] descriptionWithCalendarFormat:@"%m-%d %H:%M" timeZone:nil locale:nil]];
+    }
+    /*
 	__block NSString *shortTimeString;
 	[NSDateFormatter withLocalizedDateFormatterShowingSeconds:NO showingAMorPM:NO perform:^(NSDateFormatter *dateFormatter){
 		shortTimeString = (date ? [dateFormatter stringFromDate:date] : @"");
@@ -152,7 +156,7 @@
 	[inString replaceKeyword:@"%userIcons%" withString:@"showIcons"];
     
 	[inString replaceKeyword:@"%messageClasses%"
-				  withString:([content outgoing] == 0 ? @"incoming" : @"outgoing")];
+				  withString:([content valueForKey:@"outgoing"] == 0 ? @"incoming" : @"outgoing")];
 	
 	/*[inString replaceKeyword:@"%senderColor%"
 				  withString:[NSColor representedColorForObject:contentSource.UID withValidColors:self.validSenderColors]];*/
@@ -259,63 +263,20 @@
     
     
     [inString replaceKeyword:@"%senderPrefix%"
-                  withString:((AIContentMessage *)content).senderPrefix];
+                  withString:((AIContentMessage *)content).senderPrefix];*/
     
     do{
         range = [inString rangeOfString:@"%sender%"];
         if (range.location != NSNotFound) {
-            NSString		*senderDisplay = nil;
-            if (useCustomNameFormat) {
-                if (formattedUID && ![displayName isEqualToString:formattedUID]) {
-                    switch (nameFormat) {
-                        case AIDefaultName:
-                            break;
-                            
-                        case AIDisplayName:
-                            senderDisplay = displayName;
-                            break;
-                            
-                        case AIDisplayName_ScreenName:
-                            senderDisplay = [NSString stringWithFormat:@"%@ (%@)",displayName,formattedUID];
-                            break;
-                            
-                        case AIScreenName_DisplayName:
-                            senderDisplay = [NSString stringWithFormat:@"%@ (%@)",formattedUID,displayName];
-                            break;
-                            
-                        case AIScreenName:
-                            senderDisplay = formattedUID;
-                            break;
-                    }
-                }
-                
-                //Test both displayName and formattedUID for nil-ness. If they're both nil, the assertion will trip.
-                if (!senderDisplay) {
-                    senderDisplay = displayName;
-                    if (!senderDisplay) {
-                        senderDisplay = formattedUID;
-                        if (!senderDisplay) {
-                            AILog(@"XXX we don't have a sender for %@ (%@)", content, [content message]);
-                            NSLog(@"Enormous error: we don't have a sender for %@ (%@)", content, [content message]);
-                            
-                            // This shouldn't happen.
-                            senderDisplay = @"(unknown)";
-                        }
-                    }
-                }
+            if ([content valueForKey:@"displayName"]) {
+                [inString safeReplaceCharactersInRange:range withString:[content valueForKey:@"displayName"]];
             } else {
-                senderDisplay = displayName;
+                [inString safeReplaceCharactersInRange:range withString:@""];
             }
-            
-            if ([(AIContentMessage *)content isAutoreply]) {
-                senderDisplay = [NSString stringWithFormat:@"%@ %@",senderDisplay,AILocalizedString(@"(Autoreply)","Short word inserted after the sender's name when displaying a message which was an autoresponse")];
-            }
-            
-            [inString safeReplaceCharactersInRange:range withString:[senderDisplay stringByEscapingForXMLWithEntities:nil]];
         }
     } while (range.location != NSNotFound);
     
-    do {
+    /*do {
         range = [inString rangeOfString:@"%senderDisplayName%"];
         if (range.location != NSNotFound) {
             NSString *serversideDisplayName = ([theSource isKindOfClass:[AIListContact class]] ?
@@ -450,12 +411,11 @@
 	return inString;
 }
 
-- (NSString*) scriptForAppendingContent:(SinaUCMessage*) content
+- (NSString*) scriptForAppendingContent:(id) content
 {
     NSMutableString *template;
-    if ([content.outgoing boolValue]) {
+    if ([[content valueForKey:@"outgoing"] boolValue]) {
         template = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Content" ofType:@"html" inDirectory:@"Outgoing"]] mutableCopy];
-        
     } else {
         template = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Content" ofType:@"html" inDirectory:@"Incoming"]] mutableCopy];
     }

@@ -39,7 +39,6 @@
 			[[self preferences] _setLocalStorageDatabasePath:[[adium.loginController userDirectory] stringByAppendingPathComponent:@"LocalStorage"]];
 		}*/
 	}
-	
 	return self;
 }
 

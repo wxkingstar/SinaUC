@@ -42,10 +42,7 @@ namespace gloox {
     class MessageSession;
 }
 
-@class XMPPThread;
-@class XMPPSession;
-@class XMPPSessionManager;
-@class XMPPMUCRoomManager;
+@class XMPPThread, XMPPSession, XMPPSessionManager, XMPPMUCRoomManager, SinaUCContact;
 @interface XMPP : NSObject {
 @private
     NSString* myJid;
@@ -70,8 +67,8 @@ namespace gloox {
     XMPPMUCRoomManager *rmngr;
 }
 
-@property (copy) NSString* myJid;
-@property (retain) NSMutableDictionary* myVcard;
+@property (copy) NSString *myJid;
+@property (retain) NSMutableDictionary *myVcard;
 @property (retain) id <SinaUCContactRosterUpdateDelegate> cDelegate;
 @property (retain) id <SinaUCRoomRosterUpdateDelegate> rDelegate;
 
@@ -79,19 +76,19 @@ namespace gloox {
 - (void)registerConnectionDelegate:(id <SinaUCConnectionDelegate>) delegate;
 - (void)registerSVcardUpdateDelegate:(id <SinaUCSVcardUpdateDelegate>) delegate;
 - (void)registerCVcardUpdateDelegate:(id <SinaUCCVcardUpdateDelegate>) delegate;
-- (BOOL)login:(NSString*) username withPassword:(NSString*) password;
-- (void)onConnect:(NSString*) myJid;
+- (BOOL)login:(NSString *) username withPassword:(NSString *) password;
+- (void)onConnect:(NSString *) myJid;
 - (void)disconnect;
-- (void)onDisconnect:(NSString*) errorString;
+- (void)onDisconnect:(NSString *) errorString;
 - (void)updateContactRoster;
 - (void)updateRoomRoster;
-- (void)updateRosterItem:(NSString*) jid;
-- (void)requestVcard:(NSString*) jid;
-- (void)updateContact:(NSString*) jid;
+- (void)updateRosterItem:(NSString *) jid;
+- (void)requestVcard:(NSString *) jid;
+- (void)updateContact:(NSString *) jid;
 - (void)updateSelfVcard;
-- (void)iStartChat:(NSDictionary*) contact;
-- (void)uStartChat:(NSMutableDictionary*) contact;
-- (void)startRoomChat:(NSString*) jid;
-- (void)searchContacts:(NSString*) cond;
+- (void)iStartChat:(SinaUCContact *) contact;
+- (void)uStartChat:(XMPPSession *) session;
+- (void)startRoomChat:(NSString *) jid;
+- (void)searchContacts:(NSString *) cond;
 
 @end

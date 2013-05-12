@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class SinaUCWebKitMessageViewController, SinaUCTextView, XMPPSession;
+@class SinaUCWebKitMessageViewController, SinaUCTextView, XMPPSession, SinaUCMessage, XMPPMUCRoom, SinaUCRoomMessage;
 @interface SinaUCMessageViewController : NSViewController
 {
     NSMutableArray *messages;
@@ -17,7 +17,10 @@
 }
 
 @property (retain) XMPPSession *session;
+@property (retain) XMPPMUCRoom *room;
 
 - (IBAction)send:(id) sender;
+- (void)addMessage:(SinaUCMessage *)msg;
+- (void)addRoomMessage:(SinaUCRoomMessage *) message;
 
 @end

@@ -82,6 +82,6 @@
  */
 @property (readwrite, copy, nonatomic) NSString *chatContentSource;
 
-- (void)enqueueContentObject:(SinaUCMessage *)msg;
+- (void)enqueueContentObject:(id) message;
 
 @end

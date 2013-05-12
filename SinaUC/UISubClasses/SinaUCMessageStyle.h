@@ -15,6 +15,6 @@
     NSString			*stylePath;
 }
 
-- (NSString*) scriptForAppendingContent:(SinaUCMessage*) content;
+- (NSString*) scriptForAppendingContent:(id) content;
 
 @end

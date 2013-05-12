@@ -17,17 +17,17 @@
 
 	@private
 		NSNumber *_pk;
-		NSNumber *_rid;
+		NSNumber *_gid;
 		NSString *_sender;
 		NSString *_receier;
 		NSNumber *_outgoing;
 		NSString *_message;
 		NSDate *_sendtime;
-
+    
 }
 
 @property (strong, nonatomic) NSNumber *pk;
-@property (strong, nonatomic) NSNumber *rid;
+@property (strong, nonatomic) NSNumber *gid;
 @property (strong, nonatomic) NSString *sender;
 @property (strong, nonatomic) NSString *receier;
 @property (strong, nonatomic) NSNumber *outgoing;

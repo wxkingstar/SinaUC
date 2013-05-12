@@ -11,7 +11,7 @@
 @implementation SinaUCRoomMessage
 
 @synthesize pk = _pk;
-@synthesize rid = _rid;
+@synthesize gid = _gid;
 @synthesize sender = _sender;
 @synthesize receier = _receier;
 @synthesize outgoing = _outgoing;

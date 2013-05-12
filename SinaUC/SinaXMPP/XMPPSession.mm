@@ -8,6 +8,7 @@
 
 #import "XMPP.h"
 #import "XMPPSession.h"
+#import "SinaUCContact.h"
 #import "SinaUCMessage.h"
 #import "SinaUCMessageWindowController.h"
 #import "SinaUCMessageViewController.h"
@@ -53,23 +54,18 @@ void 	CSessionEventHandler::handleMessage (const gloox::Message &msg,
                                         gloox::MessageSession *session)
 {
     SinaUCMessage *message = [[SinaUCMessage alloc] init];
+    [message setOutgoing:[NSNumber numberWithBool:NO]];
     [message setMessage:[NSString stringWithUTF8String:msg.body().c_str()]];
-    [m_pSession performSelectorOnMainThread:@selector(handleMessage:) withObject:message waitUntilDone:NO];
-    //information
-    /*
     if (!msg.when()) {
-        [message setTimeStamp:[NSDate date]];
+        [message setSendtime:[NSDate date]];
     } else {
-        NSArray* stamp = [[NSString stringWithUTF8String:msg.when()->stamp().c_str()] componentsSeparatedByString:@"T"];
-        NSDate *sendTime = [[NSDate alloc] initWithString:[NSString stringWithFormat:@"%@-%@-%@ %@ -0800", 
-                                                       [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(0, 4)], 
-                                                       [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(4, 2)], 
-                                                       [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(6, 2)], 
-                                                       [stamp objectAtIndex:1]]];
-        [message setTimeStamp:sendTime];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyyMMdd'T'hh':'mm':'ss"];
+        [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-8*3600]];
+        NSDate *date = [dateFormat dateFromString:[NSString stringWithUTF8String:msg.when()->stamp().c_str()]];
+        [message setSendtime:date];
     }
-    [m_pSession performSelectorOnMainThread:@selector(handleMessage:) withObject:message waitUntilDone:NO];*/
-                         
+    [m_pSession performSelectorOnMainThread:@selector(handleMessage:) withObject:message waitUntilDone:NO];
 }
 
 void 	CSessionEventHandler::handleMessageEvent (const gloox::JID &from, gloox::MessageEventType event)
@@ -85,7 +81,7 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 #pragma mark *** XMPPSession Implementation ***
 @implementation XMPPSession
 @synthesize session;
-@synthesize contactInfo;
+@synthesize info;
 @synthesize dialogCtrl;
 
 - (void) setSession:(gloox::MessageSession *)theSession
@@ -122,11 +118,10 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
     session = nil;*/
 }
 
-- (void) addMessage:(SinaUCMessage*) message
+- (void) addMessage:(id) message
 {
     //Notification
-    NSLog(@"%@", [message message]);
-    //[dialogCtrl addMessage:message];
+    [dialogCtrl addMessage:message];
 }
 
 - (void) handleMessage:(SinaUCMessage*) message
@@ -138,14 +133,16 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
 	if (![NSApp isActive]) {
         [[NSNotificationCenter defaultCenter]postNotificationName:@"unreadMessage" object:item];
 	}*/
-    [self addMessage:message];
+    NSMutableDictionary *displayMessage = [NSMutableDictionary dictionaryWithObjectsAndKeys:[message message], @"message", [message sendtime], @"sendtime", [message outgoing], @"outgoing", @"", @"displayName", nil];
+    [self addMessage:displayMessage];
 }
 
-- (BOOL) sendMessage:(SinaUCMessage*) message
+- (BOOL) sendMessage:(id) message
 {
     std::string msg = [[message message] UTF8String];
     session->send(msg);
-    [self addMessage:message];
+    NSMutableDictionary *displayMessage = [NSMutableDictionary dictionaryWithObjectsAndKeys:[message message], @"message", [message sendtime], @"sendtime", [message outgoing], @"outgoing", @"", @"displayName", nil];
+    [self addMessage:displayMessage];
     return NO;
 }
 
@@ -167,19 +164,24 @@ void 	CSessionEventHandler::handleChatState (const gloox::JID &from, gloox::Chat
     return self;
 }
 
+- (XMPPSession *) getSession:(NSString *) jid
+{
+   return [sessions objectForKey:jid];
+}
+
 - (void) openSession:(XMPPSession*) session withWindow:(BOOL) active
 {
     if (![[NSApplication sharedApplication] isActive]) {
         //[[chatCtrl window] setAlphaValue:0];
     }
     [[chatCtrl window] makeKeyAndOrderFront:nil];
-    NSString *jidStr = [[session contactInfo] valueForKey:@"jid"];
+    NSString *jidStr = [[session info] jid];
     if (![sessions objectForKey: jidStr]) {
         [sessions setObject:session forKey:jidStr];
         [chatCtrl addSession:session];
     }
     if (active) {
-        [chatCtrl activateSession:jidStr];
+        [chatCtrl activate:jidStr];
     }
 }
 

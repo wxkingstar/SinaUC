@@ -12,21 +12,17 @@ namespace gloox {
 
 class CMUCRoomEventHandler;
 
-@class SinaUCMessageWindowController;
-@class SinaUCMessageViewController;
-@class SinaUCRoomMessage;
-@class XMPP;
+@class SinaUCMessageWindowController, SinaUCMessageViewController, SinaUCRoomMessage, SinaUCRoom, XMPP;
 @interface XMPPMUCRoom : NSObject
 
-@property (retain) SinaUCMessageWindowController* chatCtrl;
-@property (retain) SinaUCMessageViewController* dialogCtrl;
-@property (nonatomic, assign) gloox::MUCRoom* room;
-@property (assign) XMPP* xmpp;
-@property (retain) NSDictionary* roomInfo;
+@property (retain) SinaUCMessageWindowController *chatCtrl;
+@property (retain) SinaUCMessageViewController *dialogCtrl;
+@property (nonatomic, assign) gloox::MUCRoom *room;
+@property (retain) XMPP *xmpp;
+@property (retain) SinaUCRoom *info;
 
-- (void) openChatWindow:(NSDictionary*) roomInfo;
-- (BOOL) sendMessage:(SinaUCRoomMessage*) msg;
-- (void) handleMessage:(SinaUCRoomMessage*) msg;
+- (BOOL) sendMessage:(SinaUCRoomMessage *) msg;
+- (void) handleMessage:(SinaUCRoomMessage *) msg;
 - (void) close;
 @end
 
@@ -36,12 +32,13 @@ class CMUCRoomEventHandler;
 }
 
 @property (retain) NSMutableDictionary* rooms;
+@property (retain) SinaUCMessageWindowController* chatCtrl;
 
-- (void) joinRoom:(XMPPMUCRoom*) room;
-- (void) removeRoom:(XMPPMUCRoom*) room;
-- (BOOL) activateRoom:(NSString*) roomJid;
-- (void) updateRoom:(XMPPMUCRoom*) room;
-- (void) updateRoomContacts:(NSMutableArray*) contacts withRoomJid:(NSString*) roomJid;
-- (void) handleMUCMessage:(SinaUCRoomMessage*) msg;
+- (void) joinRoom:(XMPPMUCRoom *) room;
+- (void) removeRoom:(XMPPMUCRoom *) room;
+- (BOOL) activateRoom:(NSString *) roomJid withWindow:(BOOL) active;
+- (void) updateRoom:(XMPPMUCRoom *) room;
+- (void) updateRoomContacts:(NSMutableArray *) contacts withRoomJid:(NSString*) roomJid;
+- (void) handleRoomMessage:(SinaUCRoomMessage *) msg;
 
 @end

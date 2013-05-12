@@ -99,9 +99,10 @@
 									 frameName:nil
 									 groupName:nil];
 	[webView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    [webView setMaintainsBackForwardList:NO];
+    [webView setDrawsBackground:NO];
     delegateProxy = [SinaUCWebKitDelegate sharedWebKitDelegate];
 	[delegateProxy addDelegate:self forView:webView];
-	[webView setMaintainsBackForwardList:NO];
     NSURL *baseURL = [NSURL URLWithString:@"sinauc://im.adium.Renkoo.style/adium"];
     NSString *tplPath = [[NSString alloc] initWithString:@"$$BundlePath$$/Contents/Resources"];
     NSBundle *tplBundle = [NSBundle bundleWithPath:[tplPath stringByExpandingBundlePath]];
@@ -179,20 +180,20 @@
  [self enqueueContentObject:contentObject];
  }*/
  
-- (void)enqueueContentObject:(SinaUCMessage *)msg
+- (void)enqueueContentObject:(id) message
 {
-    [contentQueue addObject:msg];
+    [contentQueue addObject:message];
+    [self processQueuedContent];
     /*if ([contentObject displayContentImmediately]) {
         [self processQueuedContent];
     }*/
 }
 
-- (void)_appendContent:(SinaUCMessage *)content
+- (void)_appendContent:(id) content
 {
     messageStyle = [[SinaUCMessageStyle alloc] init];
     NSString *html = [messageStyle scriptForAppendingContent:content];
 	[webView stringByEvaluatingJavaScriptFromString:[html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    
 	NSAccessibilityPostNotification(webView, NSAccessibilityValueChangedNotification);
 }
 
@@ -249,7 +250,8 @@
 	});
 }
 
-- (void)webViewIsReady{
+- (void)webViewIsReady
+{
 	webViewIsReady = YES;
 	//[self setupMarkedScroller];
 	//[self setIsGroupChat:chat.isGroupChat];

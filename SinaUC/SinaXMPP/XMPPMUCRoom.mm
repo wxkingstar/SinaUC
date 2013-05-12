@@ -23,6 +23,7 @@
 
 #import "XMPP.h"
 #import "SinaUCMessageWindowController.h"
+#import "SinaUCMessageViewController.h"
 #import "SinaUCRoom.h"
 #import "SinaUCRoomContact.h"
 #import "SinaUCRoomMessage.h"
@@ -62,34 +63,40 @@ CMUCRoomEventHandler::~CMUCRoomEventHandler()
 
 void    CMUCRoomEventHandler::handleMUCMessage(gloox::MUCRoom* room, const gloox::Message& msg, bool priv)
 {
-    NSString* myJid = [[NSString alloc] initWithUTF8String:room->nick().c_str()];
-    NSString* senderJid = [[NSString alloc] initWithUTF8String:msg.from().resource().c_str()];
-    
-    /*if([senderJid isEqualToString:myJid] == NO){
-        NSString* roomJid = [NSString stringWithFormat:@"%@@group.uc.sina.com.cn/%@", [NSString stringWithUTF8String:room->name().c_str()], myJid];
-        MUCRoomMessageItem *message = [[MUCRoomMessageItem alloc] init];
-        [message setType:@"from"];
-        [message setMessage:[NSString stringWithUTF8String:msg.body().c_str()]];
-        [message setJid:senderJid];
-        [message setRoomJid:roomJid];
-        if (!msg.when()) {
-            [message setTimeStamp:[NSDate date]];
-        } else {
-            NSArray* stamp = [[NSString stringWithUTF8String:msg.when()->stamp().c_str()] componentsSeparatedByString:@"T"];
-            NSDate *sendTime = [[NSDate alloc] initWithString:[NSString stringWithFormat:@"%@-%@-%@ %@ -0800", 
-                                                               [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(0, 4)], 
-                                                               [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(4, 2)], 
-                                                               [[stamp objectAtIndex:0] substringWithRange:NSMakeRange(6, 2)], 
-                                                               [stamp objectAtIndex:1]]];
-            [message setTimeStamp:sendTime];
-        }
-        [m_pRoomManager performSelectorOnMainThread:@selector(activateRoom:) withObject:roomJid waitUntilDone:NO];
-        [m_pRoomManager performSelectorOnMainThread:@selector(handleMUCMessage:) withObject:message waitUntilDone:NO];
-        [roomJid release];
+    NSString* myNick = [NSString stringWithUTF8String:room->nick().c_str()];
+    NSString* senderNick = [NSString stringWithUTF8String:msg.from().resource().c_str()];
+    if ([senderNick isEqualToString:myNick]) {
+        return;
     }
-    
-    [myJid release];
-    [senderJid release];*/
+    NSMutableString *jid = [NSMutableString stringWithCapacity:senderNick.length];
+    NSScanner *scanner = [NSScanner scannerWithString:senderNick];
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    while ([scanner isAtEnd] == NO) {
+        NSString *buffer;
+        if ([scanner scanCharactersFromSet:numbers intoString:&buffer]) {
+            [jid appendString:buffer];
+        } else {
+            [scanner setScanLocation:([scanner scanLocation] + 1)];
+        }
+    }
+    NSString *senderJid = [NSString stringWithFormat:@"%@@uc.sina.com.cn", jid];
+    SinaUCRoomMessage *message = [[SinaUCRoomMessage alloc] init];
+    [message setGid:[NSString stringWithUTF8String:room->name().c_str()]];
+    [message setReceier:myNick];
+    [message setSender:senderJid];
+    [message setOutgoing:[NSNumber numberWithBool:NO]];
+    [message setMessage:[NSString stringWithUTF8String:msg.body().c_str()]];
+    if (!msg.when()) {
+        [message setSendtime:[NSDate date]];
+    } else {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyyMMdd'T'hh':'mm':'ss"];
+        [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-8*3600]];
+        NSDate *date = [dateFormat dateFromString:[NSString stringWithUTF8String:msg.when()->stamp().c_str()]];
+        [message setSendtime:date];
+    }
+    //[message save];
+    [m_pRoomManager performSelectorOnMainThread:@selector(handleRoomMessage:) withObject:message waitUntilDone:NO];
 }
 
 void    CMUCRoomEventHandler::handleMUCParticipantPresence(gloox::MUCRoom* room, const gloox::MUCRoomParticipant participant, const gloox::Presence& presence)
@@ -140,66 +147,54 @@ bool    CMUCRoomEventHandler::handleMUCRoomDestruction(gloox::MUCRoom* room)
 @implementation XMPPMUCRoom
 @synthesize room;
 @synthesize xmpp;
-@synthesize roomInfo;
+@synthesize info;
+@synthesize dialogCtrl;
 
 - (void) close
 {
 }
 
-- (void) openChatWindow:(NSDictionary*) roomInfo
-{
-    //create chat window
-    /*windowController = [[MUCChatWindowController alloc] initWithWindowNibName:@"MUCChatWindow"];
-    NSData* imageData = [dataObject valueForKey:@"image"];
-    if (imageData) {
-        NSImage* image = [[NSImage alloc]initWithData:imageData];
-        [windowController setTargetImage:image];
-        [image release];
-    } else {
-        [windowController setTargetImage:[NSImage imageNamed:@"NSUserGroup"]];
-    }
-    name = [dataObject valueForKey:@"name"];
-    jid = [dataObject valueForKey:@"jid"];
-    if (![name length]) {
-        name = jid;
-    }
-    [windowController setTargetName:name];
-    [windowController setTargetJid:jid];
-    [windowController setRoom:self];
-    chatWindowCreated = YES;*/
-}
-
 /*- (void) activateWindow
 {
     [[windowController window]makeKeyAndOrderFront:self];
+}*/
+
+- (void) addMessage:(id) message
+{
+    //Notification
+    [dialogCtrl addRoomMessage:message];
 }
 
-- (void) handleMessage:(MUCRoomMessageItem*) msg
+- (void) handleRoomMessage:(SinaUCRoomMessage *) message
 {
-    [windowController onMessageReceived:msg];
+    /*[chatCtrl onMessageReceived:msg];
 	if (![NSApp isActive]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"unreadMessage" object:msg];
-	}
-    [msg release];
+	}*/
+    NSString *contactStatement = [ZIMSqlPreparedStatement preparedStatement: @"SELECT pk, jid, name FROM RoomContact WHERE jid=? AND rid=?;" withValues:[message sender], [info pk], nil];
+    NSArray *contactRes = [ZIMDbConnection dataSource:@"addressbook" query:contactStatement];
+    NSMutableDictionary *displayMessage = [NSMutableDictionary dictionaryWithObjectsAndKeys:[message message], @"message", [message sendtime], @"sendtime", [message outgoing], @"outgoing", nil];
+    if ([contactRes count] != 0) {
+        [displayMessage setValue:[[contactRes objectAtIndex:0] valueForKey:@"name"] forKey:@"displayName"];
+    }
+    [self addMessage:displayMessage];
 }
 
-- (BOOL) sendMessage:(MessageItem*) item
+- (BOOL) sendMessage:(SinaUCRoomMessage *) message
 {
-    std::string message = [[item message]UTF8String];
-    NSLog(@"%@", [item message]);
-    if (room && [item message]) {
-        room->send(message);
-        return YES;
-    }
-    return NO;
-}*/
+    std::string msg = [[message message] UTF8String];
+    room->send(msg);
+    NSMutableDictionary *displayMessage = [NSMutableDictionary dictionaryWithObjectsAndKeys:[message message], @"message", [message sendtime], @"sendtime", [message outgoing], @"outgoing", @"我", @"displayName", nil];
+    [self addMessage:displayMessage];
+    return YES;
+}
 
 @end
 
 #pragma mark -
 #pragma mark *** XMPPMUCRoomManager ***
 @implementation XMPPMUCRoomManager
-@synthesize rooms;
+@synthesize rooms, chatCtrl;
 
 - (id)init
 {
@@ -208,43 +203,39 @@ bool    CMUCRoomEventHandler::handleMUCRoomDestruction(gloox::MUCRoom* room)
         // Initialization code here.
         rooms = [[NSMutableDictionary alloc] init];
         handler = new CMUCRoomEventHandler(self);
+        chatCtrl = [[SinaUCMessageWindowController alloc] init];
     }
-    
     return self;
 }
 
-- (void) joinRoom:(XMPPMUCRoom*) room
+- (void) joinRoom:(XMPPMUCRoom *) room
 {
-    
-    if ([rooms objectForKey:[[room roomInfo] valueForKey:@"jid"]] == nil) {
-        [rooms setValue:room forKey:[[room roomInfo] valueForKey:@"jid"]];
+    if ([rooms objectForKey:[[room info] jid]] == nil) {
+        [rooms setObject:room forKey:[[room info] jid]];
         [room room]->registerMUCRoomHandler(handler);
         [room room]->join();
     }
 }
 
-- (void) removeRoom:(XMPPMUCRoom*) room
+- (void) removeRoom:(XMPPMUCRoom *) room
 {
-    [rooms removeObjectForKey:[[room roomInfo] valueForKey:@"jid"]];
+    [rooms removeObjectForKey:[[room info] jid]];
 }
 
-- (BOOL) activateRoom:(NSString*) roomJid
+- (BOOL) activateRoom:(NSString *) roomJid withWindow:(BOOL) active
 {
-    /*if ([rooms objectForKey:roomJid] != nil) {
-        if ([[rooms objectForKey:roomJid] chatWindowCreated] == NO) {
-            NSManagedObject* obj = [mucRoomDataContxt findRoomByJid:roomJid];
-            if (!obj) {
-                return NO;
-            }
-            //NSArray* contacts = [[NSArray alloc] initWithArray:[mucRoomDataContxt getContactsByRoomJid:roomJid]];               
-            [[rooms objectForKey:roomJid] createChatWindowWithDataObject:obj];
+    [[chatCtrl window] makeKeyAndOrderFront:nil];
+    if ([rooms objectForKey:roomJid] != nil) {
+        [chatCtrl addRoom:[rooms objectForKey:roomJid]];
+        if (active) {
+            [chatCtrl activate:roomJid];
         }
         return YES;
-    }*/
+    }
     return NO;
 }
 
-- (void) updateRoom:(XMPPMUCRoom*) room
+- (void) updateRoom:(XMPPMUCRoom *) room
 {
     /*MUCRoomItem* roomItem = [[MUCRoomItem alloc] init];
     [roomItem setJid:[room jid]];
@@ -263,11 +254,14 @@ bool    CMUCRoomEventHandler::handleMUCRoomDestruction(gloox::MUCRoom* room)
 - (void) updateRoomContacts:(NSMutableArray*) contacts withRoomJid:(NSString*) roomJid
 {
     //[mucRoomDataContxt updateRoomContacts:contacts withRoomJid:roomJid];
-}
-
-- (void) handleMUCMessage:(MUCRoomMessageItem*) msg
-{
-    //[[rooms objectForKey:[msg roomJid]] handleMessage:msg];
 }*/
+
+- (void) handleRoomMessage:(SinaUCRoomMessage*) message
+{
+    XMPPMUCRoom *room = [rooms objectForKey:[NSString stringWithFormat:@"%@@group.uc.sina.com.cn", [message gid]]];
+    if (room) {
+        [[rooms objectForKey:[[room info] jid]] handleRoomMessage:message];
+    }
+}
 
 @end

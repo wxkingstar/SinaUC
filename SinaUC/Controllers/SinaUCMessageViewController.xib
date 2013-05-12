@@ -167,7 +167,7 @@
 															<int key="NSColorSpace">6</int>
 															<string key="NSCatalogName">System</string>
 															<string key="NSColorName">selectedTextBackgroundColor</string>
-															<object class="NSColor" key="NSColor" id="312062862">
+															<object class="NSColor" key="NSColor">
 																<int key="NSColorSpace">3</int>
 																<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 															</object>
@@ -477,10 +477,8 @@ wGw</bytes>
 										<string key="NSReuseIdentifierKey">_NS:11</string>
 										<reference key="NSDocView" ref="1014698115"/>
 										<object class="NSColor" key="NSBGColor">
-											<int key="NSColorSpace">6</int>
-											<string key="NSCatalogName">System</string>
-											<string key="NSColorName">controlColor</string>
-											<reference key="NSColor" ref="312062862"/>
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MSAxIDEgMAA</bytes>
 										</object>
 										<int key="NScvFlags">2</int>
 									</object>
@@ -500,8 +498,8 @@ wGw</bytes>
 									</object>
 									<object class="NSScroller" id="919560048">
 										<reference key="NSNextResponder" ref="31069976"/>
-										<int key="NSvFlags">256</int>
-										<string key="NSFrame">{{0, 279}, {430, 16}}</string>
+										<int key="NSvFlags">-2147483392</int>
+										<string key="NSFrame">{{-100, -100}, {430, 16}}</string>
 										<reference key="NSSuperview" ref="31069976"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="887161927"/>
@@ -518,7 +516,7 @@ wGw</bytes>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="351396089"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<int key="NSsFlags">133168</int>
+								<int key="NSsFlags">153616</int>
 								<reference key="NSVScroller" ref="887161927"/>
 								<reference key="NSHScroller" ref="919560048"/>
 								<reference key="NSContentView" ref="351396089"/>
@@ -568,19 +566,19 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">input</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="480822400"/>
-					</object>
-					<int key="connectionID">38</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">messageDisplayController</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="82915591"/>
 					</object>
 					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">input</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="480822400"/>
+					</object>
+					<int key="connectionID">46</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -851,7 +849,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">46</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

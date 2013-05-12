@@ -257,9 +257,12 @@
 {
     NSInteger selected = [(NSOutlineView*)self.view selectedRow];
     NSDictionary* contact = [(NSOutlineView*)self.view itemAtRow:selected];
-    
     if ([contact valueForKey:@"jid"]) {
-        [xmpp iStartChat:contact];
+        SinaUCContact *info = [[SinaUCContact alloc] init];
+        [info setJid:[contact valueForKey:@"jid"]];
+        [info setName:[contact valueForKey:@"name"]];
+        [info setImage:[contact valueForKey:@"image"]];
+        [xmpp iStartChat:info];
     }
 }
 

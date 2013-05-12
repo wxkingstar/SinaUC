@@ -129,14 +129,13 @@
     if ([item objectForKey:@"children"]) {
         return [NSString stringWithFormat:@"\t%@", [item valueForKey:@"name"]];
     }
-    /*if ([[tableColumn identifier] isEqualToString:@"photo"]) {
-        return [NSImage imageNamed:@"NSUser"];
+    if ([[tableColumn identifier] isEqualToString:@"photo"]) {
         NSData* imageData = [item valueForKey:@"image"];
         if (imageData) {
             NSImage* image = [[NSImage alloc] initWithData:imageData];
             return image;
         }
-    }*/
+    }
     if ([[tableColumn identifier] isEqualToString:@"name"]) {
         [(SinaUCListNameCell*)[tableColumn dataCell] setTitle:[item valueForKey:@"name"]];
         [(SinaUCListNameCell*)[tableColumn dataCell] setSubTitle:[item valueForKey:@"intro"]];
@@ -162,8 +161,11 @@
 - (void) onDoubleClick:(id) sender
 {
     NSInteger selected = [(NSOutlineView*)self.view selectedRow];
-    NSDictionary* room = [(NSOutlineView*)self.view itemAtRow:selected];
-    
+    NSTreeNode* node = [(NSOutlineView*)self.view itemAtRow:selected];
+    if (![(NSOutlineView*)self.view isExpandable:node]) {
+        NSDictionary* room = [(NSOutlineView*)self.view itemAtRow:selected];
+        [xmpp startRoomChat:[room valueForKey:@"jid"]];
+    }
 }
 
 @end

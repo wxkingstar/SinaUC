@@ -14,17 +14,16 @@ namespace gloox {
 
 class CSessionEventHandler;
 
-@class SinaUCMessage;
-@class SinaUCMessageViewController;
+@class SinaUCMessage, SinaUCMessageViewController, SinaUCContact;
 @interface XMPPSession : NSObject {
     gloox::ChatStateFilter* chatStateFilter;
     gloox::MessageEventFilter* messageEventFilter;
     CSessionEventHandler* handler;
 }
 
-@property (nonatomic, assign) gloox::MessageSession* session;
-@property (retain) SinaUCMessageViewController* dialogCtrl;
-@property (retain) NSDictionary* contactInfo;
+@property (nonatomic, assign) gloox::MessageSession *session;
+@property (retain) SinaUCMessageViewController *dialogCtrl;
+@property (retain) SinaUCContact *info;
 
 - (void) openChatWindowInitiative:(BOOL) positive;
 - (BOOL) sendMessage:(SinaUCMessage*) item;
@@ -40,5 +39,6 @@ class CSessionEventHandler;
 @property (retain) NSMutableDictionary* sessions;
 @property (retain) SinaUCMessageWindowController* chatCtrl;
 
+- (XMPPSession *) getSession:(NSString *) jid;
 - (void) openSession:(XMPPSession*) session withWindow:(BOOL) active;
 @end
